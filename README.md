@@ -8,11 +8,9 @@ cd Documents\GitHub\Electrical-2022-Hardware-Design                            #
 git branch -r                                                                  #Displays all remote branches, choose the branch you're looking for 
 git checkout Relay-Board                                                       #branch that is desired (I used Relay-Board as an example).  
 ```
-
+After making changes the remote branch can be updated with the following:
 ```
 git add .                                                                      #Adds your modified files to the quene to be committed later
 git commit -m "[your-commit-message]"                                          #Commits the files to a new revision of the branch with a log
 git push                                                                       #Pushes the changes to the remote repo
 ```
-
-From this repo
