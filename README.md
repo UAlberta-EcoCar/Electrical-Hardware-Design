@@ -20,3 +20,9 @@ git push                                                                       #
 #The following will pull the newest version of the remote repo:
 git pull
 ```
+
+If you want to see your local branches that you pulled or if you want to switch local branches do the following:
+
+```
+git branch                                                                     #Shows local branches (add -r for remote branches)
+git switch <name-of-branch>                                                    #Switches branch
