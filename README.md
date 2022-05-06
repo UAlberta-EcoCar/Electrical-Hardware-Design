@@ -14,7 +14,7 @@ git checkout Relay-Board                                                       #
 After making changes the remote branch can be updated with the following:
 ```
 git add .                                                                      #Adds your modified files to the quene to be committed later
-git commit -m "[your-commit-message]"                                          #Commits the files to a new revision of the branch with a log
+git commit -m "your-commit-message"                                          #Commits the files to a new revision of the branch with a log
 git push                                                                       #Pushes the changes to the remote repo
 
 #The following will pull the newest version of the remote repo:
