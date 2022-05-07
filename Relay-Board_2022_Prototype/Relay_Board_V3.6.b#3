@@ -109,8 +109,10 @@
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="SMDSTROOK" color="7" fill="1" visible="no" active="no"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="148" name="Document_mirrored" color="7" fill="1" visible="no" active="no"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
@@ -199,6 +201,10 @@
 <text x="18.5" y="53.5" size="1.778" layer="25">Motor Relay</text>
 <text x="114" y="95.5" size="1.778" layer="25">Cap Relay</text>
 <wire x1="160" y1="100" x2="160" y2="0" width="0.1524" layer="20"/>
+<text x="73.8" y="3.7" size="1.5" layer="21" distance="10">2022
+ALEX STEC</text>
+<text x="73.8" y="7.2" size="2.5" layer="21" font="vector" ratio="20" distance="10">RELAY BOARD
+V3.6</text>
 </plain>
 <libraries>
 <library name="ETHERNET-3">
@@ -2567,8 +2573,13 @@ design rules under a new name.</description>
 <wire x1="45.5" y1="42.5" x2="45.5" y2="19" width="0.254" layer="16"/>
 <contactref element="AUX-POWER-OUT" pad="3"/>
 <contactref element="AUX-POWER-OUT" pad="1"/>
-<wire x1="143.02" y1="55.86" x2="143.02" y2="64.14" width="0" layer="19" extent="1-1"/>
-<wire x1="144.5" y1="31" x2="143.02" y2="55.86" width="0" layer="19" extent="16-16"/>
+<wire x1="143.02" y1="55.86" x2="143.02" y2="53.48" width="0.254" layer="16"/>
+<wire x1="143.02" y1="53.48" x2="144.5" y2="52" width="0.254" layer="16"/>
+<wire x1="144.5" y1="52" x2="144.5" y2="31" width="0.254" layer="16"/>
+<wire x1="143.02" y1="64.14" x2="141" y2="62.12" width="0.254" layer="16"/>
+<wire x1="141" y1="62.12" x2="141" y2="58" width="0.254" layer="16"/>
+<wire x1="143.02" y1="55.86" x2="143.02" y2="55.98" width="0.254" layer="16"/>
+<wire x1="143.02" y1="55.98" x2="141" y2="58" width="0.254" layer="16"/>
 </signal>
 <signal name="FC.12">
 <contactref element="U$12" pad="VCC"/>
@@ -2744,7 +2755,8 @@ design rules under a new name.</description>
 <wire x1="127.5" y1="88.5" x2="131" y2="88.5" width="0.254" layer="1"/>
 <wire x1="131" y1="88.5" x2="131.5" y2="89" width="0.254" layer="1"/>
 <wire x1="126.5" y1="65.5" x2="123.365" y2="65.5" width="0.254" layer="1"/>
-<wire x1="127" y1="63.5" x2="127" y2="65" width="0.254" layer="1"/>
+<wire x1="127" y1="63.5" x2="127" y2="64.5" width="0.254" layer="1"/>
+<wire x1="127" y1="64.5" x2="127" y2="65" width="0.254" layer="1"/>
 <wire x1="127" y1="65" x2="126.5" y2="65.5" width="0.254" layer="1"/>
 <wire x1="126.5" y1="75" x2="123.365" y2="75" width="0.254" layer="1"/>
 <wire x1="51" y1="68" x2="49.65" y2="68" width="0.3048" layer="16"/>
@@ -2792,8 +2804,7 @@ design rules under a new name.</description>
 <wire x1="82.689" y1="4.189" x2="81.5" y2="3" width="1.27" layer="16"/>
 <wire x1="81.5" y1="3" x2="68.66" y2="3" width="1.27" layer="16"/>
 <wire x1="68.66" y1="3" x2="68.58" y2="2.92" width="1.27" layer="16"/>
-<wire x1="131.5" y1="89" x2="145" y2="89" width="0.254" layer="1"/>
-<wire x1="145" y1="89" x2="153.62" y2="89" width="0.254" layer="1"/>
+<wire x1="131.5" y1="89" x2="143.5" y2="89" width="0.254" layer="1"/>
 <wire x1="104.05" y1="21.5" x2="104.05" y2="22.55" width="0.254" layer="16"/>
 <wire x1="104.05" y1="22.55" x2="104.5" y2="23" width="0.254" layer="16"/>
 <wire x1="119.5" y1="23" x2="120.5" y2="23" width="0.254" layer="16"/>
@@ -2908,11 +2919,16 @@ design rules under a new name.</description>
 </polygon>
 <wire x1="143.02" y1="80" x2="145" y2="81.98" width="0.254" layer="1"/>
 <wire x1="145" y1="81.98" x2="145" y2="82.5" width="0.254" layer="1"/>
-<wire x1="145" y1="82.5" x2="145" y2="89" width="0.254" layer="1"/>
+<wire x1="145" y1="82.5" x2="145" y2="87.5" width="0.254" layer="1"/>
+<wire x1="145" y1="87.5" x2="143.5" y2="89" width="0.254" layer="1"/>
 <wire x1="145" y1="82.5" x2="147.16" y2="80.34" width="0.254" layer="1"/>
 <wire x1="147.16" y1="80.34" x2="147.16" y2="80" width="0.254" layer="1"/>
-<wire x1="143.02" y1="60" x2="147.16" y2="60" width="0" layer="19" extent="1-1"/>
-<wire x1="147.16" y1="80" x2="147.16" y2="60" width="0" layer="19" extent="1-1"/>
+<wire x1="127" y1="64.5" x2="129" y2="64.5" width="0.254" layer="1"/>
+<wire x1="129" y1="64.5" x2="135.5" y2="58" width="0.254" layer="1"/>
+<wire x1="135.5" y1="58" x2="141.02" y2="58" width="0.254" layer="1"/>
+<wire x1="141.02" y1="58" x2="145.16" y2="58" width="0.254" layer="1"/>
+<wire x1="145.16" y1="58" x2="147.16" y2="60" width="0.254" layer="1"/>
+<wire x1="143.02" y1="60" x2="141.02" y2="58" width="0.254" layer="1"/>
 </signal>
 <signal name="FC_CURR">
 <contactref element="U$7" pad="PIN3"/>
@@ -3629,8 +3645,8 @@ design rules under a new name.</description>
 <vertex x="20.5" y="80"/>
 <vertex x="36.5" y="80"/>
 <vertex x="37" y="79.5"/>
-<vertex x="37" y="68.5"/>
-<vertex x="36.5" y="68"/>
+<vertex x="37" y="69.5"/>
+<vertex x="35.5" y="68"/>
 <vertex x="19" y="68"/>
 <vertex x="16" y="71"/>
 <vertex x="16" y="80"/>
@@ -3654,7 +3670,7 @@ design rules under a new name.</description>
 <contactref element="CAP.POS1" pad="P$9"/>
 <contactref element="D1" pad="(+)"/>
 <polygon width="0.1524" layer="1" thermals="no" rank="4">
-<vertex x="37.5" y="71.5"/>
+<vertex x="37.5" y="69.5"/>
 <vertex x="37.5" y="100"/>
 <vertex x="60" y="100"/>
 <vertex x="60" y="85"/>
@@ -3669,7 +3685,7 @@ design rules under a new name.</description>
 <vertex x="50" y="56"/>
 <vertex x="25" y="56"/>
 <vertex x="25" y="68"/>
-<vertex x="34" y="68"/>
+<vertex x="36" y="68"/>
 </polygon>
 </signal>
 <signal name="CAP_VOLT">
