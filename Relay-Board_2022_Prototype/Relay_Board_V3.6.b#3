@@ -2331,11 +2331,11 @@ design rules under a new name.</description>
 <element name="FC-POWER-OUT" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="28.5" y="94.5" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.478" y="99.447" size="1.778" layer="25" rot="R270"/>
 </element>
-<element name="FC-POWER-THRU" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="154.5" y="80" smashed="yes" rot="R90">
-<attribute name="NAME" x="138.553" y="88.978" size="1.778" layer="25"/>
+<element name="FC-POWER-IN" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="154.5" y="80" smashed="yes" rot="R90">
+<attribute name="NAME" x="142.053" y="89.478" size="1.778" layer="25"/>
 </element>
-<element name="AUX-POWER-OUT" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="154.5" y="60" smashed="yes" rot="R90">
-<attribute name="NAME" x="138.553" y="68.978" size="1.778" layer="25"/>
+<element name="AUX-POWER-IN" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="154.5" y="60" smashed="yes" rot="R90">
+<attribute name="NAME" x="140.553" y="68.978" size="1.778" layer="25"/>
 </element>
 </elements>
 <signals>
@@ -2418,8 +2418,8 @@ design rules under a new name.</description>
 <wire x1="140" y1="28" x2="140" y2="27" width="0.254" layer="16"/>
 <wire x1="140" y1="27" x2="139" y2="26" width="0.254" layer="16"/>
 <wire x1="139" y1="29" x2="140" y2="28" width="0.254" layer="16"/>
-<contactref element="FC-POWER-THRU" pad="6"/>
-<contactref element="FC-POWER-THRU" pad="4"/>
+<contactref element="FC-POWER-IN" pad="6"/>
+<contactref element="FC-POWER-IN" pad="4"/>
 <wire x1="149" y1="74" x2="150.5" y2="75.5" width="0.254" layer="16"/>
 <wire x1="150.5" y1="75.5" x2="150.5" y2="80.8" width="0.254" layer="16"/>
 <wire x1="150.5" y1="80.8" x2="147.16" y2="84.14" width="0.254" layer="16"/>
@@ -2573,8 +2573,8 @@ design rules under a new name.</description>
 <wire x1="45.5" y1="19" x2="46" y2="18.5" width="0.254" layer="16"/>
 <wire x1="45" y1="43" x2="45.5" y2="42.5" width="0.254" layer="16"/>
 <wire x1="45.5" y1="42.5" x2="45.5" y2="19" width="0.254" layer="16"/>
-<contactref element="AUX-POWER-OUT" pad="3"/>
-<contactref element="AUX-POWER-OUT" pad="1"/>
+<contactref element="AUX-POWER-IN" pad="3"/>
+<contactref element="AUX-POWER-IN" pad="1"/>
 <wire x1="143.02" y1="55.86" x2="143.02" y2="53.48" width="0.254" layer="16"/>
 <wire x1="143.02" y1="53.48" x2="144.5" y2="52" width="0.254" layer="16"/>
 <wire x1="144.5" y1="52" x2="144.5" y2="31" width="0.254" layer="16"/>
@@ -2648,8 +2648,8 @@ design rules under a new name.</description>
 <wire x1="122.5" y1="55.5" x2="122" y2="55" width="0.254" layer="16"/>
 <wire x1="124.5" y1="27" x2="125" y2="26.5" width="0.254" layer="16"/>
 <wire x1="125" y1="26.5" x2="126.5" y2="26.5" width="0.254" layer="16"/>
-<contactref element="FC-POWER-THRU" pad="3"/>
-<contactref element="FC-POWER-THRU" pad="1"/>
+<contactref element="FC-POWER-IN" pad="3"/>
+<contactref element="FC-POWER-IN" pad="1"/>
 <wire x1="141.5" y1="75.88" x2="140.5" y2="76.626665625" width="0.254" layer="16"/>
 <wire x1="141.52" y1="75.86" x2="141.5" y2="75.88" width="0.1524" layer="16"/>
 <wire x1="141.52" y1="75.86" x2="143.02" y2="75.86" width="0.254" layer="16"/>
@@ -2895,10 +2895,10 @@ design rules under a new name.</description>
 <wire x1="28.5" y1="87.16" x2="28.5" y2="83.02" width="0.254" layer="16"/>
 <wire x1="28.5" y1="87.16" x2="30.84" y2="89.5" width="0.254" layer="16"/>
 <wire x1="30.84" y1="89.5" x2="38.5" y2="89.5" width="0.254" layer="16"/>
-<contactref element="FC-POWER-THRU" pad="5"/>
-<contactref element="FC-POWER-THRU" pad="2"/>
-<contactref element="AUX-POWER-OUT" pad="5"/>
-<contactref element="AUX-POWER-OUT" pad="2"/>
+<contactref element="FC-POWER-IN" pad="5"/>
+<contactref element="FC-POWER-IN" pad="2"/>
+<contactref element="AUX-POWER-IN" pad="5"/>
+<contactref element="AUX-POWER-IN" pad="2"/>
 <wire x1="143.02" y1="80" x2="145" y2="81.98" width="0.254" layer="1"/>
 <wire x1="145" y1="81.98" x2="145" y2="82.5" width="0.254" layer="1"/>
 <wire x1="145" y1="82.5" x2="145" y2="87.5" width="0.254" layer="1"/>
