@@ -18150,8 +18150,6 @@ HOLES</text>
 <wire x1="0" y1="0" x2="101.6" y2="0" width="0.1524" layer="94"/>
 <wire x1="101.6" y1="0" x2="101.6" y2="68.58" width="0.1524" layer="94"/>
 <wire x1="101.6" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="94"/>
-<text x="22.86" y="50.8" size="1.778" layer="91">NC</text>
-<text x="63.5" y="35.56" size="1.778" layer="91">NC</text>
 </plain>
 <instances>
 <instance part="RELAYBOARD1" gate="G$1" x="33.02" y="35.56" smashed="yes">
@@ -18201,6 +18199,18 @@ HOLES</text>
 <pinref part="RELAYBOARD1" gate="G$1" pin="7"/>
 <wire x1="27.94" y1="35.56" x2="20.32" y2="35.56" width="0.1524" layer="91"/>
 <label x="15.24" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FC5V" class="0">
+<segment>
+<pinref part="RELAYBOARD1" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="50.8" x2="20.32" y2="50.8" width="0.1524" layer="91"/>
+<label x="15.24" y="50.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RELAYBOARD2" gate="G$1" pin="7"/>
+<wire x1="68.58" y1="35.56" x2="60.96" y2="35.56" width="0.1524" layer="91"/>
+<label x="55.88" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FCC_RELAY" class="0">
