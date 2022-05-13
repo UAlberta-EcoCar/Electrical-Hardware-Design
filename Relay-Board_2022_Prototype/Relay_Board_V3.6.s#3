@@ -6159,11 +6159,6 @@ Current Sensor</text>
 <wire x1="195.58" y1="-63.5" x2="190.5" y2="-63.5" width="0.1524" layer="91"/>
 <label x="182.88" y="-63.5" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="FCC_SIG_OUT" gate="G$1" pin="7"/>
-<wire x1="193.04" y1="73.66" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
-<label x="180.34" y="73.66" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="FC_CURR" class="0">
 <segment>
@@ -6537,6 +6532,11 @@ Current Sensor</text>
 <pinref part="FCC_SIG_IN" gate="G$1" pin="1"/>
 <wire x1="157.48" y1="88.9" x2="152.4" y2="88.9" width="0.1524" layer="91"/>
 <label x="144.78" y="88.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="FCC_SIG_OUT" gate="G$1" pin="7"/>
+<wire x1="193.04" y1="73.66" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
+<label x="180.34" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

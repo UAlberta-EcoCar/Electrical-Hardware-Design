@@ -6185,18 +6185,6 @@ Current Sensor</text>
 <label x="180.34" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="FCC_R" class="0">
-<segment>
-<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="LED+"/>
-<wire x1="73.66" y1="-58.42" x2="48.26" y2="-58.42" width="0.1524" layer="91"/>
-<label x="40.005" y="-59.055" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="FCC_SIG_IN" gate="G$1" pin="2"/>
-<wire x1="152.4" y1="86.36" x2="157.48" y2="86.36" width="0.1524" layer="91"/>
-<label x="144.78" y="86.36" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="FC_POS" class="0">
 <segment>
 <pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="7"/>
@@ -6537,6 +6525,18 @@ Current Sensor</text>
 <pinref part="FCC_SIG_OUT" gate="G$1" pin="7"/>
 <wire x1="193.04" y1="73.66" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
 <label x="180.34" y="73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FC_R" class="0">
+<segment>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="LED+"/>
+<wire x1="73.66" y1="-58.42" x2="48.26" y2="-58.42" width="0.1524" layer="91"/>
+<label x="42.545" y="-59.055" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="FCC_SIG_IN" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="86.36" x2="157.48" y2="86.36" width="0.1524" layer="91"/>
+<label x="144.78" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -2885,9 +2885,6 @@ design rules under a new name.</description>
 <wire x1="141.02" y1="58" x2="145.16" y2="58" width="0.254" layer="1"/>
 <wire x1="145.16" y1="58" x2="147.16" y2="60" width="0.254" layer="1"/>
 <wire x1="143.02" y1="60" x2="141.02" y2="58" width="0.254" layer="1"/>
-<contactref element="FCC_SIG_OUT" pad="P$7"/>
-<wire x1="126.91946875" y1="10.22385" x2="127.93946875" y2="9.20385" width="0.254" layer="1"/>
-<wire x1="127.93946875" y1="9.20385" x2="127.93946875" y2="8.44385" width="0.254" layer="1"/>
 <wire x1="64" y1="18.5" x2="61" y2="30.6" width="0" layer="19" extent="1-1"/>
 <wire x1="63.5" y1="13.08" x2="64" y2="18.5" width="0" layer="19" extent="1-1"/>
 <wire x1="66.04" y1="13.08" x2="63.5" y2="13.08" width="0" layer="19" extent="1-1"/>
@@ -3798,6 +3795,8 @@ design rules under a new name.</description>
 </signal>
 <signal name="NC">
 <contactref element="FCC_SIG_IN" pad="P$1"/>
+<contactref element="FCC_SIG_OUT" pad="P$7"/>
+<wire x1="127.93946875" y1="8.44385" x2="151.590875" y2="22.150175" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
