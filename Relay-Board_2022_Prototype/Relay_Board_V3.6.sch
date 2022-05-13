@@ -5785,7 +5785,7 @@ DPDT SMT slide switch, AYZ0202, SWCH-08179</description>
 <part name="R5" library="Resistor" deviceset="R-US_" device="R0805" value="10.5k (0.1%)"/>
 <part name="R6" library="Resistor" deviceset="R-US_" device="R0805" value="10.5k (0.1%)"/>
 <part name="R7" library="Resistor" deviceset="R-US_" device="R0805" value="775 (0.1%)"/>
-<part name="U$22" library="Relay_CPC1907B" deviceset="RELAY-CPC1907B" device=""/>
+<part name="FC_POWER_BOARD_RELAY" library="Relay_CPC1907B" deviceset="RELAY-CPC1907B" device=""/>
 <part name="FC.POS" library="Connector 732-3204" deviceset="732-3204-ND_CONNECTOR" device=""/>
 <part name="FC.GND" library="Connector 732-3204" deviceset="732-3204-ND_CONNECTOR" device=""/>
 <part name="RES.POS" library="Connector 732-3204" deviceset="732-3204-ND_CONNECTOR" device=""/>
@@ -5920,7 +5920,7 @@ Current Sensor</text>
 <attribute name="NAME" x="85.09" y="57.3786" size="1.778" layer="95"/>
 <attribute name="VALUE" x="85.09" y="52.578" size="1.778" layer="96"/>
 </instance>
-<instance part="U$22" gate="G$1" x="66.04" y="-43.18" smashed="yes" rot="R180"/>
+<instance part="FC_POWER_BOARD_RELAY" gate="G$1" x="66.04" y="-43.18" smashed="yes" rot="R180"/>
 <instance part="FC.POS" gate="G$1" x="-106.68" y="99.06" smashed="yes"/>
 <instance part="FC.GND" gate="G$1" x="-106.68" y="88.9" smashed="yes"/>
 <instance part="RES.POS" gate="G$1" x="-33.02" y="83.82" smashed="yes" rot="R180"/>
@@ -6049,7 +6049,7 @@ Current Sensor</text>
 <pinref part="FC.GND" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
-<pinref part="U$22" gate="G$1" pin="LED-"/>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="LED-"/>
 <wire x1="73.66" y1="-53.34" x2="48.26" y2="-53.34" width="0.1524" layer="91"/>
 <label x="43.18" y="-53.975" size="1.778" layer="95"/>
 </segment>
@@ -6159,11 +6159,6 @@ Current Sensor</text>
 <wire x1="195.58" y1="-63.5" x2="190.5" y2="-63.5" width="0.1524" layer="91"/>
 <label x="182.88" y="-63.5" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="FCC_SIG_OUT" gate="G$1" pin="7"/>
-<wire x1="193.04" y1="73.66" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
-<label x="180.34" y="73.66" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="FC_CURR" class="0">
 <segment>
@@ -6192,7 +6187,7 @@ Current Sensor</text>
 </net>
 <net name="FCC_R" class="0">
 <segment>
-<pinref part="U$22" gate="G$1" pin="LED+"/>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="LED+"/>
 <wire x1="73.66" y1="-58.42" x2="48.26" y2="-58.42" width="0.1524" layer="91"/>
 <label x="40.005" y="-59.055" size="1.778" layer="95"/>
 </segment>
@@ -6204,9 +6199,9 @@ Current Sensor</text>
 </net>
 <net name="FC_POS" class="0">
 <segment>
-<pinref part="U$22" gate="G$1" pin="7"/>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="7"/>
 <wire x1="73.66" y1="-38.1" x2="60.96" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="U$22" gate="G$1" pin="8"/>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="8"/>
 <wire x1="73.66" y1="-33.02" x2="60.96" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="-38.1" x2="60.96" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="-33.02" x2="48.26" y2="-33.02" width="0.1524" layer="91"/>
@@ -6522,9 +6517,9 @@ Current Sensor</text>
 <label x="167.64" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$22" gate="G$1" pin="5"/>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="5"/>
 <wire x1="73.66" y1="-48.26" x2="60.96" y2="-48.26" width="0.1524" layer="91"/>
-<pinref part="U$22" gate="G$1" pin="6"/>
+<pinref part="FC_POWER_BOARD_RELAY" gate="G$1" pin="6"/>
 <wire x1="73.66" y1="-43.18" x2="60.96" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="-48.26" x2="60.96" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="-43.18" x2="48.26" y2="-43.18" width="0.1524" layer="91"/>
@@ -6537,6 +6532,11 @@ Current Sensor</text>
 <pinref part="FCC_SIG_IN" gate="G$1" pin="1"/>
 <wire x1="157.48" y1="88.9" x2="152.4" y2="88.9" width="0.1524" layer="91"/>
 <label x="144.78" y="88.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="FCC_SIG_OUT" gate="G$1" pin="7"/>
+<wire x1="193.04" y1="73.66" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
+<label x="180.34" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
