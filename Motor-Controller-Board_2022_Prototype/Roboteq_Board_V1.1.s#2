@@ -1533,7 +1533,7 @@ IC needs to have legs bent before insertion.</description>
 <part name="SUPPLY7" library="EcoCar-Miscellaneous" deviceset="5V" device=""/>
 <part name="GND14" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="GND15" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
-<part name="CON9" library="EcoCar-Microcontrollers" deviceset="ISP" device=""/>
+<part name="ISP" library="EcoCar-Microcontrollers" deviceset="ISP" device=""/>
 <part name="GND16" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="SUPPLY8" library="EcoCar-Miscellaneous" deviceset="5V" device=""/>
 <part name="GND17" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
@@ -1563,7 +1563,7 @@ IC needs to have legs bent before insertion.</description>
 <part name="R7" library="EcoCar-Passives" deviceset="RESISTOR_THROUGH-HOLE_1/4W" device="" value="10k"/>
 <part name="C11" library="EcoCar-Passives" deviceset="CAPACITOR_CERAMIC_THROUGH-HOLE" device="" value="0.1uF"/>
 <part name="GND21" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
-<part name="DEADMAN-SWITCH" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
+<part name="DEADMAN-SWITCH-IN" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
 <part name="R8" library="EcoCar-Passives" deviceset="RESISTOR_THROUGH-HOLE_1/4W" device="" value="10k"/>
 <part name="GND11" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="GND12" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
@@ -1737,7 +1737,7 @@ IC needs to have legs bent before insertion.</description>
 <instance part="GND15" gate="1" x="127" y="63.5" smashed="yes">
 <attribute name="VALUE" x="127" y="63.246" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="CON9" gate="G$1" x="363.22" y="170.18" smashed="yes">
+<instance part="ISP" gate="G$1" x="363.22" y="170.18" smashed="yes">
 <attribute name="NAME" x="358.14" y="175.768" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="358.14" y="162.814" size="1.778" layer="96" font="vector"/>
 </instance>
@@ -1847,7 +1847,7 @@ IC needs to have legs bent before insertion.</description>
 <instance part="GND21" gate="1" x="337.82" y="223.52" smashed="yes">
 <attribute name="VALUE" x="337.82" y="223.266" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="DEADMAN-SWITCH" gate="G$1" x="20.32" y="139.7" smashed="yes">
+<instance part="DEADMAN-SWITCH-IN" gate="G$1" x="20.32" y="139.7" smashed="yes">
 <attribute name="NAME" x="20.32" y="150.622" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="20.32" y="136.906" size="1.778" layer="96" font="vector"/>
 </instance>
@@ -2103,7 +2103,7 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="C9" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="CON9" gate="G$1" pin="6"/>
+<pinref part="ISP" gate="G$1" pin="6"/>
 <wire x1="373.38" y1="167.64" x2="375.92" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="375.92" y1="167.64" x2="375.92" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
@@ -2173,7 +2173,7 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="GND21" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="DEADMAN-SWITCH" gate="G$1" pin="V-"/>
+<pinref part="DEADMAN-SWITCH-IN" gate="G$1" pin="V-"/>
 <wire x1="33.02" y1="142.24" x2="38.1" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="38.1" y1="142.24" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
@@ -2455,7 +2455,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="MISO" class="0">
 <segment>
-<pinref part="CON9" gate="G$1" pin="1"/>
+<pinref part="ISP" gate="G$1" pin="1"/>
 <wire x1="355.6" y1="172.72" x2="353.06" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="172.72" x2="353.06" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="175.26" x2="347.98" y2="175.26" width="0.1524" layer="91"/>
@@ -2470,7 +2470,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="SCK" class="0">
 <segment>
-<pinref part="CON9" gate="G$1" pin="3"/>
+<pinref part="ISP" gate="G$1" pin="3"/>
 <wire x1="355.6" y1="170.18" x2="347.98" y2="170.18" width="0.1524" layer="91"/>
 <label x="347.98" y="170.18" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -2483,7 +2483,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="RESET" class="0">
 <segment>
-<pinref part="CON9" gate="G$1" pin="5"/>
+<pinref part="ISP" gate="G$1" pin="5"/>
 <wire x1="355.6" y1="167.64" x2="353.06" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="167.64" x2="353.06" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="165.1" x2="347.98" y2="165.1" width="0.1524" layer="91"/>
@@ -2504,7 +2504,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="MOSI" class="0">
 <segment>
-<pinref part="CON9" gate="G$1" pin="4"/>
+<pinref part="ISP" gate="G$1" pin="4"/>
 <wire x1="373.38" y1="170.18" x2="378.46" y2="170.18" width="0.1524" layer="91"/>
 <label x="378.46" y="170.18" size="1.778" layer="95" xref="yes"/>
 </segment>
@@ -2610,7 +2610,7 @@ IC needs to have legs bent before insertion.</description>
 <label x="121.92" y="160.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="DEADMAN-SWITCH" gate="G$1" pin="V+"/>
+<pinref part="DEADMAN-SWITCH-IN" gate="G$1" pin="V+"/>
 <wire x1="33.02" y1="147.32" x2="38.1" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="147.32" x2="40.64" y2="147.32" width="0.1524" layer="91"/>
@@ -2638,7 +2638,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="CON9" gate="G$1" pin="2"/>
+<pinref part="ISP" gate="G$1" pin="2"/>
 <wire x1="373.38" y1="172.72" x2="375.92" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="375.92" y1="172.72" x2="375.92" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="R11" gate="G$1" pin="2"/>

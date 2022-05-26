@@ -1499,7 +1499,7 @@ IC needs to have legs bent before insertion.</description>
 </class>
 </classes>
 <parts>
-<part name="CON1" library="EcoCar-Connectors" deviceset="D-SUB_2-ROW_15-PIN" device=""/>
+<part name="ROBOTEQ-CON" library="EcoCar-Connectors" deviceset="D-SUB_2-ROW_15-PIN" device=""/>
 <part name="SUPPLY1" library="EcoCar-Miscellaneous" deviceset="5V" device=""/>
 <part name="GND1" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="GND2" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
@@ -1549,7 +1549,7 @@ IC needs to have legs bent before insertion.</description>
 <part name="C10" library="EcoCar-Passives" deviceset="CAPACITOR_CERAMIC_THROUGH-HOLE" device="" value="22pF"/>
 <part name="IC2" library="EcoCar-Integrated-Circuits" deviceset="RS232-TTL_MAX232E" device=""/>
 <part name="GND18" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
-<part name="CON10" library="EcoCar-Connectors" deviceset="TE_4-PIN" device=""/>
+<part name="POWER-BYPASS" library="EcoCar-Connectors" deviceset="TE_4-PIN" device=""/>
 <part name="IC1" library="EcoCar-Integrated-Circuits" deviceset="OP-AMP_DUAL" device="" value="TLV272"/>
 <part name="C12" library="EcoCar-Passives" deviceset="CAPACITOR_ELECTROLYTIC_100UF" device="" value="100uF"/>
 <part name="C13" library="EcoCar-Passives" deviceset="CAPACITOR_CERAMIC_THROUGH-HOLE" device="" value="0.1uF"/>
@@ -1557,13 +1557,13 @@ IC needs to have legs bent before insertion.</description>
 <part name="SUPPLY9" library="EcoCar-Miscellaneous" deviceset="5V" device=""/>
 <part name="R6" library="EcoCar-Passives" deviceset="RESISTOR_THROUGH-HOLE_1/4W" device="" value="10k"/>
 <part name="SUPPLY10" library="EcoCar-Miscellaneous" deviceset="5V" device=""/>
-<part name="CON11" library="EcoCar-Connectors" deviceset="TE_3-PIN" device=""/>
+<part name="HALL-SENSOR" library="EcoCar-Connectors" deviceset="TE_3-PIN" device=""/>
 <part name="SUPPLY11" library="EcoCar-Miscellaneous" deviceset="5V" device=""/>
 <part name="GND19" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="R7" library="EcoCar-Passives" deviceset="RESISTOR_THROUGH-HOLE_1/4W" device="" value="10k"/>
 <part name="C11" library="EcoCar-Passives" deviceset="CAPACITOR_CERAMIC_THROUGH-HOLE" device="" value="0.1uF"/>
 <part name="GND21" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
-<part name="DEADMAN-SWITCH-IN" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
+<part name="DEADMAN-SWITCH" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
 <part name="R8" library="EcoCar-Passives" deviceset="RESISTOR_THROUGH-HOLE_1/4W" device="" value="10k"/>
 <part name="GND11" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="GND12" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
@@ -1618,7 +1618,7 @@ IC needs to have legs bent before insertion.</description>
 <text x="340.36" y="63.5" size="1.778" layer="97">Note: Pin 6 is grounded so the ground trace can be routed through it</text>
 </plain>
 <instances>
-<instance part="CON1" gate="G$1" x="142.24" y="167.64" smashed="yes">
+<instance part="ROBOTEQ-CON" gate="G$1" x="142.24" y="167.64" smashed="yes">
 <attribute name="VALUE" x="138.43" y="151.765" size="1.778" layer="96"/>
 <attribute name="NAME" x="138.43" y="179.07" size="1.778" layer="95"/>
 </instance>
@@ -1797,7 +1797,7 @@ IC needs to have legs bent before insertion.</description>
 <instance part="GND18" gate="1" x="215.9" y="33.02" smashed="yes">
 <attribute name="VALUE" x="215.9" y="32.766" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="CON10" gate="G$1" x="20.32" y="116.84" smashed="yes">
+<instance part="POWER-BYPASS" gate="G$1" x="20.32" y="116.84" smashed="yes">
 <attribute name="NAME" x="20.066" y="130.048" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="20.066" y="114.554" size="1.778" layer="96" font="vector"/>
 </instance>
@@ -1826,7 +1826,7 @@ IC needs to have legs bent before insertion.</description>
 <instance part="SUPPLY10" gate="G$1" x="322.58" y="254" smashed="yes">
 <attribute name="VALUE" x="322.58" y="256.794" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="CON11" gate="G$1" x="292.1" y="231.14" smashed="yes">
+<instance part="HALL-SENSOR" gate="G$1" x="292.1" y="231.14" smashed="yes">
 <attribute name="NAME" x="292.1" y="247.142" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="292.1" y="228.346" size="1.778" layer="96" font="vector"/>
 </instance>
@@ -1847,7 +1847,7 @@ IC needs to have legs bent before insertion.</description>
 <instance part="GND21" gate="1" x="337.82" y="223.52" smashed="yes">
 <attribute name="VALUE" x="337.82" y="223.266" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="DEADMAN-SWITCH-IN" gate="G$1" x="20.32" y="139.7" smashed="yes">
+<instance part="DEADMAN-SWITCH" gate="G$1" x="20.32" y="139.7" smashed="yes">
 <attribute name="NAME" x="20.32" y="150.622" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="20.32" y="136.906" size="1.778" layer="96" font="vector"/>
 </instance>
@@ -1929,7 +1929,7 @@ IC needs to have legs bent before insertion.</description>
 <nets>
 <net name="5V" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="14"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="14"/>
 <wire x1="134.62" y1="162.56" x2="127" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="127" y1="162.56" x2="127" y2="180.34" width="0.1524" layer="91"/>
 <pinref part="SUPPLY1" gate="G$1" pin="5V"/>
@@ -1973,7 +1973,7 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="IC2" gate="G$1" pin="VCC"/>
 </segment>
 <segment>
-<pinref part="CON10" gate="G$1" pin="+5V"/>
+<pinref part="POWER-BYPASS" gate="G$1" pin="+5V"/>
 <wire x1="35.56" y1="124.46" x2="50.8" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="+"/>
 <wire x1="50.8" y1="124.46" x2="50.8" y2="121.92" width="0.1524" layer="91"/>
@@ -1985,7 +1985,7 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="50.8" y1="124.46" x2="50.8" y2="127" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="CON11" gate="G$1" pin="1"/>
+<pinref part="HALL-SENSOR" gate="G$1" pin="1"/>
 <wire x1="304.8" y1="243.84" x2="309.88" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="309.88" y1="243.84" x2="309.88" y2="246.38" width="0.1524" layer="91"/>
 <pinref part="SUPPLY11" gate="G$1" pin="5V"/>
@@ -2022,22 +2022,22 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="5"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="5"/>
 <wire x1="149.86" y1="165.1" x2="152.4" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="152.4" y1="165.1" x2="152.4" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="CON1" gate="G$1" pin="13"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="13"/>
 <wire x1="134.62" y1="165.1" x2="132.08" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="132.08" y1="165.1" x2="132.08" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="CON1" gate="G$1" pin="GND1"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="GND1"/>
 <wire x1="132.08" y1="154.94" x2="132.08" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="177.8" x2="132.08" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="177.8" x2="132.08" y2="165.1" width="0.1524" layer="91"/>
 <junction x="132.08" y="165.1"/>
-<pinref part="CON1" gate="G$1" pin="GND2"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="GND2"/>
 <wire x1="134.62" y1="154.94" x2="132.08" y2="154.94" width="0.1524" layer="91"/>
 <junction x="132.08" y="154.94"/>
 </segment>
@@ -2144,10 +2144,10 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="GND18" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="CON10" gate="G$1" pin="GND1"/>
+<pinref part="POWER-BYPASS" gate="G$1" pin="GND1"/>
 <wire x1="35.56" y1="121.92" x2="38.1" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="121.92" x2="38.1" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="CON10" gate="G$1" pin="GND2"/>
+<pinref part="POWER-BYPASS" gate="G$1" pin="GND2"/>
 <wire x1="38.1" y1="119.38" x2="35.56" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="119.38" x2="38.1" y2="111.76" width="0.1524" layer="91"/>
 <junction x="38.1" y="119.38"/>
@@ -2162,7 +2162,7 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="GND20" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="CON11" gate="G$1" pin="3"/>
+<pinref part="HALL-SENSOR" gate="G$1" pin="3"/>
 <wire x1="304.8" y1="233.68" x2="309.88" y2="233.68" width="0.1524" layer="91"/>
 <pinref part="GND19" gate="1" pin="GND"/>
 <wire x1="309.88" y1="233.68" x2="309.88" y2="231.14" width="0.1524" layer="91"/>
@@ -2173,7 +2173,7 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="GND21" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="DEADMAN-SWITCH-IN" gate="G$1" pin="V-"/>
+<pinref part="DEADMAN-SWITCH" gate="G$1" pin="V-"/>
 <wire x1="33.02" y1="142.24" x2="38.1" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="38.1" y1="142.24" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
@@ -2195,42 +2195,42 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="CANL" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="6"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="6"/>
 <wire x1="149.86" y1="162.56" x2="160.02" y2="162.56" width="0.1524" layer="91"/>
 <label x="160.02" y="162.56" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="CANH" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="7"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="7"/>
 <wire x1="149.86" y1="160.02" x2="182.88" y2="160.02" width="0.1524" layer="91"/>
 <label x="182.88" y="160.02" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="DIN2" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="8"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="8"/>
 <wire x1="149.86" y1="157.48" x2="160.02" y2="157.48" width="0.1524" layer="91"/>
 <label x="160.02" y="157.48" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="DOUT2" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="9"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="9"/>
 <wire x1="134.62" y1="175.26" x2="109.22" y2="175.26" width="0.1524" layer="91"/>
 <label x="109.22" y="175.26" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="DIN5" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="10"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="10"/>
 <wire x1="134.62" y1="172.72" x2="121.92" y2="172.72" width="0.1524" layer="91"/>
 <label x="121.92" y="172.72" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="DIN4" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="11"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="11"/>
 <wire x1="134.62" y1="170.18" x2="106.68" y2="170.18" width="0.1524" layer="91"/>
 <label x="106.68" y="170.18" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -2336,10 +2336,10 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="25.4" y1="167.64" x2="22.86" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="CON1" gate="G$1" pin="1"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="1"/>
 <wire x1="149.86" y1="175.26" x2="152.4" y2="175.26" width="0.1524" layer="91"/>
 <label x="154.94" y="175.26" size="1.778" layer="95" xref="yes"/>
-<pinref part="CON1" gate="G$1" pin="4"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="4"/>
 <wire x1="152.4" y1="175.26" x2="154.94" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="167.64" x2="152.4" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="167.64" x2="152.4" y2="175.26" width="0.1524" layer="91"/>
@@ -2573,7 +2573,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="N$12" class="0">
 <segment>
-<pinref part="CON11" gate="G$1" pin="2"/>
+<pinref part="HALL-SENSOR" gate="G$1" pin="2"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="322.58" y1="241.3" x2="322.58" y2="238.76" width="0.1524" layer="91"/>
 <wire x1="322.58" y1="238.76" x2="304.8" y2="238.76" width="0.1524" layer="91"/>
@@ -2605,12 +2605,12 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="DEADMAN_SWITCH2" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="15"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="15"/>
 <wire x1="134.62" y1="160.02" x2="121.92" y2="160.02" width="0.1524" layer="91"/>
 <label x="121.92" y="160.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="DEADMAN-SWITCH-IN" gate="G$1" pin="V+"/>
+<pinref part="DEADMAN-SWITCH" gate="G$1" pin="V+"/>
 <wire x1="33.02" y1="147.32" x2="38.1" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="147.32" x2="40.64" y2="147.32" width="0.1524" layer="91"/>
@@ -2622,14 +2622,14 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="2"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="2"/>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="149.86" y1="172.72" x2="182.88" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="3"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="3"/>
 <wire x1="149.86" y1="170.18" x2="157.48" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="157.48" y1="170.18" x2="157.48" y2="167.64" width="0.1524" layer="91"/>
@@ -2646,7 +2646,7 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="CON1" gate="G$1" pin="12"/>
+<pinref part="ROBOTEQ-CON" gate="G$1" pin="12"/>
 <wire x1="134.62" y1="167.64" x2="121.92" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="167.64" x2="121.92" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
