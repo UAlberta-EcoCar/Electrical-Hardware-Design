@@ -2,7 +2,7 @@
 
 **Do not merge branches to main yet, this may be done in the future**
 
-Contains the hardware design for the upcoming prototype vehicle.  Each Branch in this repo has its own board design and schematic files.  Add the entire repo to a filepath ia GitHub Desktop by adding the link into the "Current Repository" panel or with the following via a console:
+Contains the hardware design for the upcoming prototype vehicle.  Each Branch in this repo has its own board design and schematic files for each car.  Add the entire repo to a filepath ia GitHub Desktop by adding the link into the "Current Repository" panel or with the following via a console:
 
 ```
 cd Documents\GitHub                                                            #Change your directory where desired
