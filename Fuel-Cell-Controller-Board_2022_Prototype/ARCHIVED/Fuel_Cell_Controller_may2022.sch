@@ -15279,7 +15279,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U$17" library="FCC_parts" deviceset="DMP3056L-7" device="DMP3056L-7"/>
 <part name="R11" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="470Ω"/>
 <part name="R12" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10kΩ"/>
-<part name="X1" library="con-subd" library_urn="urn:adsk.eagle:library:189" deviceset="F09" device="HP" package3d_urn="urn:adsk.eagle:package:10232/1"/>
 <part name="U$18" library="DS3231" deviceset="DS3231" device=""/>
 <part name="U$19" library="FCC_parts" deviceset="ADS1015" device=""/>
 <part name="JP2" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4Q" device="" package3d_urn="urn:adsk.eagle:package:15451/1"/>
@@ -15319,8 +15318,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
 <part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
 <part name="GND6" library="E-P-008-R1.2" deviceset="GND" device=""/>
-<part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1kΩ"/>
-<part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1kΩ"/>
 <part name="C7" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="0.1µF"/>
 <part name="C16" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="0.1µF"/>
 <part name="U$26" library="EG4621CT-ND" deviceset="EG4621CT-ND" device=""/>
@@ -15436,7 +15433,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="210.82" y1="-96.52" x2="256.54" y2="-96.52" width="0.1524" layer="94"/>
 <wire x1="256.54" y1="-96.52" x2="281.94" y2="-96.52" width="0.1524" layer="94"/>
 <wire x1="281.94" y1="-96.52" x2="281.94" y2="-33.02" width="0.1524" layer="94"/>
-<text x="271.78" y="68.58" size="3.81" layer="94">RS232 TO MASS FLOW METER</text>
 <wire x1="281.94" y1="-33.02" x2="281.94" y2="-15.24" width="0.1524" layer="94"/>
 <wire x1="264.16" y1="78.74" x2="360.68" y2="78.74" width="0.1524" layer="94"/>
 <wire x1="360.68" y1="78.74" x2="360.68" y2="33.02" width="0.1524" layer="94"/>
@@ -15457,14 +15453,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="281.94" y1="-96.52" x2="281.94" y2="-138.43" width="0.2032" layer="94"/>
 <wire x1="281.94" y1="-138.43" x2="360.68" y2="-138.43" width="0.2032" layer="94"/>
 <wire x1="360.68" y1="-138.43" x2="360.68" y2="-137.16" width="0.2032" layer="94"/>
-<text x="288.29" y="-118.11" size="1.778" layer="94">A0-A4 are temporarily connected 
-to screw terminals.</text>
-<text x="288.29" y="-124.46" size="1.778" layer="94">Feel free to route to Ethernet connectors 
-or anything else</text>
-<text x="288.29" y="-128.27" size="1.778" layer="94">A0: Mass Flow Meter</text>
-<text x="288.29" y="-132.08" size="1.778" layer="94">A1:</text>
-<text x="321.31" y="-128.27" size="1.778" layer="94">A2:</text>
-<text x="321.31" y="-132.08" size="1.778" layer="94">A3:</text>
 <text x="137.16" y="-137.16" size="3.81" layer="94">MOUNTING
 HOLES</text>
 <wire x1="360.68" y1="-137.16" x2="360.68" y2="-91.44" width="0.2032" layer="94"/>
@@ -15572,10 +15560,6 @@ HOLES</text>
 <instance part="R2" gate="G$1" x="40.64" y="-99.06" smashed="yes">
 <attribute name="NAME" x="36.83" y="-97.5614" size="1.778" layer="95"/>
 <attribute name="VALUE" x="36.83" y="-102.362" size="1.778" layer="96"/>
-</instance>
-<instance part="X1" gate="G$1" x="345.44" y="50.8" smashed="yes">
-<attribute name="VALUE" x="341.63" y="40.005" size="1.778" layer="96"/>
-<attribute name="NAME" x="341.63" y="59.69" size="1.778" layer="95"/>
 </instance>
 <instance part="U$18" gate="G$1" x="325.12" y="-5.08" smashed="yes">
 <attribute name="NAME" x="337.82" y="-22.86" size="1.778" layer="94" rot="R90"/>
@@ -15718,14 +15702,6 @@ HOLES</text>
 </instance>
 <instance part="GND6" gate="1" x="424.18" y="10.16" smashed="yes">
 <attribute name="VALUE" x="421.64" y="7.62" size="1.778" layer="96"/>
-</instance>
-<instance part="R22" gate="G$1" x="307.34" y="50.8" smashed="yes">
-<attribute name="NAME" x="303.53" y="52.2986" size="1.778" layer="95"/>
-<attribute name="VALUE" x="303.53" y="47.498" size="1.778" layer="96"/>
-</instance>
-<instance part="R23" gate="G$1" x="287.02" y="50.8" smashed="yes">
-<attribute name="NAME" x="283.21" y="52.2986" size="1.778" layer="95"/>
-<attribute name="VALUE" x="283.21" y="47.498" size="1.778" layer="96"/>
 </instance>
 <instance part="C7" gate="G$1" x="391.16" y="33.02" smashed="yes">
 <attribute name="NAME" x="392.684" y="35.941" size="1.778" layer="95"/>
@@ -16090,11 +16066,6 @@ HOLES</text>
 <junction x="347.98" y="-198.12"/>
 </segment>
 <segment>
-<pinref part="R23" gate="G$1" pin="1"/>
-<wire x1="281.94" y1="50.8" x2="269.24" y2="50.8" width="0.1524" layer="91"/>
-<label x="269.24" y="50.8" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="406.4" y1="-73.66" x2="388.62" y2="-73.66" width="0.1524" layer="91"/>
 <label x="388.62" y="-73.66" size="1.778" layer="95"/>
@@ -16118,11 +16089,6 @@ HOLES</text>
 <wire x1="-30.48" y1="-190.5" x2="-30.48" y2="-193.04" width="0.1524" layer="91"/>
 <junction x="-30.48" y="-190.5"/>
 <label x="-30.48" y="-193.04" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="X1" gate="G$1" pin="3"/>
-<wire x1="337.82" y1="50.8" x2="320.04" y2="50.8" width="0.1524" layer="91"/>
-<label x="320.04" y="50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R53" gate="G$1" pin="2"/>
@@ -16161,11 +16127,6 @@ HOLES</text>
 <wire x1="421.64" y1="-114.3" x2="426.72" y2="-114.3" width="0.1524" layer="91"/>
 <junction x="421.64" y="-114.3"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="X1" gate="G$1" pin="1"/>
-<wire x1="337.82" y1="55.88" x2="320.04" y2="55.88" width="0.1524" layer="91"/>
-<label x="320.04" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FROM_OPEN" class="0">
@@ -17146,22 +17107,6 @@ HOLES</text>
 <wire x1="312.42" y1="-198.12" x2="309.88" y2="-198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="MASS_FLOW" class="0">
-<segment>
-<pinref part="R22" gate="G$1" pin="1"/>
-<pinref part="R23" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="50.8" x2="297.18" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="50.8" x2="292.1" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="50.8" x2="297.18" y2="43.18" width="0.1524" layer="91"/>
-<junction x="297.18" y="50.8"/>
-<label x="297.18" y="43.18" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$19" gate="G$1" pin="A0"/>
-<wire x1="317.5" y1="-76.2" x2="294.64" y2="-76.2" width="0.1524" layer="91"/>
-<label x="294.64" y="-76.2" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="BUTTON" class="0">
 <segment>
 <pinref part="U$26" gate="G$1" pin="P$2"/>
@@ -17421,11 +17366,6 @@ HOLES</text>
 <pinref part="JP5" gate="A" pin="2"/>
 <wire x1="-63.5" y1="60.96" x2="-68.58" y2="60.96" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="X1" gate="G$1" pin="2"/>
-<wire x1="337.82" y1="53.34" x2="320.04" y2="53.34" width="0.1524" layer="91"/>
-<label x="320.04" y="53.34" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -17457,15 +17397,6 @@ HOLES</text>
 <pinref part="U$19" gate="G$1" pin="ALRT"/>
 <wire x1="317.5" y1="-73.66" x2="294.64" y2="-73.66" width="0.1524" layer="91"/>
 <label x="294.64" y="-73.66" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="R22" gate="G$1" pin="2"/>
-<wire x1="312.42" y1="50.8" x2="314.96" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="314.96" y1="50.8" x2="314.96" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="X1" gate="G$1" pin="4"/>
-<wire x1="314.96" y1="48.26" x2="337.82" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VIN" class="0">
