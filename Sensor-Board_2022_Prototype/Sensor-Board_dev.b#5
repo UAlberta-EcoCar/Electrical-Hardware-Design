@@ -672,8 +672,8 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="UC1" library="EcoCar-Microcontrollers" package="NUCLEO-F746ZG" value="NUCLEO-F746ZGNUCLEO-F746ZG" x="97.79" y="139.7" smashed="yes">
-<attribute name="NAME" x="63.5" y="207.01" size="1.27" layer="25"/>
+<element name="UC1" library="EcoCar-Microcontrollers" package="NUCLEO-F746ZG" value="NUCLEO-F746ZGNUCLEO-F746ZG" x="257.81" y="115.57" smashed="yes">
+<attribute name="NAME" x="223.52" y="182.88" size="1.27" layer="25"/>
 </element>
 <element name="FC-PWR-IN" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="38.1" y="-2.54" smashed="yes">
 <attribute name="NAME" x="32.653" y="11.938" size="1.778" layer="25"/>
@@ -681,6 +681,14 @@ design rules under a new name.</description>
 <element name="LEFT_FWD_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="132.08" y="40.64" smashed="yes">
 <attribute name="NAME" x="116.84" y="34.29" size="1.778" layer="25" ratio="10"/>
 <attribute name="VALUE" x="127" y="54.61" size="1.778" layer="27" ratio="10"/>
+</element>
+<element name="IC3" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="33.02" y="-44.45" smashed="yes">
+<attribute name="NAME" x="22.479" y="-47.371" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="45.085" y="-48.133" size="1.27" layer="27" ratio="10" rot="R90"/>
+</element>
+<element name="IC4" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="33.02" y="-55.88" smashed="yes">
+<attribute name="NAME" x="22.479" y="-58.801" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="45.085" y="-59.563" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
 <element name="C5" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="25.4" y="-86.36" smashed="yes">
 <attribute name="NAME" x="22.86" y="-84.836" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
@@ -702,49 +710,45 @@ design rules under a new name.</description>
 <attribute name="NAME" x="31.75" y="-89.916" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
 <attribute name="VALUE" x="31.75" y="-92.964" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="LEFT_SIG" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="165.1" y="22.86" smashed="yes" rot="R90">
-<attribute name="NAME" x="168.021" y="12.319" size="1.27" layer="25" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="168.783" y="34.925" size="1.27" layer="27" ratio="10" rot="R180"/>
+<element name="LEFT_SIG" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="33.02" y="-77.47" smashed="yes">
+<attribute name="NAME" x="22.479" y="-80.391" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="45.085" y="-81.153" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="LEFT_REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="205.74" y="30.48" smashed="yes">
-<attribute name="NAME" x="190.5" y="24.13" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="200.66" y="44.45" size="1.778" layer="27" ratio="10"/>
+<element name="LEFT_REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="36.83" y="-111.76" smashed="yes">
+<attribute name="NAME" x="21.59" y="-118.11" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="31.75" y="-97.79" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="RIGHT_FWD_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="205.74" y="-7.62" smashed="yes">
-<attribute name="NAME" x="190.5" y="-13.97" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="200.66" y="6.35" size="1.778" layer="27" ratio="10"/>
+<element name="RIGHT_FWD_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="36.83" y="-137.16" smashed="yes">
+<attribute name="NAME" x="21.59" y="-143.51" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="31.75" y="-123.19" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="RIGHT_REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="257.81" y="29.21" smashed="yes">
-<attribute name="NAME" x="242.57" y="22.86" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="252.73" y="43.18" size="1.778" layer="27" ratio="10"/>
+<element name="RIGHT_REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="36.83" y="-162.56" smashed="yes">
+<attribute name="NAME" x="21.59" y="-168.91" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="31.75" y="-148.59" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="257.81" y="-6.35" smashed="yes">
-<attribute name="NAME" x="242.57" y="-12.7" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="252.73" y="7.62" size="1.778" layer="27" ratio="10"/>
+<element name="C1" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="25.4" y="-194.31" smashed="yes">
+<attribute name="NAME" x="22.86" y="-192.786" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="VALUE" x="22.86" y="-195.834" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="C1" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="25.4" y="-251.46" smashed="yes">
-<attribute name="NAME" x="22.86" y="-249.936" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="VALUE" x="22.86" y="-252.984" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
+<element name="C2" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="34.29" y="-194.31" smashed="yes">
+<attribute name="NAME" x="31.75" y="-192.786" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="VALUE" x="31.75" y="-195.834" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="C2" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="34.29" y="-251.46" smashed="yes">
-<attribute name="NAME" x="31.75" y="-249.936" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="VALUE" x="31.75" y="-252.984" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
+<element name="C3" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="43.18" y="-194.31" smashed="yes">
+<attribute name="NAME" x="40.64" y="-192.786" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="VALUE" x="40.64" y="-195.834" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="C3" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="43.18" y="-251.46" smashed="yes">
-<attribute name="NAME" x="40.64" y="-249.936" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="VALUE" x="40.64" y="-252.984" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
+<element name="C4" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="25.4" y="-199.39" smashed="yes">
+<attribute name="NAME" x="22.86" y="-197.866" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="VALUE" x="22.86" y="-200.914" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="C4" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="25.4" y="-256.54" smashed="yes">
-<attribute name="NAME" x="22.86" y="-255.016" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="VALUE" x="22.86" y="-258.064" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
+<element name="C10" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="34.29" y="-199.39" smashed="yes">
+<attribute name="NAME" x="31.75" y="-197.866" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="VALUE" x="31.75" y="-200.914" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="C10" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="34.29" y="-256.54" smashed="yes">
-<attribute name="NAME" x="31.75" y="-255.016" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="VALUE" x="31.75" y="-258.064" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
-</element>
-<element name="RIGHT_SIG" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="294.64" y="2.54" smashed="yes" rot="R90">
-<attribute name="NAME" x="297.561" y="-8.001" size="1.27" layer="25" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="298.323" y="14.605" size="1.27" layer="27" ratio="10" rot="R180"/>
+<element name="RIGHT_SIG" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="33.02" y="-185.42" smashed="yes">
+<attribute name="NAME" x="22.479" y="-188.341" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="45.085" y="-189.103" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
 </elements>
 <signals>
@@ -757,12 +761,12 @@ design rules under a new name.</description>
 <contactref element="C1" pad="2"/>
 <contactref element="C2" pad="1"/>
 <contactref element="RIGHT_SIG" pad="16"/>
-<wire x1="31.79" y1="-251.46" x2="27.9" y2="-251.46" width="0" layer="19" extent="1-1"/>
-<wire x1="290.83" y1="-6.35" x2="27.9" y2="-251.46" width="0" layer="19" extent="1-1"/>
-<wire x1="27.9" y1="-86.36" x2="290.83" y2="-6.35" width="0" layer="19" extent="1-1"/>
+<wire x1="31.79" y1="-194.31" x2="27.9" y2="-194.31" width="0" layer="19" extent="1-1"/>
+<wire x1="24.13" y1="-181.61" x2="27.9" y2="-194.31" width="0" layer="19" extent="1-1"/>
+<wire x1="27.9" y1="-86.36" x2="24.13" y2="-181.61" width="0" layer="19" extent="1-1"/>
 <wire x1="31.79" y1="-86.36" x2="27.9" y2="-86.36" width="0" layer="19" extent="1-1"/>
-<wire x1="161.29" y1="13.97" x2="27.9" y2="-86.36" width="0" layer="19" extent="1-1"/>
-<wire x1="33.96" y1="8.94" x2="161.29" y2="13.97" width="0" layer="19" extent="1-1"/>
+<wire x1="24.13" y1="-73.66" x2="27.9" y2="-86.36" width="0" layer="19" extent="1-1"/>
+<wire x1="33.96" y1="8.94" x2="24.13" y2="-73.66" width="0" layer="19" extent="1-1"/>
 <wire x1="42.24" y1="8.94" x2="33.96" y2="8.94" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
@@ -783,34 +787,28 @@ design rules under a new name.</description>
 <contactref element="RIGHT_REAR_SIG" pad="G2"/>
 <contactref element="RIGHT_REAR_SIG" pad="5"/>
 <contactref element="LEFT_SIG" pad="15"/>
-<contactref element="REAR_SIG" pad="G1"/>
-<contactref element="REAR_SIG" pad="G2"/>
-<contactref element="REAR_SIG" pad="5"/>
 <contactref element="C10" pad="1"/>
 <contactref element="C2" pad="2"/>
 <contactref element="RIGHT_SIG" pad="15"/>
-<wire x1="36.79" y1="-251.46" x2="31.79" y2="-256.54" width="0" layer="19" extent="1-1"/>
-<wire x1="290.83" y1="-3.81" x2="36.79" y2="-251.46" width="0" layer="19" extent="1-1"/>
-<wire x1="245.2878" y1="-6.35" x2="290.83" y2="-3.81" width="0" layer="19" extent="1-1"/>
-<wire x1="263.2964" y1="-7.62" x2="245.2878" y2="-6.35" width="0" layer="19" extent="1-1"/>
-<wire x1="270.3322" y1="-6.35" x2="263.2964" y2="-7.62" width="0" layer="19" extent="1-1"/>
-<wire x1="263.2964" y1="27.94" x2="270.3322" y2="-6.35" width="0" layer="19" extent="1-1"/>
-<wire x1="270.3322" y1="29.21" x2="263.2964" y2="27.94" width="0" layer="19" extent="1-1"/>
-<wire x1="245.2878" y1="29.21" x2="263.2964" y2="27.94" width="0" layer="19" extent="1-1"/>
-<wire x1="211.2264" y1="-8.89" x2="270.3322" y2="29.21" width="0" layer="19" extent="1-1"/>
-<wire x1="218.2622" y1="-7.62" x2="211.2264" y2="-8.89" width="0" layer="19" extent="1-1"/>
-<wire x1="193.2178" y1="-7.62" x2="211.2264" y2="-8.89" width="0" layer="19" extent="1-1"/>
-<wire x1="211.2264" y1="29.21" x2="218.2622" y2="-7.62" width="0" layer="19" extent="1-1"/>
-<wire x1="218.2622" y1="30.48" x2="211.2264" y2="29.21" width="0" layer="19" extent="1-1"/>
-<wire x1="193.2178" y1="30.48" x2="211.2264" y2="29.21" width="0" layer="19" extent="1-1"/>
-<wire x1="31.79" y1="-91.44" x2="193.2178" y2="30.48" width="0" layer="19" extent="1-1"/>
-<wire x1="36.79" y1="-86.36" x2="31.79" y2="-91.44" width="0" layer="19" extent="1-1"/>
-<wire x1="161.29" y1="16.51" x2="36.79" y2="-86.36" width="0" layer="19" extent="1-1"/>
-<wire x1="38.1" y1="4.8" x2="161.29" y2="16.51" width="0" layer="19" extent="1-1"/>
-<wire x1="38.1" y1="8.94" x2="38.1" y2="4.8" width="0" layer="19" extent="1-1"/>
-<wire x1="119.5578" y1="40.64" x2="38.1" y2="8.94" width="0" layer="19" extent="1-1"/>
-<wire x1="137.5664" y1="39.37" x2="119.5578" y2="40.64" width="0" layer="19" extent="1-1"/>
-<wire x1="144.6022" y1="40.64" x2="137.5664" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="137.5664" y1="39.37" x2="144.6022" y2="40.64" width="0" layer="19" extent="1-1"/>
+<wire x1="119.5578" y1="40.64" x2="137.5664" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="8.94" x2="119.5578" y2="40.64" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="4.8" x2="38.1" y2="8.94" width="0" layer="19" extent="1-1"/>
+<wire x1="26.67" y1="-73.66" x2="38.1" y2="4.8" width="0" layer="19" extent="1-1"/>
+<wire x1="36.79" y1="-86.36" x2="26.67" y2="-73.66" width="0" layer="19" extent="1-1"/>
+<wire x1="31.79" y1="-91.44" x2="36.79" y2="-86.36" width="0" layer="19" extent="1-1"/>
+<wire x1="24.3078" y1="-111.76" x2="31.79" y2="-91.44" width="0" layer="19" extent="1-1"/>
+<wire x1="42.3164" y1="-113.03" x2="24.3078" y2="-111.76" width="0" layer="19" extent="1-1"/>
+<wire x1="49.3522" y1="-111.76" x2="42.3164" y2="-113.03" width="0" layer="19" extent="1-1"/>
+<wire x1="49.3522" y1="-137.16" x2="42.3164" y2="-113.03" width="0" layer="19" extent="1-1"/>
+<wire x1="42.3164" y1="-138.43" x2="49.3522" y2="-137.16" width="0" layer="19" extent="1-1"/>
+<wire x1="24.3078" y1="-137.16" x2="42.3164" y2="-138.43" width="0" layer="19" extent="1-1"/>
+<wire x1="49.3522" y1="-162.56" x2="42.3164" y2="-138.43" width="0" layer="19" extent="1-1"/>
+<wire x1="42.3164" y1="-163.83" x2="49.3522" y2="-162.56" width="0" layer="19" extent="1-1"/>
+<wire x1="24.3078" y1="-162.56" x2="42.3164" y2="-163.83" width="0" layer="19" extent="1-1"/>
+<wire x1="26.67" y1="-181.61" x2="24.3078" y2="-162.56" width="0" layer="19" extent="1-1"/>
+<wire x1="36.79" y1="-194.31" x2="26.67" y2="-181.61" width="0" layer="19" extent="1-1"/>
+<wire x1="31.79" y1="-199.39" x2="36.79" y2="-194.31" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12V">
 <contactref element="FC-PWR-IN" pad="4"/>
@@ -820,27 +818,27 @@ design rules under a new name.</description>
 <signal name="N$25">
 <contactref element="C5" pad="1"/>
 <contactref element="LEFT_SIG" pad="2"/>
-<wire x1="168.91" y1="16.51" x2="22.9" y2="-86.36" width="0" layer="19" extent="1-1"/>
+<wire x1="26.67" y1="-81.28" x2="22.9" y2="-86.36" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$27">
 <contactref element="C7" pad="1"/>
 <contactref element="LEFT_SIG" pad="3"/>
-<wire x1="40.68" y1="-86.36" x2="168.91" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="40.68" y1="-86.36" x2="29.21" y2="-81.28" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$28">
 <contactref element="C8" pad="2"/>
 <contactref element="LEFT_SIG" pad="4"/>
-<wire x1="168.91" y1="21.59" x2="27.9" y2="-91.44" width="0" layer="19" extent="1-1"/>
+<wire x1="31.75" y1="-81.28" x2="27.9" y2="-91.44" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$29">
 <contactref element="C8" pad="1"/>
 <contactref element="LEFT_SIG" pad="5"/>
-<wire x1="168.91" y1="24.13" x2="22.9" y2="-91.44" width="0" layer="19" extent="1-1"/>
+<wire x1="34.29" y1="-81.28" x2="22.9" y2="-91.44" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$30">
 <contactref element="C9" pad="2"/>
 <contactref element="LEFT_SIG" pad="6"/>
-<wire x1="168.91" y1="26.67" x2="36.79" y2="-91.44" width="0" layer="19" extent="1-1"/>
+<wire x1="36.83" y1="-81.28" x2="36.79" y2="-91.44" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_REAR_RX_TTL">
 <contactref element="LEFT_SIG" pad="9"/>
@@ -852,15 +850,15 @@ design rules under a new name.</description>
 <contactref element="LEFT_SIG" pad="13"/>
 <contactref element="LEFT_FWD_SIG" pad="3"/>
 <contactref element="RIGHT_FWD_SIG" pad="3"/>
-<wire x1="161.29" y1="21.59" x2="132.08" y2="39.37" width="0" layer="19" extent="1-1"/>
-<wire x1="205.74" y1="-8.89" x2="161.29" y2="21.59" width="0" layer="19" extent="1-1"/>
+<wire x1="31.75" y1="-73.66" x2="132.08" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="36.83" y1="-138.43" x2="31.75" y2="-73.66" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_FWD_TX_RS232">
 <contactref element="LEFT_SIG" pad="14"/>
 <contactref element="LEFT_FWD_SIG" pad="2"/>
 <contactref element="RIGHT_FWD_SIG" pad="2"/>
-<wire x1="161.29" y1="19.05" x2="129.3368" y2="39.37" width="0" layer="19" extent="1-1"/>
-<wire x1="202.9968" y1="-8.89" x2="161.29" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="29.21" y1="-73.66" x2="129.3368" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="34.0868" y1="-138.43" x2="29.21" y2="-73.66" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_FWD_RX_TTL">
 <contactref element="LEFT_SIG" pad="12"/>
@@ -872,62 +870,62 @@ design rules under a new name.</description>
 <contactref element="LEFT_REAR_SIG" pad="2"/>
 <contactref element="RIGHT_REAR_SIG" pad="2"/>
 <contactref element="LEFT_SIG" pad="7"/>
-<wire x1="202.9968" y1="29.21" x2="255.0668" y2="27.94" width="0" layer="19" extent="1-1"/>
-<wire x1="168.91" y1="29.21" x2="202.9968" y2="29.21" width="0" layer="19" extent="1-1"/>
+<wire x1="34.0868" y1="-113.03" x2="34.0868" y2="-163.83" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="-81.28" x2="34.0868" y2="-113.03" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_REAR_RX_RS232">
 <contactref element="LEFT_REAR_SIG" pad="3"/>
 <contactref element="RIGHT_REAR_SIG" pad="3"/>
 <contactref element="LEFT_SIG" pad="8"/>
-<wire x1="205.74" y1="29.21" x2="257.81" y2="27.94" width="0" layer="19" extent="1-1"/>
-<wire x1="168.91" y1="31.75" x2="205.74" y2="29.21" width="0" layer="19" extent="1-1"/>
+<wire x1="36.83" y1="-113.03" x2="36.83" y2="-163.83" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="-81.28" x2="36.83" y2="-113.03" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="C7" pad="2"/>
 <contactref element="LEFT_SIG" pad="1"/>
-<wire x1="45.68" y1="-86.36" x2="168.91" y2="13.97" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="FWD_RX_RS232">
-<contactref element="REAR_SIG" pad="3"/>
-</signal>
-<signal name="FWD_TX_RS232">
-<contactref element="REAR_SIG" pad="2"/>
+<wire x1="45.68" y1="-86.36" x2="24.13" y2="-81.28" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$2">
 <contactref element="C1" pad="1"/>
 <contactref element="RIGHT_SIG" pad="2"/>
-<wire x1="298.45" y1="-3.81" x2="22.9" y2="-251.46" width="0" layer="19" extent="1-1"/>
+<wire x1="26.67" y1="-189.23" x2="22.9" y2="-194.31" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$3">
 <contactref element="C3" pad="1"/>
 <contactref element="RIGHT_SIG" pad="3"/>
-<wire x1="40.68" y1="-251.46" x2="298.45" y2="-1.27" width="0" layer="19" extent="1-1"/>
+<wire x1="40.68" y1="-194.31" x2="29.21" y2="-189.23" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$4">
 <contactref element="C4" pad="2"/>
 <contactref element="RIGHT_SIG" pad="4"/>
-<wire x1="298.45" y1="1.27" x2="27.9" y2="-256.54" width="0" layer="19" extent="1-1"/>
+<wire x1="31.75" y1="-189.23" x2="27.9" y2="-199.39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="C4" pad="1"/>
 <contactref element="RIGHT_SIG" pad="5"/>
-<wire x1="298.45" y1="3.81" x2="22.9" y2="-256.54" width="0" layer="19" extent="1-1"/>
+<wire x1="34.29" y1="-189.23" x2="22.9" y2="-199.39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$6">
 <contactref element="C10" pad="2"/>
 <contactref element="RIGHT_SIG" pad="6"/>
-<wire x1="298.45" y1="6.35" x2="36.79" y2="-256.54" width="0" layer="19" extent="1-1"/>
+<wire x1="36.83" y1="-189.23" x2="36.79" y2="-199.39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$7">
 <contactref element="C3" pad="2"/>
 <contactref element="RIGHT_SIG" pad="1"/>
-<wire x1="45.68" y1="-251.46" x2="298.45" y2="-6.35" width="0" layer="19" extent="1-1"/>
+<wire x1="45.68" y1="-194.31" x2="24.13" y2="-189.23" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="RIGHT_REAR_RX_RS232">
-<contactref element="RIGHT_SIG" pad="8"/>
+<signal name="RIGHT_FWD_TX_RS232">
+<contactref element="RIGHT_SIG" pad="14"/>
 </signal>
-<signal name="RIGHT_REAR_TX_RS232">
-<contactref element="RIGHT_SIG" pad="7"/>
+<signal name="RIGHT_FWD_RX_RS232">
+<contactref element="RIGHT_SIG" pad="13"/>
+</signal>
+<signal name="RIGHT_FWD_RX_TTL">
+<contactref element="RIGHT_SIG" pad="12"/>
+</signal>
+<signal name="RIGHT_FWD_TX_TTL">
+<contactref element="RIGHT_SIG" pad="11"/>
 </signal>
 <signal name="RIGHT_REAR_RX_TTL">
 <contactref element="RIGHT_SIG" pad="9"/>
@@ -935,17 +933,11 @@ design rules under a new name.</description>
 <signal name="RIGHT_REAR_TX_\TTL">
 <contactref element="RIGHT_SIG" pad="10"/>
 </signal>
-<signal name="RIGHT_FWD_TX_TTL">
-<contactref element="RIGHT_SIG" pad="11"/>
+<signal name="RIGHT_REAR_RX_RS232">
+<contactref element="RIGHT_SIG" pad="8"/>
 </signal>
-<signal name="RIGHT_FWD_RX_TTL">
-<contactref element="RIGHT_SIG" pad="12"/>
-</signal>
-<signal name="RIGHT_FWD_RX_RS232">
-<contactref element="RIGHT_SIG" pad="13"/>
-</signal>
-<signal name="RIGHT_FWD_TX_RS232">
-<contactref element="RIGHT_SIG" pad="14"/>
+<signal name="RIGHT_REAR_TX_RS232">
+<contactref element="RIGHT_SIG" pad="7"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

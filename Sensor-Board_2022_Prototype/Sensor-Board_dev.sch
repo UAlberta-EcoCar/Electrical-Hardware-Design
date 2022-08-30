@@ -332,7 +332,7 @@
 <pin name="PG_0" x="71.12" y="-45.72" length="middle" rot="R180"/>
 <pin name="PC_8(SERIAL5_RTS/PWM8/3)" x="-71.12" y="-43.18" length="middle"/>
 <pin name="PC_9(I2C3_SDA/SERIAL5_CTS/PWM8/4)" x="-71.12" y="-45.72" length="middle"/>
-<pin name="PC_10(SERIAL3_TX/SPI3_SCLK)" x="-71.12" y="-48.26" length="middle"/>
+<pin name="PC_10(SERIAL4_TX/SPI3_SCLK)" x="-71.12" y="-48.26" length="middle"/>
 <pin name="PC_11(SERIAL4_RX/SPI3_MISO)" x="-71.12" y="-50.8" length="middle"/>
 <pin name="PC_12(SERIAL5_TX/SPI3_MOSI)" x="-71.12" y="-53.34" length="middle"/>
 <pin name="PD_2(SERIAL5_RX)" x="71.12" y="58.42" length="middle" rot="R180"/>
@@ -387,15 +387,15 @@
 <pin name="PE_13(D3/SPI4_MISO/PWM1/3)" x="71.12" y="-2.54" length="middle" rot="R180"/>
 <pin name="PF_15(D2/I2C4_SDA)" x="71.12" y="-40.64" length="middle" rot="R180"/>
 <pin name="PG_14(D1/SERIAL6_TX/SPI6_MOSI)" x="71.12" y="-58.42" length="middle" rot="R180"/>
-<pin name="PG_9(D0)" x="71.12" y="-55.88" length="middle" rot="R180"/>
+<pin name="PG_9(D0/SERIAL6_RX)" x="71.12" y="-55.88" length="middle" rot="R180"/>
 <pin name="PE_8(SERIAL7_TX/PWM1/1)" x="71.12" y="10.16" length="middle" rot="R180"/>
 <pin name="PE_7(SERIAL7_RX)" x="71.12" y="12.7" length="middle" rot="R180"/>
 <pin name="PE_10(SERIAL7_CTS/PWM1/2)" x="71.12" y="5.08" length="middle" rot="R180"/>
 <pin name="PE_12(SPI4_SCLK/PWM1/3)" x="71.12" y="0" length="middle" rot="R180"/>
 <pin name="PE_14(SPI4_MOSI/PWM1/4)" x="71.12" y="-5.08" length="middle" rot="R180"/>
 <pin name="PE_15" x="71.12" y="-7.62" length="middle" rot="R180"/>
-<pin name="PB_10(SERIAL3_TX/I2C2_SCL/SPI2_SCLK/PWM2/3)" x="-71.12" y="-15.24" length="middle"/>
-<pin name="PB_11(SERIAL3_RX/I2C2_SDA/PWM2/4)" x="-71.12" y="-17.78" length="middle"/>
+<pin name="PB_10(I2C2_SCL/SPI2_SCLK/PWM2/3)" x="-71.12" y="-15.24" length="middle"/>
+<pin name="PB_11(I2C2_SDA/PWM2/4)" x="-71.12" y="-17.78" length="middle"/>
 <text x="-66.04" y="-71.12" size="1.778" layer="95">NUCLEO-F746ZG</text>
 </symbol>
 </symbols>
@@ -425,8 +425,8 @@
 <connect gate="G$1" pin="PA_7(D11/ANALOGIN/SPI1_MOSI)" pad="PA_7A PA_7B"/>
 <connect gate="G$1" pin="PB_0(LED1)" pad="PB_0"/>
 <connect gate="G$1" pin="PB_1(ANALOGIN/PWM1/3)" pad="PB_1"/>
-<connect gate="G$1" pin="PB_10(SERIAL3_TX/I2C2_SCL/SPI2_SCLK/PWM2/3)" pad="PB_10"/>
-<connect gate="G$1" pin="PB_11(SERIAL3_RX/I2C2_SDA/PWM2/4)" pad="PB_11"/>
+<connect gate="G$1" pin="PB_10(I2C2_SCL/SPI2_SCLK/PWM2/3)" pad="PB_10"/>
+<connect gate="G$1" pin="PB_11(I2C2_SDA/PWM2/4)" pad="PB_11"/>
 <connect gate="G$1" pin="PB_12(CAN2_RD/SPI2_SSEL)" pad="PB_12"/>
 <connect gate="G$1" pin="PB_13(SERIAL3_CTS/CAN2_TD/SPI2_SCLK/PWM1/1)" pad="PB_13"/>
 <connect gate="G$1" pin="PB_15(SPI2_MOSI/PWM12/2)" pad="PB_15"/>
@@ -438,7 +438,7 @@
 <connect gate="G$1" pin="PB_8(D15/CAN1_RD/I2C1_SCL/PWM4/3)" pad="PB_8"/>
 <connect gate="G$1" pin="PB_9(D14/CAN1_TD/SPI2_SSEL/I2C1_SDA/PWM4/4)" pad="PB_9"/>
 <connect gate="G$1" pin="PC_0(A1/ANALOGIN)" pad="PC_0"/>
-<connect gate="G$1" pin="PC_10(SERIAL3_TX/SPI3_SCLK)" pad="PC_10"/>
+<connect gate="G$1" pin="PC_10(SERIAL4_TX/SPI3_SCLK)" pad="PC_10"/>
 <connect gate="G$1" pin="PC_11(SERIAL4_RX/SPI3_MISO)" pad="PC_11"/>
 <connect gate="G$1" pin="PC_12(SERIAL5_TX/SPI3_MOSI)" pad="PC_12"/>
 <connect gate="G$1" pin="PC_2(ANALOGIN/SPI2_MISO)" pad="PC_2"/>
@@ -492,7 +492,7 @@
 <connect gate="G$1" pin="PG_14(D1/SERIAL6_TX/SPI6_MOSI)" pad="PG_14"/>
 <connect gate="G$1" pin="PG_2" pad="PG_2"/>
 <connect gate="G$1" pin="PG_3" pad="PG_3"/>
-<connect gate="G$1" pin="PG_9(D0)" pad="PG_9"/>
+<connect gate="G$1" pin="PG_9(D0/SERIAL6_RX)" pad="PG_9"/>
 <connect gate="G$1" pin="PH_0" pad="PH_0"/>
 <connect gate="G$1" pin="PH_1" pad="PH_1"/>
 <connect gate="G$1" pin="VIN" pad="VIN"/>
@@ -1125,6 +1125,12 @@
 <wire x1="152.4" y1="-2.54" x2="160.02" y2="-5.08" width="0.1524" layer="94"/>
 <wire x1="160.02" y1="-5.08" x2="157.48" y2="-7.62" width="0.1524" layer="94"/>
 <text x="134.62" y="7.62" size="2.54" layer="95">Car Diagram</text>
+<text x="223.52" y="177.8" size="1.778" layer="95">SERIAL1: N/A
+SERIAL2: LEFT_FWD
+SERIAL3: N/A
+SERIAL4: LEFT_REAR
+SERIAL5: RIGHT_FWD
+SERIAL6: RIGHT_REAR</text>
 </plain>
 <instances>
 <instance part="UC1" gate="G$1" x="142.24" y="91.44" smashed="yes"/>
@@ -1132,9 +1138,9 @@
 <attribute name="NAME" x="48.26" y="152.4" size="1.778" layer="95"/>
 <attribute name="VALUE" x="48.26" y="146.05" size="1.778" layer="96"/>
 </instance>
-<instance part="F2" gate="G$1" x="53.34" y="144.78" smashed="yes">
-<attribute name="NAME" x="48.26" y="147.32" size="1.778" layer="95"/>
-<attribute name="VALUE" x="48.26" y="140.97" size="1.778" layer="96"/>
+<instance part="F2" gate="G$1" x="53.34" y="139.7" smashed="yes">
+<attribute name="NAME" x="48.26" y="142.24" size="1.778" layer="95"/>
+<attribute name="VALUE" x="48.26" y="135.89" size="1.778" layer="96"/>
 </instance>
 <instance part="FRAME2" gate="G$1" x="-66.04" y="-58.42" smashed="yes"/>
 <instance part="FRAME2" gate="G$2" x="259.08" y="-58.42" smashed="yes">
@@ -1149,8 +1155,8 @@
 <net name="5V" class="0">
 <segment>
 <pinref part="F2" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="144.78" x2="38.1" y2="144.78" width="0.1524" layer="91"/>
-<label x="38.1" y="144.78" size="1.778" layer="95"/>
+<wire x1="45.72" y1="139.7" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
+<label x="38.1" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -1179,13 +1185,6 @@
 <wire x1="71.12" y1="149.86" x2="58.42" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="UC1" gate="G$1" pin="NC"/>
-<wire x1="71.12" y1="144.78" x2="58.42" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="F2" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="LEFT_FWD_RX_TTL" class="0">
 <segment>
 <pinref part="UC1" gate="G$1" pin="PD_6(SERIAL2_RX/SPI3_MOSI)"/>
@@ -1203,22 +1202,22 @@
 <net name="LEFT_REAR_RX_TTL" class="0">
 <segment>
 <pinref part="UC1" gate="G$1" pin="PC_11(SERIAL4_RX/SPI3_MISO)"/>
-<wire x1="71.12" y1="40.64" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
-<label x="63.5" y="40.64" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="71.12" y1="40.64" x2="58.42" y2="40.64" width="0.1524" layer="91"/>
+<label x="58.42" y="40.64" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="LEFT_REAR_TX_TTL" class="0">
 <segment>
-<pinref part="UC1" gate="G$1" pin="PC_10(SERIAL3_TX/SPI3_SCLK)"/>
-<wire x1="71.12" y1="43.18" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
-<label x="63.5" y="43.18" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="UC1" gate="G$1" pin="PC_10(SERIAL4_TX/SPI3_SCLK)"/>
+<wire x1="71.12" y1="43.18" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
+<label x="53.34" y="43.18" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="RIGHT_FWD_TX_TTL" class="0">
 <segment>
 <pinref part="UC1" gate="G$1" pin="PC_12(SERIAL5_TX/SPI3_MOSI)"/>
 <wire x1="71.12" y1="38.1" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
-<label x="63.5" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
+<label x="63.5" y="38.1" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="RIGHT_FWD_RX_TTL" class="0">
@@ -1232,13 +1231,27 @@
 <segment>
 <pinref part="UC1" gate="G$1" pin="PG_14(D1/SERIAL6_TX/SPI6_MOSI)"/>
 <wire x1="213.36" y1="33.02" x2="220.98" y2="33.02" width="0.1524" layer="91"/>
-<label x="220.98" y="33.02" size="1.778" layer="95" xref="yes"/>
+<label x="220.98" y="33.02" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="UC1" gate="G$1" pin="PC_6(SERIAL6_TX/PWM8/1)"/>
 <wire x1="71.12" y1="53.34" x2="63.5" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="UC1" gate="G$1" pin="5V"/>
+<wire x1="71.12" y1="139.7" x2="58.42" y2="139.7" width="0.1524" layer="91"/>
+<pinref part="F2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="RIGHT_REAR_RX_TTL" class="0">
+<segment>
+<pinref part="UC1" gate="G$1" pin="PG_9(D0/SERIAL6_RX)"/>
+<wire x1="213.36" y1="35.56" x2="226.06" y2="35.56" width="0.1524" layer="91"/>
+<label x="226.06" y="35.56" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 </nets>
@@ -1853,6 +1866,10 @@
 </schematic>
 </drawing>
 <compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
 <note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports URNs for individual library
 assets (packages, symbols, and devices). The URNs of those assets
