@@ -402,8 +402,6 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="6.35" y1="-4.5" x2="5.1" y2="-3.3" width="0.1524" layer="21"/>
 <wire x1="7.6" y1="-3.3" x2="6.35" y2="-4.5" width="0.1524" layer="21"/>
 <wire x1="6.35" y1="-4.5" x2="6.35" y2="-1.4" width="0.1524" layer="21"/>
-<text x="-3.048" y="10.668" size="1.778" layer="21">&gt;NAME</text>
-<text x="6.731" y="10.668" size="1.778" layer="27">&gt;VALUE</text>
 </package>
 <package name="TE_4-PIN">
 <pad name="3" x="2.07" y="7.34" drill="1.5" shape="square"/>
@@ -636,6 +634,20 @@ IC needs to have legs bent before insertion.</description>
 <text x="0" y="2.032" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-2.032" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
 </package>
+<package name="STAND-OFF-TIGHT">
+<description>&lt;h3&gt;Standoff (#4 Screw) - Tight fit around screw body&lt;/h3&gt;
+&lt;p&gt;This is the mechanical footprint for a #4 phillips button head screw. Use the keepout ring to avoid running the screw head into surrounding components.&lt;/p&gt;
+&lt;h4&gt;Devices Using&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;STAND-OFF&lt;/li&gt;&lt;/ul&gt;</description>
+<wire x1="0" y1="1.8542" x2="0" y2="-1.8542" width="0.2032" layer="41" curve="-180"/>
+<wire x1="0" y1="-1.8542" x2="0" y2="1.8542" width="0.2032" layer="41" curve="-180"/>
+<wire x1="0" y1="-1.8542" x2="0" y2="1.8542" width="0.2032" layer="42" curve="180"/>
+<wire x1="0" y1="-1.8542" x2="0" y2="1.8542" width="0.2032" layer="42" curve="-180"/>
+<circle x="0" y="0" radius="2.794" width="0.127" layer="39"/>
+<hole x="0" y="0" drill="3.048"/>
+<text x="0" y="1.651" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-1.651" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="DGND">
@@ -730,6 +742,11 @@ IC needs to have legs bent before insertion.</description>
 </gates>
 <devices>
 <device name="" package="STAND-OFF">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="TIGHT" package="STAND-OFF-TIGHT">
 <technologies>
 <technology name=""/>
 </technologies>
