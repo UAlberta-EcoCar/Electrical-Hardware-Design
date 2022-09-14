@@ -317,22 +317,6 @@
 <wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
 <wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
 </package>
-<package name="JUMPER-0.45">
-<description>&lt;h3&gt;AXIAL-0.3&lt;/h3&gt;
-&lt;p&gt;Commonly used for 1/4W through-hole resistors. 0.3" pitch between holes.&lt;/p&gt;</description>
-<wire x1="-4.445" y1="0.762" x2="4.445" y2="0.762" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="0.762" x2="4.445" y2="0" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="0" x2="4.445" y2="-0.762" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="-0.762" x2="-4.445" y2="-0.762" width="0.2032" layer="21"/>
-<wire x1="-4.445" y1="-0.762" x2="-4.445" y2="0" width="0.2032" layer="21"/>
-<wire x1="-4.445" y1="0" x2="-4.445" y2="0.762" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="0" x2="4.699" y2="0" width="0.2032" layer="21"/>
-<wire x1="-4.445" y1="0" x2="-4.699" y2="0" width="0.2032" layer="21"/>
-<pad name="P$1" x="-5.715" y="0" drill="0.9" diameter="1.8796"/>
-<pad name="P$2" x="5.715" y="0" drill="0.9" diameter="1.8796"/>
-<text x="-3.175" y="1.016" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
-<text x="-3.175" y="-1.016" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
-</package>
 </packages>
 </library>
 <library name="EcoCar-Connectors-2.54mm">
@@ -694,16 +678,16 @@ design rules under a new name.</description>
 <element name="AUX_PWR_IN" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="7.62" y="78.74" smashed="yes" rot="R270">
 <attribute name="NAME" x="2.173" y="88.138" size="1.778" layer="25"/>
 </element>
-<element name="BRK_LIGHT_RELAY" library="EcoCar-Electromechanical" package="TE_1-1721081-2" value="RELAY_SPST-NO_3A" x="44.45" y="31.75" smashed="yes" rot="R270">
-<attribute name="AVAILABILITY" value="In Stock" x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="COMMENT" value="1-1721081-2" x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DESCRIPTION" value=" General Purpose Relay SPST-NO (1 Form A) 12VDC Coil Through Hole " x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="TE Connectivity" x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MP" value="1-1721081-2" x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="48.51761875" y="42.4275" size="1.27113125" layer="25" rot="R270"/>
-<attribute name="PACKAGE" value="None" x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="PRICE" value="None" x="-45.72" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="39.234459375" y="42.4355" size="1.27208125" layer="27" rot="R270"/>
+<element name="BRK_LIGHT_RELAY" library="EcoCar-Electromechanical" package="TE_1-1721081-2" value="RELAY_SPST-NO_3A" x="54.61" y="29.21" smashed="yes" rot="R270">
+<attribute name="AVAILABILITY" value="In Stock" x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="COMMENT" value="1-1721081-2" x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DESCRIPTION" value=" General Purpose Relay SPST-NO (1 Form A) 12VDC Coil Through Hole " x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="TE Connectivity" x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MP" value="1-1721081-2" x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="58.67761875" y="39.8875" size="1.27113125" layer="25" rot="R270"/>
+<attribute name="PACKAGE" value="None" x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PRICE" value="None" x="-35.56" y="5.08" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="49.394459375" y="39.8955" size="1.27208125" layer="27" rot="R270"/>
 </element>
 <element name="BRK_PWR" library="EcoCar-Connectors" package="TE_3-PIN" value="TE_3-PIN" x="40.64" y="2.54" smashed="yes">
 <attribute name="NAME" x="25.4" y="3.81" size="1.778" layer="25" rot="R90"/>
@@ -788,21 +772,21 @@ design rules under a new name.</description>
 <attribute name="NAME" x="10.16" y="12.192" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
 <attribute name="VALUE" x="10.16" y="8.128" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="ISP_328P2" library="EcoCar-Microcontrollers" package="ISP_CONNECTOR" value="ISP" x="44.45" y="77.47" smashed="yes" rot="R180">
-<attribute name="NAME" x="47.879" y="72.517" size="1.27" layer="25" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="48.133" y="83.693" size="1.27" layer="27" rot="R180"/>
+<element name="ISP_328P2" library="EcoCar-Microcontrollers" package="ISP_CONNECTOR" value="ISP" x="52.07" y="74.93" smashed="yes" rot="R180">
+<attribute name="NAME" x="55.499" y="69.977" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="55.753" y="81.153" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="MCU_328P2" library="EcoCar-Microcontrollers" package="DIP28" value="328P" x="33.02" y="49.53" smashed="yes" rot="R270">
-<attribute name="NAME" x="33.02" y="67.945" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="PROD_ID" value="IC-09136" x="-57.15" y="-6.35" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="33.02" y="30.48" size="0.6096" layer="27" font="vector" ratio="20" align="bottom-center"/>
+<element name="MCU_328P2" library="EcoCar-Microcontrollers" package="DIP28" value="328P" x="43.18" y="46.99" smashed="yes" rot="R270">
+<attribute name="NAME" x="43.18" y="65.405" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="PROD_ID" value="IC-09136" x="-46.99" y="-8.89" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="43.18" y="27.94" size="0.6096" layer="27" font="vector" ratio="20" align="bottom-center"/>
 </element>
 <element name="CENTER_CONSOLE" library="EcoCar-Connectors" package="RJ45" value="RJ45" x="153.67" y="35.56" smashed="yes" rot="R90">
 <attribute name="NAME" x="143.002" y="32.512" size="1.778" layer="21" rot="R90"/>
 <attribute name="VALUE" x="158.242" y="25.781" size="1.778" layer="27" rot="R90"/>
 </element>
-<element name="PB2" library="EcoCar-Electromechanical" package="PUSHBUTTON" value="" x="30.48" y="71.12" smashed="yes" rot="R90">
-<attribute name="NAME" x="24.511" y="69.977" size="0.8128" layer="25" rot="R90"/>
+<element name="PB2" library="EcoCar-Electromechanical" package="PUSHBUTTON" value="" x="38.1" y="68.58" smashed="yes" rot="R90">
+<attribute name="NAME" x="32.131" y="67.437" size="0.8128" layer="25" rot="R90"/>
 </element>
 <element name="Q1" library="EcoCar-Discrete-Semiconductors" package="TO-263/D2PAK" value="" x="93.98" y="54.61" smashed="yes" rot="R90">
 <attribute name="NAME" x="93.98" y="48.895" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center"/>
@@ -824,9 +808,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="93.98" y="70.739" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
 <attribute name="VALUE" x="93.98" y="68.961" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="R7" library="EcoCar-Passives" package="0805" value="10K" x="31.75" y="80.01" smashed="yes" rot="MR180">
-<attribute name="NAME" x="31.75" y="79.121" size="0.6096" layer="26" font="vector" ratio="20" rot="MR180" align="bottom-center"/>
-<attribute name="VALUE" x="31.75" y="80.899" size="0.6096" layer="28" font="vector" ratio="20" rot="MR180" align="top-center"/>
+<element name="R7" library="EcoCar-Passives" package="0805" value="10K" x="39.37" y="77.47" smashed="yes" rot="MR180">
+<attribute name="NAME" x="39.37" y="76.581" size="0.6096" layer="26" font="vector" ratio="20" rot="MR180" align="bottom-center"/>
+<attribute name="VALUE" x="39.37" y="78.359" size="0.6096" layer="28" font="vector" ratio="20" rot="MR180" align="top-center"/>
 </element>
 <element name="SERVO_PWR" library="EcoCar-Connectors" package="TE_3-PIN" value="TE_3-PIN" x="33.02" y="99.06" smashed="yes" rot="R180">
 <attribute name="NAME" x="49.53" y="97.79" size="1.778" layer="25" rot="R270"/>
@@ -847,9 +831,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="143.002" y="61.722" size="1.778" layer="21" rot="R90"/>
 <attribute name="VALUE" x="158.242" y="54.991" size="1.778" layer="27" rot="R90"/>
 </element>
-<element name="AVCC_JMP" library="EcoCar-Passives" package="JUMPER-0.45" value="" x="45.72" y="45.72" smashed="yes" rot="R180">
-<attribute name="NAME" x="48.895" y="44.704" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center"/>
-<attribute name="VALUE" x="48.895" y="46.736" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
+<element name="R2" library="EcoCar-Passives" package="0805" value="0" x="21.59" y="34.29" smashed="yes">
+<attribute name="NAME" x="21.59" y="35.179" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
+<attribute name="VALUE" x="21.59" y="33.401" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
 </elements>
 <signals>
@@ -926,19 +910,19 @@ design rules under a new name.</description>
 <wire x1="86.36" y1="20.76" x2="86.36" y2="78.74" width="1.27" layer="16"/>
 <wire x1="86.36" y1="78.74" x2="78.71" y2="86.39" width="1.27" layer="16"/>
 <wire x1="66.51" y1="15.21" x2="58.42" y2="23.3" width="1.27" layer="16"/>
-<wire x1="58.42" y1="23.3" x2="58.42" y2="81.28" width="1.27" layer="16"/>
+<wire x1="58.42" y1="23.3" x2="58.42" y2="33.02" width="1.27" layer="16"/>
+<wire x1="58.42" y1="33.02" x2="58.42" y2="81.28" width="1.27" layer="16"/>
 <wire x1="58.42" y1="81.28" x2="51.4726" y2="88.2274" width="1.27" layer="16"/>
-<wire x1="42.1" y1="29.5" x2="40.63" y2="29.5" width="1.27" layer="16"/>
-<wire x1="40.63" y1="29.5" x2="36.5" y2="25.37" width="1.27" layer="16"/>
-<wire x1="36.5" y1="25.37" x2="36.5" y2="15.21" width="1.27" layer="16"/>
+<wire x1="52.26" y1="26.96" x2="58.32" y2="33.02" width="1.27" layer="16"/>
+<wire x1="58.32" y1="33.02" x2="58.42" y2="33.02" width="1.27" layer="16"/>
+<wire x1="52.26" y1="26.96" x2="48.25" y2="26.96" width="1.27" layer="16"/>
+<wire x1="48.25" y1="26.96" x2="36.5" y2="15.21" width="1.27" layer="16"/>
 <wire x1="14.96" y1="74.6" x2="15.251" y2="74.309" width="1.27" layer="16"/>
 <wire x1="15.251" y1="74.309" x2="15.251" y2="69.469" width="1.27" layer="16"/>
 <wire x1="15.251" y1="69.469" x2="15.251" y2="65.659" width="1.27" layer="16"/>
 <wire x1="15.251" y1="65.659" x2="15.251" y2="61.849" width="1.27" layer="16"/>
 <wire x1="15.251" y1="61.849" x2="15.21" y2="61.808003125" width="1.27" layer="16"/>
 <wire x1="15.21" y1="61.808003125" x2="15.21" y2="56.426" width="1.27" layer="16"/>
-<wire x1="66.51" y1="15.21" x2="52.22" y2="29.5" width="1.27" layer="16"/>
-<wire x1="52.22" y1="29.5" x2="42.1" y2="29.5" width="1.27" layer="16"/>
 <wire x1="94.88" y1="69.85" x2="101.23" y2="74.93" width="0" layer="19" extent="1-1"/>
 <wire x1="88.43" y1="86.39" x2="101.23" y2="74.93" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -953,51 +937,45 @@ design rules under a new name.</description>
 <contactref element="R7" pad="1"/>
 <contactref element="ISP_328P2" pad="2"/>
 <contactref element="MCU_328P2" pad="7"/>
+<contactref element="R2" pad="1"/>
 <wire x1="19.1" y1="74.6" x2="19.1" y2="75.98710625" width="0.4064" layer="16"/>
 <wire x1="19.1" y1="75.98710625" x2="17.6194" y2="77.46770625" width="0.4064" layer="16"/>
 <wire x1="15.21" y1="33.566" x2="19.1" y2="37.456" width="0.4064" layer="16"/>
 <wire x1="19.1" y1="37.456" x2="19.1" y2="74.6" width="0.4064" layer="16"/>
-<wire x1="30.81" y1="80.01" x2="30.85" y2="80.01" width="0.4064" layer="16"/>
+<wire x1="38.43" y1="77.47" x2="38.47" y2="77.47" width="0.4064" layer="16"/>
 <wire x1="17.6194" y1="81.3994" x2="19.1" y2="82.88" width="0.4064" layer="16"/>
 <wire x1="17.6194" y1="77.46770625" x2="17.6194" y2="81.3994" width="0.4064" layer="16"/>
 <wire x1="19.1" y1="82.88" x2="21.2044" y2="84.9844" width="0.4064" layer="16"/>
 <wire x1="35.7544" y1="84.9844" x2="37.16" y2="86.39" width="0.4064" layer="16"/>
 <wire x1="21.2044" y1="84.9844" x2="35.7544" y2="84.9844" width="0.4064" layer="16"/>
-<wire x1="41.91" y1="78.74" x2="41.91" y2="81.64" width="0.4064" layer="16"/>
-<wire x1="41.91" y1="81.64" x2="37.16" y2="86.39" width="0.4064" layer="16"/>
-<wire x1="30.85" y1="80.01" x2="29.58" y2="81.28" width="0.4064" layer="16"/>
+<wire x1="37.16" y1="86.39" x2="42.27" y2="81.28" width="0.4064" layer="16"/>
+<wire x1="49.53" y1="76.2" x2="44.45" y2="81.28" width="0.4064" layer="16"/>
+<wire x1="44.45" y1="81.28" x2="42.27" y2="81.28" width="0.4064" layer="16"/>
+<wire x1="38.47" y1="77.47" x2="34.66" y2="81.28" width="0.4064" layer="16"/>
 <wire x1="20.7" y1="81.28" x2="19.1" y2="82.88" width="0.4064" layer="16"/>
-<wire x1="29.58" y1="81.28" x2="20.7" y2="81.28" width="0.4064" layer="16"/>
-<wire x1="29.21" y1="50.8" x2="27.94" y2="52.07" width="0.4064" layer="16"/>
-<wire x1="27.94" y1="77.1" x2="30.85" y2="80.01" width="0.4064" layer="16"/>
-<wire x1="27.94" y1="52.07" x2="27.94" y2="77.1" width="0.4064" layer="16"/>
-<contactref element="AVCC_JMP" pad="P$1"/>
-<wire x1="15.21" y1="33.566" x2="24.854" y2="33.566" width="0.4064" layer="16"/>
-<wire x1="24.854" y1="33.566" x2="27.94" y2="30.48" width="0.4064" layer="16"/>
-<wire x1="27.94" y1="30.48" x2="38.1" y2="30.48" width="0.4064" layer="16"/>
-<wire x1="43.18" y1="35.56" x2="45.72" y2="35.56" width="0.4064" layer="16"/>
-<wire x1="45.72" y1="35.56" x2="51.435" y2="41.275" width="0.4064" layer="16"/>
-<wire x1="51.435" y1="41.275" x2="51.435" y2="45.72" width="0.4064" layer="16"/>
-<wire x1="38.1" y1="30.48" x2="43.18" y2="35.56" width="0.4064" layer="16"/>
+<wire x1="34.66" y1="81.28" x2="20.7" y2="81.28" width="0.4064" layer="16"/>
+<wire x1="39.37" y1="48.26" x2="35.56" y2="52.07" width="0.4064" layer="16"/>
+<wire x1="35.56" y1="74.56" x2="38.47" y2="77.47" width="0.4064" layer="16"/>
+<wire x1="35.56" y1="52.07" x2="35.56" y2="74.56" width="0.4064" layer="16"/>
 <wire x1="122.29" y1="74.93" x2="126.1" y2="74.93" width="0" layer="19" extent="16-16"/>
 <wire x1="118.48" y1="74.93" x2="122.29" y2="74.93" width="0" layer="19" extent="16-16"/>
-<wire x1="51.435" y1="45.72" x2="118.48" y2="74.93" width="0" layer="19" extent="16-16"/>
+<wire x1="49.53" y1="76.2" x2="118.48" y2="74.93" width="0" layer="19" extent="16-16"/>
+<wire x1="20.69" y1="34.29" x2="15.21" y2="33.566" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BRK_O/P">
 <contactref element="BRK_LIGHT_RELAY" pad="2"/>
 <contactref element="MCU_328P2" pad="23"/>
-<wire x1="36.83" y1="53.34" x2="42.1" y2="48.07" width="0.2032" layer="1"/>
-<wire x1="42.1" y1="48.07" x2="42.1" y2="41" width="0.2032" layer="1"/>
+<wire x1="52.26" y1="38.46" x2="46.99" y2="50.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SGNL_RIGHT_O/P">
 <contactref element="Q4" pad="1"/>
 <contactref element="MCU_328P2" pad="12"/>
-<wire x1="29.21" y1="38.1" x2="75.625" y2="52.07" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="35.56" x2="75.625" y2="52.07" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="HAZARD_I/P">
 <contactref element="MCU_328P2" pad="6"/>
 <contactref element="CENTER_CONSOLE" pad="6"/>
-<wire x1="29.21" y1="53.34" x2="149.35" y2="40.38" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="50.8" x2="149.35" y2="40.38" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SGNL_RIGHT_12V">
 <contactref element="Q4" pad="2"/>
@@ -1013,7 +991,7 @@ design rules under a new name.</description>
 <signal name="BRK_I/P">
 <contactref element="MCU_328P2" pad="24"/>
 <contactref element="CENTER_CONSOLE" pad="8"/>
-<wire x1="36.83" y1="55.88" x2="149.35" y2="38.35" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="53.34" x2="149.35" y2="38.35" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SERVO_O/P">
 <contactref element="SERVO_PWR" pad="2"/>
@@ -1021,7 +999,7 @@ design rules under a new name.</description>
 <signal name="SERVO_I/P">
 <contactref element="STEERING-WHEEL" pad="4"/>
 <contactref element="MCU_328P2" pad="4"/>
-<wire x1="29.21" y1="58.42" x2="149.35" y2="71.62" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="55.88" x2="149.35" y2="71.62" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SGNL_LEFT_12V">
 <contactref element="Q1" pad="2"/>
@@ -1037,29 +1015,30 @@ design rules under a new name.</description>
 <signal name="SGNL_LEFT_O/P">
 <contactref element="Q1" pad="1"/>
 <contactref element="MCU_328P2" pad="15"/>
-<wire x1="36.83" y1="33.02" x2="101.025" y2="52.07" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="30.48" x2="101.025" y2="52.07" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BRK_12V">
 <contactref element="BRK_PWR" pad="2"/>
 <contactref element="BRK_LIGHT_RELAY" pad="4"/>
-<wire x1="42.1" y1="22.5" x2="42.1" y2="16.67" width="1.27" layer="16"/>
-<wire x1="42.1" y1="16.67" x2="40.64" y2="15.21" width="1.27" layer="16"/>
+<wire x1="52.26" y1="19.96" x2="50.08" y2="17.78" width="1.27" layer="16"/>
+<wire x1="43.21" y1="17.78" x2="40.64" y2="15.21" width="1.27" layer="16"/>
+<wire x1="50.08" y1="17.78" x2="43.21" y2="17.78" width="1.27" layer="16"/>
 </signal>
 <signal name="N$1">
 <contactref element="BRK_LIGHT_RELAY" pad="1"/>
 <contactref element="R1" pad="1"/>
-<wire x1="46.8" y1="41" x2="49.7" y2="38.1" width="0.2032" layer="1"/>
-<wire x1="49.7" y1="38.1" x2="65.013" y2="38.1" width="0.2032" layer="1"/>
+<wire x1="65.013" y1="38.1" x2="57.32" y2="38.1" width="0.4064" layer="1"/>
+<wire x1="57.32" y1="38.1" x2="56.96" y2="38.46" width="0.4064" layer="1"/>
 </signal>
 <signal name="SGNL_LEFT_I/P">
 <contactref element="MCU_328P2" pad="25"/>
 <contactref element="STEERING-WHEEL" pad="6"/>
-<wire x1="36.83" y1="58.42" x2="149.35" y2="69.59" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="55.88" x2="149.35" y2="69.59" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SGNL_RIGHT_I/P">
 <contactref element="MCU_328P2" pad="26"/>
 <contactref element="STEERING-WHEEL" pad="8"/>
-<wire x1="36.83" y1="60.96" x2="149.35" y2="67.56" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="58.42" x2="149.35" y2="67.56" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="RESET_328P2">
 <contactref element="ISP_328P2" pad="5"/>
@@ -1067,39 +1046,34 @@ design rules under a new name.</description>
 <contactref element="R7" pad="2"/>
 <contactref element="PB2" pad="1"/>
 <contactref element="PB2" pad="2"/>
-<wire x1="46.99" y1="76.2" x2="44.45" y2="73.66" width="0.4064" layer="16"/>
-<wire x1="44.45" y1="73.66" x2="39" y2="73.66" width="0.4064" layer="16"/>
-<wire x1="32.65" y1="80.01" x2="39" y2="73.66" width="0.4064" layer="16"/>
-<wire x1="30.48" y1="67.31" x2="29.21" y2="66.04" width="0.4064" layer="16"/>
-<wire x1="30.48" y1="77.62" x2="32.65" y2="79.79" width="0.4064" layer="16"/>
-<wire x1="32.65" y1="79.79" x2="32.65" y2="80.01" width="0.4064" layer="16"/>
-<wire x1="30.48" y1="77.62" x2="30.48" y2="71.12" width="0.4064" layer="16"/>
-<wire x1="30.48" y1="71.12" x2="30.48" y2="67.31" width="0.4064" layer="16"/>
+<wire x1="54.61" y1="73.66" x2="52.07" y2="71.12" width="0.4064" layer="16"/>
+<wire x1="52.07" y1="71.12" x2="46.62" y2="71.12" width="0.4064" layer="16"/>
+<wire x1="40.27" y1="77.47" x2="46.62" y2="71.12" width="0.4064" layer="16"/>
+<wire x1="38.1" y1="64.77" x2="39.37" y2="63.5" width="0.4064" layer="16"/>
+<wire x1="38.1" y1="75.08" x2="40.27" y2="77.25" width="0.4064" layer="16"/>
+<wire x1="40.27" y1="77.25" x2="40.27" y2="77.47" width="0.4064" layer="16"/>
+<wire x1="38.1" y1="75.08" x2="38.1" y2="68.58" width="0.4064" layer="16"/>
+<wire x1="38.1" y1="68.58" x2="38.1" y2="64.77" width="0.4064" layer="16"/>
 </signal>
 <signal name="SCK_328P2">
 <contactref element="ISP_328P2" pad="3"/>
 <contactref element="MCU_328P2" pad="19"/>
-<wire x1="36.83" y1="43.18" x2="44.45" y2="76.2" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="40.64" x2="52.07" y2="73.66" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MISO_328P2">
 <contactref element="ISP_328P2" pad="1"/>
 <contactref element="MCU_328P2" pad="18"/>
-<wire x1="36.83" y1="40.64" x2="41.91" y2="76.2" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="38.1" x2="49.53" y2="73.66" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MOSI_328P2">
 <contactref element="ISP_328P2" pad="4"/>
 <contactref element="MCU_328P2" pad="17"/>
-<wire x1="36.83" y1="38.1" x2="44.45" y2="78.74" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="35.56" x2="52.07" y2="76.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SERVO_ADC_I/P">
 <contactref element="STEERING-WHEEL" pad="2"/>
 <contactref element="MCU_328P2" pad="27"/>
-<wire x1="36.83" y1="63.5" x2="149.35" y2="73.65" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$2">
-<contactref element="MCU_328P2" pad="20"/>
-<contactref element="AVCC_JMP" pad="P$2"/>
-<wire x1="40.005" y1="45.72" x2="36.83" y2="45.72" width="0.4064" layer="16"/>
+<wire x1="46.99" y1="60.96" x2="149.35" y2="73.65" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
