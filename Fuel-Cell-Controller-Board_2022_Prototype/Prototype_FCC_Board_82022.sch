@@ -13374,13 +13374,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <part name="C104" library="100uF_Cap" deviceset="CAP-VS-SERIES-PACKAGE-E(ELECT)" device="VS-SERIES-PACKAGE-E" value="1µF"/>
 <part name="C106" library="100uF_Cap" deviceset="CAP-VS-SERIES-PACKAGE-E(ELECT)" device="VS-SERIES-PACKAGE-E" value="1µF"/>
 <part name="C112" library="100uF_Cap" deviceset="CAP-VS-SERIES-PACKAGE-E(ELECT)" device="VS-SERIES-PACKAGE-E" value="10µF"/>
-<part name="START" library="ETHERNET" deviceset="ETHERNET" device=""/>
 <part name="C113" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="1µF"/>
 <part name="C114" library="100uF_Cap" deviceset="CAP-VS-SERIES-PACKAGE-E(ELECT)" device="VS-SERIES-PACKAGE-E" value="1µF"/>
 <part name="C115" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="1µF"/>
 <part name="C116" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="10µF"/>
 <part name="C117" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="10µF"/>
-<part name="R220" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1kΩ"/>
 <part name="D4" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="DIODE-" device="DO214AC" package3d_urn="urn:adsk.eagle:package:43417/2"/>
 <part name="D3" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="DIODE-" device="DO214AC" package3d_urn="urn:adsk.eagle:package:43417/2"/>
 <part name="D5" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="DIODE-" device="DO214AC" package3d_urn="urn:adsk.eagle:package:43417/2"/>
@@ -13444,7 +13442,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <part name="GND12" library="E-P-008-R1.2" deviceset="GND" device=""/>
 <part name="GND13" library="E-P-008-R1.2" deviceset="GND" device=""/>
 <part name="GND14" library="E-P-008-R1.2" deviceset="GND" device=""/>
-<part name="GND15" library="E-P-008-R1.2" deviceset="GND" device=""/>
 <part name="GND16" library="E-P-008-R1.2" deviceset="GND" device=""/>
 <part name="TEMPERATURE1" library="ETHERNET" deviceset="ETHERNET" device=""/>
 <part name="GND17" library="E-P-008-R1.2" deviceset="GND" device=""/>
@@ -13513,13 +13510,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <text x="68.58" y="264.16" size="6.4516" layer="94">NUCLEO-F746ZG</text>
 <text x="337.82" y="261.62" size="3.81" layer="94">OUTPUT BUFFERS</text>
 <text x="266.7" y="200.66" size="3.81" layer="94">Indicator LED's</text>
-<text x="15.24" y="114.3" size="3.81" layer="94">DECOUPLING CAPACITORS</text>
+<text x="15.24" y="106.68" size="3.81" layer="94">DECOUPLING CAPACITORS</text>
 <text x="266.7" y="261.62" size="3.81" layer="94">JUMPERS</text>
 <text x="93.98" y="45.72" size="3.81" layer="94">N-MOSFET INVERTER</text>
 <text x="172.72" y="96.52" size="3.81" layer="94">PULLDOWN RESISTORS</text>
 <text x="342.9" y="109.22" size="3.81" layer="94">TTL &lt;--&gt; RS232 Converter</text>
 <text x="261.62" y="109.22" size="3.81" layer="94">PULLUP RESISTORS</text>
-<text x="261.62" y="55.88" size="3.81" layer="94">LINEAR REGULATOR</text>
+<text x="261.62" y="63.5" size="3.81" layer="94">LINEAR REGULATOR</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="134.62" y="195.58" smashed="yes"/>
@@ -13760,12 +13757,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <attribute name="NAME" x="293.37" y="85.3186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="293.37" y="80.518" size="1.778" layer="96"/>
 </instance>
-<instance part="PS1" gate="G$1" x="302.26" y="45.72" smashed="yes" rot="R180">
-<attribute name="NAME" x="265.43" y="38.1" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="265.43" y="40.64" size="1.778" layer="96" align="center-left"/>
+<instance part="PS1" gate="G$1" x="302.26" y="53.34" smashed="yes" rot="R180">
+<attribute name="NAME" x="265.43" y="45.72" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="265.43" y="48.26" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="GND23" gate="1" x="304.8" y="40.64" smashed="yes">
-<attribute name="VALUE" x="302.26" y="38.1" size="1.778" layer="96"/>
+<instance part="GND23" gate="1" x="304.8" y="48.26" smashed="yes">
+<attribute name="VALUE" x="302.26" y="45.72" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -13960,9 +13957,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 </segment>
 <segment>
 <pinref part="PS1" gate="G$1" pin="-VIN_(GND)"/>
-<wire x1="302.26" y1="45.72" x2="304.8" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="53.34" x2="304.8" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="GND23" gate="1" pin="GND"/>
-<wire x1="304.8" y1="45.72" x2="304.8" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="53.34" x2="304.8" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FROM_OPEN" class="0">
@@ -14006,8 +14003,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 </segment>
 <segment>
 <pinref part="PS1" gate="G$1" pin="+VOUT"/>
-<wire x1="259.08" y1="48.26" x2="256.54" y2="48.26" width="0.1524" layer="91"/>
-<label x="248.92" y="48.26" size="1.778" layer="95"/>
+<wire x1="259.08" y1="55.88" x2="256.54" y2="55.88" width="0.1524" layer="91"/>
+<label x="248.92" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OPEN_RST" class="0">
@@ -14071,8 +14068,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 </segment>
 <segment>
 <pinref part="PS1" gate="G$1" pin="+VIN_(VCC)"/>
-<wire x1="302.26" y1="48.26" x2="304.8" y2="48.26" width="0.1524" layer="91"/>
-<label x="304.8" y="48.26" size="1.778" layer="95"/>
+<wire x1="302.26" y1="55.88" x2="304.8" y2="55.88" width="0.1524" layer="91"/>
+<label x="304.8" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FC_CURR" class="0">
@@ -14990,7 +14987,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <text x="312.42" y="104.14" size="3.81" layer="94">Power TE-6 Pins</text>
 <text x="106.68" y="182.88" size="3.81" layer="94">Relay Board</text>
 <text x="154.94" y="256.54" size="3.81" layer="94">Fans</text>
-<text x="86.36" y="104.14" size="3.81" layer="94">Start</text>
 <text x="365.76" y="256.54" size="3.81" layer="94">CAN</text>
 </plain>
 <instances>
@@ -15009,14 +15005,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <instance part="H2_SENSOR" gate="G$1" x="66.04" y="236.22" smashed="yes">
 <attribute name="NAME" x="66.04" y="213.36" size="1.778" layer="94"/>
 <attribute name="VALUE" x="66.04" y="210.82" size="1.778" layer="94"/>
-</instance>
-<instance part="START" gate="G$1" x="116.84" y="81.28" smashed="yes">
-<attribute name="NAME" x="116.84" y="58.42" size="1.778" layer="94"/>
-<attribute name="VALUE" x="116.84" y="55.88" size="1.778" layer="94"/>
-</instance>
-<instance part="R220" gate="G$1" x="99.06" y="88.9" smashed="yes" rot="R180">
-<attribute name="NAME" x="95.25" y="90.3986" size="1.778" layer="95"/>
-<attribute name="VALUE" x="95.25" y="85.598" size="1.778" layer="96"/>
 </instance>
 <instance part="C201" gate="G$1" x="45.72" y="226.06" smashed="yes">
 <attribute name="NAME" x="47.244" y="228.981" size="1.778" layer="95"/>
@@ -15154,9 +15142,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 </instance>
 <instance part="GND14" gate="1" x="58.42" y="55.88" smashed="yes">
 <attribute name="VALUE" x="55.88" y="53.34" size="1.778" layer="96"/>
-</instance>
-<instance part="GND15" gate="1" x="106.68" y="55.88" smashed="yes">
-<attribute name="VALUE" x="104.14" y="53.34" size="1.778" layer="96"/>
 </instance>
 <instance part="GND16" gate="1" x="264.16" y="210.82" smashed="yes">
 <attribute name="VALUE" x="261.62" y="208.28" size="1.778" layer="96"/>
@@ -15325,20 +15310,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <pinref part="C201" gate="G$1" pin="2"/>
 <wire x1="45.72" y1="223.52" x2="45.72" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="220.98" x2="53.34" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="START" gate="G$1" pin="SHD1"/>
-<wire x1="111.76" y1="66.04" x2="106.68" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="66.04" x2="106.68" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="START" gate="G$1" pin="SHD2"/>
-<wire x1="106.68" y1="63.5" x2="106.68" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="63.5" x2="106.68" y2="63.5" width="0.1524" layer="91"/>
-<junction x="106.68" y="63.5"/>
-<pinref part="GND15" gate="1" pin="GND"/>
-<pinref part="START" gate="G$1" pin="8"/>
-<wire x1="111.76" y1="78.74" x2="106.68" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="78.74" x2="106.68" y2="66.04" width="0.1524" layer="91"/>
-<junction x="106.68" y="66.04"/>
 </segment>
 <segment>
 <pinref part="PRESSURE1" gate="G$1" pin="SHD1"/>
@@ -15628,11 +15599,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 </segment>
 </net>
 <net name="FC3V3" class="0">
-<segment>
-<pinref part="R220" gate="G$1" pin="2"/>
-<wire x1="93.98" y1="88.9" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
-<label x="83.82" y="88.9" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="R216" gate="G$1" pin="1"/>
 <wire x1="378.46" y1="165.1" x2="378.46" y2="172.72" width="0.1524" layer="91"/>
@@ -16053,15 +16019,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <segment>
 <wire x1="162.56" y1="152.4" x2="167.64" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="RELAYBOARD4" gate="G$1" pin="LED2P"/>
-</segment>
-</net>
-<net name="_START" class="0">
-<segment>
-<pinref part="R220" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="88.9" x2="104.14" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="START" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="96.52" x2="111.76" y2="96.52" width="0.1524" layer="91"/>
-<label x="104.14" y="96.52" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -16788,10 +16745,15 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <wire x1="347.98" y1="248.92" x2="342.9" y2="248.92" width="0.1524" layer="91"/>
 <label x="322.58" y="248.92" size="1.778" layer="95"/>
 <pinref part="SHTSENSOR1" gate="G$1" pin="ADR"/>
-<wire x1="342.9" y1="248.92" x2="330.2" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="342.9" y1="248.92" x2="340.36" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="248.92" x2="330.2" y2="248.92" width="0.1524" layer="91"/>
 <wire x1="347.98" y1="228.6" x2="342.9" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="228.6" x2="342.9" y2="248.92" width="0.1524" layer="91"/>
 <junction x="342.9" y="248.92"/>
+<pinref part="SHTSENSOR1" gate="G$1" pin="RST"/>
+<wire x1="347.98" y1="223.52" x2="340.36" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="223.52" x2="340.36" y2="248.92" width="0.1524" layer="91"/>
+<junction x="340.36" y="248.92"/>
 </segment>
 </net>
 <net name="OPEN_RST" class="0">
@@ -16814,13 +16776,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <label x="271.78" y="167.64" size="1.778" layer="95" xref="yes"/>
 <wire x1="266.7" y1="170.18" x2="269.24" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="269.24" y1="170.18" x2="271.78" y2="167.64" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="HUMID_RST" class="0">
-<segment>
-<pinref part="SHTSENSOR1" gate="G$1" pin="RST"/>
-<wire x1="347.98" y1="223.52" x2="330.2" y2="223.52" width="0.1524" layer="91"/>
-<label x="330.2" y="223.52" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="I2C1_SCL" class="0">
@@ -16897,13 +16852,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <pinref part="LP_FILTER_OP_AMP1" gate="G$1" pin="VCC"/>
 <wire x1="63.5" y1="35.56" x2="58.42" y2="35.56" width="0.1524" layer="91"/>
 <label x="53.34" y="35.56" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SHT31_ALERT" class="0">
-<segment>
-<pinref part="SHTSENSOR1" gate="G$1" pin="ALR"/>
-<wire x1="347.98" y1="218.44" x2="330.2" y2="218.44" width="0.1524" layer="91"/>
-<label x="330.2" y="218.44" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CAP_CURR" class="0">

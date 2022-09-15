@@ -16515,17 +16515,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 </segment>
 <segment>
 <pinref part="LP_FILTER_OP_AMP1" gate="G$1" pin="GND"/>
-<wire x1="99.06" y1="35.56" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
 <label x="104.14" y="35.56" size="1.778" layer="95"/>
-<pinref part="LP_FILTER_OP_AMP1" gate="G$1" pin="4IN+"/>
-<wire x1="101.6" y1="35.56" x2="104.14" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="40.64" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="40.64" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
-<junction x="101.6" y="35.56"/>
-<pinref part="LP_FILTER_OP_AMP1" gate="G$1" pin="4IN-"/>
-<wire x1="99.06" y1="45.72" x2="101.6" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="45.72" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
-<junction x="101.6" y="40.64"/>
+<wire x1="99.06" y1="35.56" x2="104.14" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C305" gate="G$1" pin="2"/>
@@ -17066,6 +17057,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <wire x1="119.38" y1="20.32" x2="119.38" y2="12.7" width="0.1524" layer="91"/>
 <junction x="119.38" y="20.32"/>
 <label x="119.38" y="12.7" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$25" class="0">
+<segment>
+<pinref part="LP_FILTER_OP_AMP1" gate="G$1" pin="4IN-"/>
+<wire x1="99.06" y1="45.72" x2="101.6" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
