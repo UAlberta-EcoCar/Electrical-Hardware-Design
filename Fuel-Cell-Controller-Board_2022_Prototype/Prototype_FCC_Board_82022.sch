@@ -13269,6 +13269,37 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <wire x1="-4.39" y1="-0.19" x2="-4.39" y2="-0.19" width="0.2" layer="21"/>
 <wire x1="-4.39" y1="-0.19" x2="-4.19" y2="-0.19" width="0.2" layer="21" curve="180"/>
 </package>
+<package name="DIP794W53P254L1930H508Q14N">
+<description>&lt;b&gt;N (R-PDIP-T14)&lt;/b&gt;&lt;br&gt;
+</description>
+<pad name="1" x="-3.97" y="7.62" drill="0.73" diameter="1.13" shape="square"/>
+<pad name="2" x="-3.97" y="5.08" drill="0.73" diameter="1.13"/>
+<pad name="3" x="-3.97" y="2.54" drill="0.73" diameter="1.13"/>
+<pad name="4" x="-3.97" y="0" drill="0.73" diameter="1.13"/>
+<pad name="5" x="-3.97" y="-2.54" drill="0.73" diameter="1.13"/>
+<pad name="6" x="-3.97" y="-5.08" drill="0.73" diameter="1.13"/>
+<pad name="7" x="-3.97" y="-7.62" drill="0.73" diameter="1.13"/>
+<pad name="8" x="3.97" y="-7.62" drill="0.73" diameter="1.13"/>
+<pad name="9" x="3.97" y="-5.08" drill="0.73" diameter="1.13"/>
+<pad name="10" x="3.97" y="-2.54" drill="0.73" diameter="1.13"/>
+<pad name="11" x="3.97" y="0" drill="0.73" diameter="1.13"/>
+<pad name="12" x="3.97" y="2.54" drill="0.73" diameter="1.13"/>
+<pad name="13" x="3.97" y="5.08" drill="0.73" diameter="1.13"/>
+<pad name="14" x="3.97" y="7.62" drill="0.73" diameter="1.13"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-4.945" y1="10.095" x2="4.945" y2="10.095" width="0.05" layer="51"/>
+<wire x1="4.945" y1="10.095" x2="4.945" y2="-10.095" width="0.05" layer="51"/>
+<wire x1="4.945" y1="-10.095" x2="-4.945" y2="-10.095" width="0.05" layer="51"/>
+<wire x1="-4.945" y1="-10.095" x2="-4.945" y2="10.095" width="0.05" layer="51"/>
+<wire x1="-3.3" y1="9.845" x2="3.3" y2="9.845" width="0.1" layer="51"/>
+<wire x1="3.3" y1="9.845" x2="3.3" y2="-9.845" width="0.1" layer="51"/>
+<wire x1="3.3" y1="-9.845" x2="-3.3" y2="-9.845" width="0.1" layer="51"/>
+<wire x1="-3.3" y1="-9.845" x2="-3.3" y2="9.845" width="0.1" layer="51"/>
+<wire x1="-3.3" y1="8.575" x2="-2.03" y2="9.845" width="0.1" layer="51"/>
+<wire x1="-4.535" y1="9.845" x2="3.3" y2="9.845" width="0.2" layer="21"/>
+<wire x1="-3.3" y1="-9.845" x2="3.3" y2="-9.845" width="0.2" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TDL_2-1210">
@@ -13282,6 +13313,28 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <pin name="+VIN_(VCC)" x="0" y="-2.54" length="middle"/>
 <pin name="+VOUT" x="43.18" y="-2.54" length="middle" rot="R180"/>
 <pin name="-VOUT" x="43.18" y="0" length="middle" rot="R180"/>
+</symbol>
+<symbol name="TLV2404IN">
+<wire x1="5.08" y1="2.54" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-17.78" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-17.78" x2="5.08" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-17.78" width="0.254" layer="94"/>
+<text x="24.13" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="24.13" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1OUT" x="0" y="0" length="middle"/>
+<pin name="1IN-" x="0" y="-2.54" length="middle"/>
+<pin name="1IN+" x="0" y="-5.08" length="middle"/>
+<pin name="VCC" x="0" y="-7.62" length="middle"/>
+<pin name="2IN+" x="0" y="-10.16" length="middle"/>
+<pin name="2IN-" x="0" y="-12.7" length="middle"/>
+<pin name="2OUT" x="0" y="-15.24" length="middle"/>
+<pin name="4OUT" x="27.94" y="0" length="middle" rot="R180"/>
+<pin name="4IN-" x="27.94" y="-2.54" length="middle" rot="R180"/>
+<pin name="4IN+" x="27.94" y="-5.08" length="middle" rot="R180"/>
+<pin name="GND" x="27.94" y="-7.62" length="middle" rot="R180"/>
+<pin name="3IN+" x="27.94" y="-10.16" length="middle" rot="R180"/>
+<pin name="3IN-" x="27.94" y="-12.7" length="middle" rot="R180"/>
+<pin name="3OUT" x="27.94" y="-15.24" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -13307,6 +13360,43 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <attribute name="MANUFACTURER_PART_NUMBER" value="TDL 2-1210" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="495-TDL2-1210" constant="no"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=495-TDL2-1210" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TLV2404IN" prefix="IC">
+<description>&lt;b&gt;Quad MicroPower, RRIO Operational Amplifier with wide supply voltage range and high CMRR&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="TLV2404IN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DIP794W53P254L1930H508Q14N">
+<connects>
+<connect gate="G$1" pin="1IN+" pad="3"/>
+<connect gate="G$1" pin="1IN-" pad="2"/>
+<connect gate="G$1" pin="1OUT" pad="1"/>
+<connect gate="G$1" pin="2IN+" pad="5"/>
+<connect gate="G$1" pin="2IN-" pad="6"/>
+<connect gate="G$1" pin="2OUT" pad="7"/>
+<connect gate="G$1" pin="3IN+" pad="10"/>
+<connect gate="G$1" pin="3IN-" pad="9"/>
+<connect gate="G$1" pin="3OUT" pad="8"/>
+<connect gate="G$1" pin="4IN+" pad="12"/>
+<connect gate="G$1" pin="4IN-" pad="13"/>
+<connect gate="G$1" pin="4OUT" pad="14"/>
+<connect gate="G$1" pin="GND" pad="11"/>
+<connect gate="G$1" pin="VCC" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Quad MicroPower, RRIO Operational Amplifier with wide supply voltage range and high CMRR" constant="no"/>
+<attribute name="HEIGHT" value="5.08mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Texas Instruments" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="TLV2404IN" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="595-TLV2404IN" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=595-TLV2404IN" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -13502,6 +13592,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <part name="R122" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7kΩ"/>
 <part name="PS1" library="SamacSys_Parts" deviceset="TDL_2-1210" device=""/>
 <part name="GND23" library="E-P-008-R1.2" deviceset="GND" device=""/>
+<part name="IC2" library="SamacSys_Parts" deviceset="TLV2404IN" device=""/>
+<part name="IC3" library="SamacSys_Parts" deviceset="TLV2404IN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16293,6 +16385,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <instance part="C306" gate="G$1" x="129.54" y="20.32" smashed="yes" rot="R90">
 <attribute name="NAME" x="125.984" y="23.241" size="1.778" layer="95"/>
 <attribute name="VALUE" x="131.699" y="21.844" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="IC2" gate="G$1" x="170.18" y="38.1" smashed="yes">
+<attribute name="NAME" x="194.31" y="45.72" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="194.31" y="43.18" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="IC3" gate="G$1" x="213.36" y="35.56" smashed="yes">
+<attribute name="NAME" x="237.49" y="43.18" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="237.49" y="40.64" size="1.778" layer="96" align="center-left"/>
 </instance>
 </instances>
 <busses>
