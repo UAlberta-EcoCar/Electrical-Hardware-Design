@@ -14616,18 +14616,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/TDL 2-1210.pd
 <label x="274.32" y="147.32" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="INTERRUPT" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="PH_0"/>
-<wire x1="205.74" y1="132.08" x2="210.82" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="132.08" x2="210.82" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="PH_1"/>
-<wire x1="205.74" y1="129.54" x2="210.82" y2="129.54" width="0.1524" layer="91"/>
-<label x="213.36" y="129.54" size="1.778" layer="95" xref="yes"/>
-<wire x1="210.82" y1="129.54" x2="213.36" y2="129.54" width="0.1524" layer="91"/>
-<junction x="210.82" y="129.54"/>
-</segment>
-</net>
 <net name="RUN_LED" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="PG_9(D0)"/>

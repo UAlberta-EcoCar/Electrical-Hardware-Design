@@ -14832,8 +14832,8 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PE_8(SERIAL7_TX/PWM1/1)"/>
-<wire x1="205.74" y1="205.74" x2="228.6" y2="205.74" width="0.1524" layer="91"/>
-<label x="228.6" y="205.74" size="1.778" layer="95" xref="yes"/>
+<wire x1="205.74" y1="205.74" x2="220.98" y2="205.74" width="0.1524" layer="91"/>
+<label x="220.98" y="205.74" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="RX_TTL" class="0">
@@ -14882,7 +14882,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <text x="17.78" y="182.88" size="3.81" layer="94">Relay Board</text>
 <text x="198.12" y="182.88" size="3.81" layer="94">Power Indicators</text>
 <text x="261.62" y="182.88" size="3.81" layer="94">Voltage Dividers</text>
-<text x="350.52" y="182.88" size="3.81" layer="94">Tempe Sensor Pull Up</text>
+<text x="350.52" y="182.88" size="3.81" layer="94">Temp Sensor Pull Up</text>
 <text x="20.32" y="104.14" size="3.81" layer="94">Valves</text>
 <text x="142.24" y="104.14" size="3.81" layer="94">Fan Switch</text>
 <text x="226.06" y="104.14" size="3.81" layer="94">Fan Power</text>
@@ -15054,18 +15054,18 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <instance part="GND14" gate="1" x="58.42" y="55.88" smashed="yes">
 <attribute name="VALUE" x="55.88" y="53.34" size="1.778" layer="96"/>
 </instance>
-<instance part="GND15" gate="1" x="106.68" y="53.34" smashed="yes">
-<attribute name="VALUE" x="104.14" y="50.8" size="1.778" layer="96"/>
+<instance part="GND15" gate="1" x="106.68" y="55.88" smashed="yes">
+<attribute name="VALUE" x="104.14" y="53.34" size="1.778" layer="96"/>
 </instance>
-<instance part="GND16" gate="1" x="264.16" y="208.28" smashed="yes">
-<attribute name="VALUE" x="261.62" y="205.74" size="1.778" layer="96"/>
+<instance part="GND16" gate="1" x="264.16" y="210.82" smashed="yes">
+<attribute name="VALUE" x="261.62" y="208.28" size="1.778" layer="96"/>
 </instance>
 <instance part="TEMPERATURE1" gate="G$1" x="345.44" y="236.22" smashed="yes">
 <attribute name="NAME" x="345.44" y="213.36" size="1.778" layer="94"/>
 <attribute name="VALUE" x="345.44" y="210.82" size="1.778" layer="94"/>
 </instance>
-<instance part="GND17" gate="1" x="332.74" y="208.28" smashed="yes">
-<attribute name="VALUE" x="330.2" y="205.74" size="1.778" layer="96"/>
+<instance part="GND17" gate="1" x="332.74" y="210.82" smashed="yes">
+<attribute name="VALUE" x="330.2" y="208.28" size="1.778" layer="96"/>
 </instance>
 <instance part="U$10" gate="G$1" x="198.12" y="91.44" smashed="yes"/>
 <instance part="U$19" gate="G$1" x="279.4" y="93.98" smashed="yes"/>
@@ -15101,8 +15101,8 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <attribute name="NAME" x="406.4" y="213.36" size="1.778" layer="94"/>
 <attribute name="VALUE" x="406.4" y="210.82" size="1.778" layer="94"/>
 </instance>
-<instance part="GND22" gate="1" x="393.7" y="208.28" smashed="yes">
-<attribute name="VALUE" x="391.16" y="205.74" size="1.778" layer="96"/>
+<instance part="GND22" gate="1" x="393.7" y="210.82" smashed="yes">
+<attribute name="VALUE" x="391.16" y="208.28" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -15230,7 +15230,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <wire x1="111.76" y1="66.04" x2="106.68" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="66.04" x2="106.68" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="START" gate="G$1" pin="SHD2"/>
-<wire x1="106.68" y1="63.5" x2="106.68" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="63.5" x2="106.68" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="63.5" x2="106.68" y2="63.5" width="0.1524" layer="91"/>
 <junction x="106.68" y="63.5"/>
 <pinref part="GND15" gate="1" pin="GND"/>
@@ -15244,7 +15244,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <wire x1="271.78" y1="220.98" x2="264.16" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="264.16" y1="220.98" x2="264.16" y2="218.44" width="0.1524" layer="91"/>
 <junction x="264.16" y="218.44"/>
-<wire x1="264.16" y1="218.44" x2="264.16" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="218.44" x2="264.16" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="PRESSURE1" gate="G$1" pin="SHD2"/>
 <wire x1="271.78" y1="218.44" x2="264.16" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
@@ -15352,7 +15352,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <wire x1="340.36" y1="220.98" x2="332.74" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="332.74" y1="220.98" x2="332.74" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="TEMPERATURE1" gate="G$1" pin="SHD2"/>
-<wire x1="332.74" y1="218.44" x2="332.74" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="218.44" x2="332.74" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="332.74" y1="218.44" x2="340.36" y2="218.44" width="0.1524" layer="91"/>
 <junction x="332.74" y="218.44"/>
 <pinref part="GND17" gate="1" pin="GND"/>
@@ -15394,7 +15394,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <wire x1="401.32" y1="220.98" x2="393.7" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="393.7" y1="220.98" x2="393.7" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="CAN" gate="G$1" pin="SHD2"/>
-<wire x1="393.7" y1="218.44" x2="393.7" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="218.44" x2="393.7" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="393.7" y1="218.44" x2="401.32" y2="218.44" width="0.1524" layer="91"/>
 <junction x="393.7" y="218.44"/>
 <pinref part="GND22" gate="1" pin="GND"/>
@@ -15501,7 +15501,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <net name="H2_OK" class="0">
 <segment>
 <pinref part="H2_SENSOR" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="248.92" x2="30.48" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="248.92" x2="33.02" y2="248.92" width="0.1524" layer="91"/>
 <label x="33.02" y="248.92" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
@@ -15530,7 +15530,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <segment>
 <pinref part="R220" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="88.9" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
-<label x="88.9" y="71.12" size="1.778" layer="95"/>
+<label x="83.82" y="88.9" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R216" gate="G$1" pin="1"/>
@@ -16032,7 +16032,7 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <description>VALVES</description>
 <plain>
 <text x="243.84" y="256.54" size="3.81" layer="94">Openlog</text>
-<text x="233.68" y="187.96" size="3.81" layer="94">Bluetooth</text>
+<text x="241.3" y="187.96" size="3.81" layer="94">Bluetooth</text>
 <text x="320.04" y="256.54" size="3.81" layer="94">Temp/Humid Sensor</text>
 <text x="335.28" y="116.84" size="3.81" layer="94">Mounting Holes</text>
 <text x="20.32" y="116.84" size="3.81" layer="94">TVS Surge Protection</text>
@@ -16115,8 +16115,8 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <instance part="GND20" gate="1" x="271.78" y="215.9" smashed="yes">
 <attribute name="VALUE" x="269.24" y="213.36" size="1.778" layer="96"/>
 </instance>
-<instance part="J2" gate="G$1" x="256.54" y="172.72" smashed="yes">
-<attribute name="VALUE" x="235.458" y="168.656" size="1.778" layer="96" font="vector" rot="R90"/>
+<instance part="J2" gate="G$1" x="261.62" y="172.72" smashed="yes">
+<attribute name="VALUE" x="240.538" y="168.656" size="1.778" layer="96" font="vector" rot="R90"/>
 </instance>
 <instance part="SHTSENSOR1" gate="G$1" x="360.68" y="233.68" smashed="yes">
 <attribute name="NAME" x="373.38" y="236.22" size="1.778" layer="104" rot="R90"/>
@@ -16317,8 +16317,8 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 </segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="GND"/>
-<wire x1="261.62" y1="180.34" x2="266.7" y2="180.34" width="0.1524" layer="91"/>
-<label x="266.7" y="180.34" size="1.778" layer="95"/>
+<wire x1="266.7" y1="180.34" x2="271.78" y2="180.34" width="0.1524" layer="91"/>
+<label x="271.78" y="180.34" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SHTSENSOR1" gate="G$1" pin="GND"/>
@@ -16712,15 +16712,16 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 <net name="FROM_BLUE" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="TXO"/>
-<wire x1="261.62" y1="172.72" x2="266.7" y2="172.72" width="0.1524" layer="91"/>
-<label x="266.7" y="172.72" size="1.778" layer="95" xref="yes"/>
+<wire x1="266.7" y1="172.72" x2="271.78" y2="172.72" width="0.1524" layer="91"/>
+<label x="271.78" y="172.72" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="TO_BLUE" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="RXI"/>
-<wire x1="261.62" y1="170.18" x2="292.1" y2="170.18" width="0.1524" layer="91"/>
-<label x="292.1" y="170.18" size="1.778" layer="95" xref="yes"/>
+<label x="271.78" y="167.64" size="1.778" layer="95" xref="yes"/>
+<wire x1="266.7" y1="170.18" x2="269.24" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="269.24" y1="170.18" x2="271.78" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="HUMID_RST" class="0">
@@ -16792,8 +16793,8 @@ Source: http://www.maxim-ic.com/cgi-bin/packages?pkg=16%2FSOIC%2E300&amp;Type=Ma
 </segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="VCC"/>
-<wire x1="261.62" y1="175.26" x2="266.7" y2="175.26" width="0.1524" layer="91"/>
-<label x="266.7" y="175.26" size="1.778" layer="95"/>
+<wire x1="266.7" y1="175.26" x2="271.78" y2="175.26" width="0.1524" layer="91"/>
+<label x="271.78" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="RAW"/>
