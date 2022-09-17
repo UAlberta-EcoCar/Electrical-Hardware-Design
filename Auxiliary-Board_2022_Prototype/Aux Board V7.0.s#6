@@ -1384,14 +1384,14 @@ IC needs to have legs bent before insertion.</description>
 <part name="5V_BACKUP" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
 <part name="12V_BACKUP" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
 <part name="BRK_PWR" library="EcoCar-Connectors" deviceset="TE_3-PIN" device=""/>
-<part name="SERVO_PWR" library="EcoCar-Connectors" deviceset="TE_3-PIN" device=""/>
+<part name="SERVO_OUT" library="EcoCar-Connectors" deviceset="TE_3-PIN" device=""/>
 <part name="C2" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10n"/>
 <part name="C3" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10n"/>
-<part name="C1" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10u"/>
+<part name="C1" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="0.1u"/>
 <part name="GND4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
-<part name="C4" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10n"/>
-<part name="C5" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10n"/>
-<part name="C6" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10u"/>
+<part name="C6" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10n"/>
+<part name="C7" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="10n"/>
+<part name="C5" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="0.1u"/>
 <part name="GND10" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="BRK_LIGHT_RELAY" library="EcoCar-Electromechanical" deviceset="RELAY_SPST-NO_3A" device=""/>
 <part name="AUX_PWR_IN" library="EcoCar-Connectors" deviceset="TE_6-PIN" device=""/>
@@ -1413,6 +1413,9 @@ IC needs to have legs bent before insertion.</description>
 <part name="LED1" library="EcoCar-Discrete-Semiconductors" deviceset="LED_0805" device=""/>
 <part name="R2" library="EcoCar-Passives" deviceset="RESISTOR_0805" device="" value="2K"/>
 <part name="GND8" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
+<part name="BRK_SGNL_IN" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
+<part name="C4" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="0.1u"/>
+<part name="C8" library="EcoCar-Passives" deviceset="CAPACITOR_0805" device="" value="0.1u"/>
 </parts>
 <sheets>
 <sheet>
@@ -1504,15 +1507,15 @@ IC needs to have legs bent before insertion.</description>
 <attribute name="NAME" x="-76.2" y="117.602" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="-76.2" y="103.886" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="12V_BACKUP" gate="G$1" x="-30.48" y="106.68" smashed="yes">
-<attribute name="NAME" x="-30.48" y="117.602" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="-30.48" y="103.886" size="1.778" layer="96" font="vector"/>
+<instance part="12V_BACKUP" gate="G$1" x="-25.4" y="106.68" smashed="yes">
+<attribute name="NAME" x="-25.4" y="117.602" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="-25.4" y="103.886" size="1.778" layer="96" font="vector"/>
 </instance>
 <instance part="BRK_PWR" gate="G$1" x="195.58" y="71.12" smashed="yes">
 <attribute name="NAME" x="195.58" y="87.122" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="195.58" y="68.326" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="SERVO_PWR" gate="G$1" x="233.68" y="71.12" smashed="yes">
+<instance part="SERVO_OUT" gate="G$1" x="233.68" y="71.12" smashed="yes">
 <attribute name="NAME" x="233.68" y="87.122" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="233.68" y="68.326" size="1.778" layer="96" font="vector"/>
 </instance>
@@ -1528,23 +1531,23 @@ IC needs to have legs bent before insertion.</description>
 <attribute name="NAME" x="-56.896" y="122.301" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="-56.896" y="117.221" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="GND4" gate="1" x="-35.56" y="121.92" smashed="yes">
-<attribute name="VALUE" x="-35.56" y="121.666" size="1.778" layer="96" align="top-center"/>
+<instance part="GND4" gate="1" x="-27.94" y="121.92" smashed="yes">
+<attribute name="VALUE" x="-27.94" y="121.666" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="C4" gate="G$1" x="-5.08" y="119.38" smashed="yes">
-<attribute name="NAME" x="-3.556" y="122.301" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="-3.556" y="117.221" size="1.778" layer="96" font="vector"/>
+<instance part="C6" gate="G$1" x="0" y="119.38" smashed="yes">
+<attribute name="NAME" x="1.524" y="122.301" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="1.524" y="117.221" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C5" gate="G$1" x="2.54" y="119.38" smashed="yes">
-<attribute name="NAME" x="4.064" y="122.301" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="4.064" y="117.221" size="1.778" layer="96" font="vector"/>
+<instance part="C7" gate="G$1" x="7.62" y="119.38" smashed="yes">
+<attribute name="NAME" x="9.144" y="122.301" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="9.144" y="117.221" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C6" gate="G$1" x="-12.7" y="119.38" smashed="yes">
-<attribute name="NAME" x="-11.176" y="122.301" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="-11.176" y="117.221" size="1.778" layer="96" font="vector"/>
+<instance part="C5" gate="G$1" x="-7.62" y="119.38" smashed="yes">
+<attribute name="NAME" x="-6.096" y="122.301" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="-6.096" y="117.221" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="GND10" gate="1" x="10.16" y="121.92" smashed="yes">
-<attribute name="VALUE" x="10.16" y="121.666" size="1.778" layer="96" align="top-center"/>
+<instance part="GND10" gate="1" x="22.86" y="121.92" smashed="yes">
+<attribute name="VALUE" x="22.86" y="121.666" size="1.778" layer="96" align="top-center"/>
 </instance>
 <instance part="BRK_LIGHT_RELAY" gate="G$1" x="88.9" y="30.48" smashed="yes">
 <attribute name="NAME" x="83.1297" y="38.62471875" size="1.27183125" layer="95"/>
@@ -1580,6 +1583,18 @@ IC needs to have legs bent before insertion.</description>
 <instance part="D1" gate="G$1" x="88.9" y="45.72" smashed="yes" rot="R180">
 <attribute name="NAME" x="91.44" y="43.688" size="1.778" layer="95" font="vector" rot="R180"/>
 <attribute name="VALUE" x="91.44" y="47.752" size="1.778" layer="96" font="vector" rot="R180" align="top-left"/>
+</instance>
+<instance part="BRK_SGNL_IN" gate="G$1" x="68.58" y="81.28" smashed="yes">
+<attribute name="NAME" x="68.58" y="92.202" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="68.58" y="78.486" size="1.778" layer="96" font="vector"/>
+</instance>
+<instance part="C4" gate="G$1" x="-35.56" y="119.38" smashed="yes">
+<attribute name="NAME" x="-34.036" y="122.301" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="-34.036" y="117.221" size="1.778" layer="96" font="vector"/>
+</instance>
+<instance part="C8" gate="G$1" x="15.24" y="119.38" smashed="yes">
+<attribute name="NAME" x="16.764" y="122.301" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="16.764" y="117.221" size="1.778" layer="96" font="vector"/>
 </instance>
 </instances>
 <busses>
@@ -1623,8 +1638,8 @@ IC needs to have legs bent before insertion.</description>
 </segment>
 <segment>
 <pinref part="12V_BACKUP" gate="G$1" pin="V-"/>
-<wire x1="-17.78" y1="109.22" x2="-12.7" y2="109.22" width="0.1524" layer="91"/>
-<label x="-12.7" y="109.22" size="1.778" layer="95"/>
+<wire x1="-12.7" y1="109.22" x2="-7.62" y2="109.22" width="0.1524" layer="91"/>
+<label x="-7.62" y="109.22" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BRK_PWR" gate="G$1" pin="3"/>
@@ -1632,7 +1647,7 @@ IC needs to have legs bent before insertion.</description>
 <label x="220.98" y="73.66" size="1.778" layer="95" align="bottom-right"/>
 </segment>
 <segment>
-<pinref part="SERVO_PWR" gate="G$1" pin="3"/>
+<pinref part="SERVO_OUT" gate="G$1" pin="3"/>
 <wire x1="246.38" y1="73.66" x2="261.62" y2="73.66" width="0.1524" layer="91"/>
 <label x="261.62" y="73.66" size="1.778" layer="95" align="bottom-right"/>
 </segment>
@@ -1648,23 +1663,31 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="-43.18" y1="124.46" x2="-43.18" y2="127" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="127" x2="-35.56" y2="127" width="0.1524" layer="91"/>
 <junction x="-43.18" y="127"/>
-<wire x1="-35.56" y1="127" x2="-35.56" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="127" x2="-27.94" y2="127" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="127" x2="-27.94" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="GND4" gate="1" pin="GND"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="-35.56" y1="124.46" x2="-35.56" y2="127" width="0.1524" layer="91"/>
+<junction x="-35.56" y="127"/>
 </segment>
 <segment>
-<pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="-12.7" y1="124.46" x2="-12.7" y2="127" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="-5.08" y1="124.46" x2="-5.08" y2="127" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="127" x2="-12.7" y2="127" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="127" x2="2.54" y2="127" width="0.1524" layer="91"/>
-<junction x="-5.08" y="127"/>
 <pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="2.54" y1="124.46" x2="2.54" y2="127" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="127" x2="10.16" y2="127" width="0.1524" layer="91"/>
-<junction x="2.54" y="127"/>
-<wire x1="10.16" y1="127" x2="10.16" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="124.46" x2="-7.62" y2="127" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="0" y1="124.46" x2="0" y2="127" width="0.1524" layer="91"/>
+<wire x1="0" y1="127" x2="-7.62" y2="127" width="0.1524" layer="91"/>
+<wire x1="0" y1="127" x2="7.62" y2="127" width="0.1524" layer="91"/>
+<junction x="0" y="127"/>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="7.62" y1="124.46" x2="7.62" y2="127" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="127" x2="15.24" y2="127" width="0.1524" layer="91"/>
+<junction x="7.62" y="127"/>
+<wire x1="15.24" y1="127" x2="22.86" y2="127" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="127" x2="22.86" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="GND10" gate="1" pin="GND"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="124.46" x2="15.24" y2="127" width="0.1524" layer="91"/>
+<junction x="15.24" y="127"/>
 </segment>
 <segment>
 <pinref part="AUX_PWR_IN" gate="G$1" pin="2"/>
@@ -1682,24 +1705,33 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="121.92" y1="35.56" x2="121.92" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="BRK_SGNL_IN" gate="G$1" pin="V-"/>
+<wire x1="81.28" y1="83.82" x2="86.36" y2="83.82" width="0.1524" layer="91"/>
+<label x="86.36" y="83.82" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="12V" class="0">
 <segment>
 <pinref part="12V_BACKUP" gate="G$1" pin="V+"/>
-<wire x1="-17.78" y1="114.3" x2="-12.7" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="114.3" x2="-5.08" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="114.3" x2="2.54" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="114.3" x2="7.62" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="116.84" x2="-12.7" y2="114.3" width="0.1524" layer="91"/>
-<junction x="-12.7" y="114.3"/>
-<pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="-5.08" y1="116.84" x2="-5.08" y2="114.3" width="0.1524" layer="91"/>
-<junction x="-5.08" y="114.3"/>
-<pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="2.54" y1="116.84" x2="2.54" y2="114.3" width="0.1524" layer="91"/>
-<junction x="2.54" y="114.3"/>
+<wire x1="-12.7" y1="114.3" x2="-7.62" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="114.3" x2="0" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="0" y1="114.3" x2="7.62" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="114.3" x2="15.24" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="114.3" x2="22.86" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="116.84" x2="-7.62" y2="114.3" width="0.1524" layer="91"/>
+<junction x="-7.62" y="114.3"/>
 <pinref part="C6" gate="G$1" pin="2"/>
-<label x="7.62" y="114.3" size="1.778" layer="95"/>
+<wire x1="0" y1="116.84" x2="0" y2="114.3" width="0.1524" layer="91"/>
+<junction x="0" y="114.3"/>
+<pinref part="C7" gate="G$1" pin="2"/>
+<wire x1="7.62" y1="116.84" x2="7.62" y2="114.3" width="0.1524" layer="91"/>
+<junction x="7.62" y="114.3"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<label x="22.86" y="114.3" size="1.778" layer="95"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="116.84" x2="15.24" y2="114.3" width="0.1524" layer="91"/>
+<junction x="15.24" y="114.3"/>
 </segment>
 <segment>
 <pinref part="BRK_PWR" gate="G$1" pin="1"/>
@@ -1745,11 +1777,12 @@ IC needs to have legs bent before insertion.</description>
 <net name="5V" class="0">
 <segment>
 <pinref part="5V_BACKUP" gate="G$1" pin="V+"/>
-<label x="-38.1" y="114.3" size="1.778" layer="95"/>
+<label x="-30.48" y="114.3" size="1.778" layer="95"/>
 <wire x1="-63.5" y1="114.3" x2="-58.42" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="-58.42" y1="114.3" x2="-50.8" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="-50.8" y1="114.3" x2="-43.18" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="114.3" x2="-38.1" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="114.3" x2="-35.56" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="114.3" x2="-30.48" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="-58.42" y1="116.84" x2="-58.42" y2="114.3" width="0.1524" layer="91"/>
 <junction x="-58.42" y="114.3"/>
 <pinref part="C2" gate="G$1" pin="2"/>
@@ -1759,9 +1792,12 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="-43.18" y1="116.84" x2="-43.18" y2="114.3" width="0.1524" layer="91"/>
 <junction x="-43.18" y="114.3"/>
 <pinref part="C1" gate="G$1" pin="2"/>
+<pinref part="C4" gate="G$1" pin="2"/>
+<wire x1="-35.56" y1="116.84" x2="-35.56" y2="114.3" width="0.1524" layer="91"/>
+<junction x="-35.56" y="114.3"/>
 </segment>
 <segment>
-<pinref part="SERVO_PWR" gate="G$1" pin="1"/>
+<pinref part="SERVO_OUT" gate="G$1" pin="1"/>
 <wire x1="246.38" y1="83.82" x2="261.62" y2="83.82" width="0.1524" layer="91"/>
 <label x="261.62" y="83.82" size="1.778" layer="95" align="bottom-right"/>
 </segment>
@@ -1825,10 +1861,15 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="121.92" y1="124.46" x2="119.38" y2="124.46" width="0.1524" layer="91"/>
 <label x="119.38" y="124.46" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="BRK_SGNL_IN" gate="G$1" pin="V+"/>
+<label x="86.36" y="88.9" size="1.778" layer="95"/>
+<wire x1="81.28" y1="88.9" x2="86.36" y2="88.9" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="SERVO_O/P" class="0">
 <segment>
-<pinref part="SERVO_PWR" gate="G$1" pin="2"/>
+<pinref part="SERVO_OUT" gate="G$1" pin="2"/>
 <wire x1="246.38" y1="78.74" x2="261.62" y2="78.74" width="0.1524" layer="91"/>
 <label x="261.62" y="78.74" size="1.778" layer="95" align="bottom-right"/>
 </segment>
@@ -2081,14 +2122,6 @@ IC needs to have legs bent before insertion.</description>
 <label x="22.86" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="BRK_I/P" class="0">
-<segment>
-<pinref part="MCU_328P2" gate="U1" pin="PC1(ADC1)"/>
-<wire x1="21.59" y1="43.18" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="43.18" x2="30.48" y2="45.72" width="0.1524" layer="91"/>
-<label x="30.48" y="45.72" size="1.778" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="SGNL_LEFT_I/P" class="0">
 <segment>
 <pinref part="MCU_328P2" gate="U1" pin="PC2(ADC2)"/>
@@ -2122,9 +2155,10 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="SERVO_I/P" class="0">
 <segment>
-<pinref part="MCU_328P2" gate="U1" pin="PD2(INT0)"/>
-<wire x1="21.59" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
-<label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
+<pinref part="MCU_328P2" gate="U1" pin="PC1(ADC1)"/>
+<wire x1="21.59" y1="43.18" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="43.18" x2="30.48" y2="45.72" width="0.1524" layer="91"/>
+<label x="30.48" y="45.72" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -2146,6 +2180,22 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="-40.64" y1="22.86" x2="-40.64" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="BRK_I/P" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="PD2(INT0)"/>
+<wire x1="21.59" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
+<label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SERVO_O/P" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="PC5(ADC5/SCL)"/>
+<wire x1="21.59" y1="33.02" x2="25.4" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="33.02" x2="25.4" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
+<label x="30.48" y="25.4" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
