@@ -1,2 +1,2 @@
-# Electrical-2022-Design-Hardware
-Contains the hardware design for the upcoming prototype vehicle
+# Communications Hub Board
+Contains the hardware for the communications hub. The hardware documentation is below:
