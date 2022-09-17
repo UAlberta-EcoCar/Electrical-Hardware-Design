@@ -1216,7 +1216,7 @@ IC needs to have legs bent before insertion.</description>
 <part name="H2" library="EcoCar-Miscellaneous" deviceset="STAND-OFF" device=""/>
 <part name="H3" library="EcoCar-Miscellaneous" deviceset="STAND-OFF" device=""/>
 <part name="H4" library="EcoCar-Miscellaneous" deviceset="STAND-OFF" device=""/>
-<part name="PANEL_IN" library="EcoCar-Connectors" deviceset="RJ45" device=""/>
+<part name="CENTER_CONSOLE" library="EcoCar-Connectors" deviceset="RJ45" device=""/>
 <part name="GND16" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="STEERING-WHEEL" library="EcoCar-Connectors" deviceset="RJ45" device=""/>
 <part name="GND6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
@@ -1263,13 +1263,14 @@ IC needs to have legs bent before insertion.</description>
 <part name="PB2" library="EcoCar-Electromechanical" deviceset="PUSHBUTTON" device=""/>
 <part name="ISP_328P2" library="EcoCar-Microcontrollers" deviceset="ISP" device=""/>
 <part name="FRAME2" library="EcoCar-Miscellaneous" deviceset="FRAME_A_L" device=""/>
+<part name="R2" library="EcoCar-Passives" deviceset="RESISTOR_0805" device="" value="0"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="203.2" y="139.7" size="2.54" layer="97">OUTPUT CONNECTORS</text>
 <text x="-45.72" y="134.62" size="2.54" layer="97">POWER CONNECTORS</text>
-<text x="73.66" y="142.24" size="2.54" layer="97">INPUT CONNECTORS</text>
+<text x="78.74" y="142.24" size="2.54" layer="97">INPUT CONNECTORS</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="-88.9" y="-116.84" smashed="yes"/>
@@ -1282,19 +1283,19 @@ IC needs to have legs bent before insertion.</description>
 <instance part="H2" gate="G$1" x="-73.66" y="144.78" smashed="yes"/>
 <instance part="H3" gate="G$1" x="327.66" y="147.32" smashed="yes"/>
 <instance part="H4" gate="G$1" x="327.66" y="-73.66" smashed="yes"/>
-<instance part="PANEL_IN" gate="G$1" x="109.22" y="132.08" smashed="yes" rot="R270">
-<attribute name="NAME" x="137.668" y="131.826" size="1.778" layer="95" font="vector" rot="R270"/>
-<attribute name="VALUE" x="106.68" y="132.08" size="1.778" layer="96" font="vector" rot="R270"/>
+<instance part="CENTER_CONSOLE" gate="G$1" x="139.7" y="132.08" smashed="yes" rot="R180">
+<attribute name="NAME" x="139.446" y="103.632" size="1.778" layer="95" font="vector" rot="R180"/>
+<attribute name="VALUE" x="139.7" y="134.62" size="1.778" layer="96" font="vector" rot="R180"/>
 </instance>
-<instance part="GND16" gate="1" x="101.6" y="111.76" smashed="yes" rot="R270">
-<attribute name="VALUE" x="101.346" y="111.76" size="1.778" layer="96" rot="R270" align="top-center"/>
+<instance part="GND16" gate="1" x="111.76" y="129.54" smashed="yes" rot="R270">
+<attribute name="VALUE" x="111.506" y="129.54" size="1.778" layer="96" rot="R270" align="top-center"/>
 </instance>
-<instance part="STEERING-WHEEL" gate="G$1" x="48.26" y="132.08" smashed="yes" rot="R270">
-<attribute name="NAME" x="76.708" y="131.826" size="1.778" layer="95" font="vector" rot="R270"/>
-<attribute name="VALUE" x="45.72" y="132.08" size="1.778" layer="96" font="vector" rot="R270"/>
+<instance part="STEERING-WHEEL" gate="G$1" x="81.28" y="132.08" smashed="yes" rot="R180">
+<attribute name="NAME" x="81.026" y="103.632" size="1.778" layer="95" font="vector" rot="R180"/>
+<attribute name="VALUE" x="81.28" y="134.62" size="1.778" layer="96" font="vector" rot="R180"/>
 </instance>
-<instance part="GND6" gate="1" x="50.8" y="104.14" smashed="yes">
-<attribute name="VALUE" x="50.8" y="103.886" size="1.778" layer="96" align="top-center"/>
+<instance part="GND6" gate="1" x="53.34" y="129.54" smashed="yes" rot="R270">
+<attribute name="VALUE" x="53.086" y="129.54" size="1.778" layer="96" rot="R270" align="top-center"/>
 </instance>
 <instance part="CON5" gate="G$1" x="210.82" y="-30.48" smashed="yes">
 <attribute name="VALUE" x="208.28" y="-35.306" size="1.778" layer="96" font="vector"/>
@@ -1441,23 +1442,23 @@ IC needs to have legs bent before insertion.</description>
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="PANEL_IN" gate="G$1" pin="SHIELD2"/>
-<wire x1="111.76" y1="114.3" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="111.76" x2="104.14" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="PANEL_IN" gate="G$1" pin="SHIELD1"/>
-<wire x1="114.3" y1="114.3" x2="114.3" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="111.76" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
-<junction x="111.76" y="111.76"/>
+<pinref part="CENTER_CONSOLE" gate="G$1" pin="SHIELD2"/>
+<wire x1="121.92" y1="129.54" x2="116.84" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="129.54" x2="114.3" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="CENTER_CONSOLE" gate="G$1" pin="SHIELD1"/>
+<wire x1="121.92" y1="127" x2="116.84" y2="127" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="127" x2="116.84" y2="129.54" width="0.1524" layer="91"/>
+<junction x="116.84" y="129.54"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="STEERING-WHEEL" gate="G$1" pin="SHIELD1"/>
-<wire x1="53.34" y1="114.3" x2="53.34" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="109.22" x2="50.8" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="127" x2="58.42" y2="127" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="127" x2="58.42" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="STEERING-WHEEL" gate="G$1" pin="SHIELD2"/>
-<wire x1="50.8" y1="109.22" x2="50.8" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="109.22" x2="50.8" y2="106.68" width="0.1524" layer="91"/>
-<junction x="50.8" y="109.22"/>
+<wire x1="58.42" y1="129.54" x2="63.5" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="129.54" x2="55.88" y2="129.54" width="0.1524" layer="91"/>
+<junction x="58.42" y="129.54"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -1656,9 +1657,9 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="HAZARD_I/P" class="0">
 <segment>
-<pinref part="PANEL_IN" gate="G$1" pin="2"/>
-<wire x1="132.08" y1="114.3" x2="132.08" y2="101.6" width="0.1524" layer="91"/>
-<label x="132.08" y="101.6" size="1.778" layer="95" rot="R90"/>
+<pinref part="CENTER_CONSOLE" gate="G$1" pin="6"/>
+<wire x1="121.92" y1="119.38" x2="119.38" y2="119.38" width="0.1524" layer="91"/>
+<label x="119.38" y="119.38" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SGNL_RIGHT_12V" class="0">
@@ -1683,9 +1684,9 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="BRK_I/P" class="0">
 <segment>
-<pinref part="PANEL_IN" gate="G$1" pin="4"/>
-<wire x1="127" y1="114.3" x2="127" y2="101.6" width="0.1524" layer="91"/>
-<label x="127" y="101.6" size="1.778" layer="95" rot="R90"/>
+<pinref part="CENTER_CONSOLE" gate="G$1" pin="8"/>
+<wire x1="121.92" y1="124.46" x2="119.38" y2="124.46" width="0.1524" layer="91"/>
+<label x="119.38" y="124.46" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SERVO_O/P" class="0">
@@ -1697,9 +1698,9 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="SERVO_I/P" class="0">
 <segment>
-<pinref part="PANEL_IN" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="114.3" x2="134.62" y2="101.6" width="0.1524" layer="91"/>
-<label x="134.62" y="101.6" size="1.778" layer="95" rot="R90"/>
+<pinref part="STEERING-WHEEL" gate="G$1" pin="4"/>
+<wire x1="63.5" y1="114.3" x2="60.96" y2="114.3" width="0.1524" layer="91"/>
+<label x="60.96" y="114.3" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SGNL_LEFT_12V" class="0">
@@ -1750,22 +1751,30 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="SGNL_LEFT_I/P" class="0">
 <segment>
-<pinref part="STEERING-WHEEL" gate="G$1" pin="1"/>
-<wire x1="73.66" y1="114.3" x2="73.66" y2="101.6" width="0.1524" layer="91"/>
-<label x="73.66" y="93.98" size="1.778" layer="95" rot="R90"/>
+<pinref part="STEERING-WHEEL" gate="G$1" pin="6"/>
+<wire x1="63.5" y1="119.38" x2="60.96" y2="119.38" width="0.1524" layer="91"/>
+<label x="60.96" y="119.38" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SGNL_RIGHT_I/P" class="0">
 <segment>
+<pinref part="STEERING-WHEEL" gate="G$1" pin="8"/>
+<wire x1="63.5" y1="124.46" x2="60.96" y2="124.46" width="0.1524" layer="91"/>
+<label x="60.96" y="124.46" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="SERVO_ADC_I/P" class="0">
+<segment>
 <pinref part="STEERING-WHEEL" gate="G$1" pin="2"/>
-<wire x1="71.12" y1="114.3" x2="71.12" y2="101.6" width="0.1524" layer="91"/>
-<label x="71.12" y="93.98" size="1.778" layer="95" rot="R90"/>
+<wire x1="63.5" y1="109.22" x2="60.96" y2="109.22" width="0.1524" layer="91"/>
+<label x="60.96" y="109.22" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>
 </sheet>
 <sheet>
 <plain>
+<text x="60.96" y="30.48" size="1.778" layer="97" align="center-left">&lt;-- Currently unused, included for prototyping</text>
 </plain>
 <instances>
 <instance part="MCU_328P2" gate="U1" x="-1.27" y="20.32" smashed="yes">
@@ -1796,6 +1805,10 @@ IC needs to have legs bent before insertion.</description>
 <attribute name="SHEET" x="119.38" y="-100.33" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="50.8" y="-82.55" size="2.54" layer="94"/>
 </instance>
+<instance part="R2" gate="G$1" x="-25.4" y="40.64" smashed="yes">
+<attribute name="NAME" x="-25.4" y="42.164" size="1.778" layer="95" font="vector" align="bottom-center"/>
+<attribute name="VALUE" x="-25.4" y="39.116" size="1.778" layer="96" font="vector" align="top-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1819,9 +1832,16 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="5V" class="0">
 <segment>
+<label x="-38.1" y="38.1" size="1.778" layer="95"/>
+<wire x1="-33.02" y1="38.1" x2="-38.1" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="38.1" x2="-33.02" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="35.56" x2="-21.59" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="MCU_328P2" gate="U1" pin="VCC"/>
-<wire x1="-21.59" y1="38.1" x2="-30.48" y2="38.1" width="0.1524" layer="91"/>
-<label x="-30.48" y="38.1" size="1.778" layer="95"/>
+<wire x1="-21.59" y1="35.56" x2="-21.59" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="38.1" x2="-33.02" y2="40.64" width="0.1524" layer="91"/>
+<junction x="-33.02" y="38.1"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="-33.02" y1="40.64" x2="-30.48" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
@@ -1941,6 +1961,22 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="MCU_328P2" gate="U1" pin="PB1(OC1A)"/>
 <wire x1="21.59" y1="-2.54" x2="30.48" y2="-2.54" width="0.1524" layer="91"/>
 <label x="30.48" y="-2.54" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SERVO_ADC_I/P" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="PC4(ADC4/SDA)"/>
+<wire x1="21.59" y1="35.56" x2="27.94" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="35.56" x2="27.94" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="30.48" x2="30.48" y2="30.48" width="0.1524" layer="91"/>
+<label x="30.48" y="30.48" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SERVO_I/P" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="PD2(INT0)"/>
+<wire x1="21.59" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
+<label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

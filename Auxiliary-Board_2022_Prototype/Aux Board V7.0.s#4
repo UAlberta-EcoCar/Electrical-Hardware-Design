@@ -1413,6 +1413,7 @@ IC needs to have legs bent before insertion.</description>
 <part name="LED1" library="EcoCar-Discrete-Semiconductors" deviceset="LED_0805" device=""/>
 <part name="R2" library="EcoCar-Passives" deviceset="RESISTOR_0805" device="" value="2K"/>
 <part name="GND8" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
+<part name="BRK_SGNL_IN" library="EcoCar-Connectors" deviceset="TE_2-PIN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1581,6 +1582,10 @@ IC needs to have legs bent before insertion.</description>
 <attribute name="NAME" x="91.44" y="43.688" size="1.778" layer="95" font="vector" rot="R180"/>
 <attribute name="VALUE" x="91.44" y="47.752" size="1.778" layer="96" font="vector" rot="R180" align="top-left"/>
 </instance>
+<instance part="BRK_SGNL_IN" gate="G$1" x="68.58" y="81.28" smashed="yes">
+<attribute name="NAME" x="68.58" y="92.202" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="68.58" y="78.486" size="1.778" layer="96" font="vector"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1681,6 +1686,11 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="114.3" y1="35.56" x2="121.92" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="35.56" x2="121.92" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="BRK_SGNL_IN" gate="G$1" pin="V-"/>
+<wire x1="81.28" y1="83.82" x2="86.36" y2="83.82" width="0.1524" layer="91"/>
+<label x="86.36" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -1824,6 +1834,11 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="CENTER_CONSOLE" gate="G$1" pin="8"/>
 <wire x1="121.92" y1="124.46" x2="119.38" y2="124.46" width="0.1524" layer="91"/>
 <label x="119.38" y="124.46" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="BRK_SGNL_IN" gate="G$1" pin="V+"/>
+<label x="86.36" y="88.9" size="1.778" layer="95"/>
+<wire x1="81.28" y1="88.9" x2="86.36" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SERVO_O/P" class="0">
@@ -2081,14 +2096,6 @@ IC needs to have legs bent before insertion.</description>
 <label x="22.86" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="BRK_I/P" class="0">
-<segment>
-<pinref part="MCU_328P2" gate="U1" pin="PC1(ADC1)"/>
-<wire x1="21.59" y1="43.18" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="43.18" x2="30.48" y2="45.72" width="0.1524" layer="91"/>
-<label x="30.48" y="45.72" size="1.778" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="SGNL_LEFT_I/P" class="0">
 <segment>
 <pinref part="MCU_328P2" gate="U1" pin="PC2(ADC2)"/>
@@ -2122,9 +2129,10 @@ IC needs to have legs bent before insertion.</description>
 </net>
 <net name="SERVO_I/P" class="0">
 <segment>
-<pinref part="MCU_328P2" gate="U1" pin="PD2(INT0)"/>
-<wire x1="21.59" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
-<label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
+<pinref part="MCU_328P2" gate="U1" pin="PC1(ADC1)"/>
+<wire x1="21.59" y1="43.18" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="43.18" x2="30.48" y2="45.72" width="0.1524" layer="91"/>
+<label x="30.48" y="45.72" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -2146,6 +2154,13 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="-40.64" y1="22.86" x2="-40.64" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="BRK_I/P" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="PD2(INT0)"/>
+<wire x1="21.59" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
+<label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
