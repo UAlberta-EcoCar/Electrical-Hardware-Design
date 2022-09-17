@@ -2189,6 +2189,15 @@ IC needs to have legs bent before insertion.</description>
 <label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
+<net name="SERVO_O/P" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="PC5(ADC5/SCL)"/>
+<wire x1="21.59" y1="33.02" x2="25.4" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="33.02" x2="25.4" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
+<label x="30.48" y="25.4" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

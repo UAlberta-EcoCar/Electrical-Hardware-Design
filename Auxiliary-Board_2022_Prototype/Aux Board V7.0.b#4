@@ -1124,6 +1124,8 @@ design rules under a new name.</description>
 </signal>
 <signal name="SERVO_O/P">
 <contactref element="SERVO_OUT" pad="2"/>
+<contactref element="MCU_328P2" pad="28"/>
+<wire x1="29.21" y1="33.02" x2="33.02" y2="87.66" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SERVO_I/P">
 <contactref element="STEERING-WHEEL" pad="4"/>
@@ -1229,10 +1231,10 @@ design rules under a new name.</description>
 <wire x1="29.21" y1="55.88" x2="27.432" y2="57.658" width="0.2032" layer="1"/>
 <wire x1="27.432" y1="57.658" x2="27.432" y2="71.45095625" width="0.2032" layer="1"/>
 <wire x1="27.94" y1="77.47" x2="29.21" y2="78.74" width="0.2032" layer="1"/>
-<wire x1="30.64684375" y1="78.74" x2="33.02" y2="76.36684375" width="0.2032" layer="1"/>
-<wire x1="33.02" y1="76.36684375" x2="33.02" y2="74.93" width="0.2032" layer="1"/>
+<wire x1="31.28184375" y1="78.74" x2="33.02" y2="77.00184375" width="0.2032" layer="1"/>
+<wire x1="33.02" y1="77.00184375" x2="33.02" y2="74.93" width="0.2032" layer="1"/>
 <wire x1="33.02" y1="74.93" x2="31.75" y2="73.66" width="0.2032" layer="1"/>
-<wire x1="29.21" y1="78.74" x2="30.64684375" y2="78.74" width="0.2032" layer="1"/>
+<wire x1="29.21" y1="78.74" x2="31.28184375" y2="78.74" width="0.2032" layer="1"/>
 <contactref element="ISP_328P2" pad="3"/>
 <contactref element="MCU_328P2" pad="19"/>
 </signal>
@@ -1247,11 +1249,11 @@ design rules under a new name.</description>
 </signal>
 <signal name="MOSI_328P2">
 <wire x1="29.21" y1="60.96" x2="29.21" y2="61.9913125" width="0.2032" layer="1"/>
-<wire x1="30.226" y1="74.676" x2="31.75" y2="76.2" width="0.2032" layer="1"/>
+<wire x1="30.48" y1="74.93" x2="31.75" y2="76.2" width="0.2032" layer="1"/>
 <wire x1="29.21" y1="61.9913125" x2="28.1432" y2="63.0581125" width="0.2032" layer="1"/>
-<wire x1="30.226" y1="73.23915625" x2="30.226" y2="74.676" width="0.2032" layer="1"/>
-<wire x1="28.1432" y1="71.15635625" x2="30.226" y2="73.23915625" width="0.2032" layer="1"/>
-<wire x1="28.1432" y1="63.0581125" x2="28.1432" y2="71.15635625" width="0.2032" layer="1"/>
+<wire x1="30.48" y1="72.98515625" x2="30.48" y2="74.93" width="0.2032" layer="1"/>
+<wire x1="28.1432" y1="70.64835625" x2="30.48" y2="72.98515625" width="0.2032" layer="1"/>
+<wire x1="28.1432" y1="63.0581125" x2="28.1432" y2="70.64835625" width="0.2032" layer="1"/>
 <contactref element="ISP_328P2" pad="4"/>
 <contactref element="MCU_328P2" pad="17"/>
 </signal>

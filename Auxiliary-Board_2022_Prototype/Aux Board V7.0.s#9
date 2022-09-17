@@ -598,6 +598,22 @@
 <wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
 <wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
 </package>
+<package name="JUMPER-0.45">
+<description>&lt;h3&gt;AXIAL-0.3&lt;/h3&gt;
+&lt;p&gt;Commonly used for 1/4W through-hole resistors. 0.3" pitch between holes.&lt;/p&gt;</description>
+<wire x1="-4.445" y1="0.762" x2="4.445" y2="0.762" width="0.2032" layer="21"/>
+<wire x1="4.445" y1="0.762" x2="4.445" y2="0" width="0.2032" layer="21"/>
+<wire x1="4.445" y1="0" x2="4.445" y2="-0.762" width="0.2032" layer="21"/>
+<wire x1="4.445" y1="-0.762" x2="-4.445" y2="-0.762" width="0.2032" layer="21"/>
+<wire x1="-4.445" y1="-0.762" x2="-4.445" y2="0" width="0.2032" layer="21"/>
+<wire x1="-4.445" y1="0" x2="-4.445" y2="0.762" width="0.2032" layer="21"/>
+<wire x1="4.445" y1="0" x2="4.699" y2="0" width="0.2032" layer="21"/>
+<wire x1="-4.445" y1="0" x2="-4.699" y2="0" width="0.2032" layer="21"/>
+<pad name="P$1" x="-5.715" y="0" drill="0.9" diameter="1.8796"/>
+<pad name="P$2" x="5.715" y="0" drill="0.9" diameter="1.8796"/>
+<text x="-3.175" y="1.016" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
+<text x="-3.175" y="-1.016" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -652,6 +668,22 @@
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="JUMPER-0.45" prefix="R" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="JUMPER-0.45">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1263,7 +1295,7 @@ IC needs to have legs bent before insertion.</description>
 <part name="PB2" library="EcoCar-Electromechanical" deviceset="PUSHBUTTON" device=""/>
 <part name="ISP_328P2" library="EcoCar-Microcontrollers" deviceset="ISP" device=""/>
 <part name="FRAME2" library="EcoCar-Miscellaneous" deviceset="FRAME_A_L" device=""/>
-<part name="R2" library="EcoCar-Passives" deviceset="RESISTOR_0805" device="" value="0"/>
+<part name="AVCC_JMP" library="EcoCar-Passives" deviceset="JUMPER-0.45" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1805,9 +1837,9 @@ IC needs to have legs bent before insertion.</description>
 <attribute name="SHEET" x="119.38" y="-100.33" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="50.8" y="-82.55" size="2.54" layer="94"/>
 </instance>
-<instance part="R2" gate="G$1" x="-25.4" y="40.64" smashed="yes">
-<attribute name="NAME" x="-25.4" y="42.164" size="1.778" layer="95" font="vector" align="bottom-center"/>
-<attribute name="VALUE" x="-25.4" y="39.116" size="1.778" layer="96" font="vector" align="top-center"/>
+<instance part="AVCC_JMP" gate="G$1" x="-27.94" y="40.64" smashed="yes">
+<attribute name="NAME" x="-27.94" y="42.164" size="1.778" layer="95" font="vector" align="bottom-center"/>
+<attribute name="VALUE" x="-27.94" y="39.116" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -1840,8 +1872,7 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="-21.59" y1="35.56" x2="-21.59" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="38.1" x2="-33.02" y2="40.64" width="0.1524" layer="91"/>
 <junction x="-33.02" y="38.1"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="-33.02" y1="40.64" x2="-30.48" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="AVCC_JMP" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
@@ -1977,6 +2008,13 @@ IC needs to have legs bent before insertion.</description>
 <pinref part="MCU_328P2" gate="U1" pin="PD2(INT0)"/>
 <wire x1="21.59" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
 <label x="30.48" y="17.78" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="MCU_328P2" gate="U1" pin="AVCC"/>
+<wire x1="-22.86" y1="40.64" x2="-21.59" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="AVCC_JMP" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
