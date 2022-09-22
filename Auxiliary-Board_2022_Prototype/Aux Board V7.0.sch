@@ -5802,7 +5802,7 @@ Source: AVX .. aphvc.pdf</description>
 <text x="-50.8" y="-53.34" size="1.778" layer="94" align="center-right">X</text>
 <text x="-15.24" y="-50.8" size="1.778" layer="94" rot="R180" align="center-right">X</text>
 <text x="-15.24" y="-53.34" size="1.778" layer="94" rot="R180" align="center-right">X</text>
-<text x="-43.18" y="60.96" size="2.54" layer="97">TTL to RS232</text>
+<text x="-43.18" y="7.62" size="2.54" layer="97">TTL to RS232</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="-88.9" y="-116.84" smashed="yes"/>
@@ -6040,13 +6040,13 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="116.84" y1="127" x2="116.84" y2="129.54" width="0.1524" layer="91"/>
 <junction x="116.84" y="129.54"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<pinref part="UART_RS232" gate="G$1" pin="3"/>
-<wire x1="121.92" y1="111.76" x2="119.38" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="111.76" x2="119.38" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="UART_RS232" gate="G$1" pin="4"/>
-<wire x1="119.38" y1="114.3" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="114.3" x2="119.38" y2="127" width="0.1524" layer="91"/>
-<junction x="119.38" y="114.3"/>
+<wire x1="121.92" y1="114.3" x2="119.38" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="114.3" x2="119.38" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="UART_RS232" gate="G$1" pin="5"/>
+<wire x1="119.38" y1="116.84" x2="121.92" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="116.84" x2="119.38" y2="127" width="0.1524" layer="91"/>
+<junction x="119.38" y="116.84"/>
 <junction x="119.38" y="127"/>
 </segment>
 <segment>
@@ -6451,26 +6451,26 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="RS_TX" class="0">
 <segment>
-<pinref part="UART_RS232" gate="G$1" pin="2"/>
-<wire x1="121.92" y1="109.22" x2="116.84" y2="109.22" width="0.1524" layer="91"/>
-<label x="116.84" y="109.22" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="DOUT1"/>
 <wire x1="-15.24" y1="-40.64" x2="-12.7" y2="-40.64" width="0.1524" layer="91"/>
 <label x="-12.7" y="-40.64" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="UART_RS232" gate="G$1" pin="6"/>
+<wire x1="121.92" y1="119.38" x2="114.3" y2="119.38" width="0.1524" layer="91"/>
+<label x="114.3" y="119.38" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="RS_RX" class="0">
-<segment>
-<pinref part="UART_RS232" gate="G$1" pin="5"/>
-<wire x1="121.92" y1="116.84" x2="116.84" y2="116.84" width="0.1524" layer="91"/>
-<label x="116.84" y="116.84" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="ROUT1"/>
 <wire x1="-15.24" y1="-45.72" x2="-12.7" y2="-45.72" width="0.1524" layer="91"/>
 <label x="-12.7" y="-45.72" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="UART_RS232" gate="G$1" pin="3"/>
+<wire x1="121.92" y1="111.76" x2="114.3" y2="111.76" width="0.1524" layer="91"/>
+<label x="114.3" y="111.76" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="RX" class="0">

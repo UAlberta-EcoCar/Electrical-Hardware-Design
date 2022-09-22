@@ -1120,7 +1120,12 @@ design rules under a new name.</description>
 <wire x1="99.57" y1="49.53" x2="103.63" y2="53.59" width="0.2032" layer="1"/>
 <via x="103.63" y="53.59" extent="1-16" drill="0.35"/>
 <wire x1="43.18" y1="49.53" x2="99.57" y2="49.53" width="0.2032" layer="1"/>
-<wire x1="103.63" y1="53.59" x2="100.36" y2="77.94" width="0" layer="19" extent="1-1"/>
+<wire x1="105.41" y1="52.959" x2="106.19501875" y2="52.959" width="0.2032" layer="1"/>
+<wire x1="110.7176" y1="57.48158125" x2="110.7176" y2="67.5824" width="0.2032" layer="1"/>
+<wire x1="110.7176" y1="67.5824" x2="100.36" y2="77.94" width="0.2032" layer="1"/>
+<wire x1="106.19501875" y1="52.959" x2="110.7176" y2="57.48158125" width="0.2032" layer="1"/>
+<wire x1="105.41" y1="52.959" x2="104.779" y2="53.59" width="0.2032" layer="1"/>
+<wire x1="104.779" y1="53.59" x2="103.63" y2="53.59" width="0.2032" layer="1"/>
 </signal>
 <signal name="SERVO_O/P">
 <contactref element="SERVO_OUT" pad="2"/>
