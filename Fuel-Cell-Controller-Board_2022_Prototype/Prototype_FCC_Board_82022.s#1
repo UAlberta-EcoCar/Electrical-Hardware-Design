@@ -13391,6 +13391,37 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <text x="342.9" y="109.22" size="3.81" layer="94">TTL &lt;--&gt; RS232 Converter</text>
 <text x="261.62" y="109.22" size="3.81" layer="94">PULLUP RESISTORS</text>
 <text x="261.62" y="63.5" size="3.81" layer="94">LINEAR REGULATOR</text>
+<text x="360.68" y="76.2" size="1.778" layer="91" align="center">X</text>
+<text x="360.68" y="71.12" size="1.778" layer="91" align="center">X</text>
+<text x="391.16" y="71.12" size="1.778" layer="91" align="center">X</text>
+<text x="391.16" y="76.2" size="1.778" layer="91" align="center">X</text>
+<text x="63.5" y="248.92" size="1.778" layer="91" align="center">X</text>
+<text x="63.5" y="256.54" size="1.778" layer="91" align="center">X</text>
+<text x="63.5" y="259.08" size="1.778" layer="91" align="center">X</text>
+<text x="63.5" y="238.76" size="1.778" layer="91" align="center">X</text>
+<text x="63.5" y="236.22" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="251.46" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="248.92" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="238.76" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="236.22" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="233.68" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="231.14" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="228.6" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="223.52" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="220.98" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="215.9" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="213.36" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="210.82" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="203.2" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="200.66" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="193.04" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="187.96" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="182.88" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="160.02" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="157.48" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="154.94" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="132.08" size="1.778" layer="91" align="center">X</text>
+<text x="205.74" y="129.54" size="1.778" layer="91" align="center">X</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="134.62" y="195.58" smashed="yes"/>
@@ -15907,16 +15938,16 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 </net>
 <net name="TX_RS232" class="0">
 <segment>
-<pinref part="CAN" gate="G$1" pin="3"/>
-<wire x1="401.32" y1="246.38" x2="391.16" y2="246.38" width="0.1524" layer="91"/>
-<label x="391.16" y="246.38" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="CAN" gate="G$1" pin="6"/>
+<wire x1="401.32" y1="238.76" x2="388.62" y2="238.76" width="0.1524" layer="91"/>
+<label x="388.62" y="238.76" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="RX_RS232" class="0">
 <segment>
-<pinref part="CAN" gate="G$1" pin="6"/>
-<wire x1="401.32" y1="238.76" x2="391.16" y2="238.76" width="0.1524" layer="91"/>
-<label x="391.16" y="238.76" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="CAN" gate="G$1" pin="3"/>
+<wire x1="401.32" y1="246.38" x2="388.62" y2="246.38" width="0.1524" layer="91"/>
+<label x="388.62" y="246.38" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>
@@ -15937,6 +15968,21 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <text x="132.08" y="256.54" size="3.81" layer="94">Valve Cntrl</text>
 <text x="129.54" y="187.96" size="3.81" layer="94">Valve Cntrl</text>
 <text x="20.32" y="187.96" size="3.81" layer="94">Valve Cntrl</text>
+<text x="320.04" y="190.5" size="3.81" layer="94">128x64 OLED Display</text>
+<text x="337.82" y="175.26" size="1.778" layer="91" align="center">X</text>
+<text x="337.82" y="172.72" size="1.778" layer="91" align="center">X</text>
+<text x="337.82" y="170.18" size="1.778" layer="91" align="center">X</text>
+<text x="347.98" y="218.44" size="1.778" layer="91" align="center">X</text>
+<text x="43.18" y="109.22" size="1.778" layer="91" align="center">X</text>
+<text x="25.4" y="83.82" size="1.778" layer="91" align="center">X</text>
+<text x="208.28" y="88.9" size="1.778" layer="91" align="center">X</text>
+<text x="208.28" y="91.44" size="1.778" layer="91" align="center">X</text>
+<text x="208.28" y="93.98" size="1.778" layer="91" align="center">X</text>
+<text x="353.06" y="91.44" size="1.778" layer="91" align="center">X</text>
+<text x="353.06" y="93.98" size="1.778" layer="91" align="center">X</text>
+<text x="353.06" y="96.52" size="1.778" layer="91" align="center">X</text>
+<text x="269.24" y="180.34" size="1.778" layer="91" align="center">X</text>
+<text x="269.24" y="170.18" size="1.778" layer="91" align="center">X</text>
 </plain>
 <instances>
 <instance part="U$6" gate="G$1" x="66.04" y="175.26" smashed="yes"/>
@@ -16137,9 +16183,9 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <attribute name="NAME" x="367.03" y="85.3186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="367.03" y="80.518" size="1.778" layer="96"/>
 </instance>
-<instance part="JP5" gate="G$1" x="360.68" y="180.34" smashed="yes">
-<attribute name="NAME" x="354.33" y="191.135" size="1.778" layer="95"/>
-<attribute name="VALUE" x="354.33" y="165.1" size="1.778" layer="96"/>
+<instance part="JP5" gate="G$1" x="325.12" y="172.72" smashed="yes" rot="R180">
+<attribute name="NAME" x="331.47" y="161.925" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="331.47" y="187.96" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -16336,6 +16382,11 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <junction x="236.22" y="73.66"/>
 <label x="238.76" y="73.66" size="1.778" layer="95"/>
 <pinref part="R314" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="JP5" gate="G$1" pin="8"/>
+<wire x1="327.66" y1="182.88" x2="337.82" y2="182.88" width="0.1524" layer="91"/>
+<label x="337.82" y="182.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FC12V" class="0">
@@ -16597,6 +16648,11 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <wire x1="340.36" y1="223.52" x2="340.36" y2="248.92" width="0.1524" layer="91"/>
 <junction x="340.36" y="248.92"/>
 </segment>
+<segment>
+<pinref part="JP5" gate="G$1" pin="6"/>
+<wire x1="327.66" y1="177.8" x2="337.82" y2="177.8" width="0.1524" layer="91"/>
+<label x="337.82" y="177.8" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="OPEN_RST" class="0">
 <segment>
@@ -16626,12 +16682,22 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <wire x1="347.98" y1="238.76" x2="330.2" y2="238.76" width="0.1524" layer="91"/>
 <label x="330.2" y="238.76" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="JP5" gate="G$1" pin="2"/>
+<wire x1="327.66" y1="167.64" x2="337.82" y2="167.64" width="0.1524" layer="91"/>
+<label x="337.82" y="167.64" size="1.778" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="I2C1_SDA" class="0">
 <segment>
 <pinref part="SHTSENSOR1" gate="G$1" pin="SDA"/>
 <wire x1="347.98" y1="233.68" x2="330.2" y2="233.68" width="0.1524" layer="91"/>
 <label x="330.2" y="233.68" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="JP5" gate="G$1" pin="1"/>
+<wire x1="327.66" y1="165.1" x2="358.14" y2="165.1" width="0.1524" layer="91"/>
+<label x="358.14" y="165.1" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="AUX5V" class="0">
@@ -16668,6 +16734,11 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <wire x1="180.34" y1="86.36" x2="175.26" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="86.36" x2="175.26" y2="106.68" width="0.1524" layer="91"/>
 <label x="175.26" y="106.68" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP5" gate="G$1" pin="7"/>
+<wire x1="327.66" y1="180.34" x2="337.82" y2="180.34" width="0.1524" layer="91"/>
+<label x="337.82" y="180.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="_FC_CURR" class="0">
@@ -16870,6 +16941,25 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <junction x="215.9" y="73.66"/>
 <pinref part="C303" gate="G$1" pin="1"/>
 <wire x1="215.9" y1="68.58" x2="226.06" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$28" class="0">
+<segment>
+<pinref part="JP5" gate="G$1" pin="3"/>
+<wire x1="327.66" y1="170.18" x2="337.82" y2="170.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="JP5" gate="G$1" pin="4"/>
+<wire x1="327.66" y1="172.72" x2="337.82" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="172.72" x2="337.82" y2="172.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="JP5" gate="G$1" pin="5"/>
+<wire x1="327.66" y1="175.26" x2="337.82" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
