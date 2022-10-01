@@ -4147,6 +4147,11 @@ display backpack</text>
 <pinref part="R14" gate="G$1" pin="1"/>
 <pinref part="GND22" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="J3" gate="G$1" pin="3"/>
+<wire x1="-975.36" y1="444.5" x2="-970.28" y2="444.5" width="0.1524" layer="91"/>
+<label x="-967.74" y="444.5" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="H2_OK_5V" class="0">
 <segment>
@@ -4428,6 +4433,13 @@ display backpack</text>
 <pinref part="5VIN_LED" gate="G$1" pin="A"/>
 </segment>
 </net>
+<net name="ESTOP2" class="0">
+<segment>
+<pinref part="J3" gate="G$1" pin="4"/>
+<wire x1="-975.36" y1="447.04" x2="-970.28" y2="447.04" width="0.1524" layer="91"/>
+<label x="-967.74" y="447.04" size="1.778" layer="95"/>
+</segment>
+</net>
 <net name="ESTOP1_5V" class="0">
 <segment>
 <wire x1="-919.988" y1="461.264" x2="-915.67" y2="461.264" width="0.1524" layer="91"/>
@@ -4450,11 +4462,6 @@ display backpack</text>
 <pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 </segment>
-<segment>
-<pinref part="J3" gate="G$1" pin="3"/>
-<wire x1="-975.36" y1="444.5" x2="-970.28" y2="444.5" width="0.1524" layer="91"/>
-<label x="-967.74" y="444.5" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="ESTOP2_3V3" class="0">
 <segment>
@@ -4463,11 +4470,6 @@ display backpack</text>
 <label x="-862.838" y="461.264" size="1.27" layer="95"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="R22" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="J3" gate="G$1" pin="4"/>
-<wire x1="-975.36" y1="447.04" x2="-970.28" y2="447.04" width="0.1524" layer="91"/>
-<label x="-967.74" y="447.04" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

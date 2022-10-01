@@ -1986,22 +1986,6 @@ IC needs to have legs bent before insertion.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RESISTOR_1210" prefix="R" uservalue="yes">
-<gates>
-<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1210">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 </devicesets>
 </library>
 <library name="EcoCar-Discrete-Semiconductors">
@@ -2666,10 +2650,6 @@ IC needs to have legs bent before insertion.</description>
 <part name="R14" library="EcoCar-Passives" deviceset="RESISTOR_0805" device="" value="2k"/>
 <part name="R22" library="EcoCar-Passives" deviceset="RESISTOR_0805" device="" value="1k"/>
 <part name="GND22" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
-<part name="R13" library="EcoCar-Passives" deviceset="RESISTOR_1210" device=""/>
-<part name="R21" library="EcoCar-Passives" deviceset="RESISTOR_1210" device=""/>
-<part name="GND23" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
-<part name="GND24" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3441,20 +3421,6 @@ display backpack</text>
 </instance>
 <instance part="P+14" gate="1" x="25.4" y="61.214" smashed="yes"/>
 <instance part="P+15" gate="1" x="58.42" y="60.96" smashed="yes"/>
-<instance part="R13" gate="G$1" x="25.4" y="43.18" smashed="yes" rot="R90">
-<attribute name="NAME" x="23.876" y="43.18" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="26.924" y="43.18" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
-</instance>
-<instance part="R21" gate="G$1" x="58.42" y="43.18" smashed="yes" rot="MR270">
-<attribute name="NAME" x="56.896" y="43.18" size="1.778" layer="95" font="vector" rot="MR270" align="bottom-center"/>
-<attribute name="VALUE" x="59.944" y="43.18" size="1.778" layer="96" font="vector" rot="MR270" align="top-center"/>
-</instance>
-<instance part="GND23" gate="1" x="58.42" y="35.56" smashed="yes">
-<attribute name="VALUE" x="58.42" y="35.306" size="1.778" layer="96" align="top-center"/>
-</instance>
-<instance part="GND24" gate="1" x="25.4" y="35.56" smashed="yes">
-<attribute name="VALUE" x="25.4" y="35.306" size="1.778" layer="96" align="top-center"/>
-</instance>
 </instances>
 <busses>
 </busses>
@@ -3502,14 +3468,6 @@ display backpack</text>
 <pinref part="U$2" gate="G$1" pin="GND"/>
 <wire x1="17.78" y1="78.74" x2="25.4" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="GND17" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="R21" gate="G$1" pin="2"/>
-<pinref part="GND23" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="R13" gate="G$1" pin="1"/>
-<pinref part="GND24" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="H2OUT" class="0">
@@ -3715,18 +3673,14 @@ display backpack</text>
 <segment>
 <pinref part="U$9" gate="G$1" pin="G/LOW"/>
 <label x="17.272" y="48.26" size="1.778" layer="95"/>
-<wire x1="14.732" y1="48.26" x2="20.32" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="48.26" x2="21.082" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="21.082" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="14.732" y1="48.26" x2="21.082" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ESTOP2_5V" class="0">
 <segment>
 <pinref part="U$3" gate="G$1" pin="G/LOW"/>
 <label x="50.8" y="48.26" size="1.778" layer="95"/>
-<wire x1="48.26" y1="48.26" x2="58.42" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="R21" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="48.26" x2="54.61" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -4147,6 +4101,11 @@ display backpack</text>
 <pinref part="R14" gate="G$1" pin="1"/>
 <pinref part="GND22" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="J3" gate="G$1" pin="3"/>
+<wire x1="-975.36" y1="444.5" x2="-970.28" y2="444.5" width="0.1524" layer="91"/>
+<label x="-967.74" y="444.5" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="H2_OK_5V" class="0">
 <segment>
@@ -4167,6 +4126,20 @@ display backpack</text>
 <pinref part="J3" gate="G$1" pin="2"/>
 <wire x1="-975.36" y1="441.96" x2="-970.28" y2="441.96" width="0.1524" layer="91"/>
 <label x="-967.74" y="441.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="-905.51" y1="461.264" x2="-900.43" y2="461.264" width="0.1524" layer="91"/>
+<wire x1="-900.43" y1="461.264" x2="-900.43" y2="456.184" width="0.1524" layer="91"/>
+<label x="-900.938" y="461.264" size="1.27" layer="95"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="-867.41" y1="461.264" x2="-862.33" y2="461.264" width="0.1524" layer="91"/>
+<wire x1="-862.33" y1="461.264" x2="-862.33" y2="456.184" width="0.1524" layer="91"/>
+<label x="-862.838" y="461.264" size="1.27" layer="95"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+<pinref part="R22" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="H2GASCONC_OK" class="0">
@@ -4428,46 +4401,23 @@ display backpack</text>
 <pinref part="5VIN_LED" gate="G$1" pin="A"/>
 </segment>
 </net>
-<net name="ESTOP1_5V" class="0">
-<segment>
-<wire x1="-919.988" y1="461.264" x2="-915.67" y2="461.264" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="2"/>
-<label x="-919.48" y="459.74" size="1.4224" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="ESTOP2_5V" class="0">
-<segment>
-<wire x1="-881.888" y1="461.264" x2="-877.57" y2="461.264" width="0.1524" layer="91"/>
-<pinref part="R22" gate="G$1" pin="2"/>
-<label x="-878.84" y="459.74" size="1.27" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="ESTOP1_3V3" class="0">
-<segment>
-<wire x1="-905.51" y1="461.264" x2="-900.43" y2="461.264" width="0.1524" layer="91"/>
-<wire x1="-900.43" y1="461.264" x2="-900.43" y2="456.184" width="0.1524" layer="91"/>
-<label x="-900.938" y="461.264" size="1.27" layer="95"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-<pinref part="R9" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="J3" gate="G$1" pin="3"/>
-<wire x1="-975.36" y1="444.5" x2="-970.28" y2="444.5" width="0.1524" layer="91"/>
-<label x="-967.74" y="444.5" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="ESTOP2_3V3" class="0">
-<segment>
-<wire x1="-867.41" y1="461.264" x2="-862.33" y2="461.264" width="0.1524" layer="91"/>
-<wire x1="-862.33" y1="461.264" x2="-862.33" y2="456.184" width="0.1524" layer="91"/>
-<label x="-862.838" y="461.264" size="1.27" layer="95"/>
-<pinref part="R14" gate="G$1" pin="2"/>
-<pinref part="R22" gate="G$1" pin="1"/>
-</segment>
+<net name="ESTOP2" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="4"/>
 <wire x1="-975.36" y1="447.04" x2="-970.28" y2="447.04" width="0.1524" layer="91"/>
 <label x="-967.74" y="447.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="H2_OK_5V1" class="0">
+<segment>
+<wire x1="-919.988" y1="461.264" x2="-915.67" y2="461.264" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="H2_OK_5V2" class="0">
+<segment>
+<wire x1="-881.888" y1="461.264" x2="-877.57" y2="461.264" width="0.1524" layer="91"/>
+<pinref part="R22" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
