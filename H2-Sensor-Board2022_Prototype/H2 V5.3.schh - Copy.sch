@@ -2670,6 +2670,15 @@ IC needs to have legs bent before insertion.</description>
 <part name="R21" library="EcoCar-Passives" deviceset="RESISTOR_1210" device="" value="10k"/>
 <part name="GND23" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
 <part name="GND24" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
+<part name="LED1" library="EcoCar-Discrete-Semiconductors" deviceset="LED_0805" device=""/>
+<part name="LED2" library="EcoCar-Discrete-Semiconductors" deviceset="LED_0805" device=""/>
+<part name="LED3" library="EcoCar-Discrete-Semiconductors" deviceset="LED_0805" device=""/>
+<part name="R23" library="EcoCar-Passives" deviceset="RESISTOR_0805" device=""/>
+<part name="R24" library="EcoCar-Passives" deviceset="RESISTOR_0805" device=""/>
+<part name="GND26" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
+<part name="GND27" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
+<part name="GND29" library="EcoCar-Miscellaneous" deviceset="GND" device=""/>
+<part name="R25" library="EcoCar-Passives" deviceset="RESISTOR_0805" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3455,6 +3464,39 @@ display backpack</text>
 <instance part="GND24" gate="1" x="25.4" y="35.56" smashed="yes">
 <attribute name="VALUE" x="25.4" y="35.306" size="1.778" layer="96" align="top-center"/>
 </instance>
+<instance part="LED1" gate="G$1" x="-27.94" y="88.9" smashed="yes">
+<attribute name="NAME" x="-31.369" y="84.328" size="1.778" layer="95" font="vector" rot="R90"/>
+<attribute name="VALUE" x="-26.035" y="84.328" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
+</instance>
+<instance part="LED2" gate="G$1" x="33.02" y="43.18" smashed="yes">
+<attribute name="NAME" x="29.591" y="38.608" size="1.778" layer="95" font="vector" rot="R90"/>
+<attribute name="VALUE" x="34.925" y="38.608" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
+</instance>
+<instance part="LED3" gate="G$1" x="66.04" y="43.18" smashed="yes">
+<attribute name="NAME" x="62.611" y="38.608" size="1.778" layer="95" font="vector" rot="R90"/>
+<attribute name="VALUE" x="67.945" y="38.608" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
+</instance>
+<instance part="R23" gate="G$1" x="33.02" y="50.8" smashed="yes" rot="R90">
+<attribute name="NAME" x="31.496" y="50.8" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="34.544" y="50.8" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="R24" gate="G$1" x="66.04" y="48.26" smashed="yes" rot="R90">
+<attribute name="NAME" x="64.516" y="48.26" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="67.564" y="48.26" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="GND26" gate="1" x="33.02" y="35.56" smashed="yes">
+<attribute name="VALUE" x="33.02" y="35.306" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="GND27" gate="1" x="66.04" y="35.56" smashed="yes">
+<attribute name="VALUE" x="66.04" y="35.306" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="GND29" gate="1" x="-27.94" y="81.28" smashed="yes">
+<attribute name="VALUE" x="-27.94" y="81.026" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="R25" gate="G$1" x="-27.94" y="93.98" smashed="yes" rot="R90">
+<attribute name="NAME" x="-29.464" y="93.98" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="-26.416" y="93.98" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -3510,6 +3552,18 @@ display backpack</text>
 <segment>
 <pinref part="R13" gate="G$1" pin="1"/>
 <pinref part="GND24" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="LED3" gate="G$1" pin="C"/>
+<pinref part="GND27" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="GND29" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="H2OUT" class="0">
@@ -3620,10 +3674,14 @@ display backpack</text>
 <wire x1="-7.62" y1="83.82" x2="-12.7" y2="83.82" width="0.1524" layer="91"/>
 <junction x="-12.7" y="83.82"/>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="-20.32" y1="93.98" x2="-20.32" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="93.98" x2="-20.32" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="99.06" x2="-20.32" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="111.76" x2="-12.7" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="F1" gate="G$1" pin="1"/>
 <junction x="-12.7" y="111.76"/>
+<pinref part="R25" gate="G$1" pin="2"/>
+<wire x1="-27.94" y1="99.06" x2="-20.32" y2="99.06" width="0.1524" layer="91"/>
+<junction x="-20.32" y="99.06"/>
 </segment>
 <segment>
 <pinref part="F1" gate="G$1" pin="2"/>
@@ -3715,10 +3773,13 @@ display backpack</text>
 <segment>
 <pinref part="U$9" gate="G$1" pin="G/LOW"/>
 <label x="17.272" y="48.26" size="1.778" layer="95"/>
-<wire x1="14.732" y1="48.26" x2="20.32" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="14.732" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="48.26" x2="21.082" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="21.082" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="R23" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="55.88" x2="27.94" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="55.88" x2="27.94" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
+<junction x="25.4" y="48.26"/>
 </segment>
 </net>
 <net name="ESTOP2_5V" class="0">
@@ -3727,6 +3788,17 @@ display backpack</text>
 <label x="50.8" y="48.26" size="1.778" layer="95"/>
 <wire x1="48.26" y1="48.26" x2="58.42" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="R21" gate="G$1" pin="1"/>
+<pinref part="R24" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="53.34" x2="60.96" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="53.34" x2="60.96" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="48.26" x2="58.42" y2="48.26" width="0.1524" layer="91"/>
+<junction x="58.42" y="48.26"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="R23" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
