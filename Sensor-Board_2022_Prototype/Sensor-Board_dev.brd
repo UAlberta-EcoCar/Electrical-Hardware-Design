@@ -353,102 +353,28 @@
 <text x="0.762" y="3.937" size="1.778" layer="22" rot="MR0">5</text>
 <text x="-3.429" y="3.937" size="1.778" layer="22" rot="MR0">6</text>
 </package>
-<package name="F09HP" urn="urn:adsk.eagle:footprint:10102/1">
-<description>&lt;b&gt;SUB-D&lt;/b&gt;</description>
-<wire x1="-7.62" y1="17.907" x2="-7.366" y2="17.907" width="0.1524" layer="21"/>
-<wire x1="-8.128" y1="17.399" x2="-7.62" y2="17.907" width="0.1524" layer="21" curve="-90"/>
-<wire x1="7.62" y1="17.907" x2="8.128" y2="17.399" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-7.747" y1="11.684" x2="7.747" y2="11.684" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="7.62" x2="-10.414" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="7.62" x2="-15.494" y2="10.668" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="7.62" x2="-15.494" y2="7.493" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="10.668" x2="-15.494" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="11.176" x2="-15.494" y2="11.684" width="0.1524" layer="21"/>
-<wire x1="15.494" y1="11.684" x2="15.494" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="15.494" y1="11.176" x2="15.494" y2="10.668" width="0.1524" layer="21"/>
-<wire x1="15.494" y1="10.668" x2="15.494" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="15.494" y1="7.62" x2="15.494" y2="7.493" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="11.176" x2="-12.954" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="-12.954" y1="11.176" x2="-10.414" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="-10.414" y1="10.668" x2="-10.414" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="-10.414" y1="10.668" x2="-10.287" y2="10.668" width="0.1524" layer="21"/>
-<wire x1="-10.287" y1="8.255" x2="-9.652" y2="7.62" width="0.1524" layer="21" curve="90"/>
-<wire x1="-10.414" y1="7.62" x2="-9.525" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="7.62" x2="-9.271" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="-10.287" y1="8.255" x2="-10.287" y2="10.668" width="0.1524" layer="21"/>
-<wire x1="-9.271" y1="7.62" x2="-9.271" y2="6.858" width="0.1524" layer="21"/>
-<wire x1="-9.271" y1="7.62" x2="9.271" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="-9.271" y1="6.858" x2="9.271" y2="6.858" width="0.1524" layer="21"/>
-<wire x1="9.271" y1="7.62" x2="9.271" y2="6.858" width="0.1524" layer="21"/>
-<wire x1="9.271" y1="7.62" x2="9.525" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="7.62" x2="10.414" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="12.954" y1="11.176" x2="15.494" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="-10.414" y1="11.176" x2="10.414" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="10.414" y1="11.176" x2="12.954" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="10.414" y1="10.668" x2="10.414" y2="11.176" width="0.1524" layer="21"/>
-<wire x1="10.287" y1="8.255" x2="10.287" y2="10.668" width="0.1524" layer="21"/>
-<wire x1="10.287" y1="10.668" x2="10.414" y2="10.668" width="0.1524" layer="21"/>
-<wire x1="9.652" y1="7.62" x2="10.287" y2="8.255" width="0.1524" layer="21" curve="90"/>
-<wire x1="-14.859" y1="-3.175" x2="-15.494" y2="-2.54" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="-2.54" x2="-15.494" y2="7.493" width="0.1524" layer="21"/>
-<wire x1="-10.033" y1="-3.175" x2="-14.859" y2="-3.175" width="0.1524" layer="21"/>
-<wire x1="-10.033" y1="-3.175" x2="-9.525" y2="-2.667" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="-2.667" x2="-9.525" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-2.667" x2="9.525" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-2.667" x2="10.033" y2="-3.175" width="0.1524" layer="21"/>
-<wire x1="10.033" y1="-3.175" x2="14.986" y2="-3.175" width="0.1524" layer="21"/>
-<wire x1="14.986" y1="-3.175" x2="15.494" y2="-2.667" width="0.1524" layer="21"/>
-<wire x1="15.494" y1="-2.667" x2="15.494" y2="7.493" width="0.1524" layer="21"/>
-<wire x1="0" y1="-1.143" x2="0" y2="-0.127" width="0.8128" layer="51"/>
-<wire x1="-2.7432" y1="-1.143" x2="-2.7432" y2="-0.127" width="0.8128" layer="51"/>
-<wire x1="-5.4864" y1="-1.143" x2="-5.4864" y2="-0.127" width="0.8128" layer="51"/>
-<wire x1="-4.1148" y1="1.397" x2="-4.1148" y2="2.413" width="0.8128" layer="51"/>
-<wire x1="-1.3716" y1="1.397" x2="-1.3716" y2="2.413" width="0.8128" layer="51"/>
-<wire x1="1.3462" y1="1.397" x2="1.3462" y2="2.413" width="0.8128" layer="51"/>
-<wire x1="2.7432" y1="-1.143" x2="2.7432" y2="-0.127" width="0.8128" layer="51"/>
-<wire x1="4.1148" y1="1.397" x2="4.1148" y2="2.413" width="0.8128" layer="51"/>
-<wire x1="5.4864" y1="-1.143" x2="5.4864" y2="-0.127" width="0.8128" layer="51"/>
-<wire x1="10.414" y1="7.62" x2="15.494" y2="7.62" width="0.1524" layer="21"/>
-<wire x1="-15.494" y1="11.684" x2="-7.747" y2="11.684" width="0.1524" layer="21"/>
-<wire x1="-8.128" y1="12.319" x2="-8.128" y2="17.399" width="0.1524" layer="21"/>
-<wire x1="-8.763" y1="11.684" x2="-8.128" y2="12.319" width="0.1524" layer="21" curve="90"/>
-<wire x1="7.747" y1="11.684" x2="15.494" y2="11.684" width="0.1524" layer="21"/>
-<wire x1="8.128" y1="12.319" x2="8.128" y2="17.399" width="0.1524" layer="21"/>
-<wire x1="8.128" y1="12.319" x2="8.763" y2="11.684" width="0.1524" layer="21" curve="90"/>
-<wire x1="-7.366" y1="17.907" x2="7.366" y2="17.907" width="0.1524" layer="21"/>
-<wire x1="7.366" y1="17.907" x2="7.62" y2="17.907" width="0.1524" layer="21"/>
-<circle x="-12.5222" y="0" radius="1.651" width="0.1524" layer="21"/>
-<circle x="12.5222" y="0" radius="1.651" width="0.1524" layer="21"/>
-<pad name="1" x="-5.4864" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="2" x="-2.7432" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="3" x="0" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="4" x="2.7432" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="5" x="5.4864" y="-1.27" drill="1.016" shape="octagon"/>
-<pad name="6" x="-4.1148" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="7" x="-1.3716" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="8" x="1.3716" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="9" x="4.1148" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="G1" x="-12.5222" y="0" drill="3.302" diameter="5.08"/>
-<pad name="G2" x="12.5222" y="0" drill="3.302" diameter="5.08"/>
-<text x="-15.24" y="-6.35" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="13.97" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-7.62" y="-1.905" size="1.27" layer="21" ratio="10">1</text>
-<text x="6.985" y="-1.905" size="1.27" layer="21" ratio="10">5</text>
-<text x="6.985" y="0.635" size="1.27" layer="21" ratio="10">9</text>
-<text x="-7.62" y="0.635" size="1.27" layer="21" ratio="10">6</text>
-<text x="14.986" y="2.54" size="1.27" layer="21" ratio="10" rot="R90">2,54</text>
-<text x="-7.62" y="8.509" size="1.27" layer="21" ratio="10">F09</text>
-<rectangle x1="-9.271" y1="6.858" x2="9.271" y2="7.62" layer="21"/>
-<rectangle x1="-15.494" y1="11.176" x2="15.494" y2="11.684" layer="21"/>
-<rectangle x1="-5.8928" y1="-0.381" x2="-5.08" y2="6.858" layer="21"/>
-<rectangle x1="-4.5212" y1="2.159" x2="-3.7084" y2="6.858" layer="21"/>
-<rectangle x1="-3.1496" y1="-0.381" x2="-2.3368" y2="6.858" layer="21"/>
-<rectangle x1="-1.778" y1="2.159" x2="-0.9652" y2="6.858" layer="21"/>
-<rectangle x1="-0.4318" y1="-0.381" x2="0.381" y2="6.858" layer="21"/>
-<rectangle x1="0.9398" y1="2.159" x2="1.7526" y2="6.858" layer="21"/>
-<rectangle x1="2.3368" y1="-0.381" x2="3.1496" y2="6.858" layer="21"/>
-<rectangle x1="3.7084" y1="2.159" x2="4.5212" y2="6.858" layer="21"/>
-<rectangle x1="5.08" y1="-0.381" x2="5.8928" y2="6.858" layer="21"/>
+<package name="RJ45">
+<hole x="0" y="0" drill="3.3"/>
+<hole x="12.7" y="0" drill="3.3"/>
+<pad name="9" x="-1.78" y="3.43" drill="1.62"/>
+<pad name="10" x="14.48" y="3.43" drill="1.62"/>
+<pad name="7" x="3.81" y="2.54" drill="0.94" shape="square"/>
+<pad name="8" x="2.79" y="4.32" drill="0.94" shape="square"/>
+<pad name="6" x="4.82" y="4.32" drill="0.94" shape="square"/>
+<pad name="4" x="6.85" y="4.32" drill="0.94" shape="square"/>
+<pad name="2" x="8.88" y="4.32" drill="0.94" shape="square"/>
+<pad name="5" x="5.84" y="2.54" drill="0.94" shape="square"/>
+<pad name="3" x="7.87" y="2.54" drill="0.94" shape="square"/>
+<pad name="1" x="9.9" y="2.54" drill="0.94" shape="square"/>
+<wire x1="-3.15" y1="-5.08" x2="15.85" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="15.85" y1="-5.08" x2="15.85" y2="10.16" width="0.127" layer="21"/>
+<wire x1="-3.15" y1="-5.08" x2="-3.15" y2="10.16" width="0.127" layer="21"/>
+<wire x1="-3.15" y1="10.16" x2="15.85" y2="10.16" width="0.127" layer="21"/>
+<wire x1="6.35" y1="-4.5" x2="5.1" y2="-3.3" width="0.1524" layer="21"/>
+<wire x1="7.6" y1="-3.3" x2="6.35" y2="-4.5" width="0.1524" layer="21"/>
+<wire x1="6.35" y1="-4.5" x2="6.35" y2="-1.4" width="0.1524" layer="21"/>
+<text x="-3.048" y="10.668" size="1.778" layer="21">&gt;NAME</text>
+<text x="6.731" y="10.668" size="1.778" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 </library>
@@ -706,10 +632,6 @@ design rules under a new name.</description>
 <element name="FC-PWR-IN" library="EcoCar-Connectors" package="TE_6-PIN" value="TE_6-PIN" x="67.31" y="-335.28" smashed="yes">
 <attribute name="NAME" x="61.863" y="-320.802" size="1.778" layer="25"/>
 </element>
-<element name="LEFT_FWD_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="36.83" y="-285.75" smashed="yes">
-<attribute name="NAME" x="21.59" y="-292.1" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="31.75" y="-271.78" size="1.778" layer="27" ratio="10"/>
-</element>
 <element name="C5" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="85.09" y="-346.71" smashed="yes">
 <attribute name="NAME" x="82.55" y="-345.186" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
 <attribute name="VALUE" x="82.55" y="-348.234" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
@@ -734,22 +656,6 @@ design rules under a new name.</description>
 <attribute name="NAME" x="78.359" y="-336.931" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="100.965" y="-337.693" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="LEFT_REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="74.93" y="-285.75" smashed="yes">
-<attribute name="NAME" x="59.69" y="-292.1" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="69.85" y="-271.78" size="1.778" layer="27" ratio="10"/>
-</element>
-<element name="RIGHT_FWD_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="74.93" y="-311.15" smashed="yes">
-<attribute name="NAME" x="59.69" y="-317.5" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="69.85" y="-297.18" size="1.778" layer="27" ratio="10"/>
-</element>
-<element name="RIGHT_REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="36.83" y="-336.55" smashed="yes">
-<attribute name="NAME" x="21.59" y="-342.9" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="31.75" y="-322.58" size="1.778" layer="27" ratio="10"/>
-</element>
-<element name="REAR_SIG" library="EcoCar-Connectors" package="F09HP" value="D-SUB_2-ROW_9-PIN" x="36.83" y="-311.15" smashed="yes">
-<attribute name="NAME" x="21.59" y="-317.5" size="1.778" layer="25" ratio="10"/>
-<attribute name="VALUE" x="31.75" y="-297.18" size="1.778" layer="27" ratio="10"/>
-</element>
 <element name="C1" library="EcoCar-Passives" package="CAP-PTH-5MM" value="1uF" x="49.53" y="-346.71" smashed="yes">
 <attribute name="NAME" x="46.99" y="-345.186" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
 <attribute name="VALUE" x="46.99" y="-348.234" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
@@ -773,6 +679,26 @@ design rules under a new name.</description>
 <element name="RIGHT_SIG" library="EcoCar-Integrated-Circuits" package="DIP16" value="RS232-TTL_MAX232E" x="33.02" y="-359.41" smashed="yes">
 <attribute name="NAME" x="22.479" y="-362.331" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="45.085" y="-363.093" size="1.27" layer="27" ratio="10" rot="R90"/>
+</element>
+<element name="REAR_SIG" library="EcoCar-Connectors" package="RJ45" value="RJ45" x="24.13" y="-384.81" smashed="yes">
+<attribute name="NAME" x="21.082" y="-374.142" size="1.778" layer="21"/>
+<attribute name="VALUE" x="30.861" y="-374.142" size="1.778" layer="27"/>
+</element>
+<element name="RIGHT_REAR_SIG" library="EcoCar-Connectors" package="RJ45" value="RJ45" x="24.13" y="-422.91" smashed="yes">
+<attribute name="NAME" x="21.082" y="-412.242" size="1.778" layer="21"/>
+<attribute name="VALUE" x="30.861" y="-412.242" size="1.778" layer="27"/>
+</element>
+<element name="RIGHT_FWD_SIG" library="EcoCar-Connectors" package="RJ45" value="RJ45" x="24.13" y="-441.96" smashed="yes">
+<attribute name="NAME" x="21.082" y="-431.292" size="1.778" layer="21"/>
+<attribute name="VALUE" x="30.861" y="-431.292" size="1.778" layer="27"/>
+</element>
+<element name="LEFT_REAR_SIG" library="EcoCar-Connectors" package="RJ45" value="RJ45" x="24.13" y="-461.01" smashed="yes">
+<attribute name="NAME" x="21.082" y="-450.342" size="1.778" layer="21"/>
+<attribute name="VALUE" x="30.861" y="-450.342" size="1.778" layer="27"/>
+</element>
+<element name="LEFT_FWD_SIG" library="EcoCar-Connectors" package="RJ45" value="RJ45" x="24.13" y="-480.06" smashed="yes">
+<attribute name="NAME" x="21.082" y="-469.392" size="1.778" layer="21"/>
+<attribute name="VALUE" x="30.861" y="-469.392" size="1.778" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -816,51 +742,21 @@ design rules under a new name.</description>
 <contactref element="UC1" pad="AGND"/>
 <contactref element="FC-PWR-IN" pad="2"/>
 <contactref element="FC-PWR-IN" pad="5"/>
-<contactref element="LEFT_FWD_SIG" pad="G1"/>
-<contactref element="LEFT_FWD_SIG" pad="G2"/>
-<contactref element="LEFT_FWD_SIG" pad="5"/>
 <contactref element="C9" pad="1"/>
 <contactref element="C6" pad="2"/>
 <contactref element="LEFT_SIG" pad="15"/>
-<contactref element="LEFT_REAR_SIG" pad="G1"/>
-<contactref element="LEFT_REAR_SIG" pad="G2"/>
-<contactref element="LEFT_REAR_SIG" pad="5"/>
-<contactref element="RIGHT_FWD_SIG" pad="G1"/>
-<contactref element="RIGHT_FWD_SIG" pad="G2"/>
-<contactref element="RIGHT_FWD_SIG" pad="5"/>
-<contactref element="RIGHT_REAR_SIG" pad="G1"/>
-<contactref element="RIGHT_REAR_SIG" pad="G2"/>
-<contactref element="RIGHT_REAR_SIG" pad="5"/>
-<contactref element="REAR_SIG" pad="G1"/>
-<contactref element="REAR_SIG" pad="G2"/>
-<contactref element="REAR_SIG" pad="5"/>
 <contactref element="C10" pad="1"/>
 <contactref element="C2" pad="2"/>
 <contactref element="RIGHT_SIG" pad="15"/>
 <wire x1="82.55" y1="-330.2" x2="96.48" y2="-346.71" width="0" layer="19" extent="1-1"/>
 <wire x1="67.31" y1="-327.94" x2="82.55" y2="-330.2" width="0" layer="19" extent="1-1"/>
 <wire x1="67.31" y1="-323.8" x2="67.31" y2="-327.94" width="0" layer="19" extent="1-1"/>
-<wire x1="62.4078" y1="-311.15" x2="67.31" y2="-323.8" width="0" layer="19" extent="1-1"/>
-<wire x1="49.3522" y1="-311.15" x2="62.4078" y2="-311.15" width="0" layer="19" extent="1-1"/>
-<wire x1="42.3164" y1="-312.42" x2="49.3522" y2="-311.15" width="0" layer="19" extent="1-1"/>
-<wire x1="80.4164" y1="-312.42" x2="67.31" y2="-323.8" width="0" layer="19" extent="1-1"/>
-<wire x1="87.4522" y1="-311.15" x2="80.4164" y2="-312.42" width="0" layer="19" extent="1-1"/>
-<wire x1="24.3078" y1="-311.15" x2="42.3164" y2="-312.42" width="0" layer="19" extent="1-1"/>
 <wire x1="60.92" y1="-346.71" x2="67.31" y2="-327.94" width="0" layer="19" extent="1-1"/>
-<wire x1="49.3522" y1="-336.55" x2="60.92" y2="-346.71" width="0" layer="19" extent="1-1"/>
-<wire x1="42.3164" y1="-337.82" x2="49.3522" y2="-336.55" width="0" layer="19" extent="1-1"/>
-<wire x1="24.3078" y1="-336.55" x2="42.3164" y2="-337.82" width="0" layer="19" extent="1-1"/>
-<wire x1="26.67" y1="-355.6" x2="24.3078" y2="-336.55" width="0" layer="19" extent="1-1"/>
-<wire x1="40.68" y1="-368.3" x2="26.67" y2="-355.6" width="0" layer="19" extent="1-1"/>
-<wire x1="49.57" y1="-368.3" x2="40.68" y2="-368.3" width="0" layer="19" extent="1-1"/>
-<wire x1="42.3164" y1="-287.02" x2="49.3522" y2="-311.15" width="0" layer="19" extent="1-1"/>
-<wire x1="49.3522" y1="-285.75" x2="42.3164" y2="-287.02" width="0" layer="19" extent="1-1"/>
-<wire x1="62.4078" y1="-285.75" x2="49.3522" y2="-285.75" width="0" layer="19" extent="1-1"/>
-<wire x1="80.4164" y1="-287.02" x2="62.4078" y2="-285.75" width="0" layer="19" extent="1-1"/>
-<wire x1="87.4522" y1="-285.75" x2="80.4164" y2="-287.02" width="0" layer="19" extent="1-1"/>
-<wire x1="24.3078" y1="-285.75" x2="42.3164" y2="-287.02" width="0" layer="19" extent="1-1"/>
-<wire x1="66.04" y1="85.730715625" x2="62.4078" y2="-285.75" width="0" layer="19" extent="1-1"/>
-<wire x1="68.58" y1="85.730715625" x2="66.04" y2="85.730715625" width="0" layer="19" extent="1-1"/>
+<wire x1="49.57" y1="-368.3" x2="60.92" y2="-346.71" width="0" layer="19" extent="1-1"/>
+<wire x1="40.68" y1="-368.3" x2="49.57" y2="-368.3" width="0" layer="19" extent="1-1"/>
+<wire x1="26.67" y1="-355.6" x2="40.68" y2="-368.3" width="0" layer="19" extent="1-1"/>
+<wire x1="68.58" y1="85.730715625" x2="67.31" y2="-323.8" width="0" layer="19" extent="1-1"/>
+<wire x1="66.04" y1="85.730715625" x2="68.58" y2="85.730715625" width="0" layer="19" extent="1-1"/>
 <wire x1="73.66" y1="113.670715625" x2="68.58" y2="85.730715625" width="0" layer="19" extent="1-1"/>
 <wire x1="76.2" y1="128.910715625" x2="73.66" y2="113.670715625" width="0" layer="19" extent="1-1"/>
 <wire x1="73.66" y1="149.230715625" x2="76.2" y2="128.910715625" width="0" layer="19" extent="1-1"/>
@@ -929,17 +825,17 @@ design rules under a new name.</description>
 </signal>
 <signal name="LEFT_FWD_RX_RS232">
 <contactref element="LEFT_SIG" pad="13"/>
-<contactref element="LEFT_FWD_SIG" pad="3"/>
 <contactref element="RIGHT_FWD_SIG" pad="3"/>
-<wire x1="74.93" y1="-312.42" x2="36.83" y2="-287.02" width="0" layer="19" extent="1-1"/>
-<wire x1="87.63" y1="-330.2" x2="74.93" y2="-312.42" width="0" layer="19" extent="1-1"/>
+<contactref element="LEFT_FWD_SIG" pad="3"/>
+<wire x1="32" y1="-439.42" x2="87.63" y2="-330.2" width="0" layer="19" extent="1-1"/>
+<wire x1="32" y1="-477.52" x2="32" y2="-439.42" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_FWD_TX_RS232">
 <contactref element="LEFT_SIG" pad="14"/>
-<contactref element="LEFT_FWD_SIG" pad="2"/>
-<contactref element="RIGHT_FWD_SIG" pad="2"/>
-<wire x1="72.1868" y1="-312.42" x2="85.09" y2="-330.2" width="0" layer="19" extent="1-1"/>
-<wire x1="34.0868" y1="-287.02" x2="72.1868" y2="-312.42" width="0" layer="19" extent="1-1"/>
+<contactref element="RIGHT_FWD_SIG" pad="6"/>
+<contactref element="LEFT_FWD_SIG" pad="6"/>
+<wire x1="28.95" y1="-437.64" x2="85.09" y2="-330.2" width="0" layer="19" extent="1-1"/>
+<wire x1="28.95" y1="-475.74" x2="28.95" y2="-437.64" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_FWD_RX_TTL">
 <contactref element="LEFT_SIG" pad="12"/>
@@ -952,29 +848,23 @@ design rules under a new name.</description>
 <wire x1="76.2" y1="136.530715625" x2="92.71" y2="-330.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_REAR_TX_RS232">
-<contactref element="LEFT_REAR_SIG" pad="2"/>
-<contactref element="RIGHT_REAR_SIG" pad="2"/>
 <contactref element="LEFT_SIG" pad="7"/>
-<wire x1="72.1868" y1="-287.02" x2="95.25" y2="-337.82" width="0" layer="19" extent="1-1"/>
-<wire x1="34.0868" y1="-337.82" x2="95.25" y2="-337.82" width="0" layer="19" extent="1-1"/>
+<contactref element="RIGHT_REAR_SIG" pad="6"/>
+<contactref element="LEFT_REAR_SIG" pad="6"/>
+<wire x1="28.95" y1="-418.59" x2="95.25" y2="-337.82" width="0" layer="19" extent="1-1"/>
+<wire x1="28.95" y1="-456.69" x2="28.95" y2="-418.59" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LEFT_REAR_RX_RS232">
-<contactref element="LEFT_REAR_SIG" pad="3"/>
-<contactref element="RIGHT_REAR_SIG" pad="3"/>
 <contactref element="LEFT_SIG" pad="8"/>
-<wire x1="74.93" y1="-287.02" x2="97.79" y2="-337.82" width="0" layer="19" extent="1-1"/>
-<wire x1="36.83" y1="-337.82" x2="97.79" y2="-337.82" width="0" layer="19" extent="1-1"/>
+<contactref element="RIGHT_REAR_SIG" pad="3"/>
+<contactref element="LEFT_REAR_SIG" pad="3"/>
+<wire x1="32" y1="-420.37" x2="97.79" y2="-337.82" width="0" layer="19" extent="1-1"/>
+<wire x1="32" y1="-458.47" x2="32" y2="-420.37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="C7" pad="2"/>
 <contactref element="LEFT_SIG" pad="1"/>
 <wire x1="80.01" y1="-337.82" x2="27.9" y2="-368.3" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="FWD_RX_RS232">
-<contactref element="REAR_SIG" pad="3"/>
-</signal>
-<signal name="FWD_TX_RS232">
-<contactref element="REAR_SIG" pad="2"/>
 </signal>
 <signal name="N$2">
 <contactref element="C1" pad="1"/>
@@ -1043,6 +933,12 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$10">
 <contactref element="UC1" pad="PC_6"/>
+</signal>
+<signal name="FWD_RX_RS232">
+<contactref element="REAR_SIG" pad="6"/>
+</signal>
+<signal name="FWD_TX_RS232">
+<contactref element="REAR_SIG" pad="3"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
