@@ -3577,11 +3577,11 @@ display backpack</text>
 <attribute name="NAME" x="249.936" y="53.34" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="252.984" y="53.34" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="SUPPLY3" gate="G$1" x="259.08" y="43.18" smashed="yes" rot="R90">
-<attribute name="VALUE" x="256.286" y="43.18" size="1.778" layer="96" rot="R90" align="bottom-center"/>
+<instance part="SUPPLY3" gate="G$1" x="254" y="43.18" smashed="yes">
+<attribute name="VALUE" x="254" y="45.974" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="SUPPLY7" gate="G$1" x="259.08" y="73.66" smashed="yes" rot="R90">
-<attribute name="VALUE" x="256.286" y="73.66" size="1.778" layer="96" rot="R90" align="bottom-center"/>
+<instance part="SUPPLY7" gate="G$1" x="254" y="73.66" smashed="yes">
+<attribute name="VALUE" x="254" y="76.454" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="GND33" gate="1" x="292.1" y="78.74" smashed="yes">
 <attribute name="VALUE" x="292.1" y="78.486" size="1.778" layer="96" align="top-center"/>
@@ -3762,8 +3762,8 @@ display backpack</text>
 <wire x1="259.08" y1="78.74" x2="259.08" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="78.74" x2="259.08" y2="73.66" width="0.1524" layer="91"/>
 <junction x="259.08" y="78.74"/>
-<label x="259.08" y="73.66" size="1.778" layer="95"/>
 <pinref part="SUPPLY7" gate="G$1" pin="5V"/>
+<wire x1="259.08" y1="73.66" x2="254" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V_LINEAR" class="0">
@@ -3941,18 +3941,6 @@ display backpack</text>
 <label x="259.08" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="12V" class="0">
-<segment>
-<pinref part="R28" gate="G$1" pin="1"/>
-<wire x1="251.46" y1="48.26" x2="259.08" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="12V_SENSE" gate="G$1" pin="RS-"/>
-<wire x1="259.08" y1="48.26" x2="259.08" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="259.08" y1="48.26" x2="259.08" y2="43.18" width="0.1524" layer="91"/>
-<junction x="259.08" y="48.26"/>
-<label x="259.08" y="43.18" size="1.778" layer="95"/>
-<pinref part="SUPPLY3" gate="G$1" pin="12V"/>
-</segment>
-</net>
 <net name="5V_CURRENT" class="0">
 <segment>
 <pinref part="5V_SENSE" gate="G$1" pin="OUT"/>
@@ -3965,6 +3953,18 @@ display backpack</text>
 <pinref part="12V_SENSE" gate="G$1" pin="OUT"/>
 <wire x1="284.48" y1="55.88" x2="294.64" y2="55.88" width="0.1524" layer="91"/>
 <label x="292.1" y="55.88" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="12V" class="0">
+<segment>
+<pinref part="R28" gate="G$1" pin="1"/>
+<wire x1="251.46" y1="48.26" x2="259.08" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="12V_SENSE" gate="G$1" pin="RS-"/>
+<wire x1="259.08" y1="48.26" x2="259.08" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="48.26" x2="259.08" y2="43.18" width="0.1524" layer="91"/>
+<junction x="259.08" y="48.26"/>
+<pinref part="SUPPLY3" gate="G$1" pin="12V"/>
+<wire x1="259.08" y1="43.18" x2="254" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
