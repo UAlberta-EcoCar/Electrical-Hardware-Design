@@ -13245,6 +13245,7 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <part name="R124" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7kΩ"/>
 <part name="GND26" library="E-P-008-R1.2" deviceset="GND" device=""/>
 <part name="D308" library="12V TVS" deviceset="P6KE15A-E3/54GICT-ND" device=""/>
+<part name="R1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:26059/1" value="145Ω"/>
 </parts>
 <sheets>
 <sheet>
@@ -16019,6 +16020,10 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <instance part="D308" gate="G$1" x="66.04" y="86.36" smashed="yes">
 <attribute name="NAME" x="63.7286" y="89.0016" size="1.778" layer="95"/>
 <attribute name="VALUE" x="63.4746" y="81.8642" size="1.778" layer="96"/>
+</instance>
+<instance part="R1" gate="G$1" x="157.48" y="48.26" smashed="yes">
+<attribute name="NAME" x="153.67" y="49.7586" size="1.778" layer="95"/>
+<attribute name="VALUE" x="153.67" y="44.958" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
