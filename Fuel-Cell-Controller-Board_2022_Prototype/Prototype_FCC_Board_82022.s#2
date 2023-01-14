@@ -13068,7 +13068,7 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <part name="R306" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="470Ω"/>
 <part name="R308" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10kΩ"/>
 <part name="D1" library="SparkFun-LED" library_urn="urn:adsk.eagle:library:529" deviceset="LED" device="1206" package3d_urn="urn:adsk.eagle:package:39352/1" value="RED"/>
-<part name="R116" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
+<part name="R116" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="65Ω"/>
 <part name="C102" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="0.1µF"/>
 <part name="C105" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="1µF"/>
 <part name="C107" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="10µF"/>
@@ -13082,9 +13082,9 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <part name="R117" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
 <part name="U$25" library="FCC_parts" deviceset="5060BRG4" device="5060BRG4"/>
 <part name="GND5" library="E-P-008-R1.2" deviceset="GND" device=""/>
-<part name="R118" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
-<part name="R119" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
-<part name="R120" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="324Ω"/>
+<part name="R118" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10Ω"/>
+<part name="R119" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="65Ω"/>
+<part name="R120" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10Ω"/>
 <part name="C103" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="0.1µF"/>
 <part name="C101" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="CAP" device="0805" value="0.1µF"/>
 <part name="C104" library="100uF_Cap" deviceset="CAP-VS-SERIES-PACKAGE-E(ELECT)" device="VS-SERIES-PACKAGE-E" value="1µF"/>
