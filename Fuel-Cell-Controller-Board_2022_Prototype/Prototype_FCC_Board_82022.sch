@@ -16324,7 +16324,7 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/tlv2404"&gt; Datasheet &lt;/a&gt;<
 <segment>
 <pinref part="U$11" gate="G$1" pin="VO"/>
 <wire x1="81.28" y1="238.76" x2="83.82" y2="238.76" width="0.1524" layer="91"/>
-<label x="83.82" y="238.76" size="1.778" layer="95" xref="yes"/>
+<label x="83.82" y="238.76" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$13" gate="G$1" pin="GATE"/>
