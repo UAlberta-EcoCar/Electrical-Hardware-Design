@@ -1,0 +1,70 @@
+(Japanese_coding: sjis)
+(function "ECS_15359784"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-10-18-04:13:37)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+        (port "3" (symbPinId 3) (portType INOUT))
+    )
+    (property "symbolName" "CONSMA020_042-G")
+)
+
+
+(pinAssign "ECS_15359784"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-10-18-04:13:37)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+        (port "3" (symbPinId 3) (portName "3") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_15359784")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+                (port "3" (match "3"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "CONSMA020_042-G")
+)
+
+
+(part "CONSMA020_042-G"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-10-18-04:13:37)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "CONSMA020_042-G")
+    (pinAssignRef "ECS_15359784")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+        (port "3" (symbPinId 3) (portName "3") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "J")
+    (property "description" "RF Connectors / Coaxial Connectors RF Connectors / Coaxial Connectors SMA, Edge Mount, Female Receptacle, 0.042\" PCB Mount, Gold")
+    (property "Mouser_Part_Number" "712-CONSMA020.042-G")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Linx-Technologies/CONSMA020.042-G?qs=7D1LtPJG0i3DlJhqoQK7wQ%3D%3D")
+    (property "Manufacturer_Name" "Linx Technologies")
+    (property "Manufacturer_Part_Number" "CONSMA020.042-G")
+    (property "Datasheet_Link" "https://linxtechnologies.com/wp/wp-content/uploads/consma020.042-g-ds.pdf")
+    (property "compAreaTopHeight" 7.92)
+)
+
+

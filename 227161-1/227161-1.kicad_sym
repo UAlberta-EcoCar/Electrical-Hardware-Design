@@ -1,0 +1,66 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "227161-1" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "J" (id 0) (at -5.08014 4.82613 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "227161-1" (id 1) (at -5.08805 -10.1761 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "TE_227161-1" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Comment" "227161-1" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "227161-1_0_0"
+      (circle (center 0.0 0.0) (radius 2.54)
+        (stroke (width 0.254)) (fill (type none))
+      )
+      (circle (center 0.0 0.0) (radius 0.508)
+        (stroke (width 0.254)) (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy -0.508 0.0)
+          (xy 0.0 0.508)
+          (xy 0.508 0.0)
+          (xy 0.0 -0.508)
+          (xy -0.508 0.0)
+        )
+        (stroke (width 0.254)) (fill (type outline))
+      )
+      (polyline
+        (pts (xy 0.0 -2.54) (xy 0.0 -5.08)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 0.0 0.0) (xy -4.572 0.0)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -0.508 -5.08) (xy 0.508 -5.08)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -1.016 -5.08) (xy 1.016 -5.08)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -0.508 -5.588) (xy 0.508 -5.588)) (stroke (width 0.254))
+      )
+      (pin passive line (at -5.08 0.0 0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at -2.54 -5.08 0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
