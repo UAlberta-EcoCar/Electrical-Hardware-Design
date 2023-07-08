@@ -1,34 +1,57 @@
-"Source:","C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\CAN-USB RF Module.kicad_sch"
-"Date:","2023-06-01 11:05:03 AM"
-"Tool:","Eeschema 7.0.2"
-"Generator:","C:\Program Files\KiCad\7.0\bin\scripting\plugins/bom_csv_grouped_by_value_with_fp.py"
-"Component Count:","36"
-"Ref","Qnty","Value","Cmp name","Footprint","Description","Vendor","DNP"
-"C1, C2, C3, C4, C10, C11, C14","7","100n","C","Capacitor_SMD:C_0402_1005Metric","Unpolarized capacitor","",""
-"C5","1","10u","C","Capacitor_SMD:C_0603_1608Metric","Unpolarized capacitor","",""
-"C6","1","1u","C","Capacitor_SMD:C_0603_1608Metric","Unpolarized capacitor","",""
-"C7","1","1u","C","Capacitor_SMD:C_0402_1005Metric","Unpolarized capacitor","",""
-"C8","1","10n","C","Capacitor_SMD:C_0402_1005Metric","Unpolarized capacitor","",""
-"C9","1","22u","C","Capacitor_SMD:C_0603_1608Metric","Unpolarized capacitor","",""
-"C12, C13","2","14p","C","Capacitor_SMD:C_0402_1005Metric","Unpolarized capacitor","",""
-"C15","1","100u","C","Capacitor_SMD:C_0402_1005Metric","Unpolarized capacitor","",""
-"CR1","1","ESDCAN03-2BWY","ESDCAN03-2BWY","footprints:SOT323-3L_STM","","",""
-"D1","1","RED","LED","LED_SMD:LED_0402_1005Metric","Light emitting diode","",""
-"D2","1","USBLC6-2SC6","USBLC6-2SC6","digikey-footprints:SOT23-6L","TVS DIODE 5.25V 17V SOT23-6","",""
-"D3","1","ESDA7P120-1U1M","ESDA7P120-1U1M","footprints:ESDA8P801U1M","ESD Suppressors / TVS Diodes High-power transient voltage supressor (TVS)","",""
-"D4","1","SMLVT3V3","SMLVT3V3","footprints:DIOM5436X265N","STMICROELECTRONICS - SMLVT3V3 - TVS Diode, Transil SMLV Series, Unidirectional, 3.3 V, 10.3 V, DO-214AA (SMB), 2 Pins","",""
-"FB1","1","120R","FerriteBead","Resistor_SMD:R_0603_1608Metric","Ferrite bead","",""
-"IC1","1","ESDALC6V1W5","ESDALC6V1W5","footprints:SOT65P210X110-5N","TVS Diode Array Uni-Directional ESDALC6V1W5 Quad, 25W, SOT-323 5-Pin","",""
-"J1, J4","2","Conn_01x06_Pin","Conn_01x06_Pin","Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical","Generic connector, single row, 01x06, script generated","",""
-"J2","1","USB_B_Micro","USB_B_Micro","footprints:1981568-1","USB Micro Type B connector","",""
-"J3","1","Conn_Coaxial","Conn_Coaxial","footprints:TAOGLAS_EMPCB.SMAFSTJ.B.HT","coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)","",""
-"R1","1","1k5","R","Resistor_SMD:R_0402_1005Metric","Resistor","",""
-"R2","1","10k","R","Resistor_SMD:R_0805_2012Metric","Resistor","",""
-"R3","1","390","R","Resistor_SMD:R_0402_1005Metric","Resistor","",""
-"SW1","1","RESET","SW_MEC_5E","footprints:SMD_025816_WRE","MEC 5E single pole normally-open tactile switch","",""
-"SW2","1","BOOT0","SW_DPDT_x2","Button_Switch_SMD:SW_SPDT_PCM12","Switch, dual pole double throw, separate symbols","",""
-"U1","1","STM32L562CET6","STM32L562CETx","Package_QFP:LQFP-48_7x7mm_P0.5mm","STMicroelectronics Arm Cortex-M33 MCU, 512KB flash, 256KB RAM, 110 MHz, 1.71-3.6V, 38 GPIO, LQFP48","",""
-"U2","1","TLV2217-33KVURG3","TLV2217-33KVURG3","footprints:KVU3_TEX","","",""
-"U3","1","AT86RF215-ZU","AT86RF215-ZU","footprints:QFN48_7X7_PQ_MCH","","",""
-"U4","1","MCP2542WFDxMF (CAN)","MCP2542WFDxMF","Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm","CAN-FD Transceiver, Wake-Up on CAN Pattern, 8Mbps, 5V supply, STBY pin, 3x3 DFN-8","",""
-"Y1","1","8 MHz","Crystal_GND23","footprints:XTAL_ECS-240-8-33-AGN-TR","Four pin crystal, GND on pins 2 and 3","",""
+Comment,Designator,Footprint,LCSC Part #
+100n Unpolarized capacitor,"C1,C3,C4,C8,C10,C13,C39,C40",C_0402_1005Metric,
+10u Unpolarized capacitor,C2,C_0603_1608Metric,
+10n Unpolarized capacitor,C5,C_0402_1005Metric,
+1u Unpolarized capacitor,C6,C_0603_1608Metric,
+1u Unpolarized capacitor,C7,C_0402_1005Metric,
+4u7 Unpolarized capacitor,C9,C_0402_1005Metric,
+47p Unpolarized capacitor,"C11,C12",C_0402_1005Metric,
+C Unpolarized capacitor,"C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34,C36,C37,C38,C41",,
+1n Unpolarized capacitor,C35,,
+1u Unpolarized capacitor,"C42,C47",,
+10p Unpolarized capacitor,"C43,C45",,
+2u2 Unpolarized capacitor,"C44,C46",,
+10u Unpolarized capacitor,C48,,
+ESDCAN03-2BWY ,CR1,SOT323-3L_STM,
+"SMLVT3V3 STMICROELECTRONICS - SMLVT3V3 - TVS Diode, Transil SMLV Series, Unidirectional, 3.3 V, 10.3 V, DO-214AA (SMB), 2 Pins",D1,DIOM5436X265N,
+AMBER RX/TX Light emitting diode,D2,,
+USBLC6-2SC6 TVS DIODE 5.25V 17V SOT23-6,D3,SOT23-6L,
+BLUE Light emitting diode,"D5,D6,D7",,
+RED Light emitting diode,D8,,
+120R Ferrite bead,FB1,R_0603_1608Metric,
+"ESDALC6V1W5 TVS Diode Array Uni-Directional ESDALC6V1W5 Quad, 25W, SOT-323 5-Pin",IC1,SOT65P210X110-5N,
+"Conn_01x06_Pin Generic connector, single row, 01x06, script generated",J1,PinHeader_1x06_P2.54mm_Vertical,
+USB_B_Micro USB Micro Type B connector,J2,USB_Micro-B_Amphenol_10103594-0001LF_Horizontal,
+"Conn_Coaxial coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)",J3,,
+"Conn_01x02_Socket Generic connector, single row, 01x02, script generated",J4,PinHeader_1x02_P2.54mm_Vertical,
+"Power In Jumper, 3-pole, pins 1+2 closed/bridged",JP2,PinHeader_1x03_P1.27mm_Vertical,
+"USB_ONBOARD Jumper, 3-pole, pins 1+2 closed/bridged",JP3,PinHeader_1x03_P1.27mm_Vertical,
+L Inductor,"L1,L2,L3,L4,L5,L6,L7,L8",,
+"NMOS N-MOSFET transistor, drain/source/gate","Q1,Q2",,
+10k Resistor,R1,R_0402_1005Metric,
+220R Resistor,R2,R_0402_1005Metric,
+27R Resistor,"R3,R4",R_0402_1005Metric,
+0R Resistor,R5,,
+100R Resistor,R6,,
+NC Resistor,"R7,R9",,
+1k Resistor,R8,,
+2M2 Resistor,"R10,R11",,
+500k Resistor,R12,,
+160k Resistor,"R13,R17",,
+845k Resistor,R14,,
+10k Resistor,"R15,R16",,
+225k Resistor,R18,,
+600R Resistor,"R19,R20,R23",,
+260R Resistor,R21,,
+800k Resistor,R22,,
+SETI Potentiometer,RV1,,
+RESET MEC 5E single pole normally-open tactile switch,SW1,SMD_025816_WRE,
+"BOOT0 Switch, dual pole double throw, separate symbols",SW2,SW_SPDT_PCM12,
+"Power Cycle Push button switch, generic, two pins",SW3,,
+"STM32L442KCU6 STMicroelectronics Arm Cortex-M4 MCU, 256KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32",U1,QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm,
+FT234XD-R IC USB SERIAL BASIC UART 12DFN,U4,DFN-12-1EP_3x3mm,
+SX1276IMLTRT IC RF TXRX 802.15.4 28VQFN,U5,VQFN-28-1EP_6x6mm,
+4259-63 IC RF SWITCH SPDT 3GHZ SC70-6,U6,SOT-363,
+"MCP2542WFDxMF (CAN) CAN-FD Transceiver, Wake-Up on CAN Pattern, 8Mbps, 5V supply, STBY pin, 3x3 DFN-8",U7,DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm,
+MAX14572 The MAX14571/MAX14572/MAX14573 adjustable overvoltage and overcurrent-protection devices are ideal to,U8,TSSOP-14-1EP_4.4x5mm_P0.65mm,
+TLV76601QWDRBRQ1 ,"U9,U10",TLV76601QWDRBRQ1_TEX,
