@@ -35,8 +35,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 4.56,
-          "width": 1.0
+          "height": 1.8,
+          "width": 1.5
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -45,7 +45,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.25
         }
       },
       "diff_pair_dimensions": [
@@ -500,8 +500,24 @@
         "pattern": "/DEBUG_JTSK_SWDIO"
       },
       {
-        "netclass": "Default",
+        "netclass": "Power",
         "pattern": "+3V3"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power Regulator/FUSE_OUT"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VBUS_UP"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+12V"
       }
     ]
   },

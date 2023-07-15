@@ -607,8 +607,6 @@
     (uuid fa6fd7a9-3536-447d-ac2d-66185c1faa1d)
   )
 
-  (no_connect (at 116.84 97.79) (uuid 69371915-fe2f-4668-9d04-3be1d152ada1))
-
   (wire (pts (xy 58.42 93.98) (xy 57.15 93.98))
     (stroke (width 0) (type default))
     (uuid 2af26a90-1dfd-4bee-846a-48ee2aae9e23)
@@ -628,6 +626,10 @@
   (wire (pts (xy 106.68 80.01) (xy 106.68 82.55))
     (stroke (width 0) (type default))
     (uuid 35462aa1-583b-4a69-bedd-652c313f9897)
+  )
+  (wire (pts (xy 123.19 97.79) (xy 116.84 97.79))
+    (stroke (width 0) (type default))
+    (uuid 380f5cfe-52a6-47b8-8b76-dae14ea02522)
   )
   (wire (pts (xy 124.46 80.01) (xy 121.92 80.01))
     (stroke (width 0) (type default))
@@ -757,6 +759,10 @@
   (hierarchical_label "CAN_TX" (shape output) (at 123.19 87.63 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 91e1b72b-d4e9-488a-b885-7fbb165e4107)
+  )
+  (hierarchical_label "CAN_STBY" (shape output) (at 123.19 97.79 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid a591e86c-88b3-4d45-9a76-9dee6aa2b2e4)
   )
 
   (symbol (lib_id "Device:C") (at 118.11 80.01 270) (unit 1)
