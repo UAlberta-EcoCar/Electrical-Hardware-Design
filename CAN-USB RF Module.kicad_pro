@@ -55,6 +55,11 @@
           "width": 0.0
         },
         {
+          "gap": 0.2032,
+          "via_gap": 0.5,
+          "width": 0.2672
+        },
+        {
           "gap": 0.3,
           "via_gap": 0.5,
           "width": 0.3
@@ -180,6 +185,7 @@
         0.0,
         0.2,
         0.254,
+        0.29309,
         0.3,
         0.5
       ],
@@ -191,6 +197,10 @@
         {
           "diameter": 0.7,
           "drill": 0.3
+        },
+        {
+          "diameter": 0.8,
+          "drill": 0.4
         }
       ],
       "zones_allow_external_fillets": false
@@ -459,6 +469,23 @@
       },
       {
         "bus_width": 12,
+        "clearance": 0.4,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "RF 50",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.389,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -472,6 +499,23 @@
         "track_width": 0.25,
         "via_diameter": 0.7,
         "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2032,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2672,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "USB",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
         "wire_width": 6
       }
     ],
@@ -518,6 +562,18 @@
       {
         "netclass": "Power",
         "pattern": "+12V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power Regulator/12V"
+      },
+      {
+        "netclass": "RF 50",
+        "pattern": "/LoRa Tranciever/*"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/USB Interface/*"
       }
     ]
   },
