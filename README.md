@@ -1,6 +1,7 @@
 # Standard Components
 
 ### eFuses And Diodes
+eFuses Explained: https://www.ti.com/lit/an/slva862a/slva862a.pdf?ts=1692921209965
 
 - TPS2596 (https://www.ti.com/product/TPS2596#order-quality)
 - MAX14572 (https://www.digikey.ca/en/products/base-product/maxim-integrated/175/MAX14572/101907)
