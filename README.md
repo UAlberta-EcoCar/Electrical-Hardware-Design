@@ -7,3 +7,9 @@
 
 ### MCUs
 - Stm32 are the best for almost all cases, use the mcu finder app in the cube ide to get the perfect one for the application.
+
+### Power Supplies (LDO and Buck)
+Diodes Incorporated and TI are the best priced.
+
+- https://www.diodes.com/products/power-management/dc-dc-converters/integrated-power-stage/buck-converter/
+- 
