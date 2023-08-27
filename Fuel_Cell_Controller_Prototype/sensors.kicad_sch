@@ -804,7 +804,7 @@
           (reference "#PWR052") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR042") (unit 1)
+          (reference "#PWR058") (unit 1)
         )
       )
     )
@@ -832,7 +832,7 @@
           (reference "#PWR052") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR035") (unit 1)
+          (reference "#PWR054") (unit 1)
         )
       )
     )
@@ -860,7 +860,7 @@
           (reference "#PWR041") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR036") (unit 1)
+          (reference "#PWR057") (unit 1)
         )
       )
     )
@@ -951,7 +951,7 @@
           (reference "R25") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "R23") (unit 1)
+          (reference "R33") (unit 1)
         )
       )
     )
@@ -979,7 +979,7 @@
           (reference "#PWR043") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR033") (unit 1)
+          (reference "#PWR051") (unit 1)
         )
       )
     )
@@ -988,7 +988,7 @@
   (symbol (lib_id "power:GND") (at 49.53 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5aaf01c3-9e0a-4181-9a7c-db6a926bb2d7)
-    (property "Reference" "#PWR043" (at 49.53 118.11 0)
+    (property "Reference" "#PWR055" (at 49.53 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 49.53 116.84 0)
@@ -1004,7 +1004,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR043") (unit 1)
+          (reference "#PWR055") (unit 1)
         )
       )
     )
@@ -1066,7 +1066,7 @@
           (reference "R27") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "R21") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
@@ -1094,7 +1094,7 @@
           (reference "#PWR045") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR037") (unit 1)
+          (reference "#PWR059") (unit 1)
         )
       )
     )
@@ -1122,7 +1122,7 @@
           (reference "#PWR052") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR039") (unit 1)
+          (reference "#PWR056") (unit 1)
         )
       )
     )
@@ -1151,7 +1151,7 @@
           (reference "R27") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "R25") (unit 1)
+          (reference "R31") (unit 1)
         )
       )
     )
@@ -1180,7 +1180,7 @@
           (reference "R26") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "R24") (unit 1)
+          (reference "R34") (unit 1)
         )
       )
     )
@@ -1208,7 +1208,7 @@
           (reference "#PWR042") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR038") (unit 1)
+          (reference "#PWR060") (unit 1)
         )
       )
     )
@@ -1217,7 +1217,7 @@
   (symbol (lib_id "Sensor_Humidity:SHT31-DIS") (at 49.53 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a57a4f1c-c3b4-473d-976c-b3b20abe638e)
-    (property "Reference" "U6" (at 51.4859 93.98 0)
+    (property "Reference" "U7" (at 51.4859 93.98 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "SHT31-DIS" (at 51.4859 96.52 0)
@@ -1241,7 +1241,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "U6") (unit 1)
+          (reference "U7") (unit 1)
         )
       )
     )
@@ -1283,7 +1283,7 @@
   (symbol (lib_id "power:GND") (at 36.83 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b9283152-c1de-44c5-b71e-0d6a76b3747d)
-    (property "Reference" "#PWR044" (at 36.83 118.11 0)
+    (property "Reference" "#PWR053" (at 36.83 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 36.83 116.84 0)
@@ -1299,7 +1299,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR044") (unit 1)
+          (reference "#PWR053") (unit 1)
         )
       )
     )
@@ -1328,7 +1328,7 @@
           (reference "D8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "D9") (unit 1)
+          (reference "D11") (unit 1)
         )
       )
     )
@@ -1356,7 +1356,7 @@
           (reference "#PWR044") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR034") (unit 1)
+          (reference "#PWR052") (unit 1)
         )
       )
     )
@@ -1385,7 +1385,7 @@
           (reference "D6") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "D10") (unit 1)
+          (reference "D12") (unit 1)
         )
       )
     )
@@ -1413,7 +1413,7 @@
           (reference "#PWR052") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR050") (unit 1)
         )
       )
     )
@@ -1442,7 +1442,7 @@
           (reference "R28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "R22") (unit 1)
+          (reference "R30") (unit 1)
         )
       )
     )
@@ -1470,7 +1470,7 @@
           (reference "#PWR046") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "#PWR040") (unit 1)
+          (reference "#PWR061") (unit 1)
         )
       )
     )
@@ -1499,7 +1499,7 @@
           (reference "R27") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/26245637-81d1-4f60-832a-3f71fed7a491"
-          (reference "R26") (unit 1)
+          (reference "R32") (unit 1)
         )
       )
     )
