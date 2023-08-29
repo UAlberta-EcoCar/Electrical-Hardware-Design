@@ -1,0 +1,1 @@
+https://resources.altium.com/p/which-type-capacitor-should-you-use

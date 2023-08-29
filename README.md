@@ -2,4 +2,4 @@
 ##### help for the young
 ---
 
- - Component Picking Help
+ - [Component Picking Help](Components.md)
