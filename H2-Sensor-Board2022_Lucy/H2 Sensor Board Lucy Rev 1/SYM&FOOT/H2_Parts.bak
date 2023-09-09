@@ -198,11 +198,11 @@
       )
     )
   )
-  (symbol "AZ1117IH-3.3TRG1" (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
+  (symbol "AZ1117IH-3.3" (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
     (property "Reference" "U" (at 0 7.62 0)
       (effects (font (size 1.524 1.524)))
     )
-    (property "Value" "AZ1117IH-3.3TRG1" (at 0 5.08 0)
+    (property "Value" "AZ1117IH-3.3" (at 0 5.08 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Footprint" "SOT223_AZ1117I_6P5X3P5_DIO" (at -1.27 -10.16 0)
@@ -220,13 +220,13 @@
     (property "ki_fp_filters" "SOT223_AZ1117I_6P5X3P5_DIO SOT223_AZ1117I_6P5X3P5_DIO-M SOT223_AZ1117I_6P5X3P5_DIO-L" (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (symbol "AZ1117IH-3.3TRG1_0_1"
+    (symbol "AZ1117IH-3.3_0_1"
       (rectangle (start -5.08 1.905) (end 5.08 -5.08)
         (stroke (width 0.254) (type default))
         (fill (type background))
       )
     )
-    (symbol "AZ1117IH-3.3TRG1_1_1"
+    (symbol "AZ1117IH-3.3_1_1"
       (pin power_in line (at 0 -7.62 90) (length 2.54)
         (name "GND" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
@@ -241,7 +241,7 @@
       )
     )
   )
-  (symbol "AZ111IH-5.0" (extends "AZ1117IH-3.3TRG1")
+  (symbol "AZ111IH-5.0" (extends "AZ1117IH-3.3")
     (property "Reference" "U" (at 0 8.89 0)
       (effects (font (size 1.524 1.524)))
     )
