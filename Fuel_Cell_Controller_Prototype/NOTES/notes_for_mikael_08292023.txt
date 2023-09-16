@@ -1,8 +1,0 @@
-NOTES FOR MIKAELS WORK
-- We want the reset pin for STH31D connected to MCU (this will be pulldown logic)
-- Maybe use the ALERT pin idk (put X on the pin if not used)
-- We have an available I2C bus, connect them to this
-- Decoupling capacitor should be 100n
-- Do you know how we are supposed to solder this thing? Is it in stock?
-- Don't choose just any pins, PF1 is taken! (We actually need to check and choose 5V tolerant pins for both)
-
