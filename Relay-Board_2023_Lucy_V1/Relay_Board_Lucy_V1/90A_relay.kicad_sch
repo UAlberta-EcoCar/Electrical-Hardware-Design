@@ -551,7 +551,7 @@
   (symbol (lib_id "power:GNDPWR") (at 172.72 128.27 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1d68bfe3-786a-4d23-a6d2-d1bba1c8a1f5)
-    (property "Reference" "#PWR018" (at 172.72 133.35 0)
+    (property "Reference" "#PWR020" (at 172.72 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 172.593 133.35 0)
@@ -566,9 +566,6 @@
     (pin "1" (uuid e02bf140-ee3e-4531-bfc8-258960d8890a))
     (instances
       (project "Relay_Board_Lucy_V1"
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "#PWR018") (unit 1)
-        )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "#PWR020") (unit 1)
         )
@@ -582,7 +579,7 @@
   (symbol (lib_id "Device:D_Schottky") (at 172.72 97.79 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 328ce1f7-d893-4d22-a1f9-5846dff8cb26)
-    (property "Reference" "D4" (at 175.26 96.8375 90)
+    (property "Reference" "D5" (at 175.26 96.8375 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "SD0805S020S1R0" (at 175.26 99.3775 90)
@@ -594,13 +591,13 @@
     (property "Datasheet" "https://datasheets.kyocera-avx.com/schottky.pdf" (at 172.72 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 172.72 97.79 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid e5b4e568-f867-4ae9-82ab-853a53f53efc))
     (pin "2" (uuid 3561d5c7-1f6b-4785-a6f7-888e44f32c84))
     (instances
       (project "Relay_Board_Lucy_V1"
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "D4") (unit 1)
-        )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "D5") (unit 1)
         )
@@ -626,6 +623,9 @@
     (property "Datasheet" "https://www.mccsemi.com/pdf/Products/SI2302A(SOT-23).pdf" (at 175.26 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 175.26 113.03 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid b2dffa21-4d22-4aca-af93-c7252fa10ffe))
     (pin "2" (uuid bced9656-bdec-42f8-be3b-1faed8727fa3))
     (pin "3" (uuid 88cd89ae-d1bd-4a32-b1b9-4fd06faf2d39))
@@ -633,9 +633,6 @@
       (project "Relay_Board_Lucy_V1"
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "Q1") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "Q2") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "Q3") (unit 1)
@@ -662,6 +659,9 @@
     (property "Datasheet" "~" (at 185.42 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 185.42 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid 4709c2c0-c3ce-41dd-8736-1226dbc135b1))
     (pin "2" (uuid 78ff3bc1-d8d2-42af-ba02-6a1fcbb88bfb))
     (instances
@@ -671,9 +671,6 @@
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "R2") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "R13") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "R14") (unit 1)
@@ -700,6 +697,9 @@
     (property "Datasheet" "~" (at 193.04 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 193.04 113.03 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid 8b4e24b3-4842-4820-9f16-dce4e4612e47))
     (pin "2" (uuid cfe18930-0bc6-4cda-baeb-d4334b073e2a))
     (instances
@@ -709,9 +709,6 @@
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "R2") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "R10") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "R11") (unit 1)
@@ -738,6 +735,9 @@
     (property "Datasheet" "https://api.pim.na.industrial.panasonic.com/file_stream/main/fileversion/276" (at 149.86 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 149.86 90.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid bc4d4f20-64b1-4318-8edd-4b71774fe0d0))
     (pin "4" (uuid b4ebe821-65c5-4fc3-84b4-3d20bd246547))
     (pin "5" (uuid c46f6a64-1bbe-45f1-b41e-6984dba3e649))
@@ -746,9 +746,6 @@
       (project "Relay_Board_Lucy_V1"
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "K?") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "K3") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "K1") (unit 1)

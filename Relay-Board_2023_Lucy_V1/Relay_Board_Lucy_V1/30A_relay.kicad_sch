@@ -662,7 +662,7 @@
   (symbol (lib_id "power:GNDPWR") (at 114.3 127 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0641051c-91ed-4cdf-9d5e-aca7678e2210)
-    (property "Reference" "#PWR018" (at 114.3 132.08 0)
+    (property "Reference" "#PWR020" (at 114.3 132.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 114.427 132.08 0)
@@ -677,9 +677,6 @@
     (pin "1" (uuid ca318107-33f2-4591-ade6-8a8e90a4fe02))
     (instances
       (project "Relay_Board_Lucy_V1"
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "#PWR018") (unit 1)
-        )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "#PWR020") (unit 1)
         )
@@ -709,6 +706,9 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://pickercomponents.com/pdf/Relays/PTRH.pdf" (at 146.05 96.52 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Part#" "" (at 146.05 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "11A" (uuid 9564bf77-2086-45bd-ba5d-08e08704a997))
@@ -747,6 +747,9 @@
     (property "Datasheet" "~" (at 93.98 111.76 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 93.98 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid bedff454-f0ca-45b0-875e-ab0d840b71d3))
     (pin "2" (uuid 2e976678-8677-4e30-a581-5483362b4e1b))
     (instances
@@ -756,9 +759,6 @@
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "R2") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "R10") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "R11") (unit 1)
@@ -791,6 +791,9 @@
     (property "Datasheet" "https://www.mccsemi.com/pdf/Products/SI2302A(SOT-23).pdf" (at 111.76 111.76 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 111.76 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid a9884c9f-9335-4393-a454-1da0a72dd703))
     (pin "2" (uuid 11dcc37a-72c1-4636-8a70-d9c7c491da7c))
     (pin "3" (uuid adec8403-2876-4cdb-a23e-0dcb094ffaaa))
@@ -798,9 +801,6 @@
       (project "Relay_Board_Lucy_V1"
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "Q1") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "Q2") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "Q3") (unit 1)
@@ -821,7 +821,7 @@
   (symbol (lib_id "Device:D_Schottky") (at 114.3 96.52 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d740aabc-dc56-4243-b9be-58a80ec31744)
-    (property "Reference" "D4" (at 111.76 95.25 90)
+    (property "Reference" "D5" (at 111.76 95.25 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "SD0805S020S1R0" (at 111.76 97.79 90)
@@ -833,13 +833,13 @@
     (property "Datasheet" "https://datasheets.kyocera-avx.com/schottky.pdf" (at 114.3 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 114.3 96.52 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid 0623aad2-65d0-40b4-b16a-df493c2b7d95))
     (pin "2" (uuid a8841ef0-c7f9-49ca-a6ba-21e8c80a428d))
     (instances
       (project "Relay_Board_Lucy_V1"
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "D4") (unit 1)
-        )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "D5") (unit 1)
         )
@@ -871,6 +871,9 @@
     (property "Datasheet" "~" (at 101.6 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "Part#" "" (at 101.6 119.38 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (pin "1" (uuid 722a8be5-af5c-4c91-a8f2-db9405eef6c8))
     (pin "2" (uuid 934fecad-c7ff-443c-861f-df1c38f0da48))
     (instances
@@ -880,9 +883,6 @@
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
           (reference "R2") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/dd97e156-5589-4023-8217-f04bbcc4a9fe"
-          (reference "R13") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
           (reference "R14") (unit 1)
