@@ -2043,6 +2043,40 @@
     )
   )
 
+  (sheet (at 184.15 116.84) (size 35.56 11.43) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 2e2857d1-75ac-46cb-bf4a-c9d81a36e813)
+    (property "Sheetname" "USB Module" (at 184.15 116.1284 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "USB_mod.kicad_sch" (at 184.15 128.8546 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "H2 Sensor Board Lucy Rev 1"
+        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745" (page "7"))
+      )
+    )
+  )
+
+  (sheet (at 184.15 85.09) (size 35.56 7.62) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 37ad5a54-63eb-413e-9896-e2487f527b6f)
+    (property "Sheetname" "CAN_MOD" (at 184.15 84.3784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "CAN_MOD.kicad_sch" (at 184.15 93.2946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "H2 Sensor Board Lucy Rev 1"
+        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745" (page "5"))
+      )
+    )
+  )
+
   (sheet (at 184.15 45.72) (size 26.67 10.16) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
@@ -2056,6 +2090,23 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745" (page "3"))
+      )
+    )
+  )
+
+  (sheet (at 184.15 133.35) (size 35.56 7.62) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 6cdc1ed8-fefc-44a9-84a0-c075bd7a871c)
+    (property "Sheetname" "ExtraSheet" (at 184.15 132.6384 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "ExtraSheet.kicad_sch" (at 184.15 141.5546 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "H2 Sensor Board Lucy Rev 1"
+        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745" (page "8"))
       )
     )
   )
@@ -2077,19 +2128,19 @@
     )
   )
 
-  (sheet (at 184.15 22.86) (size 26.67 13.97) (fields_autoplaced)
+  (sheet (at 184.15 100.33) (size 35.56 11.43) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
-    (uuid 9d82b4d9-7b60-4d99-a01c-7be4a0931e3f)
-    (property "Sheetname" "Sheet2" (at 184.15 22.1484 0)
+    (uuid 7305a464-5ed1-4d03-85df-1b98233fba6c)
+    (property "Sheetname" "Onboard_Telemetry" (at 184.15 99.6184 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "untitled.kicad_sch" (at 184.15 37.4146 0)
+    (property "Sheetfile" "H2_Telem.kicad_sch" (at 184.15 112.3446 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
-        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745" (page "2"))
+        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745" (page "6"))
       )
     )
   )
