@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module Rev 2\CAN-USB RF Module.kicad_sch</source>
-    <date>10/7/2023 9:06:05 PM</date>
+    <source>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\Rev 2\CAN-USB RF Module.kicad_sch</source>
+    <date>10/8/2023 9:10:28 PM</date>
     <tool>Eeschema 7.0.6</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -314,6 +314,30 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fea86628-43e6-455a-891e-3d88e2668111</tstamps>
     </comp>
+    <comp ref="C24">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="DK #">490-14603-1-ND</field>
+        <field name="Description">100nF -20%,+80% 16V Y5V 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT RoHS</field>
+        <field name="JLCPCB Part#(optional)">C1525</field>
+        <field name="LCSC #">C1525</field>
+        <field name="PCBA">-</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Description" value="100nF -20%,+80% 16V Y5V 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT RoHS"/>
+      <property name="MPN" value=""/>
+      <property name="LCSC #" value="C1525"/>
+      <property name="JLCPCB Part#(optional)" value="C1525"/>
+      <property name="DK #" value="490-14603-1-ND"/>
+      <property name="PCBA" value="-"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="CAN-USB RF Module.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4a70265-7887-4aab-b5c1-698ac97773dc</tstamps>
+    </comp>
     <comp ref="D1">
       <value>GREEN</value>
       <footprint>LED_SMD:LED_0603_1608Metric</footprint>
@@ -393,14 +417,12 @@
       <fields>
         <field name="DK #">497-2496-1-ND</field>
         <field name="Description">7.3V 4.1V 3.3V SMB TVS ROHS</field>
-        <field name="JLCPCB Part#(optional)">C283619</field>
-        <field name="LCSC #">C283619</field>
       </fields>
       <libsource lib="RF_Parts" part="SMLVT3V3" description="STMICROELECTRONICS - SMLVT3V3 - TVS Diode, Transil SMLV Series, Unidirectional, 3.3 V, 10.3 V, DO-214AA (SMB), 2 Pins"/>
       <property name="MPN" value=""/>
       <property name="Description" value="7.3V 4.1V 3.3V SMB TVS ROHS"/>
-      <property name="LCSC #" value="C283619"/>
-      <property name="JLCPCB Part#(optional)" value="C283619"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="497-2496-1-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value=""/>
@@ -502,14 +524,12 @@
       <fields>
         <field name="DK #">497-7231-1-ND</field>
         <field name="Description">6.1V 6.1V 4 3V SOT-323-5  ESD Protection Devices ROHS</field>
-        <field name="JLCPCB Part#(optional)">C2827626</field>
-        <field name="LCSC #">C2827626</field>
       </fields>
       <libsource lib="RF_Parts" part="ESDALC6V1W5" description="TVS Diode Array Uni-Directional ESDALC6V1W5 Quad, 25W, SOT-323 5-Pin"/>
       <property name="MPN" value=""/>
       <property name="Description" value="6.1V 6.1V 4 3V SOT-323-5  ESD Protection Devices ROHS"/>
-      <property name="LCSC #" value="C2827626"/>
-      <property name="JLCPCB Part#(optional)" value="C2827626"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="497-7231-1-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value=""/>
@@ -521,14 +541,10 @@
     <comp ref="J1">
       <value>Conn_02x05_Top_Bottom</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical</footprint>
-      <fields>
-        <field name="JLCPCB Part#(optional)">C5116482</field>
-        <field name="LCSC #">C5116482</field>
-      </fields>
       <libsource lib="Connector_Generic" part="Conn_02x05_Top_Bottom" description="Generic connector, double row, 02x05, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C5116482"/>
-      <property name="JLCPCB Part#(optional)" value="C5116482"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value=""/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value=""/>
@@ -678,18 +694,60 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3fd1a21b-573a-465c-a9a6-35d7495d27b4</tstamps>
     </comp>
+    <comp ref="R17">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="DK #">311-10.0KHRCT-ND</field>
+        <field name="JLCPCB Part#(optional)">C25804</field>
+        <field name="LCSC #">C25804</field>
+        <field name="PCBA">-</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="LCSC #" value="C25804"/>
+      <property name="JLCPCB Part#(optional)" value="C25804"/>
+      <property name="DK #" value="311-10.0KHRCT-ND"/>
+      <property name="PCBA" value="-"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="CAN-USB RF Module.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b3fdb624-43b7-42c6-8aa9-ae7c4c026cf7</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="DK #">311-10.0KHRCT-ND</field>
+        <field name="JLCPCB Part#(optional)">C25804</field>
+        <field name="LCSC #">C25804</field>
+        <field name="PCBA">-</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="LCSC #" value="C25804"/>
+      <property name="JLCPCB Part#(optional)" value="C25804"/>
+      <property name="DK #" value="311-10.0KHRCT-ND"/>
+      <property name="PCBA" value="-"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="CAN-USB RF Module.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>986721c8-f1ba-4218-b9f5-16dca8bbd2dd</tstamps>
+    </comp>
     <comp ref="SW1">
       <value>RESET</value>
       <footprint>Button_Switch_SMD:SW_SPST_PTS810</footprint>
       <fields>
         <field name="DK #">CKN12216-1-ND</field>
-        <field name="JLCPCB Part#(optional)">C221896</field>
-        <field name="LCSC #">C221896</field>
       </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C221896"/>
-      <property name="JLCPCB Part#(optional)" value="C221896"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="CKN12216-1-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value=""/>
@@ -704,13 +762,11 @@
       <footprint>Button_Switch_SMD:SW_SPDT_PCM12</footprint>
       <fields>
         <field name="DK #">2223-SLW-66527511-SMT-TRCT-ND</field>
-        <field name="JLCPCB Part#(optional)">C221841</field>
-        <field name="LCSC #">C221841</field>
       </fields>
       <libsource lib="Switch" part="SW_DPDT_x2" description="Switch, dual pole double throw, separate symbols"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C221841"/>
-      <property name="JLCPCB Part#(optional)" value="C221841"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="2223-SLW-66527511-SMT-TRCT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value=""/>
@@ -719,6 +775,25 @@
       <property name="ki_keywords" value="switch dual-pole double-throw DPDT spdt ON-ON"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>da0c1ca3-e2b8-46b9-ac47-5baf014fa9a4</tstamps>
+    </comp>
+    <comp ref="SW3">
+      <value>GPSW</value>
+      <footprint>Button_Switch_SMD:SW_SPST_PTS810</footprint>
+      <fields>
+        <field name="DK #">CKN12216-1-ND</field>
+      </fields>
+      <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="MPN" value=""/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
+      <property name="DK #" value="CKN12216-1-ND"/>
+      <property name="PCBA" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="CAN-USB RF Module.kicad_sch"/>
+      <property name="ki_description" value="Push button switch, generic, two pins"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a7283564-bf9b-4989-8bd3-f4709d9ea67a</tstamps>
     </comp>
     <comp ref="TP1">
       <value>CLK_TEST</value>
@@ -734,17 +809,26 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6a3c3873-c17e-4b75-9122-a9e006f72d52</tstamps>
     </comp>
+    <comp ref="TP2">
+      <value>GPIO</value>
+      <footprint>TestPoint:TestPoint_Pad_1.0x1.0mm</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="CAN-USB RF Module.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b057edf0-8b79-4f78-98c7-afbf571781d0</tstamps>
+    </comp>
     <comp ref="U1">
       <value>8MHz</value>
       <footprint>Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm</footprint>
       <fields>
         <field name="DK #">535-ASE-8.000MHZ-L-C-TCT-ND</field>
-        <field name="JLCPCB Part#(optional)">C558766</field>
-        <field name="LCSC #">C558766</field>
       </fields>
       <libsource lib="RF_Parts" part="SG-3225CAN" description=""/>
-      <property name="LCSC #" value="C558766"/>
-      <property name="JLCPCB Part#(optional)" value="C558766"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="535-ASE-8.000MHZ-L-C-TCT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value=""/>
@@ -753,26 +837,22 @@
       <tstamps>b833352a-9d89-40d8-a461-7230ac457d57</tstamps>
     </comp>
     <comp ref="U2">
-      <value>STM32L442KCU6</value>
+      <value>STM32L432KBU6</value>
       <footprint>Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm</footprint>
-      <datasheet>https://www.st.com/resource/en/datasheet/stm32l442kc.pdf</datasheet>
+      <datasheet>https://www.st.com/resource/en/datasheet/stm32l432kb.pdf</datasheet>
       <fields>
-        <field name="DK #">497-16585-ND</field>
-        <field name="JLCPCB Part#(optional)">C2969865</field>
-        <field name="LCSC #">C2969865</field>
+        <field name="JLCPCB Part#(optional)">C94784</field>
+        <field name="LCSC #">C94784</field>
       </fields>
-      <libsource lib="MCU_ST_STM32L4" part="STM32L442KCUx" description="STMicroelectronics Arm Cortex-M4 MCU, 256KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32"/>
-      <property name="MPN" value=""/>
-      <property name="LCSC #" value="C2969865"/>
-      <property name="JLCPCB Part#(optional)" value="C2969865"/>
-      <property name="DK #" value="497-16585-ND"/>
-      <property name="PCBA" value=""/>
+      <libsource lib="MCU_ST_STM32L4" part="STM32L432KBUx" description="STMicroelectronics Arm Cortex-M4 MCU, 128KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32"/>
+      <property name="JLCPCB Part#(optional)" value="C94784"/>
+      <property name="LCSC #" value="C94784"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="CAN-USB RF Module.kicad_sch"/>
-      <property name="ki_description" value="STMicroelectronics Arm Cortex-M4 MCU, 256KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32"/>
+      <property name="ki_description" value="STMicroelectronics Arm Cortex-M4 MCU, 128KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32"/>
       <property name="ki_keywords" value="Arm Cortex-M4 STM32L4 STM32L4x2"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>fbaf9d07-e93f-480e-9992-7b4960a4bbd5</tstamps>
+      <tstamps>ee0ecb03-7806-4e6c-8c08-94c0d4754eee</tstamps>
     </comp>
     <comp ref="C9">
       <value>100n</value>
@@ -1016,13 +1096,11 @@
       <footprint>footprints:Molex_Micro-Fit_3.0_43045-0621_2x03-1MP_P3.00mm_Horizontal</footprint>
       <fields>
         <field name="DK #">WM10702CT-ND</field>
-        <field name="JLCPCB Part#(optional)">C476812</field>
-        <field name="LCSC #">C476812</field>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_02x03_Top_Bottom" description="Generic connector, double row, 02x03, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C476812"/>
-      <property name="JLCPCB Part#(optional)" value="C476812"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="WM10702CT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1035,14 +1113,10 @@
     <comp ref="J3">
       <value>USB JMPR</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical</footprint>
-      <fields>
-        <field name="JLCPCB Part#(optional)">C5116482</field>
-        <field name="LCSC #">C5116482</field>
-      </fields>
       <libsource lib="Connector_Generic" part="Conn_02x02_Top_Bottom" description="Generic connector, double row, 02x02, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C5116482"/>
-      <property name="JLCPCB Part#(optional)" value="C5116482"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value=""/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1055,14 +1129,10 @@
     <comp ref="JP1">
       <value>Power In</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
-      <fields>
-        <field name="JLCPCB Part#(optional)">C5116482</field>
-        <field name="LCSC #">C5116482</field>
-      </fields>
       <libsource lib="Jumper" part="Jumper_3_Bridged12" description="Jumper, 3-pole, pins 1+2 closed/bridged"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C5116482"/>
-      <property name="JLCPCB Part#(optional)" value="C5116482"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value=""/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1078,13 +1148,11 @@
       <datasheet>https://ngspice.sourceforge.io/docs/ngspice-manual.pdf</datasheet>
       <fields>
         <field name="DK #">T2N7002AKLMCT-ND</field>
-        <field name="JLCPCB Part#(optional)">C475757</field>
-        <field name="LCSC #">C475757</field>
       </fields>
       <libsource lib="Simulation_SPICE" part="NMOS" description="N-MOSFET transistor, drain/source/gate"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C475757"/>
-      <property name="JLCPCB Part#(optional)" value="C475757"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="T2N7002AKLMCT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1292,12 +1360,10 @@
       <datasheet>https://www.ti.com/lit/gpn/tps2596</datasheet>
       <fields>
         <field name="DK #">296-TPS259631DDARCT-ND</field>
-        <field name="JLCPCB Part#(optional)">C2155774</field>
-        <field name="LCSC #">C2155774</field>
       </fields>
       <libsource lib="H2_Parts" part="TPS2596" description=""/>
-      <property name="LCSC #" value="C2155774"/>
-      <property name="JLCPCB Part#(optional)" value="C2155774"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="296-TPS259631DDARCT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1310,13 +1376,11 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <fields>
         <field name="DK #">BAT54CCT-ND</field>
-        <field name="JLCPCB Part#(optional)">C460164</field>
-        <field name="LCSC #">C460164</field>
       </fields>
       <libsource lib="RF_Parts" part="PMEG4010CPASX" description=""/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C460164"/>
-      <property name="JLCPCB Part#(optional)" value="C460164"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="BAT54CCT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1330,13 +1394,11 @@
       <datasheet>https://www.diodes.com/assets/Datasheets/AZ1117.pdf</datasheet>
       <fields>
         <field name="DK #">AZ1117IH-3.3TRG1DICT-ND</field>
-        <field name="JLCPCB Part#(optional)">C110474</field>
-        <field name="LCSC #">C110474</field>
       </fields>
       <libsource lib="Regulator_Linear" part="AZ1117-3.3" description="1A 20V Fixed LDO Linear Regulator, 3.3V, SOT-89/SOT-223/TO-220/TO-252/TO-263"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C110474"/>
-      <property name="JLCPCB Part#(optional)" value="C110474"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="AZ1117IH-3.3TRG1DICT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1352,13 +1414,11 @@
       <datasheet>https://www.diodes.com/assets/Datasheets/AZ1117.pdf</datasheet>
       <fields>
         <field name="DK #">AZ1117IH-5.0TRG1DICT-ND</field>
-        <field name="JLCPCB Part#(optional)">C99343</field>
-        <field name="LCSC #">C99343</field>
       </fields>
       <libsource lib="Regulator_Linear" part="AZ1117-5.0" description="1A 20V Fixed LDO Linear Regulator, 5.0V, SOT-89/SOT-223/TO-220/TO-252/TO-263"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C99343"/>
-      <property name="JLCPCB Part#(optional)" value="C99343"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="AZ1117IH-5.0TRG1DICT-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="Power Regulator"/>
@@ -1538,15 +1598,13 @@
         <field name="Category">Circuit Protection</field>
         <field name="DK #">497-5235-1-ND</field>
         <field name="Description">TVS DIODE 5.25V 17V SOT23-6</field>
-        <field name="JLCPCB Part#(optional)">C7519</field>
-        <field name="LCSC #">C7519</field>
       </fields>
       <libsource lib="dk_TVS-Diodes" part="USBLC6-2SC6" description="TVS DIODE 5.25V 17V SOT23-6"/>
       <property name="Category" value="Circuit Protection"/>
       <property name="Description" value="TVS DIODE 5.25V 17V SOT23-6"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C7519"/>
-      <property name="JLCPCB Part#(optional)" value="C7519"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="497-5235-1-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="USB Interface"/>
@@ -1562,14 +1620,12 @@
       <fields>
         <field name="DK #">609-4618-1-ND</field>
         <field name="Description">USB 2.0 1 Surface Mount 5P Female -30℃~+80℃ Micro-B SMD  USB Connectors ROHS</field>
-        <field name="JLCPCB Part#(optional)">C428495</field>
-        <field name="LCSC #">C428495</field>
       </fields>
       <libsource lib="Connector" part="USB_B_Micro" description="USB Micro Type B connector"/>
       <property name="MPN" value=""/>
       <property name="Description" value="USB 2.0 1 Surface Mount 5P Female -30℃~+80℃ Micro-B SMD  USB Connectors ROHS"/>
-      <property name="LCSC #" value="C428495"/>
-      <property name="JLCPCB Part#(optional)" value="C428495"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value="609-4618-1-ND"/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="USB Interface"/>
@@ -1722,14 +1778,10 @@
     <comp ref="J6">
       <value>Conn_01x09_Socket</value>
       <footprint>Connector_Dsub:DSUB-9_Female_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm</footprint>
-      <fields>
-        <field name="JLCPCB Part#(optional)">C305941</field>
-        <field name="LCSC #">C305941</field>
-      </fields>
       <libsource lib="Connector" part="Conn_01x09_Socket" description="Generic connector, single row, 01x09, script generated"/>
       <property name="MPN" value=""/>
-      <property name="LCSC #" value="C305941"/>
-      <property name="JLCPCB Part#(optional)" value="C305941"/>
+      <property name="LCSC #" value=""/>
+      <property name="JLCPCB Part#(optional)" value=""/>
       <property name="DK #" value=""/>
       <property name="PCBA" value=""/>
       <property name="Sheetname" value="CAN Tranciever"/>
@@ -2051,17 +2103,17 @@
         <pin num="3" name="B" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="MCU_ST_STM32L4" part="STM32L442KCUx">
-      <description>STMicroelectronics Arm Cortex-M4 MCU, 256KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32</description>
-      <docs>https://www.st.com/resource/en/datasheet/stm32l442kc.pdf</docs>
+    <libpart lib="MCU_ST_STM32L4" part="STM32L432KBUx">
+      <description>STMicroelectronics Arm Cortex-M4 MCU, 128KB flash, 64KB RAM, 80 MHz, 1.71-3.6V, 26 GPIO, UFQFPN32</description>
+      <docs>https://www.st.com/resource/en/datasheet/stm32l432kb.pdf</docs>
       <footprints>
         <fp>QFN*1EP*5x5mm*P0.5mm*</fp>
       </footprints>
       <fields>
         <field name="Reference">U</field>
-        <field name="Value">STM32L442KCUx</field>
+        <field name="Value">STM32L432KBUx</field>
         <field name="Footprint">Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm</field>
-        <field name="Datasheet">https://www.st.com/resource/en/datasheet/stm32l442kc.pdf</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/stm32l432kb.pdf</field>
       </fields>
       <pins>
         <pin num="1" name="VDD" type="power_in"/>
@@ -2391,7 +2443,7 @@
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
     </library>
     <library logical="RF_Parts">
-      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module Rev 2/lib/RF_Parts.kicad_sym</uri>
+      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\Rev 2/lib/RF_Parts.kicad_sym</uri>
     </library>
     <library logical="Regulator_Linear">
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Regulator_Linear.kicad_sym</uri>
@@ -2403,13 +2455,13 @@
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Switch.kicad_sym</uri>
     </library>
     <library logical="dk_Interface-Controllers">
-      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module Rev 2/digikey-kicad-library/digikey-symbols/dk_Interface-Controllers.lib</uri>
+      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\Rev 2/digikey-kicad-library/digikey-symbols/dk_Interface-Controllers.lib</uri>
     </library>
     <library logical="dk_RF-Transceiver-Modules">
-      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module Rev 2/digikey-kicad-library/digikey-symbols/dk_RF-Transceiver-Modules.lib</uri>
+      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\Rev 2/digikey-kicad-library/digikey-symbols/dk_RF-Transceiver-Modules.lib</uri>
     </library>
     <library logical="dk_TVS-Diodes">
-      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module Rev 2/digikey-kicad-library/digikey-symbols/dk_TVS-Diodes.lib</uri>
+      <uri>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\Rev 2/digikey-kicad-library/digikey-symbols/dk_TVS-Diodes.lib</uri>
     </library>
   </libraries>
   <nets>
@@ -2436,6 +2488,7 @@
       <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
       <node ref="MOD1" pin="13" pinfunction="3.3V" pintype="power_in"/>
       <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
       <node ref="SW2" pin="3" pinfunction="C" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="~{ST}" pintype="input"/>
       <node ref="U1" pin="4" pinfunction="VCC" pintype="power_in"/>
@@ -2583,35 +2636,32 @@
       <node ref="MOD1" pin="4" pinfunction="SCK" pintype="input"/>
       <node ref="U2" pin="11" pinfunction="PA5" pintype="bidirectional"/>
     </net>
-    <net code="32" name="/SW_RXTX">
-      <node ref="U2" pin="27" pinfunction="PB4" pintype="bidirectional"/>
-    </net>
-    <net code="33" name="/SX_RESET">
+    <net code="32" name="/SX_RESET">
       <node ref="MOD1" pin="6" pinfunction="RESET" pintype="input"/>
       <node ref="U2" pin="28" pinfunction="PB5" pintype="bidirectional"/>
     </net>
-    <net code="34" name="/UART2_USB_RX">
+    <net code="33" name="/UART2_USB_RX">
       <node ref="U2" pin="9" pinfunction="PA3" pintype="bidirectional"/>
       <node ref="U7" pin="7" pinfunction="TXD" pintype="output"/>
     </net>
-    <net code="35" name="/UART2_USB_TX">
+    <net code="34" name="/UART2_USB_TX">
       <node ref="U2" pin="8" pinfunction="PA2" pintype="bidirectional"/>
       <node ref="U7" pin="10" pinfunction="RXD" pintype="input"/>
     </net>
-    <net code="36" name="/USB Interface/CTS">
+    <net code="35" name="/USB Interface/CTS">
       <node ref="U7" pin="11" pinfunction="CTS#" pintype="input+no_connect"/>
     </net>
-    <net code="37" name="/USB Interface/RESET">
+    <net code="36" name="/USB Interface/RESET">
       <node ref="U7" pin="2" pinfunction="RESET#" pintype="input+no_connect"/>
     </net>
-    <net code="38" name="/USB Interface/RTS">
+    <net code="37" name="/USB Interface/RTS">
       <node ref="U7" pin="8" pinfunction="RTS#" pintype="output+no_connect"/>
     </net>
-    <net code="39" name="/XCLK">
+    <net code="38" name="/XCLK">
       <node ref="U1" pin="3" pinfunction="OUT" pintype="output"/>
       <node ref="U2" pin="6" pinfunction="PA0" pintype="bidirectional"/>
     </net>
-    <net code="40" name="GND">
+    <net code="39" name="GND">
       <node ref="C1" pin="1" pintype="passive"/>
       <node ref="C10" pin="2" pintype="passive"/>
       <node ref="C11" pin="2" pintype="passive"/>
@@ -2628,6 +2678,7 @@
       <node ref="C21" pin="2" pintype="passive"/>
       <node ref="C22" pin="2" pintype="passive"/>
       <node ref="C23" pin="1" pintype="passive"/>
+      <node ref="C24" pin="1" pintype="passive"/>
       <node ref="C3" pin="2" pintype="passive"/>
       <node ref="C4" pin="2" pintype="passive"/>
       <node ref="C45" pin="1" pintype="passive"/>
@@ -2661,6 +2712,7 @@
       <node ref="R9" pin="2" pintype="passive"/>
       <node ref="SW1" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="SW2" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="SW3" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U1" pin="2" pinfunction="GND" pintype="power_in"/>
       <node ref="U10" pin="2" pinfunction="VSS" pintype="power_in"/>
       <node ref="U10" pin="9" pinfunction="VSS" pintype="passive"/>
@@ -2674,68 +2726,72 @@
       <node ref="U7" pin="13" pinfunction="GND" pintype="power_in"/>
       <node ref="U7" pin="5" pinfunction="GND" pintype="power_in"/>
     </net>
-    <net code="41" name="Net-(C18-Pad2)">
+    <net code="40" name="Net-(C18-Pad2)">
       <node ref="C18" pin="2" pintype="passive"/>
       <node ref="D10" pin="3" pintype="input"/>
       <node ref="R15" pin="2" pintype="passive"/>
     </net>
-    <net code="42" name="Net-(C19-Pad2)">
+    <net code="41" name="Net-(C19-Pad2)">
       <node ref="C19" pin="2" pintype="passive"/>
       <node ref="D10" pin="1" pintype="input"/>
       <node ref="R16" pin="2" pintype="passive"/>
     </net>
-    <net code="43" name="Net-(D1-A)">
+    <net code="42" name="Net-(D1-A)">
       <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R2" pin="1" pintype="passive"/>
     </net>
-    <net code="44" name="Net-(D2-A)">
+    <net code="43" name="Net-(D2-A)">
       <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R3" pin="1" pintype="passive"/>
     </net>
-    <net code="45" name="Net-(D3-A)">
+    <net code="44" name="Net-(D3-A)">
       <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R4" pin="1" pintype="passive"/>
     </net>
-    <net code="46" name="Net-(D5-A)">
+    <net code="45" name="Net-(D5-A)">
       <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R5" pin="2" pintype="passive"/>
     </net>
-    <net code="47" name="Net-(D6-A)">
+    <net code="46" name="Net-(D6-A)">
       <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R11" pin="2" pintype="passive"/>
     </net>
-    <net code="48" name="Net-(D6-K)">
+    <net code="47" name="Net-(D6-K)">
       <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="Q1" pin="1" pinfunction="D" pintype="passive"/>
     </net>
-    <net code="49" name="Net-(D7-A)">
+    <net code="48" name="Net-(D7-A)">
       <node ref="D7" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R12" pin="2" pintype="passive"/>
     </net>
-    <net code="50" name="Net-(D8-A)">
+    <net code="49" name="Net-(D8-A)">
       <node ref="D8" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="R13" pin="2" pintype="passive"/>
     </net>
-    <net code="51" name="Net-(D9-K)">
+    <net code="50" name="Net-(D9-K)">
       <node ref="D9" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R14" pin="2" pintype="passive"/>
     </net>
-    <net code="52" name="Net-(J4-D+)">
+    <net code="51" name="Net-(J4-D+)">
       <node ref="D10" pin="4" pintype="input"/>
       <node ref="J4" pin="3" pinfunction="D+" pintype="bidirectional"/>
     </net>
-    <net code="53" name="Net-(J4-D-)">
+    <net code="52" name="Net-(J4-D-)">
       <node ref="D10" pin="6" pintype="input"/>
       <node ref="J4" pin="2" pinfunction="D-" pintype="bidirectional"/>
     </net>
-    <net code="54" name="Net-(J5-In)">
+    <net code="53" name="Net-(J5-In)">
       <node ref="J5" pin="1" pinfunction="In" pintype="passive"/>
       <node ref="MOD1" pin="9" pinfunction="ANT" pintype="bidirectional"/>
     </net>
-    <net code="55" name="Net-(R10-Pad1)">
+    <net code="54" name="Net-(R10-Pad1)">
       <node ref="R10" pin="1" pintype="passive"/>
       <node ref="R11" pin="1" pintype="passive"/>
       <node ref="U4" pin="3" pintype="passive"/>
+    </net>
+    <net code="55" name="Net-(R17-Pad1)">
+      <node ref="R17" pin="1" pintype="passive"/>
+      <node ref="SW3" pin="2" pinfunction="2" pintype="passive"/>
     </net>
     <net code="56" name="Net-(SW2A-B)">
       <node ref="R1" pin="1" pintype="passive"/>
@@ -2757,73 +2813,80 @@
       <node ref="R2" pin="2" pintype="passive"/>
       <node ref="U2" pin="20" pinfunction="PA10" pintype="bidirectional"/>
     </net>
-    <net code="61" name="Net-(U3-EN{slash}UVLO)">
+    <net code="61" name="Net-(U2-PB4)">
+      <node ref="C24" pin="2" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="27" pinfunction="PB4" pintype="bidirectional"/>
+    </net>
+    <net code="62" name="Net-(U3-EN{slash}UVLO)">
       <node ref="R6" pin="1" pintype="passive"/>
       <node ref="R7" pin="1" pintype="passive"/>
       <node ref="U3" pin="3" pinfunction="EN/UVLO" pintype="input"/>
     </net>
-    <net code="62" name="Net-(U3-OVLO)">
+    <net code="63" name="Net-(U3-OVLO)">
       <node ref="R7" pin="2" pintype="passive"/>
       <node ref="R8" pin="1" pintype="passive"/>
       <node ref="U3" pin="8" pinfunction="OVLO" pintype="input"/>
     </net>
-    <net code="63" name="Net-(U3-dV{slash}dT)">
+    <net code="64" name="Net-(U3-dV{slash}dT)">
       <node ref="C21" pin="1" pintype="passive"/>
       <node ref="U3" pin="2" pinfunction="dV/dT" pintype="input"/>
     </net>
-    <net code="64" name="Net-(U7-CBUS0)">
+    <net code="65" name="Net-(U7-CBUS0)">
       <node ref="R14" pin="1" pintype="passive"/>
       <node ref="U7" pin="6" pinfunction="CBUS0" pintype="bidirectional"/>
     </net>
-    <net code="65" name="Net-(U7-USBDM)">
+    <net code="66" name="Net-(U7-USBDM)">
       <node ref="R16" pin="1" pintype="passive"/>
       <node ref="U7" pin="1" pinfunction="USBDM" pintype="bidirectional"/>
     </net>
-    <net code="66" name="Net-(U7-USBDP)">
+    <net code="67" name="Net-(U7-USBDP)">
       <node ref="R15" pin="1" pintype="passive"/>
       <node ref="U7" pin="12" pinfunction="USBDP" pintype="bidirectional"/>
     </net>
-    <net code="67" name="VBUS_UP">
+    <net code="68" name="VBUS_UP">
       <node ref="C20" pin="2" pintype="passive"/>
       <node ref="D10" pin="5" pintype="output"/>
       <node ref="J4" pin="1" pinfunction="VBUS" pintype="power_out"/>
       <node ref="JP1" pin="1" pinfunction="A" pintype="passive"/>
       <node ref="U4" pin="1" pintype="passive"/>
     </net>
-    <net code="68" name="unconnected-(J1-Pin_7-Pad7)">
+    <net code="69" name="unconnected-(J1-Pin_7-Pad7)">
       <node ref="J1" pin="7" pinfunction="Pin_7" pintype="passive+no_connect"/>
     </net>
-    <net code="69" name="unconnected-(J1-Pin_8-Pad8)">
+    <net code="70" name="unconnected-(J1-Pin_8-Pad8)">
       <node ref="J1" pin="8" pinfunction="Pin_8" pintype="passive+no_connect"/>
     </net>
-    <net code="70" name="unconnected-(J4-ID-Pad4)">
+    <net code="71" name="unconnected-(J4-ID-Pad4)">
       <node ref="J4" pin="4" pinfunction="ID" pintype="passive+no_connect"/>
     </net>
-    <net code="71" name="unconnected-(J4-Shield-Pad6)">
+    <net code="72" name="unconnected-(J4-Shield-Pad6)">
       <node ref="J4" pin="6" pinfunction="Shield" pintype="passive+no_connect"/>
     </net>
-    <net code="72" name="unconnected-(J6-Pin_1-Pad1)">
+    <net code="73" name="unconnected-(J6-Pin_1-Pad1)">
       <node ref="J6" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="73" name="unconnected-(J6-Pin_3-Pad3)">
+    <net code="74" name="unconnected-(J6-Pin_3-Pad3)">
       <node ref="J6" pin="3" pinfunction="Pin_3" pintype="passive+no_connect"/>
     </net>
-    <net code="74" name="unconnected-(J6-Pin_4-Pad4)">
+    <net code="75" name="unconnected-(J6-Pin_4-Pad4)">
       <node ref="J6" pin="4" pinfunction="Pin_4" pintype="passive+no_connect"/>
     </net>
-    <net code="75" name="unconnected-(J6-Pin_5-Pad5)">
+    <net code="76" name="unconnected-(J6-Pin_5-Pad5)">
       <node ref="J6" pin="5" pinfunction="Pin_5" pintype="passive+no_connect"/>
     </net>
-    <net code="76" name="unconnected-(J6-Pin_6-Pad6)">
+    <net code="77" name="unconnected-(J6-Pin_6-Pad6)">
       <node ref="J6" pin="6" pinfunction="Pin_6" pintype="passive+no_connect"/>
     </net>
-    <net code="77" name="unconnected-(J6-Pin_8-Pad8)">
+    <net code="78" name="unconnected-(J6-Pin_8-Pad8)">
       <node ref="J6" pin="8" pinfunction="Pin_8" pintype="passive+no_connect"/>
     </net>
-    <net code="78" name="unconnected-(J6-Pin_9-Pad9)">
+    <net code="79" name="unconnected-(J6-Pin_9-Pad9)">
       <node ref="J6" pin="9" pinfunction="Pin_9" pintype="passive+no_connect"/>
     </net>
-    <net code="79" name="unconnected-(U7-3.3VOUT-Pad3)">
+    <net code="80" name="unconnected-(U7-3.3VOUT-Pad3)">
       <node ref="U7" pin="3" pinfunction="3.3VOUT" pintype="passive+no_connect"/>
     </net>
   </nets>
