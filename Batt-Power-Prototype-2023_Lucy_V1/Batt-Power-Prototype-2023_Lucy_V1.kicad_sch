@@ -13,6 +13,23 @@
   )
 
 
+  (sheet (at 88.9 53.34) (size 58.42 26.67) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid caf32978-5421-40df-803f-f9402117c79f)
+    (property "Sheetname" "Power" (at 88.9 52.6284 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "untitled.kicad_sch" (at 88.9 80.5946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096" (page "2"))
+      )
+    )
+  )
+
   (sheet_instances
     (path "/" (page "1"))
   )
