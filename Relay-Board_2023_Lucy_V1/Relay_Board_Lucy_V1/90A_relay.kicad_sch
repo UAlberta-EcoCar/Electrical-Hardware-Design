@@ -551,7 +551,7 @@
   (symbol (lib_id "power:GNDPWR") (at 172.72 128.27 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1d68bfe3-786a-4d23-a6d2-d1bba1c8a1f5)
-    (property "Reference" "#PWR020" (at 172.72 133.35 0)
+    (property "Reference" "#PWR063" (at 172.72 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 172.593 133.35 0)
@@ -567,10 +567,10 @@
     (instances
       (project "Relay_Board_Lucy_V1"
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR063") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/2c5921d2-6c17-4365-bb30-821f28165af3"
-          (reference "#PWR021") (unit 1)
+          (reference "#PWR064") (unit 1)
         )
       )
     )
@@ -579,7 +579,7 @@
   (symbol (lib_id "Device:D_Schottky") (at 172.72 97.79 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 328ce1f7-d893-4d22-a1f9-5846dff8cb26)
-    (property "Reference" "D5" (at 175.26 96.8375 90)
+    (property "Reference" "D12" (at 175.26 96.8375 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "SD0805S020S1R0" (at 175.26 99.3775 90)
@@ -599,10 +599,10 @@
     (instances
       (project "Relay_Board_Lucy_V1"
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
-          (reference "D5") (unit 1)
+          (reference "D12") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/2c5921d2-6c17-4365-bb30-821f28165af3"
-          (reference "D6") (unit 1)
+          (reference "D13") (unit 1)
         )
       )
     )
@@ -635,10 +635,10 @@
           (reference "Q1") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
-          (reference "Q3") (unit 1)
+          (reference "Q2") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/2c5921d2-6c17-4365-bb30-821f28165af3"
-          (reference "Q4") (unit 1)
+          (reference "Q3") (unit 1)
         )
       )
     )
@@ -653,7 +653,7 @@
     (property "Value" "100k" (at 189.23 121.92 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 185.42 120.65 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 185.42 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 185.42 120.65 0)
@@ -673,10 +673,10 @@
           (reference "R2") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
-          (reference "R14") (unit 1)
+          (reference "R26") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/2c5921d2-6c17-4365-bb30-821f28165af3"
-          (reference "R15") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -691,7 +691,7 @@
     (property "Value" "220" (at 193.04 110.49 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 193.04 113.03 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 193.04 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 193.04 113.03 0)
@@ -711,10 +711,10 @@
           (reference "R2") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
-          (reference "R11") (unit 1)
+          (reference "R27") (unit 1)
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/2c5921d2-6c17-4365-bb30-821f28165af3"
-          (reference "R12") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
@@ -729,7 +729,7 @@
     (property "Value" "HE1AN-W-DC12V-Y6" (at 149.86 87.63 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "RB_FTP:HE1AN-W-DC12V-Y6_PAN" (at 149.86 90.17 0)
+    (property "Footprint" "RB_FTP:HE1AN-W-DC12V-Y6" (at 149.86 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://api.pim.na.industrial.panasonic.com/file_stream/main/fileversion/276" (at 149.86 90.17 0)
