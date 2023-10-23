@@ -427,93 +427,42 @@
         )
       )
     )
-    (symbol "power:GNDPWR" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (at 0 -5.08 0)
+    (symbol "power:GNDA" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 -6.35 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Value" "GNDPWR" (at 0 -3.302 0)
+      (property "Value" "GNDA" (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)))
       )
-      (property "Footprint" "" (at 0 -1.27 0)
+      (property "Footprint" "" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Datasheet" "" (at 0 -1.27 0)
+      (property "Datasheet" "" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_keywords" "global ground" (at 0 0 0)
+      (property "ki_keywords" "global power" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_description" "Power symbol creates a global label with name \"GNDPWR\" , global ground" (at 0 0 0)
+      (property "ki_description" "Power symbol creates a global label with name \"GNDA\" , analog ground" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "GNDPWR_0_1"
+      (symbol "GNDA_0_1"
         (polyline
           (pts
-            (xy 0 -1.27)
             (xy 0 0)
+            (xy 0 -1.27)
+            (xy 1.27 -1.27)
+            (xy 0 -2.54)
+            (xy -1.27 -1.27)
+            (xy 0 -1.27)
           )
           (stroke (width 0) (type default))
           (fill (type none))
         )
-        (polyline
-          (pts
-            (xy -1.016 -1.27)
-            (xy -1.27 -2.032)
-            (xy -1.27 -2.032)
-          )
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -0.508 -1.27)
-            (xy -0.762 -2.032)
-            (xy -0.762 -2.032)
-          )
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 -1.27)
-            (xy -0.254 -2.032)
-            (xy -0.254 -2.032)
-          )
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0.508 -1.27)
-            (xy 0.254 -2.032)
-            (xy 0.254 -2.032)
-          )
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 1.016 -1.27)
-            (xy -1.016 -1.27)
-            (xy -1.016 -1.27)
-          )
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 1.016 -1.27)
-            (xy 0.762 -2.032)
-            (xy 0.762 -2.032)
-            (xy 0.762 -2.032)
-          )
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
       )
-      (symbol "GNDPWR_1_1"
+      (symbol "GNDA_1_1"
         (pin power_in line (at 0 0 270) (length 0) hide
-          (name "GNDPWR" (effects (font (size 1.27 1.27))))
+          (name "GNDA" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
         )
       )
@@ -659,40 +608,6 @@
     (uuid b998f778-4c28-4964-9061-635ca746c468)
   )
 
-  (symbol (lib_id "power:GNDPWR") (at 114.3 127 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 0641051c-91ed-4cdf-9d5e-aca7678e2210)
-    (property "Reference" "#PWR020" (at 114.3 132.08 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GNDPWR" (at 114.427 132.08 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 114.3 128.27 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 114.3 128.27 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid ca318107-33f2-4591-ade6-8a8e90a4fe02))
-    (instances
-      (project "Relay_Board_Lucy_V1"
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/e3e3a679-5f79-4d77-8bec-4f63930827cc"
-          (reference "#PWR020") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/2c5921d2-6c17-4365-bb30-821f28165af3"
-          (reference "#PWR021") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/ed81dffe-8ef6-4a6b-bb11-de534fb08671"
-          (reference "#PWR065") (unit 1)
-        )
-        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/4b1c0f83-d3c7-42cf-a2fc-f90e1b4570a4"
-          (reference "#PWR066") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "RB_PARTS:PTRH-1C-12S-1-X") (at 146.05 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0e8269ce-bfbf-4f78-83ba-bd7de4b1d84e)
@@ -727,6 +642,40 @@
         )
         (path "/1f586fab-d165-4cda-895e-cc224a8182b4/4b1c0f83-d3c7-42cf-a2fc-f90e1b4570a4"
           (reference "K4") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GNDA") (at 114.3 127 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 3d055dbf-2ed6-4643-a74e-645c7608e604)
+    (property "Reference" "#PWR023" (at 114.3 133.35 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GNDA" (at 116.84 132.08 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "" (at 114.3 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 114.3 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 8e5ae82c-2641-476b-8ffb-31801a94d246))
+    (instances
+      (project "Relay_Board_Lucy_V1"
+        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/d0430468-7d1b-42a2-a24e-658bd737b804"
+          (reference "#PWR023") (unit 1)
+        )
+        (path "/1f586fab-d165-4cda-895e-cc224a8182b4"
+          (reference "#PWR025") (unit 1)
+        )
+        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/ed81dffe-8ef6-4a6b-bb11-de534fb08671"
+          (reference "#PWR05") (unit 1)
+        )
+        (path "/1f586fab-d165-4cda-895e-cc224a8182b4/4b1c0f83-d3c7-42cf-a2fc-f90e1b4570a4"
+          (reference "#PWR028") (unit 1)
         )
       )
     )
