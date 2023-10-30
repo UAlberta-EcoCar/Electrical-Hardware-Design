@@ -11,13 +11,23 @@ USBCDC cdc;
 
 void SetSysClock();
 
-int main()
+struct data
 {
-    SetSysClock();
+    float one = 0.12;
+    bool two = true;
+    uint8_t three = 3;
+};
 
+int main()
+{   
+    struct data mydata;
+    canbus.mode(canbus.LocalTest);
+    SetSysClock();
     printf("Hello World!");
 
-    while(1){};
+    while(1)
+    {
+    };
 
     return 0;
 }
@@ -25,15 +35,6 @@ int main()
 
 /**
  * Clock configuration below
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  */
 
 // clock source is selected with CLOCK_SOURCE in json config
@@ -41,7 +42,7 @@ int main()
 #define USE_PLL_HSE_XTAL 0x4 // Use external xtal (X3 on board - not provided by default)
 #define USE_PLL_HSI      0x2 // Use HSI internal clock
 
-//#define DEBUG_MCO        (1) // Output the MCO1/MCO2 on PA8/PC9 for debugging (0=OFF, 1=ON)
+#define DEBUG_MCO        (1) // Output the MCO1/MCO2 on PA8/PC9 for debugging (0=OFF, 1=ON)
 
 
 #if ( ((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC) )
