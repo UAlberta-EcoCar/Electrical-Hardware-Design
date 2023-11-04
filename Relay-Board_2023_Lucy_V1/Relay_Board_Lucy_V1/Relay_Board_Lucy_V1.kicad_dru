@@ -1,10 +1,16 @@
 (version 1)
 
 # 4-layer, 1oz copper
-(rule "Minimum Trace Width and Spacing (outer layer)"
+(rule "Minimum Trace Width and Spacing (not F.Cu)"
 	(constraint track_width (min 3.5mil))
 	(constraint clearance (min 3.5mil))
-	(layer outer)
+	(layer "B.Cu") (layer "In1.Cu") (layer "In2.Cu")
+	(condition "A.Type == 'track'"))
+
+(rule "Minimum Trace Width and Spacing (F.Cu)"
+	(constraint track_width (min 0.2mm))
+	(constraint clearance (min 0.2mm))
+	(layer "F.Cu")
 	(condition "A.Type == 'track'"))
 
 # silkscreen
@@ -33,19 +39,19 @@
 
 (rule "Minimum Via Hole Size"
 	(constraint hole_size (min 0.15mm))
-	(condition "A.Type == 'via'"))
+	(condition "A.Type == 'Via'"))
 
 (rule "Minimum Via Diameter"
 	(constraint length (min 0.25mm))
-	(condition "A.Type == 'via'"))
+	(condition "A.Type == 'Via'"))
 
 (rule "PTH Hole Size"
 	(constraint hole_size (min 0.2mm) (max 6.35mm))
-	(condition "A.isPlated()"))
+	(condition "A.isPlated() && A.Type != 'Via'"))
 
 (rule "PTH Size"
 	(constraint length (min 0.7mm) (max 6.35mm))
-	(condition "A.isPlated()"))
+	(condition "A.isPlated() && A.Type != 'Via'"))
 
 (rule "Minimum Non-plated Hole Size"
 	(constraint hole_size (min 0.5mm))
