@@ -4,13 +4,7 @@
 (rule "Minimum Trace Width and Spacing (not F.Cu)"
 	(constraint track_width (min 3.5mil))
 	(constraint clearance (min 3.5mil))
-	(layer "B.Cu") (layer "In1.Cu") (layer "In2.Cu")
-	(condition "A.Type == 'track'"))
-
-(rule "Minimum Trace Width and Spacing (F.Cu)"
-	(constraint track_width (min 0.2mm))
-	(constraint clearance (min 0.2mm))
-	(layer "F.Cu")
+	(layer "F.Cu") (layer "In1.Cu") (layer "In2.Cu") (layer "B.Cu")
 	(condition "A.Type == 'track'"))
 
 # silkscreen
