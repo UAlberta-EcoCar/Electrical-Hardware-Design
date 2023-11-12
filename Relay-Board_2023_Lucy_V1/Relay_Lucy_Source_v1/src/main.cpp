@@ -22,6 +22,7 @@ int main()
 {   
     struct data mydata;
     canbus.mode(canbus.LocalTest);
+    char myChar[10] = "Hello"; // here is a comment
     SetSysClock();
     printf("Hello World!");
 
