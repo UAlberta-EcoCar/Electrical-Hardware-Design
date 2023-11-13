@@ -1,0 +1,14 @@
+PRESSURE SENSOR
+- Range of pressures from -14.7 to 25 PSI
+- Accepts power anywhere from 10-28VDC
+- Consumes less than 10mA
+- Output load 10k minimum (what does this mean?)
+- Output voltage from 1-5VDC, must add resistor divider network and voltage buffer
+- Device already has reverse polarity protection which is good because the dsub wiring could get mixed up
+
+THERMISTOR
+- Two wire thermistor
+- Need to add a precision Vref and a user resistor to linearize the measurements
+- If we can find a datasheet for it (maybe email ballard), we should be able to provide compensation in code
+- Ballard specified so the range is probably all good
+- User resistor should have high precision
