@@ -1,6 +1,6 @@
 (kicad_sch (version 20230121) (generator eeschema)
 
-  (uuid b0fb9c6a-468c-4ffb-a810-154dd0e3d5f7)
+  (uuid e7b3b563-745d-481a-a34f-546339ef84e7)
 
   (paper "A4")
 
@@ -164,6 +164,12 @@
     )
   )
 
+
+  (text "to do:\n- copy and paste purge and supply valve control\n- footprint for optocoupler \n"
+    (at 76.2 120.65 0)
+    (effects (font (size 1.27 1.27) (color 255 0 9 1)) (justify left bottom))
+    (uuid b6c5195d-baf2-4e70-9ad5-4733bab7d48f)
+  )
 
   (symbol (lib_id "Isolator:LTV-356T") (at 134.62 97.79 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
