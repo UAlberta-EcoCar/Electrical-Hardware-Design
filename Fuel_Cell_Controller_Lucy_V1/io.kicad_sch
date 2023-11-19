@@ -2192,7 +2192,7 @@
     (stroke (width 0) (type default))
     (uuid 07346c21-7a28-484e-8bc9-bd16886185d8)
   )
-  (wire (pts (xy 80.01 91.44) (xy 86.36 91.44))
+  (wire (pts (xy 80.01 91.44) (xy 85.09 91.44))
     (stroke (width 0) (type default))
     (uuid 07b4de33-0ca2-45a6-8e61-23e6cbe65495)
   )
@@ -2584,7 +2584,7 @@
     (stroke (width 0) (type default))
     (uuid 7f25f422-3cc0-4579-94ee-ca6e17e9a027)
   )
-  (polyline (pts (xy 13.97 118.11) (xy 13.97 173.99))
+  (polyline (pts (xy 13.97 118.11) (xy 13.97 182.88))
     (stroke (width 0.8) (type dash))
     (uuid 7f9e8bae-565d-4a32-ac10-55a3d006e956)
   )
@@ -2609,6 +2609,10 @@
   (wire (pts (xy 330.2 43.18) (xy 353.06 43.18))
     (stroke (width 0) (type default))
     (uuid 85a26432-c0be-430e-952c-ec459fd785ba)
+  )
+  (wire (pts (xy 111.76 88.9) (xy 111.76 91.44))
+    (stroke (width 0) (type default))
+    (uuid 85f9f5ad-3362-4926-b236-059346615412)
   )
   (wire (pts (xy 41.91 99.06) (xy 41.91 102.87))
     (stroke (width 0) (type default))
@@ -2675,6 +2679,10 @@
   (wire (pts (xy 41.91 88.9) (xy 53.34 88.9))
     (stroke (width 0) (type default))
     (uuid 96365260-0f87-4641-9cb9-3ed0be975881)
+  )
+  (wire (pts (xy 92.71 88.9) (xy 111.76 88.9))
+    (stroke (width 0) (type default))
+    (uuid 9953587c-e9f7-4a1d-a239-1b1bd8f8bd56)
   )
   (wire (pts (xy 16.51 88.9) (xy 30.48 88.9))
     (stroke (width 0) (type default))
@@ -2764,7 +2772,7 @@
     (stroke (width 0) (type default))
     (uuid b0b2a9a8-6847-4ad6-b954-9addc63bde12)
   )
-  (wire (pts (xy 386.08 205.74) (xy 383.54 205.74))
+  (wire (pts (xy 386.08 205.74) (xy 382.27 205.74))
     (stroke (width 0) (type default))
     (uuid b162850f-7ff6-4f90-b7cb-910178815323)
   )
@@ -2793,6 +2801,10 @@
     (uuid b59c1299-4ac8-476c-a5e0-2aafabae38f9)
   )
 
+  (wire (pts (xy 328.93 132.08) (xy 356.87 132.08))
+    (stroke (width 0) (type default))
+    (uuid b688a027-bfc2-4f64-b844-f969d7345404)
+  )
   (wire (pts (xy 20.32 144.78) (xy 20.32 135.89))
     (stroke (width 0) (type default))
     (uuid b806442b-29e5-4dc7-b352-647267db86d7)
@@ -2802,7 +2814,7 @@
     (uuid b8a46a8b-c417-4b54-be39-f78b5c5d9f1f)
   )
 
-  (wire (pts (xy 387.35 208.28) (xy 383.54 208.28))
+  (wire (pts (xy 387.35 208.28) (xy 382.27 208.28))
     (stroke (width 0) (type default))
     (uuid b917ec76-9412-43a0-9d70-4e32a54a7653)
   )
@@ -2915,15 +2927,23 @@
     (stroke (width 0) (type default))
     (uuid ceeb8c48-c199-4572-82e5-3fc947293dce)
   )
+  (wire (pts (xy 328.93 127) (xy 356.87 127))
+    (stroke (width 0) (type default))
+    (uuid d0b53219-d24c-4067-9cee-c40f3d59897e)
+  )
   (wire (pts (xy 38.1 88.9) (xy 38.1 93.98))
     (stroke (width 0) (type default))
     (uuid d12deb73-f568-4491-83e0-47c43b153934)
   )
-  (polyline (pts (xy 13.97 173.99) (xy 149.86 173.99))
+  (polyline (pts (xy 13.97 182.88) (xy 149.86 182.88))
     (stroke (width 0.8) (type dash))
     (uuid d1357142-a0be-4bc7-96b5-27c0566dd7e7)
   )
 
+  (wire (pts (xy 111.76 83.82) (xy 111.76 86.36))
+    (stroke (width 0) (type default))
+    (uuid d15b4b5b-d635-43ca-9223-941d64a4f8f9)
+  )
   (wire (pts (xy 314.96 59.69) (xy 314.96 62.23))
     (stroke (width 0) (type default))
     (uuid d19216e9-ede4-4229-abf0-a00c7bc923e9)
@@ -2969,6 +2989,10 @@
     (stroke (width 0) (type default))
     (uuid dd882ebb-be9b-40d9-bd54-cbd56be772d4)
   )
+  (wire (pts (xy 92.71 86.36) (xy 111.76 86.36))
+    (stroke (width 0) (type default))
+    (uuid df39cce0-7f57-41ac-a37e-8320260780b3)
+  )
   (polyline (pts (xy 405.13 154.94) (xy 405.13 86.36))
     (stroke (width 0.8) (type dash))
     (uuid df4917dc-f205-4eb0-b3c0-69e1d0af31a2)
@@ -2998,7 +3022,7 @@
     (stroke (width 0) (type default))
     (uuid ebd85574-f518-4e53-bee9-f5f6bb04e5b0)
   )
-  (polyline (pts (xy 149.86 173.99) (xy 149.86 118.11))
+  (polyline (pts (xy 149.86 182.88) (xy 149.86 118.11))
     (stroke (width 0.8) (type dash))
     (uuid ecbcef2c-5ae6-400c-9f07-f1fc8100d873)
   )
@@ -3010,6 +3034,10 @@
   (wire (pts (xy 314.96 173.99) (xy 323.85 173.99))
     (stroke (width 0) (type default))
     (uuid ed43a39f-38ba-45f0-a724-9cd6fa146c88)
+  )
+  (wire (pts (xy 328.93 129.54) (xy 356.87 129.54))
+    (stroke (width 0) (type default))
+    (uuid ed48b942-6497-422a-ba8e-67dd7fb0d855)
   )
   (wire (pts (xy 95.25 146.05) (xy 95.25 156.21))
     (stroke (width 0) (type default))
@@ -3081,6 +3109,10 @@
     (uuid fce91987-8e3c-4171-891c-1b5dcad2630a)
   )
 
+  (text "f_{c} = 15.9Hz" (at 88.9 144.78 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 1b035524-0e42-4616-b9c2-0840d3400c6b)
+  )
   (text "This thermistor is just a visual\nrepresentation. Actual thermistor\nis in the fuel cell case."
     (at 62.23 138.43 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3090,6 +3122,10 @@
     (effects (font (size 2.5 2.5) (thickness 0.5) bold italic) (justify left bottom))
     (uuid 2c1b9864-0790-4f14-9b40-8e273387923e)
   )
+  (text "Add I2C\nAdd 5V\nfor extern\npressure" (at 314.96 133.35 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 5087837b-b894-4e2e-8866-4dafee96f671)
+  )
   (text "CANBus Transciever and Receptacle" (at 274.32 19.05 0)
     (effects (font (size 2.5 2.5) (thickness 0.5) bold italic) (justify left bottom))
     (uuid 7178c565-7aa4-44b7-ab9c-83002f866fde)
@@ -3098,6 +3134,10 @@
     (at 328.93 181.61 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 748b7219-3965-41c1-9056-724955b4822f)
+  )
+  (text "I_{Ref,max} = 20mA" (at 52.07 140.97 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 7f46e69d-a658-4047-a278-a2715d87e828)
   )
   (text "FTDI - TTL to USB" (at 245.11 163.83 0)
     (effects (font (size 2.5 2.5) (thickness 0.5) bold italic) (justify left bottom))
@@ -3119,6 +3159,10 @@
   (text "R_{1}" (at 31.75 82.55 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid d7d8099f-44f4-4a61-a1eb-27a0f42ae9e5)
+  )
+  (text "R_{series} >= 3.3V/20mA = 165Ω" (at 54.61 176.53 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid d8acdf02-e236-49cc-86c0-0b7b3898cf84)
   )
   (text "Receptacle to Fuel Cell" (at 312.42 92.71 0)
     (effects (font (size 2.5 2.5) (thickness 0.5) bold italic) (justify left bottom))
@@ -3149,10 +3193,6 @@
   (label "PB4" (at 257.81 203.2 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 02c0bbd8-51a3-4c98-b73a-39ba6ceff720)
-  )
-  (label "PA3" (at 86.36 91.44 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid 04c42b3d-5c30-478c-8717-922f06a381db)
   )
   (label "CAN_H" (at 345.44 45.72 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3193,6 +3233,10 @@
   (label "V_{BUS}" (at 340.36 173.99 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 22b5ce4c-f9e6-4f5d-8358-a97bd769b7ed)
+  )
+  (label "PRESSURE_PWR+" (at 92.71 86.36 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 281bf88f-6062-4dee-bdd6-0d4e2daca6e5)
   )
   (label "PURGE_RTN" (at 328.93 109.22 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3242,13 +3286,21 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 5ecf9b6a-f354-4355-8b32-cbcc613bf70c)
   )
-  (label "D-" (at 383.54 208.28 0) (fields_autoplaced)
+  (label "D-" (at 382.27 208.28 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 60153d57-8bc6-4483-82f8-e83ef3e44591)
   )
   (label "PA15" (at 276.86 50.8 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 651d151c-d35f-4724-ba64-7de1cdfc7111)
+  )
+  (label "PRESSURE_PWR-" (at 92.71 88.9 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 67a2a3e5-8983-49df-a3c7-b872d59ec482)
+  )
+  (label "I2C_{SCL}" (at 328.93 127 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 695ecc49-024d-4ba9-8abc-14a08bdc544f)
   )
   (label "PA2" (at 25.4 57.15 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3290,10 +3342,6 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid ab352395-9b7e-4ea7-bcfe-5c9c9fb9fe11)
   )
-  (label "PA4" (at 134.62 148.59 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid af62becd-7ac7-47f0-b644-9e4754ec6c54)
-  )
   (label "PRESSURE_SIG" (at 328.93 116.84 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid bb11c4e8-13b3-4805-94b5-5e49a5434743)
@@ -3301,6 +3349,10 @@
   (label "VCCIO" (at 267.97 231.14 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid c424b15c-ed40-4ac7-a4bd-4474e4ee104f)
+  )
+  (label "PB6" (at 345.44 127 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid c4326707-5c17-464c-a02c-6021fc3e996f)
   )
   (label "PB3" (at 257.81 200.66 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3318,11 +3370,23 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid d74497a2-fbd2-4026-be96-b23e02c2aada)
   )
-  (label "D+" (at 383.54 205.74 0) (fields_autoplaced)
+  (label "PB7" (at 345.44 129.54 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid e4d4d655-eaa4-4d23-9900-178b8468b5ca)
+  )
+  (label "D+" (at 382.27 205.74 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid ee5ff490-1cf6-4e5e-8d80-af35e8119f93)
   )
+  (label "I2C_{SDA}" (at 328.93 129.54 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid fe417bc6-f6e4-4b73-83c9-a062a78c7739)
+  )
 
+  (hierarchical_label "H2_{PRS}" (shape output) (at 85.09 91.44 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 4f0b7971-e173-4ec5-873f-b7b0c2a973e1)
+  )
   (hierarchical_label "PA[0..15]" (shape bidirectional) (at 24.13 15.24 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 6e7e7b72-d2e1-4619-852d-b0ee83e27929)
@@ -3330,6 +3394,10 @@
   (hierarchical_label "PB[0..7]" (shape bidirectional) (at 24.13 17.78 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 962992df-5dd9-4deb-9158-d29b637b66b1)
+  )
+  (hierarchical_label "FC_{TEMP}" (shape output) (at 134.62 148.59 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid ee3aab3e-cce9-4ead-b538-b4aa703aac95)
   )
 
   (symbol (lib_id "Device:C_Small") (at 20.32 149.86 0) (mirror y) (unit 1)
@@ -3341,7 +3409,7 @@
     (property "Value" "2u2" (at 22.86 151.13 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 20.32 149.86 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 20.32 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 20.32 149.86 0)
@@ -3355,7 +3423,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C18") (unit 1)
+          (reference "C20") (unit 1)
         )
       )
     )
@@ -3364,7 +3432,7 @@
   (symbol (lib_id "power:GND") (at 318.77 69.85 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 068942c8-089f-4449-81ce-5ba1fcca4f8a)
-    (property "Reference" "#PWR047" (at 318.77 76.2 0)
+    (property "Reference" "#PWR052" (at 318.77 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 318.77 73.66 0)
@@ -3380,7 +3448,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR047") (unit 1)
+          (reference "#PWR052") (unit 1)
         )
       )
     )
@@ -3417,7 +3485,7 @@
           (reference "C29") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C32") (unit 1)
+          (reference "C26") (unit 1)
         )
       )
     )
@@ -3426,7 +3494,7 @@
   (symbol (lib_id "power:GND") (at 38.1 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0e4a055a-31b3-400b-b6f0-c34001f7570e)
-    (property "Reference" "#PWR032" (at 38.1 110.49 0)
+    (property "Reference" "#PWR031" (at 38.1 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 38.1 107.95 0)
@@ -3442,7 +3510,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR032") (unit 1)
+          (reference "#PWR031") (unit 1)
         )
       )
     )
@@ -3474,7 +3542,7 @@
           (reference "D11") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "D13") (unit 1)
+          (reference "D9") (unit 1)
         )
       )
     )
@@ -3483,7 +3551,7 @@
   (symbol (lib_id "power:GND") (at 251.46 198.12 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 14401fa5-78a8-4827-a32a-2fc2b0a68730)
-    (property "Reference" "#PWR066" (at 251.46 204.47 0)
+    (property "Reference" "#PWR043" (at 251.46 204.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 251.46 201.93 0)
@@ -3499,7 +3567,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR066") (unit 1)
+          (reference "#PWR043") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
           (reference "#PWR058") (unit 1)
@@ -3511,13 +3579,13 @@
   (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 337.82 33.02 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1818a348-c2ab-4405-997f-a4007bc07fc7)
-    (property "Reference" "JP4" (at 337.82 29.21 0)
+    (property "Reference" "JP2" (at 337.82 29.21 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "SolderJumper_2_Open" (at 337.82 27.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (at 337.82 33.02 0)
+    (property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" (at 337.82 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 337.82 33.02 0)
@@ -3528,7 +3596,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "JP4") (unit 1)
+          (reference "JP2") (unit 1)
         )
       )
     )
@@ -3537,7 +3605,7 @@
   (symbol (lib_id "power:+5V") (at 58.42 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 18618ff7-424d-4296-b05f-b07a4e85ed12)
-    (property "Reference" "#PWR035" (at 58.42 82.55 0)
+    (property "Reference" "#PWR033" (at 58.42 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 58.42 74.93 0)
@@ -3553,7 +3621,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR035") (unit 1)
+          (reference "#PWR033") (unit 1)
         )
       )
     )
@@ -3562,7 +3630,7 @@
   (symbol (lib_id "power:GND") (at 289.56 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1f7205aa-34b4-4d6f-8163-beb6c98a3775)
-    (property "Reference" "#PWR042" (at 289.56 34.29 0)
+    (property "Reference" "#PWR044" (at 289.56 34.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 289.56 31.75 0)
@@ -3578,7 +3646,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR042") (unit 1)
+          (reference "#PWR044") (unit 1)
         )
       )
     )
@@ -3614,7 +3682,7 @@
           (reference "U6") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "U16") (unit 1)
+          (reference "U12") (unit 1)
         )
       )
     )
@@ -3651,7 +3719,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C33") (unit 1)
+          (reference "C28") (unit 1)
         )
       )
     )
@@ -3660,7 +3728,7 @@
   (symbol (lib_id "power:GND") (at 397.51 215.9 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 39160af6-5ee1-4dce-99f4-ceab320a2347)
-    (property "Reference" "#PWR072" (at 397.51 222.25 0)
+    (property "Reference" "#PWR058" (at 397.51 222.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 397.51 219.71 0)
@@ -3676,7 +3744,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR072") (unit 1)
+          (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
           (reference "#PWR050") (unit 1)
@@ -3688,7 +3756,7 @@
   (symbol (lib_id "power:GND") (at 368.3 30.48 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3f0031a7-71e7-4659-983d-fe4c44e4455e)
-    (property "Reference" "#PWR049" (at 368.3 36.83 0)
+    (property "Reference" "#PWR056" (at 368.3 36.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 368.3 34.29 0)
@@ -3704,7 +3772,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR049") (unit 1)
+          (reference "#PWR056") (unit 1)
         )
       )
     )
@@ -3713,13 +3781,13 @@
   (symbol (lib_id "Connector:DE9_Receptacle_MountingHoles") (at 360.68 43.18 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 43f3bbd7-1732-4c9d-b1e6-ea6b60eb0bd7)
-    (property "Reference" "J6" (at 365.76 44.45 0)
+    (property "Reference" "J3" (at 365.76 44.45 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "DE9_Receptacle" (at 365.76 41.91 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 360.68 43.18 0)
+    (property "Footprint" "Connector_Dsub:DSUB-9_Female_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm" (at 360.68 43.18 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" " ~" (at 360.68 43.18 0)
@@ -3738,7 +3806,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "J6") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
@@ -3747,7 +3815,7 @@
   (symbol (lib_id "power:GND") (at 374.65 205.74 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 452924d6-7d6e-4126-899f-d29e72379f31)
-    (property "Reference" "#PWR071" (at 374.65 212.09 0)
+    (property "Reference" "#PWR057" (at 374.65 212.09 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 374.65 209.55 0)
@@ -3763,7 +3831,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR071") (unit 1)
+          (reference "#PWR057") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
           (reference "#PWR065") (unit 1)
@@ -3775,7 +3843,7 @@
   (symbol (lib_id "power:GND") (at 38.1 158.75 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4824d325-eb9d-4444-9277-95342d67a3fe)
-    (property "Reference" "#PWR038" (at 38.1 165.1 0)
+    (property "Reference" "#PWR032" (at 38.1 165.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 38.1 162.56 0)
@@ -3791,7 +3859,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR038") (unit 1)
+          (reference "#PWR032") (unit 1)
         )
       )
     )
@@ -3800,7 +3868,7 @@
   (symbol (lib_id "power:GND") (at 364.49 144.78 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 500902a1-6bf6-4950-9cb2-c4e5f4606c54)
-    (property "Reference" "#PWR039" (at 364.49 151.13 0)
+    (property "Reference" "#PWR055" (at 364.49 151.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 364.49 148.59 0)
@@ -3816,7 +3884,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR039") (unit 1)
+          (reference "#PWR055") (unit 1)
         )
       )
     )
@@ -3848,7 +3916,7 @@
           (reference "D11") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "D12") (unit 1)
+          (reference "D8") (unit 1)
         )
       )
     )
@@ -3857,7 +3925,7 @@
   (symbol (lib_id "Amplifier_Operational:AD8603") (at 60.96 91.44 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 52814b11-ba3f-4d78-b3bf-113baab9f345)
-    (property "Reference" "U11" (at 64.77 95.25 0)
+    (property "Reference" "U8" (at 64.77 95.25 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "AD8603" (at 64.77 97.79 0)
@@ -3880,7 +3948,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "U11") (unit 1)
+          (reference "U8") (unit 1)
         )
       )
     )
@@ -3895,7 +3963,7 @@
     (property "Value" "4u7" (at 308.61 181.61 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 307.34 179.07 0)
+    (property "Footprint" "Capacitor_SMD:CP_Elec_3x5.3" (at 307.34 179.07 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 307.34 179.07 0)
@@ -3909,7 +3977,7 @@
           (reference "C35") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C39") (unit 1)
+          (reference "C30") (unit 1)
         )
       )
     )
@@ -3918,7 +3986,7 @@
   (symbol (lib_id "power:GND") (at 297.18 62.23 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 56d08f81-bbe0-4897-b596-7a0646b50e35)
-    (property "Reference" "#PWR044" (at 297.18 68.58 0)
+    (property "Reference" "#PWR045" (at 297.18 68.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 297.18 66.04 0)
@@ -3934,7 +4002,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR044") (unit 1)
+          (reference "#PWR045") (unit 1)
         )
       )
     )
@@ -3949,7 +4017,7 @@
     (property "Value" "47p" (at 316.23 195.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 318.77 199.39 0)
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 318.77 199.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://datasheet.lcsc.com/lcsc/2304140030_FH--Guangdong-Fenghua-Advanced-Tech-0603B104K101NT_C88219.pdf" (at 318.77 199.39 0)
@@ -3971,7 +4039,7 @@
           (reference "C30") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C41") (unit 1)
+          (reference "C33") (unit 1)
         )
       )
     )
@@ -3986,7 +4054,7 @@
     (property "Value" "4u7" (at 312.42 67.31 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 318.77 66.04 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 318.77 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 318.77 66.04 0)
@@ -4000,7 +4068,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C38") (unit 1)
+          (reference "C32") (unit 1)
         )
       )
     )
@@ -4012,10 +4080,10 @@
     (property "Reference" "C28" (at 92.71 160.02 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "100n" (at 92.71 162.56 0)
+    (property "Value" "1u" (at 92.71 162.56 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 95.25 161.29 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 95.25 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 95.25 161.29 0)
@@ -4029,7 +4097,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C26") (unit 1)
+          (reference "C24") (unit 1)
         )
       )
     )
@@ -4066,7 +4134,7 @@
           (reference "C27") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C40") (unit 1)
+          (reference "C31") (unit 1)
         )
       )
     )
@@ -4081,7 +4149,7 @@
     (property "Value" "60" (at 311.15 58.42 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 314.96 57.15 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 314.96 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 314.96 57.15 0)
@@ -4110,7 +4178,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R26") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -4138,7 +4206,7 @@
           (reference "#PWR018") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR050") (unit 1)
+          (reference "#PWR047") (unit 1)
         )
       )
     )
@@ -4153,7 +4221,7 @@
     (property "Value" "2u2" (at 58.42 153.67 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 60.96 152.4 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 60.96 152.4 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 60.96 152.4 0)
@@ -4167,7 +4235,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C23") (unit 1)
+          (reference "C22") (unit 1)
         )
       )
     )
@@ -4182,7 +4250,7 @@
     (property "Value" "100n" (at 44.45 97.79 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 41.91 96.52 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 41.91 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 41.91 96.52 0)
@@ -4196,7 +4264,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C17") (unit 1)
+          (reference "C21") (unit 1)
         )
       )
     )
@@ -4211,7 +4279,7 @@
     (property "Value" "10k" (at 66.04 162.56 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 69.85 161.29 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 69.85 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 69.85 161.29 0)
@@ -4228,7 +4296,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R35") (unit 1)
+          (reference "R23") (unit 1)
         )
       )
     )
@@ -4237,7 +4305,7 @@
   (symbol (lib_id "power:+5V") (at 20.32 133.35 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 756f553a-35a7-47e8-8d1e-dcf1aed44370)
-    (property "Reference" "#PWR037" (at 20.32 137.16 0)
+    (property "Reference" "#PWR030" (at 20.32 137.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 20.32 129.54 0)
@@ -4253,7 +4321,32 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR037") (unit 1)
+          (reference "#PWR030") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 111.76 91.44 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 7746cb90-fb5a-4ea9-8977-5e8af263673b)
+    (property "Reference" "#PWR069" (at 111.76 97.79 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 111.76 95.25 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 111.76 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 111.76 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid b1848459-d92f-4cda-9b38-51785ea61b4d))
+    (instances
+      (project "Fuel_Cell_Controller_Prototype"
+        (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
+          (reference "#PWR069") (unit 1)
         )
       )
     )
@@ -4262,13 +4355,13 @@
   (symbol (lib_id "Connector:DA15_Receptacle_MountingHoles") (at 364.49 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7826d9ec-43f1-4455-88f0-a1c042f8b21c)
-    (property "Reference" "J5" (at 369.57 118.745 0)
+    (property "Reference" "J4" (at 369.57 118.745 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "DA15_Receptacle_MountingHoles" (at 369.57 121.285 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 364.49 119.38 0)
+    (property "Footprint" "Connector_Dsub:DSUB-15_Female_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm" (at 364.49 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" " ~" (at 364.49 119.38 0)
@@ -4293,7 +4386,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "J5") (unit 1)
+          (reference "J4") (unit 1)
         )
       )
     )
@@ -4336,7 +4429,7 @@
           (reference "U14") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "U15") (unit 1)
+          (reference "U10") (unit 1)
         )
       )
     )
@@ -4351,7 +4444,7 @@
     (property "Value" "10k" (at 90.17 153.67 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 90.17 156.21 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 90.17 156.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 156.21 0)
@@ -4380,7 +4473,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R36") (unit 1)
+          (reference "R24") (unit 1)
         )
       )
     )
@@ -4395,7 +4488,7 @@
     (property "Value" "100n" (at 309.88 27.94 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 307.34 31.75 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 307.34 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 307.34 31.75 0)
@@ -4409,7 +4502,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C37") (unit 1)
+          (reference "C29") (unit 1)
         )
       )
     )
@@ -4424,7 +4517,7 @@
     (property "Value" "50" (at 57.15 147.32 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 60.96 146.05 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 60.96 146.05 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 60.96 146.05 0)
@@ -4453,7 +4546,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R25") (unit 1)
+          (reference "R22") (unit 1)
         )
       )
     )
@@ -4468,7 +4561,7 @@
     (property "Value" "27" (at 308.61 198.12 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 308.61 200.66 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 308.61 200.66 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 308.61 200.66 0)
@@ -4497,7 +4590,7 @@
           (reference "R28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R38") (unit 1)
+          (reference "R26") (unit 1)
         )
       )
     )
@@ -4512,7 +4605,7 @@
     (property "Value" "600R/0.5A" (at 327.66 170.18 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 327.66 173.99 0)
+    (property "Footprint" "Inductor_SMD:L_0805_2012Metric" (at 327.66 173.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 327.66 173.99 0)
@@ -4526,7 +4619,7 @@
           (reference "L1") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "L2") (unit 1)
+          (reference "L1") (unit 1)
         )
       )
     )
@@ -4535,7 +4628,7 @@
   (symbol (lib_id "power:GND") (at 314.96 185.42 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 98dd252f-2eb6-4d3c-a9e1-631a1af4b2bc)
-    (property "Reference" "#PWR069" (at 314.96 191.77 0)
+    (property "Reference" "#PWR051" (at 314.96 191.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 314.96 189.23 0)
@@ -4551,7 +4644,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR069") (unit 1)
+          (reference "#PWR051") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
           (reference "#PWR056") (unit 1)
@@ -4563,7 +4656,7 @@
   (symbol (lib_id "power:GND") (at 109.22 156.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9e31d25d-64e2-4188-bcd3-54a91dcdcc05)
-    (property "Reference" "#PWR043" (at 109.22 162.56 0)
+    (property "Reference" "#PWR040" (at 109.22 162.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 109.22 160.02 0)
@@ -4579,7 +4672,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR043") (unit 1)
+          (reference "#PWR040") (unit 1)
         )
       )
     )
@@ -4588,7 +4681,7 @@
   (symbol (lib_id "power:GND") (at 80.01 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9f9ce5d8-4173-4803-8b5a-06f72bd15ad5)
-    (property "Reference" "#PWR036" (at 80.01 110.49 0)
+    (property "Reference" "#PWR037" (at 80.01 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 80.01 107.95 0)
@@ -4604,7 +4697,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR036") (unit 1)
+          (reference "#PWR037") (unit 1)
         )
       )
     )
@@ -4613,7 +4706,7 @@
   (symbol (lib_id "power:GND") (at 95.25 166.37 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a0d7859a-b934-4c52-b6a4-b2ef9ee352d6)
-    (property "Reference" "#PWR064" (at 95.25 172.72 0)
+    (property "Reference" "#PWR038" (at 95.25 172.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 95.25 170.18 0)
@@ -4629,7 +4722,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR064") (unit 1)
+          (reference "#PWR038") (unit 1)
         )
       )
     )
@@ -4638,7 +4731,7 @@
   (symbol (lib_id "power:GND") (at 312.42 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a10e9700-92ff-40c9-a795-82491ba4a30e)
-    (property "Reference" "#PWR046" (at 312.42 39.37 0)
+    (property "Reference" "#PWR050" (at 312.42 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 312.42 36.83 0)
@@ -4654,7 +4747,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR046") (unit 1)
+          (reference "#PWR050") (unit 1)
         )
       )
     )
@@ -4682,7 +4775,7 @@
           (reference "#PWR055") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR068") (unit 1)
+          (reference "#PWR049") (unit 1)
         )
       )
     )
@@ -4691,7 +4784,7 @@
   (symbol (lib_id "power:GND") (at 297.18 213.36 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a345e0f5-b3e4-4db8-876b-fc699020b17b)
-    (property "Reference" "#PWR067" (at 297.18 219.71 0)
+    (property "Reference" "#PWR046" (at 297.18 219.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 297.18 217.17 0)
@@ -4707,7 +4800,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR067") (unit 1)
+          (reference "#PWR046") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
           (reference "#PWR054") (unit 1)
@@ -4719,7 +4812,7 @@
   (symbol (lib_id "power:GND") (at 68.58 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ad5969d6-2dd7-4418-8156-c28e14e92cfa)
-    (property "Reference" "#PWR034" (at 68.58 87.63 0)
+    (property "Reference" "#PWR035" (at 68.58 87.63 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 68.58 85.09 0)
@@ -4735,7 +4828,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR034") (unit 1)
+          (reference "#PWR035") (unit 1)
         )
       )
     )
@@ -4750,7 +4843,7 @@
     (property "Value" "10k" (at 34.29 97.79 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 38.1 96.52 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 38.1 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 38.1 96.52 0)
@@ -4779,7 +4872,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R23") (unit 1)
+          (reference "R21") (unit 1)
         )
       )
     )
@@ -4816,7 +4909,7 @@
           (reference "C34") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C43") (unit 1)
+          (reference "C35") (unit 1)
         )
       )
     )
@@ -4831,7 +4924,7 @@
     (property "Value" "27" (at 308.61 208.28 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 308.61 203.2 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 308.61 203.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 308.61 203.2 0)
@@ -4860,7 +4953,7 @@
           (reference "R31") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R39") (unit 1)
+          (reference "R27") (unit 1)
         )
       )
     )
@@ -4869,7 +4962,7 @@
   (symbol (lib_id "power:GND") (at 128.27 160.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b31bf4c2-ce1c-4369-8aa8-1593ba265f12)
-    (property "Reference" "#PWR054" (at 128.27 166.37 0)
+    (property "Reference" "#PWR042" (at 128.27 166.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 128.27 163.83 0)
@@ -4885,7 +4978,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR054") (unit 1)
+          (reference "#PWR042") (unit 1)
         )
       )
     )
@@ -4894,7 +4987,7 @@
   (symbol (lib_id "power:GND") (at 120.65 139.7 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b3d35067-dbcd-450c-a622-034b57a069d1)
-    (property "Reference" "#PWR063" (at 120.65 146.05 0)
+    (property "Reference" "#PWR041" (at 120.65 146.05 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 120.65 143.51 0)
@@ -4910,7 +5003,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR063") (unit 1)
+          (reference "#PWR041") (unit 1)
         )
       )
     )
@@ -4951,7 +5044,7 @@
     (property "Value" "100n" (at 297.18 33.02 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 294.64 26.67 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 294.64 26.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 294.64 26.67 0)
@@ -4965,7 +5058,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C36") (unit 1)
+          (reference "C27") (unit 1)
         )
       )
     )
@@ -4974,7 +5067,7 @@
   (symbol (lib_id "power:GND") (at 330.2 33.02 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b8378161-9f1a-4323-8457-7b2a54b960f2)
-    (property "Reference" "#PWR048" (at 323.85 33.02 0)
+    (property "Reference" "#PWR054" (at 323.85 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 325.12 33.02 90)
@@ -4990,7 +5083,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR048") (unit 1)
+          (reference "#PWR054") (unit 1)
         )
       )
     )
@@ -4999,7 +5092,7 @@
   (symbol (lib_id "Reference_Voltage:MCP1501-33xSN") (at 38.1 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b8b84369-d2f7-44e9-a3d7-9be60c0cfcb9)
-    (property "Reference" "U12" (at 40.2941 134.62 0)
+    (property "Reference" "U7" (at 40.2941 134.62 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MCP1501-33E/SN" (at 40.2941 137.16 0)
@@ -5022,7 +5115,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "U12") (unit 1)
+          (reference "U7") (unit 1)
         )
       )
     )
@@ -5063,7 +5156,7 @@
           (reference "J2") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "J7") (unit 1)
+          (reference "J5") (unit 1)
         )
       )
     )
@@ -5072,7 +5165,7 @@
   (symbol (lib_id "Amplifier_Operational:AD8603") (at 111.76 148.59 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c3587374-0647-42c4-be68-15b3bbe19b8a)
-    (property "Reference" "U13" (at 115.57 152.4 0)
+    (property "Reference" "U9" (at 115.57 152.4 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "AD8603" (at 115.57 154.94 0)
@@ -5095,7 +5188,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "U13") (unit 1)
+          (reference "U9") (unit 1)
         )
       )
     )
@@ -5104,7 +5197,7 @@
   (symbol (lib_id "power:GND") (at 322.58 207.01 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ca16d70d-a717-447d-bed7-ce2dd53af13f)
-    (property "Reference" "#PWR070" (at 322.58 213.36 0)
+    (property "Reference" "#PWR053" (at 322.58 213.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 322.58 210.82 0)
@@ -5120,7 +5213,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR070") (unit 1)
+          (reference "#PWR053") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
           (reference "#PWR053") (unit 1)
@@ -5132,7 +5225,7 @@
   (symbol (lib_id "power:GND") (at 69.85 166.37 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cad5ec10-9b57-4ad4-a149-371cbaf07b1d)
-    (property "Reference" "#PWR040" (at 69.85 172.72 0)
+    (property "Reference" "#PWR036" (at 69.85 172.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 69.85 170.18 0)
@@ -5148,7 +5241,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR040") (unit 1)
+          (reference "#PWR036") (unit 1)
         )
       )
     )
@@ -5157,7 +5250,7 @@
   (symbol (lib_id "power:+5V") (at 302.26 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid cbe5442f-17fa-4883-a3bf-9e1945ea7dd6)
-    (property "Reference" "#PWR045" (at 302.26 33.02 0)
+    (property "Reference" "#PWR048" (at 302.26 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 302.26 25.4 0)
@@ -5173,7 +5266,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR048") (unit 1)
         )
       )
     )
@@ -5182,7 +5275,7 @@
   (symbol (lib_id "power:GND") (at 58.42 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cfbff0a0-4ea7-4bb6-a30b-72655c023563)
-    (property "Reference" "#PWR033" (at 58.42 105.41 0)
+    (property "Reference" "#PWR034" (at 58.42 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 58.42 102.87 0)
@@ -5198,7 +5291,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR033") (unit 1)
+          (reference "#PWR034") (unit 1)
         )
       )
     )
@@ -5207,7 +5300,7 @@
   (symbol (lib_id "power:+5V") (at 109.22 135.89 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid dd01128f-d808-49d5-b37b-1e69401d5ba0)
-    (property "Reference" "#PWR041" (at 109.22 139.7 0)
+    (property "Reference" "#PWR039" (at 109.22 139.7 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 109.22 132.08 0)
@@ -5223,7 +5316,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "#PWR041") (unit 1)
+          (reference "#PWR039") (unit 1)
         )
       )
     )
@@ -5238,7 +5331,7 @@
     (property "Value" "10k" (at 33.02 86.36 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 33.02 88.9 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 33.02 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 33.02 88.9 0)
@@ -5267,7 +5360,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R22") (unit 1)
+          (reference "R20") (unit 1)
         )
       )
     )
@@ -5282,7 +5375,7 @@
     (property "Value" "270" (at 254 215.9 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 257.81 214.63 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 257.81 214.63 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 257.81 214.63 0)
@@ -5311,7 +5404,7 @@
           (reference "R32") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R37") (unit 1)
+          (reference "R25") (unit 1)
         )
       )
     )
@@ -5326,7 +5419,7 @@
     (property "Value" "LED" (at 260.35 223.8375 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 257.81 223.52 0)
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric" (at 257.81 223.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 257.81 223.52 0)
@@ -5340,7 +5433,7 @@
           (reference "D4") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "D14") (unit 1)
+          (reference "D10") (unit 1)
         )
       )
     )
@@ -5355,7 +5448,7 @@
     (property "Value" "47p" (at 314.96 210.82 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 318.77 204.47 0)
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 318.77 204.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://datasheet.lcsc.com/lcsc/2304140030_FH--Guangdong-Fenghua-Advanced-Tech-0603B104K101NT_C88219.pdf" (at 318.77 204.47 0)
@@ -5377,7 +5470,7 @@
           (reference "C31") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C42") (unit 1)
+          (reference "C34") (unit 1)
         )
       )
     )
@@ -5392,7 +5485,7 @@
     (property "Value" "100n" (at 66.04 76.2 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 63.5 80.01 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 63.5 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 63.5 80.01 0)
@@ -5406,7 +5499,7 @@
           (reference "C28") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "C16") (unit 1)
+          (reference "C23") (unit 1)
         )
       )
     )
@@ -5421,7 +5514,7 @@
     (property "Value" "60" (at 318.77 58.42 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 322.58 57.15 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 322.58 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 322.58 57.15 0)
@@ -5450,7 +5543,7 @@
           (reference "R8") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "R27") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
@@ -5465,7 +5558,7 @@
     (property "Value" "SolderJumper_2_Open" (at 313.69 170.815 90)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
-    (property "Footprint" "" (at 311.15 168.91 0)
+    (property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" (at 311.15 168.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 311.15 168.91 0)
@@ -5479,7 +5572,7 @@
           (reference "JP1") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "JP2") (unit 1)
+          (reference "JP1") (unit 1)
         )
       )
     )
@@ -5494,7 +5587,7 @@
     (property "Value" "100n" (at 118.11 134.62 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 138.43 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 115.57 138.43 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 138.43 0)
@@ -5509,6 +5602,31 @@
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
           (reference "C25") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 111.76 83.82 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f536d97c-c46a-4853-8ca6-3d2aa48e7383)
+    (property "Reference" "#PWR070" (at 111.76 87.63 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (at 111.76 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 111.76 83.82 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 111.76 83.82 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 716059c1-4ec3-44bb-a0a6-31736492ce5d))
+    (instances
+      (project "Fuel_Cell_Controller_Prototype"
+        (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
+          (reference "#PWR070") (unit 1)
         )
       )
     )
@@ -5548,7 +5666,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12/593c7e68-7c5e-4ef7-bd05-a128c02972b0"
-          (reference "U4") (unit 1)
+          (reference "U11") (unit 1)
         )
       )
     )

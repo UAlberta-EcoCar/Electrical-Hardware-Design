@@ -12,6 +12,41 @@
   )
 
   (lib_symbols
+    (symbol "Connector:TestPoint_Small" (pin_numbers hide) (pin_names (offset 0.762) hide) (in_bom yes) (on_board yes)
+      (property "Reference" "TP" (at 0 3.81 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "TestPoint_Small" (at 0 2.032 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 5.08 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (at 5.08 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "test point tp" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "test point" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "Pin* Test*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "TestPoint_Small_0_1"
+        (circle (center 0 0) (radius 0.508)
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "TestPoint_Small_1_1"
+        (pin passive line (at 0 0 90) (length 0)
+          (name "1" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
     (symbol "Connector_Generic:Conn_01x04" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (at 0 5.08 0)
         (effects (font (size 1.27 1.27)))
@@ -2179,6 +2214,10 @@
     (stroke (width 0) (type default))
     (uuid 04d7510f-4d07-4099-bf8c-b62704aea3e1)
   )
+  (wire (pts (xy 119.38 215.9) (xy 140.97 215.9))
+    (stroke (width 0) (type default))
+    (uuid 05a784e4-cde6-4fa0-9e8f-7e6fc0a501e3)
+  )
   (wire (pts (xy 128.27 172.72) (xy 123.19 172.72))
     (stroke (width 0) (type default))
     (uuid 06708944-a12f-4671-8dcb-23abac6004f1)
@@ -2430,6 +2469,10 @@
     (stroke (width 0) (type default))
     (uuid 314422ab-a1ed-46f9-912b-900ed4f0eb94)
   )
+  (wire (pts (xy 360.68 100.33) (xy 364.49 100.33))
+    (stroke (width 0) (type default))
+    (uuid 31452ad7-ea85-4686-af87-0119755ce67d)
+  )
   (polyline (pts (xy 115.57 13.97) (xy 115.57 68.58))
     (stroke (width 0.8) (type dash))
     (uuid 31ab1b3e-a394-4cf4-8bcc-b0d2f5bc49f9)
@@ -2481,6 +2524,10 @@
   (wire (pts (xy 35.56 86.36) (xy 38.1 86.36))
     (stroke (width 0) (type default))
     (uuid 3d63aae3-a8bd-4c06-ac08-788b59b39652)
+  )
+  (wire (pts (xy 364.49 58.42) (xy 360.68 58.42))
+    (stroke (width 0) (type default))
+    (uuid 3e53478d-2d52-4b61-b206-0cc784daf29e)
   )
   (polyline (pts (xy 93.98 110.49) (xy 93.98 71.12))
     (stroke (width 0.8) (type dash))
@@ -2537,6 +2584,10 @@
   (wire (pts (xy 104.14 172.72) (xy 104.14 187.96))
     (stroke (width 0) (type default))
     (uuid 494e2f9b-7691-480b-bbdf-bccfb2fd373a)
+  )
+  (wire (pts (xy 358.14 102.87) (xy 364.49 102.87))
+    (stroke (width 0) (type default))
+    (uuid 497c8377-ecfe-420c-9f0a-75fea187bec6)
   )
   (bus (pts (xy 76.2 220.98) (xy 76.2 223.52))
     (stroke (width 0) (type default))
@@ -2951,6 +3002,10 @@
     (stroke (width 0) (type default))
     (uuid 8f98b655-3cbe-40e9-a60a-935ed487c79b)
   )
+  (wire (pts (xy 358.14 60.96) (xy 358.14 102.87))
+    (stroke (width 0) (type default))
+    (uuid 901359c5-9256-440b-a86a-90a469d6d4c3)
+  )
   (bus (pts (xy 142.24 228.6) (xy 142.24 231.14))
     (stroke (width 0) (type default))
     (uuid 914085f1-e84a-4e93-b2e0-2ef70fea5df7)
@@ -2963,6 +3018,10 @@
   (wire (pts (xy 80.01 182.88) (xy 87.63 182.88))
     (stroke (width 0) (type default))
     (uuid 91b14b9f-3e5b-4ecc-a66a-81671345c6c8)
+  )
+  (wire (pts (xy 360.68 58.42) (xy 360.68 100.33))
+    (stroke (width 0) (type default))
+    (uuid 920fc4e9-db4d-4e41-9baa-5cca4c58b2df)
   )
   (wire (pts (xy 119.38 205.74) (xy 139.7 205.74))
     (stroke (width 0) (type default))
@@ -3139,6 +3198,10 @@
   (wire (pts (xy 90.17 172.72) (xy 95.25 172.72))
     (stroke (width 0) (type default))
     (uuid acd071a7-f0a5-4cb9-9f14-7864862891d3)
+  )
+  (wire (pts (xy 364.49 60.96) (xy 358.14 60.96))
+    (stroke (width 0) (type default))
+    (uuid ad778e03-83a4-4c31-81ad-bc7bcd10c841)
   )
   (wire (pts (xy 182.88 45.72) (xy 160.02 45.72))
     (stroke (width 0) (type default))
@@ -3329,10 +3392,6 @@
     (uuid ca38d16a-b7bc-4a8d-8f02-77da4edcf0b1)
   )
 
-  (wire (pts (xy 119.38 215.9) (xy 137.16 215.9))
-    (stroke (width 0) (type default))
-    (uuid cae26f72-f458-4f69-8441-33129d940cc2)
-  )
   (wire (pts (xy 22.86 229.87) (xy 29.21 229.87))
     (stroke (width 0) (type default))
     (uuid cb43eb8a-0d5a-46e2-a6f3-c37bcb02ad67)
@@ -3482,6 +3541,10 @@
     (stroke (width 0) (type default))
     (uuid e6a01c59-dffb-4142-8ccf-e5de3b281b82)
   )
+  (wire (pts (xy 140.97 217.17) (xy 147.32 217.17))
+    (stroke (width 0) (type default))
+    (uuid e82ec1dc-b23f-4845-bd9f-b7d123a8f276)
+  )
   (wire (pts (xy 27.94 86.36) (xy 27.94 90.17))
     (stroke (width 0) (type default))
     (uuid e854a98d-e346-4b80-99e2-7d9ec9dd4328)
@@ -3539,6 +3602,10 @@
   (wire (pts (xy 158.75 121.92) (xy 166.37 121.92))
     (stroke (width 0) (type default))
     (uuid f3c1d4a1-7a56-46bc-98da-2d7de156d757)
+  )
+  (wire (pts (xy 140.97 215.9) (xy 140.97 217.17))
+    (stroke (width 0) (type default))
+    (uuid f491477b-8d98-44bb-bebe-9303a24a0160)
   )
   (polyline (pts (xy 66.04 196.85) (xy 66.04 251.46))
     (stroke (width 0.8) (type dash))
@@ -3667,15 +3734,15 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 8425a280-ceb9-454f-9611-dbb95a4a9d29)
   )
-  (text "Fuel Cell Power In" (at 71.12 33.02 0)
-    (effects (font (size 1.5 1.5)) (justify left bottom))
-    (uuid 8a7c190a-4906-4506-8c0e-4ac5ef78d686)
-  )
   (text "Power Managment" (at 16.51 20.32 0)
     (effects (font (size 2.5 2.5) (thickness 0.5) bold italic) (justify left bottom))
     (uuid 8e2f238f-9ef9-42f6-94ef-e311acda89ed)
   )
-  (text "TODO\n - Find LED's for everything\n - Define pinout on MCU\n - Coordinate with FCC power board for fans\n - Calculate resistor divider network for pressure sensor\n - I2C pullups\n\nMIKAEL\n - BME280 sensor"
+  (text "Should be 5MHz\nwith proper\ncode config" (at 143.51 226.06 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 9681aa32-b4b1-4c87-b7aa-9d6e56100b0a)
+  )
+  (text "TODO\n - Find LED's for everything\n - Define pinout on MCU\n - Coordinate with FCC power board for fans\n - Calculate resistor divider network for pressure sensor\n - I2C pullups\n\n - External start/stop button\n - On board start/stop button\n - On board force purge\n\n - Differential pressure sensors in the Fuel Cell?\n\nMIKAEL\n - BME280 sensor"
     (at 287.02 181.61 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 97187565-5c3a-470c-a30d-e1f95d436a9e)
@@ -3791,10 +3858,6 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 4c491935-d9fb-47fd-909c-fe75145fabb0)
   )
-  (label "FC_{PRS}" (at 137.16 203.2 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid 4f2a9322-c184-4834-b9f2-09f1845d796b)
-  )
   (label "~{USB_{RST}}" (at 80.01 215.9 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 529329a6-1c28-4632-9dc5-291c559a1907)
@@ -3870,10 +3933,6 @@
   (label "SW_{DIO}" (at 193.04 167.64 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid acea0634-7f98-4413-abb9-6106e24dd343)
-  )
-  (label "FC_{TEMP}" (at 137.16 205.74 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid b14791a0-4f34-4bcf-9f8a-e08fb7f93888)
   )
   (label "PURGE_{VLVE}" (at 137.16 200.66 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
@@ -4033,7 +4092,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR011") (unit 1)
         )
       )
     )
@@ -4042,13 +4101,13 @@
   (symbol (lib_id "Device:R_Small") (at 151.13 38.1 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0957f0b6-a0ab-4a9e-9277-a99baa96a91b)
-    (property "Reference" "R2" (at 147.32 36.83 0)
+    (property "Reference" "R3" (at 147.32 36.83 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10k" (at 147.32 39.37 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 151.13 38.1 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 151.13 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 151.13 38.1 0)
@@ -4074,7 +4133,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R2") (unit 1)
+          (reference "R3") (unit 1)
         )
       )
     )
@@ -4108,7 +4167,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C20") (unit 1)
+          (reference "C13") (unit 1)
         )
       )
     )
@@ -4123,7 +4182,7 @@
     (property "Value" "GREEN" (at 229.87 127 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 237.49 123.19 0)
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric" (at 237.49 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 237.49 123.19 0)
@@ -4164,7 +4223,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR016") (unit 1)
+          (reference "#PWR018") (unit 1)
         )
       )
     )
@@ -4173,7 +4232,7 @@
   (symbol (lib_id "power:+12V") (at 215.9 31.75 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 11519acf-e188-41f6-98e3-b51cfc929ba1)
-    (property "Reference" "#PWR011" (at 215.9 35.56 0)
+    (property "Reference" "#PWR024" (at 215.9 35.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+12V" (at 215.9 27.94 0)
@@ -4189,7 +4248,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR024") (unit 1)
         )
       )
     )
@@ -4219,7 +4278,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR027") (unit 1)
+          (reference "#PWR010") (unit 1)
         )
       )
     )
@@ -4228,7 +4287,7 @@
   (symbol (lib_id "power:+5V") (at 214.63 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 17893833-f56f-4e49-a75e-0b7367dc611b)
-    (property "Reference" "#PWR09" (at 214.63 92.71 0)
+    (property "Reference" "#PWR022" (at 214.63 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 214.63 85.09 0)
@@ -4244,7 +4303,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR09") (unit 1)
+          (reference "#PWR022") (unit 1)
         )
       )
     )
@@ -4253,13 +4312,13 @@
   (symbol (lib_id "Device:C_Small") (at 72.39 93.98 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1ad99c16-2d0d-45b6-885d-017d085a913a)
-    (property "Reference" "C7" (at 66.04 92.71 0)
+    (property "Reference" "C8" (at 66.04 92.71 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u_X5R" (at 63.5 95.25 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 72.39 93.98 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 72.39 93.98 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 72.39 93.98 0)
@@ -4285,7 +4344,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C7") (unit 1)
+          (reference "C8") (unit 1)
         )
       )
     )
@@ -4294,7 +4353,7 @@
   (symbol (lib_name "MAX14572_1") (lib_id "FCC_Parts:MAX14572") (at 195.58 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1eba74bd-dcab-4c7b-bc39-d7f9bc12c576)
-    (property "Reference" "U1" (at 195.58 83.82 0)
+    (property "Reference" "U4" (at 195.58 83.82 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "MAX14572" (at 195.58 86.36 0)
@@ -4324,7 +4383,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "U1") (unit 1)
+          (reference "U4") (unit 1)
         )
       )
     )
@@ -4333,7 +4392,7 @@
   (symbol (lib_id "power:GNDPWR") (at 214.63 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 21ad1432-5ee4-4709-82a0-4e40f590217d)
-    (property "Reference" "#PWR010" (at 214.63 104.14 0)
+    (property "Reference" "#PWR023" (at 214.63 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 214.503 104.14 0)
@@ -4349,7 +4408,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR010") (unit 1)
+          (reference "#PWR023") (unit 1)
         )
       )
     )
@@ -4377,7 +4436,32 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR027") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Connector:TestPoint_Small") (at 147.32 217.17 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 29a7255b-0dcc-4ed5-a93b-461e8790be35)
+    (property "Reference" "TP1" (at 148.59 215.9 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MCO" (at 148.59 218.44 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "" (at 152.4 217.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 152.4 217.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 6fa2db26-b91f-42be-a755-0ecf54b4c36d))
+    (instances
+      (project "Fuel_Cell_Controller_Prototype"
+        (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
+          (reference "TP1") (unit 1)
         )
       )
     )
@@ -4386,13 +4470,13 @@
   (symbol (lib_id "Device:C_Small") (at 26.67 132.08 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2ab890e0-cfee-4d49-968c-315d689b766d)
-    (property "Reference" "C9" (at 20.32 130.81 0)
+    (property "Reference" "C2" (at 20.32 130.81 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u_X5R" (at 19.05 134.62 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 26.67 132.08 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 26.67 132.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 26.67 132.08 0)
@@ -4418,7 +4502,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C9") (unit 1)
+          (reference "C2") (unit 1)
         )
       )
     )
@@ -4456,13 +4540,13 @@
   (symbol (lib_id "Device:C_Small") (at 81.28 97.79 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 31a58db6-ce07-4600-8421-7895dfa6de34)
-    (property "Reference" "C8" (at 74.93 96.52 0)
+    (property "Reference" "C11" (at 74.93 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "100n" (at 74.93 99.06 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 81.28 97.79 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 81.28 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 81.28 97.79 0)
@@ -4488,7 +4572,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C8") (unit 1)
+          (reference "C11") (unit 1)
         )
       )
     )
@@ -4503,7 +4587,7 @@
     (property "Value" "GREEN" (at 231.14 69.85 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 238.76 66.04 0)
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric" (at 238.76 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 238.76 66.04 0)
@@ -4523,13 +4607,13 @@
   (symbol (lib_id "Device:R_Small") (at 237.49 114.3 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 33589945-465d-4f65-b423-576ba4ec562a)
-    (property "Reference" "R15" (at 233.68 113.03 0)
+    (property "Reference" "R16" (at 233.68 113.03 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10k" (at 233.68 115.57 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 237.49 114.3 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 237.49 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 237.49 114.3 0)
@@ -4555,7 +4639,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R15") (unit 1)
+          (reference "R16") (unit 1)
         )
       )
     )
@@ -4594,13 +4678,13 @@
   (symbol (lib_id "Device:C_Small") (at 176.53 38.1 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 35202662-889d-4fe2-868e-61cd342a3983)
-    (property "Reference" "C2" (at 170.18 36.83 0)
+    (property "Reference" "C17" (at 170.18 36.83 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u" (at 170.18 39.37 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 176.53 38.1 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 176.53 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 176.53 38.1 0)
@@ -4611,7 +4695,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C2") (unit 1)
+          (reference "C17") (unit 1)
         )
       )
     )
@@ -4620,7 +4704,7 @@
   (symbol (lib_id "power:+5V") (at 27.94 85.09 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3b3bbe32-f5ce-4c8d-b2bb-1a3b19ce80e2)
-    (property "Reference" "#PWR015" (at 27.94 88.9 0)
+    (property "Reference" "#PWR04" (at 27.94 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 27.94 81.28 0)
@@ -4636,7 +4720,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR015") (unit 1)
+          (reference "#PWR04") (unit 1)
         )
       )
     )
@@ -4651,7 +4735,7 @@
     (property "Value" "BLUE" (at 144.78 50.8 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 151.13 46.99 0)
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric" (at 151.13 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 151.13 46.99 0)
@@ -4690,7 +4774,7 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR017") (unit 1)
+          (reference "#PWR026") (unit 1)
         )
       )
     )
@@ -4699,13 +4783,13 @@
   (symbol (lib_id "Device:R_Small") (at 158.75 97.79 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4038bf90-30f3-43dd-b1c3-1b84f599fece)
-    (property "Reference" "R3" (at 154.94 96.52 0)
+    (property "Reference" "R4" (at 154.94 96.52 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "2.2M" (at 154.94 99.06 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 158.75 97.79 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 158.75 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 158.75 97.79 0)
@@ -4731,7 +4815,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R3") (unit 1)
+          (reference "R4") (unit 1)
         )
       )
     )
@@ -4740,7 +4824,7 @@
   (symbol (lib_id "RB_Parts:STD_PWR_HEADER") (at 27.94 40.64 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 44b360a2-a2bf-4c69-8dd5-80e223ac2ccd)
-    (property "Reference" "J3" (at 26.67 35.56 0)
+    (property "Reference" "J1" (at 26.67 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "STD_PWR_HEADER" (at 34.29 38.1 0)
@@ -4761,7 +4845,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "J3") (unit 1)
+          (reference "J1") (unit 1)
         )
       )
     )
@@ -4791,7 +4875,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR017") (unit 1)
         )
       )
     )
@@ -4827,7 +4911,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "J4") (unit 1)
+          (reference "J2") (unit 1)
         )
       )
     )
@@ -4836,13 +4920,13 @@
   (symbol (lib_id "Device:C_Small") (at 214.63 95.25 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4fc58bb8-8690-4449-90c3-9dee2c985c9e)
-    (property "Reference" "C3" (at 208.28 93.98 0)
+    (property "Reference" "C18" (at 208.28 93.98 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u" (at 208.28 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 214.63 95.25 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 214.63 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 214.63 95.25 0)
@@ -4853,7 +4937,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C3") (unit 1)
+          (reference "C18") (unit 1)
         )
       )
     )
@@ -4862,7 +4946,7 @@
   (symbol (lib_name "MAX14572_1") (lib_id "FCC_Parts:MAX14572") (at 196.85 30.48 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 50f3567d-b3bf-48eb-877d-f75663976dad)
-    (property "Reference" "U2" (at 196.85 26.67 0)
+    (property "Reference" "U5" (at 196.85 26.67 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "MAX14572" (at 196.85 29.21 0)
@@ -4892,7 +4976,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "U2") (unit 1)
+          (reference "U5") (unit 1)
         )
       )
     )
@@ -4926,7 +5010,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R17") (unit 1)
+          (reference "R1") (unit 1)
         )
       )
     )
@@ -4935,13 +5019,13 @@
   (symbol (lib_id "Device:R_Small") (at 176.53 58.42 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 59b6ebe5-9749-4b55-bc43-7f986094421d)
-    (property "Reference" "R12" (at 172.72 57.15 0)
+    (property "Reference" "R13" (at 172.72 57.15 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "11.5k" (at 172.72 59.69 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 176.53 58.42 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 176.53 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 176.53 58.42 0)
@@ -4967,7 +5051,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R12") (unit 1)
+          (reference "R13") (unit 1)
         )
       )
     )
@@ -4976,13 +5060,13 @@
   (symbol (lib_id "Device:R_Small") (at 166.37 115.57 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5b449648-ed91-4dca-83cd-4e661a2b2ad8)
-    (property "Reference" "R8" (at 162.56 114.3 0)
+    (property "Reference" "R9" (at 162.56 114.3 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "550k" (at 162.56 116.84 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 166.37 115.57 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 166.37 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 115.57 0)
@@ -5008,7 +5092,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R8") (unit 1)
+          (reference "R9") (unit 1)
         )
       )
     )
@@ -5023,7 +5107,7 @@
     (property "Value" "BLUE" (at 143.51 107.95 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 149.86 104.14 0)
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric" (at 149.86 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 149.86 104.14 0)
@@ -5068,7 +5152,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C19") (unit 1)
+          (reference "C12") (unit 1)
         )
       )
     )
@@ -5098,7 +5182,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR023") (unit 1)
+          (reference "#PWR08") (unit 1)
         )
       )
     )
@@ -5107,13 +5191,13 @@
   (symbol (lib_id "Device:R_Small") (at 160.02 40.64 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6936c7b6-dbc5-4f0b-a6d2-9307608cf23f)
-    (property "Reference" "R5" (at 156.21 39.37 0)
+    (property "Reference" "R6" (at 156.21 39.37 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "2.2M" (at 156.21 41.91 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 160.02 40.64 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 160.02 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 160.02 40.64 0)
@@ -5139,7 +5223,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R5") (unit 1)
+          (reference "R6") (unit 1)
         )
       )
     )
@@ -5148,13 +5232,13 @@
   (symbol (lib_id "Device:C_Small") (at 175.26 95.25 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6b8b5ec9-bb12-420c-b82b-95d4ecd1a933)
-    (property "Reference" "C1" (at 168.91 93.98 0)
+    (property "Reference" "C16" (at 168.91 93.98 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u" (at 168.91 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 175.26 95.25 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 175.26 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 175.26 95.25 0)
@@ -5165,7 +5249,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C1") (unit 1)
+          (reference "C16") (unit 1)
         )
       )
     )
@@ -5199,7 +5283,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C22") (unit 1)
+          (reference "C15") (unit 1)
         )
       )
     )
@@ -5236,7 +5320,7 @@
   (symbol (lib_id "FCC_Parts:MMSZ5226B-7-F") (at 180.34 176.53 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6d23f8b7-9438-4ee5-9c87-be72bc2fac21)
-    (property "Reference" "D11" (at 177.8 175.895 90)
+    (property "Reference" "D3" (at 177.8 175.895 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 176.53 177.8 0)
@@ -5256,7 +5340,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "D11") (unit 1)
+          (reference "D3") (unit 1)
         )
       )
     )
@@ -5265,13 +5349,13 @@
   (symbol (lib_id "Device:R_Small") (at 160.02 58.42 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6d7d24d9-af01-4bd8-b909-4c8206264221)
-    (property "Reference" "R6" (at 156.21 57.15 0)
+    (property "Reference" "R7" (at 156.21 57.15 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "270k" (at 156.21 59.69 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 160.02 58.42 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 160.02 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 160.02 58.42 0)
@@ -5297,7 +5381,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R6") (unit 1)
+          (reference "R7") (unit 1)
         )
       )
     )
@@ -5327,7 +5411,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR02") (unit 1)
         )
       )
     )
@@ -5355,7 +5439,7 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR019") (unit 1)
         )
       )
     )
@@ -5392,13 +5476,13 @@
   (symbol (lib_id "Device:R_Small") (at 166.37 97.79 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 73d6ddcd-8e08-4477-96c9-f8a2bce29abc)
-    (property "Reference" "R7" (at 162.56 96.52 0)
+    (property "Reference" "R8" (at 162.56 96.52 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "2.2M" (at 162.56 99.06 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 166.37 97.79 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 166.37 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 97.79 0)
@@ -5424,7 +5508,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R7") (unit 1)
+          (reference "R8") (unit 1)
         )
       )
     )
@@ -5458,7 +5542,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C14") (unit 1)
+          (reference "C1") (unit 1)
         )
       )
     )
@@ -5492,7 +5576,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C15") (unit 1)
+          (reference "C10") (unit 1)
         )
       )
     )
@@ -5501,13 +5585,13 @@
   (symbol (lib_id "Device:R_Small") (at 226.06 41.91 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 846e5647-f02e-41d2-b364-856d097146ae)
-    (property "Reference" "R14" (at 222.25 40.64 0)
+    (property "Reference" "R15" (at 222.25 40.64 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100k" (at 222.25 43.18 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 226.06 41.91 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 226.06 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 226.06 41.91 0)
@@ -5533,7 +5617,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R14") (unit 1)
+          (reference "R15") (unit 1)
         )
       )
     )
@@ -5572,7 +5656,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "U3") (unit 1)
+          (reference "U2") (unit 1)
         )
       )
     )
@@ -5581,13 +5665,13 @@
   (symbol (lib_id "Device:C_Small") (at 71.12 133.35 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 89de8398-48b4-4620-aee3-45929cb1ed87)
-    (property "Reference" "C11" (at 64.77 132.08 0)
+    (property "Reference" "C7" (at 64.77 132.08 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u_X5R" (at 62.23 134.62 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 71.12 133.35 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 71.12 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 71.12 133.35 0)
@@ -5613,7 +5697,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C11") (unit 1)
+          (reference "C7") (unit 1)
         )
       )
     )
@@ -5628,7 +5712,7 @@
     (property "Value" "100n" (at 29.21 99.06 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 35.56 97.79 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 35.56 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 35.56 97.79 0)
@@ -5663,7 +5747,7 @@
   (symbol (lib_id "power:GNDPWR") (at 175.26 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8d9de61c-26dd-4a0f-99d0-7bd34b99b6e3)
-    (property "Reference" "#PWR05" (at 175.26 104.14 0)
+    (property "Reference" "#PWR015" (at 175.26 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 175.133 104.14 0)
@@ -5679,7 +5763,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR05") (unit 1)
+          (reference "#PWR015") (unit 1)
         )
       )
     )
@@ -5688,7 +5772,7 @@
   (symbol (lib_id "power:GNDPWR") (at 215.9 41.91 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8f767d40-24e4-4061-9dd8-0589db8dfe10)
-    (property "Reference" "#PWR012" (at 215.9 46.99 0)
+    (property "Reference" "#PWR025" (at 215.9 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 215.773 46.99 0)
@@ -5704,7 +5788,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR012") (unit 1)
+          (reference "#PWR025") (unit 1)
         )
       )
     )
@@ -5713,7 +5797,7 @@
   (symbol (lib_id "power:+5V") (at 22.86 124.46 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8f8fd3e5-2416-47c7-a65b-4b90d8ee5a95)
-    (property "Reference" "#PWR019" (at 22.86 128.27 0)
+    (property "Reference" "#PWR01" (at 22.86 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 22.86 120.65 0)
@@ -5729,7 +5813,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR019") (unit 1)
+          (reference "#PWR01") (unit 1)
         )
       )
     )
@@ -5738,13 +5822,13 @@
   (symbol (lib_id "Device:C_Small") (at 215.9 38.1 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 90d55a17-22ea-47f0-a357-d9c50b76f971)
-    (property "Reference" "C4" (at 209.55 36.83 0)
+    (property "Reference" "C19" (at 209.55 36.83 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u" (at 209.55 39.37 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 215.9 38.1 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 215.9 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 215.9 38.1 0)
@@ -5755,7 +5839,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C4") (unit 1)
+          (reference "C19") (unit 1)
         )
       )
     )
@@ -5764,13 +5848,13 @@
   (symbol (lib_id "Device:R_Small") (at 158.75 115.57 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 957e5fcb-fcbc-4330-8902-f3ac7e3df21f)
-    (property "Reference" "R4" (at 154.94 114.3 0)
+    (property "Reference" "R5" (at 154.94 114.3 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "950k" (at 154.94 116.84 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 158.75 115.57 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 158.75 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 158.75 115.57 0)
@@ -5796,7 +5880,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R4") (unit 1)
+          (reference "R5") (unit 1)
         )
       )
     )
@@ -5824,7 +5908,7 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR021") (unit 1)
+          (reference "#PWR05") (unit 1)
         )
       )
     )
@@ -5833,13 +5917,13 @@
   (symbol (lib_id "Device:C_Small") (at 34.29 137.16 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9d4aa59d-62f5-4945-b1c2-24d6459d1551)
-    (property "Reference" "C10" (at 27.94 135.89 0)
+    (property "Reference" "C5" (at 27.94 135.89 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "100n" (at 27.94 138.43 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 34.29 137.16 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 34.29 137.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 34.29 137.16 0)
@@ -5865,7 +5949,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C10") (unit 1)
+          (reference "C5") (unit 1)
         )
       )
     )
@@ -5904,7 +5988,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "U7") (unit 1)
+          (reference "U1") (unit 1)
         )
       )
     )
@@ -5913,13 +5997,13 @@
   (symbol (lib_id "Device:C_Small") (at 80.01 137.16 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a93a5347-8ffd-45f1-9014-9171c5530c71)
-    (property "Reference" "C12" (at 73.66 135.89 0)
+    (property "Reference" "C9" (at 73.66 135.89 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "100n" (at 73.66 138.43 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 80.01 137.16 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 80.01 137.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 80.01 137.16 0)
@@ -5945,7 +6029,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C12") (unit 1)
+          (reference "C9") (unit 1)
         )
       )
     )
@@ -5979,7 +6063,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C21") (unit 1)
+          (reference "C14") (unit 1)
         )
       )
     )
@@ -6013,7 +6097,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C13") (unit 1)
+          (reference "C4") (unit 1)
         )
       )
     )
@@ -6022,13 +6106,13 @@
   (symbol (lib_id "Device:C_Small") (at 27.94 92.71 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b77bfede-c816-4129-b9c8-68cc8110f977)
-    (property "Reference" "C5" (at 21.59 91.44 0)
+    (property "Reference" "C3" (at 21.59 91.44 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1u_X5R" (at 20.32 95.25 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 27.94 92.71 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 27.94 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 27.94 92.71 0)
@@ -6054,7 +6138,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "C5") (unit 1)
+          (reference "C3") (unit 1)
         )
       )
     )
@@ -6063,13 +6147,13 @@
   (symbol (lib_id "Device:R_Small") (at 149.86 95.25 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b8e9c355-1b9c-439d-bde8-5c276c9e5444)
-    (property "Reference" "R1" (at 146.05 93.98 0)
+    (property "Reference" "R2" (at 146.05 93.98 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10k" (at 146.05 96.52 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 149.86 95.25 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 149.86 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 149.86 95.25 0)
@@ -6095,7 +6179,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R1") (unit 1)
+          (reference "R2") (unit 1)
         )
       )
     )
@@ -6104,13 +6188,13 @@
   (symbol (lib_id "Device:R_Small") (at 167.64 58.42 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bbecbb24-f45b-425c-b7f3-29c0a0b33dca)
-    (property "Reference" "R10" (at 163.83 57.15 0)
+    (property "Reference" "R11" (at 163.83 57.15 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "225k" (at 163.83 59.69 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 167.64 58.42 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 167.64 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 167.64 58.42 0)
@@ -6136,7 +6220,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R10") (unit 1)
+          (reference "R11") (unit 1)
         )
       )
     )
@@ -6184,13 +6268,13 @@
   (symbol (lib_id "Device:R_Small") (at 224.79 99.06 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bcc1e779-3ff2-41f1-93ac-6ea19733aa4e)
-    (property "Reference" "R13" (at 220.98 97.79 0)
+    (property "Reference" "R14" (at 220.98 97.79 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100k" (at 220.98 100.33 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 224.79 99.06 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 224.79 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 224.79 99.06 0)
@@ -6216,7 +6300,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R13") (unit 1)
+          (reference "R14") (unit 1)
         )
       )
     )
@@ -6259,13 +6343,13 @@
   (symbol (lib_id "Device:R_Small") (at 167.64 40.64 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c1c14f3e-cf76-4d2e-8dba-792d1cde0d88)
-    (property "Reference" "R9" (at 163.83 39.37 0)
+    (property "Reference" "R10" (at 163.83 39.37 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "2.2M" (at 163.83 41.91 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 167.64 40.64 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 167.64 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 167.64 40.64 0)
@@ -6291,7 +6375,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R9") (unit 1)
+          (reference "R10") (unit 1)
         )
       )
     )
@@ -6334,7 +6418,7 @@
   (symbol (lib_id "power:+3V3") (at 86.36 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c948d4c0-54a6-43a7-a4c8-e72e3edf935b)
-    (property "Reference" "#PWR018" (at 86.36 92.71 0)
+    (property "Reference" "#PWR09" (at 86.36 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 86.36 85.09 0)
@@ -6350,7 +6434,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR018") (unit 1)
+          (reference "#PWR09") (unit 1)
         )
       )
     )
@@ -6380,7 +6464,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR030") (unit 1)
+          (reference "#PWR012") (unit 1)
         )
       )
     )
@@ -6408,7 +6492,7 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR01") (unit 1)
+          (reference "#PWR06") (unit 1)
         )
       )
     )
@@ -6466,7 +6550,7 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR04") (unit 1)
+          (reference "#PWR020") (unit 1)
         )
       )
     )
@@ -6475,7 +6559,7 @@
   (symbol (lib_id "power:GNDPWR") (at 176.53 41.91 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid dbed6908-c027-4aeb-a99b-91cca0675566)
-    (property "Reference" "#PWR06" (at 176.53 46.99 0)
+    (property "Reference" "#PWR016" (at 176.53 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GNDPWR" (at 176.403 46.99 0)
@@ -6491,7 +6575,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR016") (unit 1)
         )
       )
     )
@@ -6521,7 +6605,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR053") (unit 1)
+          (reference "#PWR021") (unit 1)
         )
       )
     )
@@ -6549,7 +6633,7 @@
           (reference "#PWR058") (unit 1)
         )
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR08") (unit 1)
+          (reference "#PWR014") (unit 1)
         )
       )
     )
@@ -6558,13 +6642,13 @@
   (symbol (lib_id "Device:R_Small") (at 238.76 57.15 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ec3825ee-5108-40b6-8afe-3d324dbe59b3)
-    (property "Reference" "R16" (at 234.95 55.88 0)
+    (property "Reference" "R17" (at 234.95 55.88 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10k" (at 234.95 58.42 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 238.76 57.15 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 238.76 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 238.76 57.15 0)
@@ -6590,7 +6674,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R16") (unit 1)
+          (reference "R17") (unit 1)
         )
       )
     )
@@ -6620,7 +6704,7 @@
       )
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "#PWR026") (unit 1)
+          (reference "#PWR07") (unit 1)
         )
       )
     )
@@ -6629,7 +6713,7 @@
   (symbol (lib_id "MCU_ST_STM32L4:STM32L432KCUx") (at 106.68 215.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ef1e0a69-2510-49d1-982b-f80684bfe2d6)
-    (property "Reference" "U5" (at 108.6359 241.3 0)
+    (property "Reference" "U3" (at 108.6359 241.3 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "STM32L432KCUx" (at 108.6359 243.84 0)
@@ -6677,7 +6761,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "U5") (unit 1)
+          (reference "U3") (unit 1)
         )
       )
     )
@@ -6717,46 +6801,16 @@
     )
   )
 
-  (symbol (lib_id "RB_Parts:STD_PWR_HEADER") (at 82.55 40.64 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid f0a7b6da-992c-4bdb-9790-c0ffc76287ce)
-    (property "Reference" "J1" (at 81.28 35.56 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "STD_PWR_HEADER" (at 88.9 38.1 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "RB_FTP:STD_PWR_HEADER" (at 82.55 57.15 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 82.55 40.64 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid cf83ca27-d5c6-4058-a036-644010d6d5bf))
-    (pin "2" (uuid 53f6e1b8-f087-460d-acb7-4dac33c59b1e))
-    (pin "3" (uuid 36402159-f654-4d9d-86be-226a1fd65b73))
-    (pin "4" (uuid 44770b66-65eb-47b3-b6c5-6846b83be4d6))
-    (pin "5" (uuid c171d244-1d6f-4fd5-be2d-6226998829e2))
-    (pin "6" (uuid faed125c-1da7-47e4-b67c-b630a14007da))
-    (instances
-      (project "Fuel_Cell_Controller_Prototype"
-        (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "J1") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "Device:R_Small") (at 175.26 115.57 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f734f86a-1cbd-437f-857f-e91f621c02d6)
-    (property "Reference" "R11" (at 171.45 114.3 0)
+    (property "Reference" "R12" (at 171.45 114.3 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "11.5k" (at 171.45 116.84 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 175.26 115.57 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 175.26 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 175.26 115.57 0)
@@ -6782,7 +6836,7 @@
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12"
-          (reference "R11") (unit 1)
+          (reference "R12") (unit 1)
         )
       )
     )
@@ -6866,6 +6920,14 @@
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 24803150-80ac-4ea7-a68a-57a84a647880)
     )
+    (pin "FC_{TEMP}" input (at 364.49 102.87 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid cb740985-a77f-48b6-8c6f-106be0cb4096)
+    )
+    (pin "H2_{PRS}" input (at 364.49 100.33 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid c1da265f-ea49-4580-b175-b52aa8f2ce03)
+    )
     (instances
       (project "Fuel_Cell_Controller_Prototype"
         (path "/f651cec9-411c-4a4e-a163-5c49adbe6a12" (page "4"))
@@ -6893,6 +6955,14 @@
     (pin "PA[0..15]" bidirectional (at 364.49 45.72 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 682fdf43-e84a-4a46-a0f1-4e868ea48fbd)
+    )
+    (pin "FC_{TEMP}" output (at 364.49 60.96 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid f3ab9f03-b793-4dbf-9bd5-d6160b713cf0)
+    )
+    (pin "H2_{PRS}" output (at 364.49 58.42 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid c2a9a03c-e512-43c8-b839-ffda0bcf6c1d)
     )
     (instances
       (project "Fuel_Cell_Controller_Prototype"
