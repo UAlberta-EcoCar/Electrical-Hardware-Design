@@ -1,0 +1,47 @@
+// AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
+//
+// PIO Unified Debugger
+//
+// Documentation: https://docs.platformio.org/page/plus/debugging.html
+// Configuration: https://docs.platformio.org/page/projectconf/section_env_debug.html
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug",
+            "executable": "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re/firmware.elf",
+            "projectEnvName": "nucleo_f446re",
+            "toolchainBinDir": "C:/Users/nsemm/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "C:/Users/nsemm/.platformio/platforms/ststm32/misc/svd/STM32F446x.svd",
+            "preLaunchTask": {
+                "type": "PlatformIO",
+                "task": "Pre-Debug"
+            }
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (skip Pre-Debug)",
+            "executable": "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re/firmware.elf",
+            "projectEnvName": "nucleo_f446re",
+            "toolchainBinDir": "C:/Users/nsemm/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "C:/Users/nsemm/.platformio/platforms/ststm32/misc/svd/STM32F446x.svd"
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (without uploading)",
+            "executable": "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re/firmware.elf",
+            "projectEnvName": "nucleo_f446re",
+            "toolchainBinDir": "C:/Users/nsemm/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "C:/Users/nsemm/.platformio/platforms/ststm32/misc/svd/STM32F446x.svd",
+            "loadMode": "manual"
+        }
+    ]
+}
