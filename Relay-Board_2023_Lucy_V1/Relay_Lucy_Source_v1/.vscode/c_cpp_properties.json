@@ -8,10 +8,10 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/include",
-                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/src",
+                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/include",
+                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/src",
                 "C:/Users/nsemm/.platformio/packages/framework-mbed",
-                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re",
+                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re",
                 "C:/Users/nsemm/.platformio/packages/framework-mbed/cmsis",
                 "C:/Users/nsemm/.platformio/packages/framework-mbed/cmsis/CMSIS_5",
                 "C:/Users/nsemm/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS",
@@ -351,10 +351,10 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/include",
-                    "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/src",
+                    "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/include",
+                    "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/src",
                     "C:/Users/nsemm/.platformio/packages/framework-mbed",
-                    "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re",
+                    "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re",
                     "C:/Users/nsemm/.platformio/packages/framework-mbed/cmsis",
                     "C:/Users/nsemm/.platformio/packages/framework-mbed/cmsis/CMSIS_5",
                     "C:/Users/nsemm/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS",
@@ -749,12 +749,13 @@
                 "__FPU_PRESENT=1",
                 "__MBED_CMSIS_RTOS_CM",
                 "__MBED__=1",
+                "__PLATFORMIO_BUILD_DEBUG__",
                 ""
             ],
             "cStandard": "gnu11",
             "cppStandard": "gnu++14",
             "forcedInclude": [
-                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re/mbed_config.h",
+                "C:/Users/nsemm/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1/.pio/build/nucleo_f446re/mbed_config.h",
                 ""
             ],
             "compilerPath": "C:/Users/nsemm/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc.exe",

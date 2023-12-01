@@ -6,28 +6,21 @@
 
 #define DEVICE_USBDEVICE 1
 
-CAN canbus(PA_0, PA_10);
-USBCDC cdc;
+DigitalOut myPin(PB_0);
 
 void SetSysClock();
 
-struct data
-{
-    float one = 0.12;
-    bool two = true;
-    uint8_t three = 3;
-};
-
 int main()
 {   
-    struct data mydata;
-    canbus.mode(canbus.LocalTest);
-    char myChar[10] = "Hello"; // here is a comment
+
     SetSysClock();
-    printf("Hello World!");
 
     while(1)
     {
+        myPin = 1;
+        ThisThread::sleep_for(500ms);
+        myPin = 0;
+        ThisThread::sleep_for(500ms);
     };
 
     return 0;
@@ -43,7 +36,7 @@ int main()
 #define USE_PLL_HSE_XTAL 0x4 // Use external xtal (X3 on board - not provided by default)
 #define USE_PLL_HSI      0x2 // Use HSI internal clock
 
-#define DEBUG_MCO        (1) // Output the MCO1/MCO2 on PA8/PC9 for debugging (0=OFF, 1=ON)
+#define DEBUG_MCO        (0) // Output the MCO1/MCO2 on PA8/PC9 for debugging (0=OFF, 1=ON)
 
 
 #if ( ((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC) )
@@ -90,7 +83,7 @@ void SetSysClock(void)
 
     // Output clock on MCO2 pin(PC9) for debugging purpose
 #if DEBUG_MCO == 1
-    HAL_RCC_MCOConfig(RCC_MCO2, RCC_MCO2SOURCE_SYSCLK, RCC_MCODIV_4);
+    HAL_RCC_MCOConfig(RCC_MCO2, RCC_MCO2SOURCE_SYSCLK, RCC_MCODIV_5);
 #endif
 }
 
@@ -166,7 +159,7 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
     if (bypass == 0) {
         HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_2);    // 4 MHz with xtal
     } else {
-        HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_1);    // 8 MHz with external clock (MCO)
+        HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4);    // 8 MHz with external clock (MCO)
     }
 #endif
 
