@@ -8,24 +8,16 @@
 
 DigitalOut myPin(PB_0);
 
-void SetSysClock();
-
 int main()
-{   
-
-    SetSysClock();
-
-    while(1)
+{
+    while (1)
     {
         myPin = 1;
         ThisThread::sleep_for(500ms);
         myPin = 0;
         ThisThread::sleep_for(500ms);
-    };
-
-    return 0;
+    }
 }
-
 
 /**
  * Clock configuration below
@@ -34,12 +26,11 @@ int main()
 // clock source is selected with CLOCK_SOURCE in json config
 #define USE_PLL_HSE_EXTC 0x8 // Use external clock (ST Link MCO)
 #define USE_PLL_HSE_XTAL 0x4 // Use external xtal (X3 on board - not provided by default)
-#define USE_PLL_HSI      0x2 // Use HSI internal clock
+#define USE_PLL_HSI 0x2      // Use HSI internal clock
 
-#define DEBUG_MCO        (0) // Output the MCO1/MCO2 on PA8/PC9 for debugging (0=OFF, 1=ON)
+#define DEBUG_MCO (0) // Output the MCO1/MCO2 on PA8/PC9 for debugging (0=OFF, 1=ON)
 
-
-#if ( ((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC) )
+#if (((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC))
 uint8_t SetSysClock_PLL_HSE(uint8_t bypass);
 #endif /* ((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC) */
 
@@ -47,15 +38,14 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass);
 uint8_t SetSysClock_PLL_HSI(void);
 #endif /* ((CLOCK_SOURCE) & USE_PLL_HSI) */
 
-
 /**
-  * @brief  Configures the System clock source, PLL Multiplier and Divider factors,
-  *               AHB/APBx prescalers and Flash settings
-  * @note   This function should be called only once the RCC clock configuration
-  *         is reset to the default reset state (done in SystemInit() function).
-  * @param  None
-  * @retval None
-  */
+ * @brief  Configures the System clock source, PLL Multiplier and Divider factors,
+ *               AHB/APBx prescalers and Flash settings
+ * @note   This function should be called only once the RCC clock configuration
+ *         is reset to the default reset state (done in SystemInit() function).
+ * @param  None
+ * @retval None
+ */
 
 void SetSysClock(void)
 {
@@ -87,7 +77,7 @@ void SetSysClock(void)
 #endif
 }
 
-#if ( ((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC) )
+#if (((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC))
 /******************************************************************************/
 /*            PLL (clocked by HSE) used as System clock source                */
 /******************************************************************************/
@@ -107,14 +97,18 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
     HAL_RCC_GetOscConfig(&RCC_OscInitStruct);
 
     /* PLL could be already configured by bootlader */
-    if (RCC_OscInitStruct.PLL.PLLState != RCC_PLL_ON) {
+    if (RCC_OscInitStruct.PLL.PLLState != RCC_PLL_ON)
+    {
 
         // Enable HSE oscillator and activate PLL with HSE as source
-        RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSE;
-        if (bypass == 0) {
-            RCC_OscInitStruct.HSEState          = RCC_HSE_ON; // External 8 MHz xtal on OSC_IN/OSC_OUT
-        } else {
-            RCC_OscInitStruct.HSEState          = RCC_HSE_BYPASS; // External 8 MHz clock on OSC_IN
+        RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+        if (bypass == 0)
+        {
+            RCC_OscInitStruct.HSEState = RCC_HSE_ON; // External 8 MHz xtal on OSC_IN/OSC_OUT
+        }
+        else
+        {
+            RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS; // External 8 MHz clock on OSC_IN
         }
 
         RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -124,13 +118,15 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
         RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2; // PLLCLK = 180 MHz (360 MHz / 2)
         RCC_OscInitStruct.PLL.PLLQ = 5;             //
         RCC_OscInitStruct.PLL.PLLR = 2;             //
-        if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+        {
             return 0; // FAIL
         }
     }
 
     // Activate the OverDrive to reach the 180 MHz Frequency
-    if (HAL_PWREx_EnableOverDrive() != HAL_OK) {
+    if (HAL_PWREx_EnableOverDrive() != HAL_OK)
+    {
         return 0; // FAIL
     }
 
@@ -150,17 +146,14 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1; // 180 MHz
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;  //  45 MHz
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;  //  90 MHz
-    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+    {
         return 0; // FAIL
     }
 
     // Output clock on MCO1 pin(PA8) for debugging purpose
 #if DEBUG_MCO == 1
-    if (bypass == 0) {
-        HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_2);    // 4 MHz with xtal
-    } else {
-        HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4);    // 8 MHz with external clock (MCO)
-    }
+    HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4); // 8 MHz with external clock (MCO)
 #endif
 
     return 1; // OK
@@ -184,23 +177,25 @@ uint8_t SetSysClock_PLL_HSI(void)
     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
     // Enable HSI oscillator and activate PLL with HSI as source
-    RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE;
-    RCC_OscInitStruct.HSIState            = RCC_HSI_ON;
-    RCC_OscInitStruct.HSEState            = RCC_HSE_OFF;
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE;
+    RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+    RCC_OscInitStruct.HSEState = RCC_HSE_OFF;
     RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-    RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_ON;
-    RCC_OscInitStruct.PLL.PLLSource       = RCC_PLLSOURCE_HSI;
-    RCC_OscInitStruct.PLL.PLLM            = 16;            // VCO input clock = 1 MHz (16 MHz / 16)
-    RCC_OscInitStruct.PLL.PLLN            = 360;           // VCO output clock = 360 MHz (1 MHz * 360)
-    RCC_OscInitStruct.PLL.PLLP            = RCC_PLLP_DIV2; // PLLCLK = 180 MHz (360 MHz / 2)
-    RCC_OscInitStruct.PLL.PLLQ            = 7;             //
-    RCC_OscInitStruct.PLL.PLLR            = 6;             //
-    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+    RCC_OscInitStruct.PLL.PLLM = 16;            // VCO input clock = 1 MHz (16 MHz / 16)
+    RCC_OscInitStruct.PLL.PLLN = 360;           // VCO output clock = 360 MHz (1 MHz * 360)
+    RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2; // PLLCLK = 180 MHz (360 MHz / 2)
+    RCC_OscInitStruct.PLL.PLLQ = 7;             //
+    RCC_OscInitStruct.PLL.PLLR = 6;             //
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+    {
         return 0; // FAIL
     }
 
     // Activate the OverDrive to reach the 180 MHz Frequency
-    if (HAL_PWREx_EnableOverDrive() != HAL_OK) {
+    if (HAL_PWREx_EnableOverDrive() != HAL_OK)
+    {
         return 0; // FAIL
     }
 
@@ -215,12 +210,13 @@ uint8_t SetSysClock_PLL_HSI(void)
 #endif /* DEVICE_USBDEVICE */
 
     /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 clocks dividers */
-    RCC_ClkInitStruct.ClockType      = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-    RCC_ClkInitStruct.SYSCLKSource   = RCC_SYSCLKSOURCE_PLLCLK; // 180 MHz
-    RCC_ClkInitStruct.AHBCLKDivider  = RCC_SYSCLK_DIV1;         // 180 MHz
-    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;           //  45 MHz
-    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;           //  90 MHz
-    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
+    RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK; // 180 MHz
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;        // 180 MHz
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;         //  45 MHz
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;         //  90 MHz
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+    {
         return 0; // FAIL
     }
 
