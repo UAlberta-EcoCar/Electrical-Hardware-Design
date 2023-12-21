@@ -20,6 +20,15 @@
             "args": [
                 "flash"
             ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "group": "build",
+            "command": "make",
+            "args": [
+                "clean"
+            ]
         }
     ]
 }

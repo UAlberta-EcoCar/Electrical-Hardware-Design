@@ -55,16 +55,17 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-struct BreakingUpStruct
+typedef struct 
 {
   uint16_t myint;
   uint16_t myLargerInt;
   float thisFloat;
   float extraFloat;
   uint32_t myLargestInt;
-} testStuct;
+} BreakingUpStruct;
 
-struct BreakingUpStruct *pTestStuct = &testStuct;
+BreakingUpStruct testStuct;
+BreakingUpStruct *pTestStuct = &testStuct;
 
 CAN_TxHeaderTypeDef TxHeader;
 CAN_RxHeaderTypeDef RxHeader;
@@ -236,13 +237,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 10;
+  RCC_OscInitStruct.PLL.PLLN = 20;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
@@ -264,7 +264,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_16);
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_8);
 }
 
 /**
@@ -517,17 +517,21 @@ void StartDefaultTask(void *argument)
   for (;;)
   {
     TxHeader.StdId = 0x102;
+    HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_SET);
     if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, (void *)pTestStuct, &TxMailbox) != HAL_OK)
     {
       Error_Handler();
     }
-    osDelay(500);
+    osDelay(50);
     TxHeader.StdId = 0x103;
+    HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
     if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, (void *)pTestStuct + 8, &TxMailbox) != HAL_OK)
     {
       Error_Handler();
     }
-    osDelay(500);
+    osDelay(50);
   }
   /* USER CODE END 5 */
 }
