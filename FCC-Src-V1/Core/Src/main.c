@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,6 +73,8 @@ CAN_HandleTypeDef hcan1;
 I2C_HandleTypeDef hi2c1;
 
 UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 /* Definitions for CanTask */
 osThreadId_t CanTaskHandle;
@@ -128,12 +130,17 @@ uint32_t TxMailbox, TxMailboxFuelCellTask;
 uint8_t TxData[8];
 uint8_t RxData[8];
 
+uint8_t RxUARTbuff;
+uint8_t RxUARTData[32];
+uint8_t UartIndex = 0;
+
 uint32_t button_debounce;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_CAN1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_USART1_UART_Init(void);
@@ -173,6 +180,32 @@ void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan)
   }
 }
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (RxUARTbuff == (char)0x04)
+  {
+    // RxUARTData[UartIndex++] = '\r';
+    // RxUARTData[UartIndex] = '\n';
+    HAL_UART_Transmit_DMA(huart, RxUARTData, UartIndex);
+    UartIndex = 0;
+  }
+  else
+  {
+    RxUARTData[UartIndex] = RxUARTbuff;
+    if (UartIndex == (sizeof(RxUARTData) - 1))
+    {
+      uint8_t msg[] = "\r\n\tBuffer Overflowed - Message Lost\r\n";
+      HAL_UART_Transmit_DMA(huart, msg, sizeof(msg));
+      UartIndex = 0;
+    }
+    else
+    {
+      UartIndex++;
+    }
+  }
+  HAL_UART_Receive_DMA(huart, &RxUARTbuff, 1U);
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   switch (GPIO_Pin)
@@ -187,7 +220,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
       }
       else
       {
-        HAL_GetTick();
+        button_debounce = HAL_GetTick();
         fc_state = FUEL_CELL_STRTUP_STATE;
       }
     }
@@ -255,6 +288,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_CAN1_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
@@ -264,7 +298,9 @@ int main(void)
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
 
   button_debounce = HAL_GetTick();
+  HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_SET);
 
+  HAL_UART_Receive_DMA(&huart1, &RxUARTbuff, 1U);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -508,6 +544,24 @@ static void MX_USART1_UART_Init(void)
 }
 
 /**
+ * Enable DMA controller clock
+ */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
+  /* DMA1_Channel5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel5_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel5_IRQn);
+}
+
+/**
  * @brief GPIO Initialization Function
  * @param None
  * @retval None
@@ -622,7 +676,7 @@ void StartCanTask(void *argument)
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    osDelay(10);
   }
   /* USER CODE END 5 */
 }
