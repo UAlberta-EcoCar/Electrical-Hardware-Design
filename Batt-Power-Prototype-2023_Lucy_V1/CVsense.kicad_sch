@@ -428,6 +428,9 @@
   (junction (at 222.25 44.45) (diameter 0) (color 0 0 0 0)
     (uuid 5591318b-eac4-43fe-8b4c-e650711a00c3)
   )
+  (junction (at 195.58 81.28) (diameter 0) (color 0 0 0 0)
+    (uuid 5823f337-443c-4a80-8779-240820ac17b3)
+  )
   (junction (at 261.62 44.45) (diameter 0) (color 0 0 0 0)
     (uuid 61df7ff9-cc27-42f4-9b2a-c965c511a030)
   )
@@ -473,9 +476,6 @@
   (junction (at 176.53 142.24) (diameter 0) (color 0 0 0 0)
     (uuid d269d4aa-c382-4d05-ae44-908d67985d72)
   )
-  (junction (at 195.58 80.01) (diameter 0) (color 0 0 0 0)
-    (uuid dc29eed5-ae45-4e6d-ac70-7d14a4598528)
-  )
   (junction (at 53.34 116.84) (diameter 0) (color 0 0 0 0)
     (uuid dee99b1a-b527-4064-8423-abce867aad59)
   )
@@ -504,10 +504,6 @@
     (stroke (width 0) (type default))
     (uuid 0bd624b7-657a-4866-8b57-0df4261638fd)
   )
-  (wire (pts (xy 91.44 50.8) (xy 107.95 50.8))
-    (stroke (width 0) (type default))
-    (uuid 0e582b35-fdb1-4e3b-a38b-0507439ee937)
-  )
   (wire (pts (xy 57.15 33.02) (xy 57.15 36.83))
     (stroke (width 0) (type default))
     (uuid 0fec2252-9193-4895-b4ba-005690f23394)
@@ -516,6 +512,10 @@
     (stroke (width 0) (type default))
     (uuid 10259e88-7812-4ac5-b752-9f0168f3ae2e)
   )
+  (wire (pts (xy 182.88 81.28) (xy 185.42 81.28))
+    (stroke (width 0) (type default))
+    (uuid 12ed315a-3260-4ba4-aa07-a681bfebba7d)
+  )
   (wire (pts (xy 44.45 71.12) (xy 45.72 71.12))
     (stroke (width 0) (type default))
     (uuid 132bc981-b756-46ed-b40a-0eb934482445)
@@ -523,10 +523,6 @@
   (wire (pts (xy 251.46 44.45) (xy 256.54 44.45))
     (stroke (width 0) (type default))
     (uuid 135a502a-5fc1-442e-84f7-06daaf3a3981)
-  )
-  (wire (pts (xy 132.08 33.02) (xy 132.08 44.45))
-    (stroke (width 0) (type default))
-    (uuid 14f562f2-d38d-4d0e-b568-b4ca7f184df2)
   )
   (wire (pts (xy 74.93 71.12) (xy 74.93 74.93))
     (stroke (width 0) (type default))
@@ -556,10 +552,6 @@
     (stroke (width 0) (type default))
     (uuid 2287af45-4246-4dd3-b9e4-d5394cdc7702)
   )
-  (wire (pts (xy 57.15 33.02) (xy 132.08 33.02))
-    (stroke (width 0) (type default))
-    (uuid 23f4c874-460d-421a-8d1c-f79cc91b12dc)
-  )
   (wire (pts (xy 50.8 116.84) (xy 53.34 116.84))
     (stroke (width 0) (type default))
     (uuid 277e2705-24d1-4389-909f-7259b3ed4183)
@@ -579,14 +571,6 @@
   (wire (pts (xy 261.62 22.86) (xy 261.62 29.21))
     (stroke (width 0) (type default))
     (uuid 2e465948-52af-44cd-80fa-9f7efa11e9f5)
-  )
-  (wire (pts (xy 132.08 52.07) (xy 132.08 59.69))
-    (stroke (width 0) (type default))
-    (uuid 2f24d123-29a2-4e7c-b3fd-2911b521a915)
-  )
-  (wire (pts (xy 92.71 46.99) (xy 91.44 46.99))
-    (stroke (width 0) (type default))
-    (uuid 3029eeec-f776-44db-829e-f014a2d6b357)
   )
   (wire (pts (xy 222.25 44.45) (xy 232.41 44.45))
     (stroke (width 0) (type default))
@@ -656,7 +640,7 @@
     (stroke (width 0) (type default))
     (uuid 456c2486-09db-45b7-8c3a-1d7d298f32f4)
   )
-  (wire (pts (xy 93.98 165.1) (xy 109.22 165.1))
+  (wire (pts (xy 92.71 165.1) (xy 109.22 165.1))
     (stroke (width 0) (type default))
     (uuid 482b0a93-0604-4600-adaa-095a0d11de16)
   )
@@ -664,13 +648,17 @@
     (stroke (width 0) (type default))
     (uuid 492b3dc0-bfdd-47bb-83f6-ee19d96eb063)
   )
-  (wire (pts (xy 86.36 76.2) (xy 86.36 80.01))
+  (wire (pts (xy 87.63 76.2) (xy 87.63 80.01))
     (stroke (width 0) (type default))
     (uuid 4e4ebcd5-2402-4241-b56e-982510e69899)
   )
   (wire (pts (xy 39.37 133.35) (xy 43.18 133.35))
     (stroke (width 0) (type default))
     (uuid 4eae090b-2a37-4e7c-881e-673c1f479399)
+  )
+  (wire (pts (xy 107.95 44.45) (xy 107.95 50.8))
+    (stroke (width 0) (type default))
+    (uuid 4f17ca1b-82b2-45cf-88d6-a9dbc43ae13f)
   )
   (wire (pts (xy 78.74 130.81) (xy 78.74 125.73))
     (stroke (width 0) (type default))
@@ -684,7 +672,7 @@
     (stroke (width 0) (type default))
     (uuid 50a58475-ede0-44ef-99ba-0af8c8859393)
   )
-  (wire (pts (xy 90.17 130.81) (xy 87.63 130.81))
+  (wire (pts (xy 90.17 130.81) (xy 88.9 130.81))
     (stroke (width 0) (type default))
     (uuid 50c6d1bf-47bd-40be-b34d-c5d271525339)
   )
@@ -708,7 +696,7 @@
     (stroke (width 0) (type default))
     (uuid 5b4c62ea-0f6b-4a5d-81ff-7610b8ee1736)
   )
-  (wire (pts (xy 87.63 134.62) (xy 105.41 134.62))
+  (wire (pts (xy 88.9 134.62) (xy 105.41 134.62))
     (stroke (width 0) (type default))
     (uuid 5d4499ad-757a-4f2f-be21-5cb7b09e0ebf)
   )
@@ -720,17 +708,9 @@
     (stroke (width 0) (type default))
     (uuid 5df7c95a-4bf3-4f82-82db-7d0d8f74d39c)
   )
-  (wire (pts (xy 195.58 78.74) (xy 195.58 80.01))
-    (stroke (width 0) (type default))
-    (uuid 663e5d4a-681a-4fb1-9bc0-65d84c9dda7a)
-  )
-  (wire (pts (xy 93.98 161.29) (xy 93.98 165.1))
+  (wire (pts (xy 92.71 161.29) (xy 92.71 165.1))
     (stroke (width 0) (type default))
     (uuid 68edc9f6-f270-4f6d-afc2-3c031465c059)
-  )
-  (wire (pts (xy 273.05 99.06) (xy 273.05 106.68))
-    (stroke (width 0) (type default))
-    (uuid 6a4209ec-427e-4187-9367-e9e56071f48a)
   )
   (wire (pts (xy 64.77 82.55) (xy 64.77 85.09))
     (stroke (width 0) (type default))
@@ -768,7 +748,11 @@
     (stroke (width 0) (type default))
     (uuid 7aa67fb0-2d42-4858-83cd-b8b78439b82e)
   )
-  (wire (pts (xy 86.36 80.01) (xy 104.14 80.01))
+  (wire (pts (xy 195.58 81.28) (xy 195.58 86.36))
+    (stroke (width 0) (type default))
+    (uuid 7f709d0b-bbd2-4ab5-9f06-0227f051bc3c)
+  )
+  (wire (pts (xy 87.63 80.01) (xy 104.14 80.01))
     (stroke (width 0) (type default))
     (uuid 8146ec5b-2b98-430e-8dbe-dde220589e0e)
   )
@@ -792,13 +776,17 @@
     (stroke (width 0) (type default))
     (uuid 8736e24c-3346-4725-8c1f-fe9e710eaf54)
   )
-  (wire (pts (xy 195.58 80.01) (xy 195.58 86.36))
+  (wire (pts (xy 195.58 78.74) (xy 195.58 81.28))
     (stroke (width 0) (type default))
     (uuid 888e137d-4a10-4fe8-8b8b-9849593d27ea)
   )
-  (wire (pts (xy 195.58 80.01) (xy 273.05 80.01))
+  (wire (pts (xy 92.71 161.29) (xy 93.98 161.29))
     (stroke (width 0) (type default))
-    (uuid 89ec25a5-660d-471e-8dcb-ce2dbec39fb4)
+    (uuid 8d88ab9e-4fb8-47a6-8bb7-08f9cc0e5d5c)
+  )
+  (wire (pts (xy 44.45 34.29) (xy 44.45 33.02))
+    (stroke (width 0) (type default))
+    (uuid 907a6941-8a6c-4db1-b932-ca520ee9d605)
   )
   (wire (pts (xy 104.14 80.01) (xy 104.14 73.66))
     (stroke (width 0) (type default))
@@ -820,7 +808,7 @@
     (stroke (width 0) (type default))
     (uuid 992d9236-94c1-4e29-b27f-892517b0a9c1)
   )
-  (wire (pts (xy 88.9 76.2) (xy 86.36 76.2))
+  (wire (pts (xy 88.9 76.2) (xy 87.63 76.2))
     (stroke (width 0) (type default))
     (uuid 9fbbe9db-096b-4f49-a1f7-ebd3ffa60569)
   )
@@ -836,15 +824,11 @@
     (stroke (width 0) (type default))
     (uuid a6a3d066-2cbe-478a-b031-a356f73873df)
   )
-  (wire (pts (xy 273.05 80.01) (xy 273.05 91.44))
-    (stroke (width 0) (type default))
-    (uuid aa788c6d-9479-468a-a0ea-dda31abec819)
-  )
   (wire (pts (xy 71.12 125.73) (xy 71.12 130.81))
     (stroke (width 0) (type default))
     (uuid aca44b89-692c-4687-9b0a-b33df3433408)
   )
-  (wire (pts (xy 91.44 46.99) (xy 91.44 50.8))
+  (wire (pts (xy 92.71 46.99) (xy 92.71 50.8))
     (stroke (width 0) (type default))
     (uuid ad9d02e6-211e-4da4-bb47-15aed1abb1c3)
   )
@@ -855,6 +839,14 @@
   (wire (pts (xy 64.77 71.12) (xy 64.77 74.93))
     (stroke (width 0) (type default))
     (uuid afcba5cf-c2cb-46d1-9f5e-219562b84496)
+  )
+  (wire (pts (xy 44.45 33.02) (xy 46.99 33.02))
+    (stroke (width 0) (type default))
+    (uuid b019a5bd-9077-4564-b9a1-d224998efa33)
+  )
+  (wire (pts (xy 193.04 81.28) (xy 195.58 81.28))
+    (stroke (width 0) (type default))
+    (uuid b0450ea2-63f7-4766-9bde-0edb7c0ab563)
   )
   (wire (pts (xy 74.93 71.12) (xy 88.9 71.12))
     (stroke (width 0) (type default))
@@ -867,6 +859,10 @@
   (wire (pts (xy 53.34 113.03) (xy 53.34 116.84))
     (stroke (width 0) (type default))
     (uuid b64f1f66-072a-40ad-90f1-a814267553e2)
+  )
+  (wire (pts (xy 54.61 33.02) (xy 57.15 33.02))
+    (stroke (width 0) (type default))
+    (uuid bcb47c87-3a9b-4031-a781-ecc41a2ec8f8)
   )
   (wire (pts (xy 110.49 73.66) (xy 104.14 73.66))
     (stroke (width 0) (type default))
@@ -888,6 +884,10 @@
     (stroke (width 0) (type default))
     (uuid c3b04a80-0f27-48c4-b1bc-37d0221a3633)
   )
+  (wire (pts (xy 182.88 83.82) (xy 182.88 81.28))
+    (stroke (width 0) (type default))
+    (uuid c5bd658f-c3f5-490b-8f0b-d8df1b2f3af6)
+  )
   (wire (pts (xy 53.34 140.97) (xy 53.34 143.51))
     (stroke (width 0) (type default))
     (uuid c6cf8fa3-bd3b-4e3f-a3f7-0fe100b9db9e)
@@ -896,7 +896,7 @@
     (stroke (width 0) (type default))
     (uuid c70513cf-b328-4f0e-845e-3ff81f3ce85b)
   )
-  (wire (pts (xy 87.63 130.81) (xy 87.63 134.62))
+  (wire (pts (xy 88.9 130.81) (xy 88.9 134.62))
     (stroke (width 0) (type default))
     (uuid c872dc4e-ac3a-4f8e-923f-55148f26a341)
   )
@@ -944,9 +944,9 @@
     (stroke (width 0) (type default))
     (uuid eb98b5d3-55a2-496e-9745-4ef4ff8415cf)
   )
-  (wire (pts (xy 107.95 50.8) (xy 107.95 44.45))
+  (wire (pts (xy 107.95 50.8) (xy 92.71 50.8))
     (stroke (width 0) (type default))
-    (uuid efc69c02-442a-4245-8043-08341312c619)
+    (uuid f2be389e-30ff-4507-9729-24f3f6208ccd)
   )
   (wire (pts (xy 213.36 91.44) (xy 224.79 91.44))
     (stroke (width 0) (type default))
@@ -1091,7 +1091,7 @@
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 01ef4dec-0722-41bf-9a65-acf81adabebf)
   )
-  (hierarchical_label "12V_out" (shape output) (at 39.37 133.35 180) (fields_autoplaced)
+  (hierarchical_label "12V_PCBs" (shape output) (at 39.37 133.35 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 4200fea4-ecf8-4402-aaed-a9503c72510d)
   )
@@ -1143,7 +1143,7 @@
   (symbol (lib_id "Device:R") (at 54.61 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 06ca4ed1-4b9b-4c3f-822c-756800daf71f)
-    (property "Reference" "R10" (at 55.88 77.47 0)
+    (property "Reference" "R?" (at 55.88 77.47 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4k7" (at 55.88 80.01 0)
@@ -1160,10 +1160,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "R10") (unit 1)
+          (reference "R?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "R13") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -1172,7 +1172,7 @@
   (symbol (lib_id "power:GND") (at 71.12 143.51 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0bd4650d-0f64-4703-9bcc-64ac89537063)
-    (property "Reference" "#PWR014" (at 71.12 149.86 0)
+    (property "Reference" "#PWR?" (at 71.12 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 71.12 148.59 0)
@@ -1188,10 +1188,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR0191") (unit 1)
         )
       )
     )
@@ -1200,7 +1200,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 100.33 44.45 0) (unit 2)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0e22d9f8-dd75-40ec-9540-f24f09347ae8)
-    (property "Reference" "U6" (at 100.33 34.29 0)
+    (property "Reference" "U14" (at 100.33 34.29 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TSV912IDT" (at 100.33 36.83 0)
@@ -1223,7 +1223,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U6") (unit 2)
+          (reference "U14") (unit 2)
         )
       )
     )
@@ -1232,7 +1232,7 @@
   (symbol (lib_id "power:GND") (at 57.15 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0edcfcf1-5430-4203-878c-5b1a46886396)
-    (property "Reference" "#PWR07" (at 57.15 66.04 0)
+    (property "Reference" "#PWR?" (at 57.15 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 57.15 64.77 0)
@@ -1248,10 +1248,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR027") (unit 1)
+          (reference "#PWR0196") (unit 1)
         )
       )
     )
@@ -1260,7 +1260,7 @@
   (symbol (lib_id "power:GND") (at 78.74 143.51 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 17bdb895-9ae5-442a-b521-58443aa09d28)
-    (property "Reference" "#PWR024" (at 78.74 149.86 0)
+    (property "Reference" "#PWR?" (at 78.74 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 78.74 148.59 0)
@@ -1276,38 +1276,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR07") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:GND") (at 273.05 106.68 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 1821a8c2-0ebd-4485-a653-809696572fba)
-    (property "Reference" "#PWR020" (at 273.05 113.03 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 273.05 111.76 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 273.05 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 273.05 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid a93aab6f-4f66-4769-b213-143342ee4b8a))
-    (instances
-      (project "Batt-Power-Prototype-2023_Lucy_V1"
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR020") (unit 1)
-        )
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR026") (unit 1)
+          (reference "#PWR0192") (unit 1)
         )
       )
     )
@@ -1316,7 +1288,7 @@
   (symbol (lib_id "Device:D_Zener") (at 78.74 134.62 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1cbf8653-2874-4ae2-8bee-9ee2dd59c103)
-    (property "Reference" "D4" (at 81.28 133.35 90)
+    (property "Reference" "D?" (at 81.28 133.35 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 81.28 135.89 90)
@@ -1333,10 +1305,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D4") (unit 1)
+          (reference "D18") (unit 1)
         )
       )
     )
@@ -1345,7 +1317,7 @@
   (symbol (lib_id "power:+5V") (at 232.41 22.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1e1936cc-92ec-4413-9162-7a4f532fa5a6)
-    (property "Reference" "#PWR0102" (at 232.41 26.67 0)
+    (property "Reference" "#PWR0178" (at 232.41 26.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 232.41 17.78 0)
@@ -1361,7 +1333,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0102") (unit 1)
+          (reference "#PWR0178") (unit 1)
         )
       )
     )
@@ -1370,7 +1342,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 96.52 73.66 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 23217391-5ac0-4ade-a385-5612fb4a371a)
-    (property "Reference" "U6" (at 101.6 67.31 0)
+    (property "Reference" "U13" (at 101.6 67.31 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TSV912IDT" (at 101.6 69.85 0)
@@ -1393,7 +1365,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U6") (unit 1)
+          (reference "U13") (unit 1)
         )
       )
     )
@@ -1402,7 +1374,7 @@
   (symbol (lib_id "power:GND") (at 195.58 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 24332dc1-4dff-47f7-82d5-e6edef178496)
-    (property "Reference" "#PWR07" (at 195.58 115.57 0)
+    (property "Reference" "#PWR?" (at 195.58 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 195.58 114.3 0)
@@ -1418,10 +1390,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR013") (unit 1)
+          (reference "#PWR0173") (unit 1)
         )
       )
     )
@@ -1430,7 +1402,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 274.32 36.83 0) (unit 3)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2bbae581-011e-44f7-95fe-fe08bf00d7f9)
-    (property "Reference" "U11" (at 273.05 35.56 0)
+    (property "Reference" "U15" (at 273.05 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TSV912IDT" (at 273.05 38.1 0)
@@ -1453,7 +1425,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U11") (unit 3)
+          (reference "U15") (unit 3)
         )
       )
     )
@@ -1462,7 +1434,7 @@
   (symbol (lib_id "Device:C") (at 195.58 36.83 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2c0ba26e-1bf8-49e2-abf6-2b22fa7fc816)
-    (property "Reference" "C16" (at 199.39 35.56 0)
+    (property "Reference" "C?" (at 199.39 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 199.39 38.1 0)
@@ -1479,10 +1451,39 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C16") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C1") (unit 1)
+          (reference "C41") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C") (at 50.8 33.02 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 2c108ab6-1666-4a9b-861e-86be1a276006)
+    (property "Reference" "C?" (at 50.8 25.4 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "100n" (at 50.8 27.94 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 54.61 32.0548 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 50.8 33.02 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid b8dc99b2-16fa-4da6-bb6f-19cd8da72e93))
+    (pin "2" (uuid 1d7f0f8e-14bf-4d10-aa63-816e2d1af44a))
+    (instances
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
+          (reference "C?") (unit 1)
+        )
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
+          (reference "C50") (unit 1)
         )
       )
     )
@@ -1491,7 +1492,7 @@
   (symbol (lib_id "power:+5V") (at 195.58 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 33acbe58-255b-4a79-8a8c-a30950618eb4)
-    (property "Reference" "#PWR0106" (at 195.58 82.55 0)
+    (property "Reference" "#PWR0171" (at 195.58 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 195.58 73.66 0)
@@ -1507,7 +1508,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0106") (unit 1)
+          (reference "#PWR0171") (unit 1)
         )
       )
     )
@@ -1516,7 +1517,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 190.5 139.7 0) (unit 2)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 34f2c9f3-3195-4039-a923-7410ff45b7ca)
-    (property "Reference" "U11" (at 190.5 129.54 0)
+    (property "Reference" "U15" (at 190.5 129.54 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TSV912IDT" (at 190.5 132.08 0)
@@ -1539,7 +1540,35 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U11") (unit 2)
+          (reference "U15") (unit 2)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 44.45 34.29 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 38b0f291-df9c-49f7-a405-5aebe010cab8)
+    (property "Reference" "#PWR?" (at 44.45 40.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 44.45 39.37 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 44.45 34.29 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 44.45 34.29 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid abb464e3-7be1-4704-8bf6-bb1b255d96c1))
+    (instances
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
+          (reference "#PWR?") (unit 1)
+        )
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
+          (reference "#PWR01") (unit 1)
         )
       )
     )
@@ -1548,7 +1577,7 @@
   (symbol (lib_id "power:GND") (at 72.39 170.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 38ceb1f9-14b2-4ce1-93ae-8a47e9c52d18)
-    (property "Reference" "#PWR024" (at 72.39 176.53 0)
+    (property "Reference" "#PWR?" (at 72.39 176.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 72.39 175.26 0)
@@ -1564,10 +1593,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR0190") (unit 1)
         )
       )
     )
@@ -1576,7 +1605,7 @@
   (symbol (lib_id "power:+5V") (at 57.15 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3ea0d8b0-2e7f-497f-81b5-7663b16b4ce3)
-    (property "Reference" "#PWR0104" (at 57.15 33.02 0)
+    (property "Reference" "#PWR0198" (at 57.15 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 57.15 24.13 0)
@@ -1592,7 +1621,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0104") (unit 1)
+          (reference "#PWR0198") (unit 1)
         )
       )
     )
@@ -1601,7 +1630,7 @@
   (symbol (lib_id "Device:C") (at 261.62 36.83 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 429d92a9-c2f9-4bf2-86c3-946542f83763)
-    (property "Reference" "C16" (at 265.43 35.56 0)
+    (property "Reference" "C?" (at 265.43 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 265.43 38.1 0)
@@ -1618,10 +1647,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C16") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C3") (unit 1)
+          (reference "C44") (unit 1)
         )
       )
     )
@@ -1630,7 +1659,7 @@
   (symbol (lib_id "Device:C") (at 222.25 36.83 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4c9c3747-354a-4e0a-9f78-fc342ba89562)
-    (property "Reference" "C16" (at 226.06 35.56 0)
+    (property "Reference" "C?" (at 226.06 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 226.06 38.1 0)
@@ -1647,10 +1676,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C16") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C2") (unit 1)
+          (reference "C43") (unit 1)
         )
       )
     )
@@ -1659,7 +1688,7 @@
   (symbol (lib_id "power:GND") (at 53.34 143.51 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 507a4e1c-ded1-431b-82de-c9bbf236d5dc)
-    (property "Reference" "#PWR07" (at 53.34 149.86 0)
+    (property "Reference" "#PWR?" (at 53.34 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 53.34 148.59 0)
@@ -1675,10 +1704,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR0186") (unit 1)
         )
       )
     )
@@ -1687,7 +1716,7 @@
   (symbol (lib_id "power:GND") (at 232.41 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 527f6613-f66b-436e-8909-1cd144f1f29c)
-    (property "Reference" "#PWR0107" (at 232.41 53.34 0)
+    (property "Reference" "#PWR0177" (at 232.41 53.34 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 232.41 52.07 0)
@@ -1703,7 +1732,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0107") (unit 1)
+          (reference "#PWR0177") (unit 1)
         )
       )
     )
@@ -1712,7 +1741,7 @@
   (symbol (lib_id "power:+5V") (at 261.62 22.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 57d5badb-4821-4bbe-ad77-ddcd40af196a)
-    (property "Reference" "#PWR0103" (at 261.62 26.67 0)
+    (property "Reference" "#PWR0179" (at 261.62 26.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 261.62 17.78 0)
@@ -1728,7 +1757,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0103") (unit 1)
+          (reference "#PWR0179") (unit 1)
         )
       )
     )
@@ -1737,7 +1766,7 @@
   (symbol (lib_id "Sensor_Current:ACS723xLCTR-10AU") (at 57.15 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 587d728e-de71-4daa-93d4-402ed8ba6a0b)
-    (property "Reference" "U5" (at 59.3441 34.29 0)
+    (property "Reference" "U?" (at 59.3441 34.29 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "ACS723xLCTR-10AU" (at 59.3441 36.83 0)
@@ -1760,10 +1789,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "U5") (unit 1)
+          (reference "U?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U7") (unit 1)
+          (reference "U12") (unit 1)
         )
       )
     )
@@ -1772,7 +1801,7 @@
   (symbol (lib_id "Device:C") (at 213.36 100.33 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6896fd58-d6b0-4538-9dbf-e62c3a6085f9)
-    (property "Reference" "C15" (at 217.17 99.06 0)
+    (property "Reference" "C?" (at 217.17 99.06 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1n" (at 217.17 101.6 0)
@@ -1789,10 +1818,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C15") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C19") (unit 1)
+          (reference "C42") (unit 1)
         )
       )
     )
@@ -1801,7 +1830,7 @@
   (symbol (lib_id "Device:C") (at 74.93 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 68df30b1-c768-4146-b5df-a4bacdfe36ff)
-    (property "Reference" "C15" (at 78.74 49.53 0)
+    (property "Reference" "C?" (at 78.74 49.53 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1n" (at 78.74 52.07 0)
@@ -1818,10 +1847,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C15") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C17") (unit 1)
+          (reference "C39") (unit 1)
         )
       )
     )
@@ -1830,7 +1859,7 @@
   (symbol (lib_id "power:GND") (at 53.34 170.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6aeb3c91-22a3-409a-b240-bb480c9d7373)
-    (property "Reference" "#PWR025" (at 53.34 176.53 0)
+    (property "Reference" "#PWR?" (at 53.34 176.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 53.34 175.26 0)
@@ -1846,10 +1875,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR0188") (unit 1)
         )
       )
     )
@@ -1858,7 +1887,7 @@
   (symbol (lib_id "power:GND") (at 62.23 170.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6c3601fd-31f4-4a50-b905-1066c051aa45)
-    (property "Reference" "#PWR025" (at 62.23 176.53 0)
+    (property "Reference" "#PWR?" (at 62.23 176.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 62.23 175.26 0)
@@ -1874,10 +1903,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR033") (unit 1)
+          (reference "#PWR0187") (unit 1)
         )
       )
     )
@@ -1886,7 +1915,7 @@
   (symbol (lib_id "Device:C") (at 46.99 116.84 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6f56e796-022a-444c-b601-bf100033f1f1)
-    (property "Reference" "C16" (at 46.99 110.49 90)
+    (property "Reference" "C?" (at 46.99 110.49 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100n" (at 46.99 113.03 90)
@@ -1903,10 +1932,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C16") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C16") (unit 1)
+          (reference "C35") (unit 1)
         )
       )
     )
@@ -1915,7 +1944,7 @@
   (symbol (lib_id "Sensor_Current:ACS723xLCTR-10AU") (at 195.58 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 77462985-ad21-4720-a960-180070acdf8c)
-    (property "Reference" "U5" (at 197.7741 83.82 0)
+    (property "Reference" "U?" (at 197.7741 83.82 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "ACS723xLCTR-10AU" (at 197.7741 86.36 0)
@@ -1938,10 +1967,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "U5") (unit 1)
+          (reference "U?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U9") (unit 1)
+          (reference "U16") (unit 1)
         )
       )
     )
@@ -1950,7 +1979,7 @@
   (symbol (lib_id "Device:D_Zener") (at 72.39 163.83 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 78fc535b-7535-4951-b23d-761f5710af68)
-    (property "Reference" "D4" (at 74.93 162.56 90)
+    (property "Reference" "D?" (at 74.93 162.56 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 74.93 165.1 90)
@@ -1967,10 +1996,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D6") (unit 1)
+          (reference "D16") (unit 1)
         )
       )
     )
@@ -1979,7 +2008,7 @@
   (symbol (lib_id "Device:D_Zener") (at 224.79 100.33 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 799e35d5-d35c-4b83-8d3d-95c1d7a96510)
-    (property "Reference" "D4" (at 227.33 99.06 90)
+    (property "Reference" "D?" (at 227.33 99.06 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 227.33 102.87 90)
@@ -1996,10 +2025,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D7") (unit 1)
+          (reference "D21") (unit 1)
         )
       )
     )
@@ -2008,7 +2037,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 234.95 36.83 0) (unit 3)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7a85341f-70ed-4f1e-8d3c-01285e9bf0af)
-    (property "Reference" "U6" (at 233.68 35.56 0)
+    (property "Reference" "U14" (at 233.68 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TSV912IDT" (at 233.68 38.1 0)
@@ -2031,7 +2060,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U6") (unit 3)
+          (reference "U14") (unit 3)
         )
       )
     )
@@ -2040,7 +2069,7 @@
   (symbol (lib_id "Device:C") (at 62.23 163.83 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7d39e1dd-3778-4077-b78b-aa2f0bad0643)
-    (property "Reference" "C26" (at 66.04 162.56 0)
+    (property "Reference" "C36" (at 66.04 162.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1u" (at 66.04 165.1 0)
@@ -2057,7 +2086,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C26") (unit 1)
+          (reference "C36") (unit 1)
         )
       )
     )
@@ -2066,7 +2095,7 @@
   (symbol (lib_id "Device:R") (at 53.34 163.83 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7ed135f9-b564-4052-96ec-e1ffaf7d52c9)
-    (property "Reference" "R10" (at 54.61 162.56 0)
+    (property "Reference" "R?" (at 54.61 162.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4k7" (at 54.61 165.1 0)
@@ -2083,10 +2112,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "R10") (unit 1)
+          (reference "R?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "R11") (unit 1)
+          (reference "R27") (unit 1)
         )
       )
     )
@@ -2095,7 +2124,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 241.3 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7f3b18f3-1f0e-4a6d-b2bd-75125e03434a)
-    (property "Reference" "U11" (at 241.3 83.82 0)
+    (property "Reference" "U15" (at 241.3 83.82 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TSV912IDT" (at 241.3 86.36 0)
@@ -2118,7 +2147,36 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U11") (unit 1)
+          (reference "U15") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C") (at 189.23 81.28 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 86d99aee-08fe-4bde-9a18-086bf3f70b9d)
+    (property "Reference" "C?" (at 189.23 73.66 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "100n" (at 189.23 76.2 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 193.04 80.3148 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 189.23 81.28 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 7fa2930a-03f2-4296-8498-4e5b6e5d5e4a))
+    (pin "2" (uuid 65891146-56c9-45f0-8d3b-875a0d5562c3))
+    (instances
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
+          (reference "C?") (unit 1)
+        )
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
+          (reference "C40") (unit 1)
         )
       )
     )
@@ -2127,7 +2185,7 @@
   (symbol (lib_id "Device:R") (at 44.45 156.21 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 884649cf-cc5d-4b26-9250-f4a4e92d03aa)
-    (property "Reference" "R11" (at 44.45 151.13 90)
+    (property "Reference" "R?" (at 44.45 151.13 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "28k7" (at 44.45 153.67 90)
@@ -2144,10 +2202,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "R11") (unit 1)
+          (reference "R?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "R10") (unit 1)
+          (reference "R25") (unit 1)
         )
       )
     )
@@ -2156,7 +2214,7 @@
   (symbol (lib_id "power:GND") (at 213.36 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 995e7b4b-7688-4782-9ad0-eb0bd9dcdc9d)
-    (property "Reference" "#PWR014" (at 213.36 115.57 0)
+    (property "Reference" "#PWR?" (at 213.36 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 213.36 114.3 0)
@@ -2172,10 +2230,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR035") (unit 1)
+          (reference "#PWR0172") (unit 1)
         )
       )
     )
@@ -2184,7 +2242,7 @@
   (symbol (lib_id "Device:R") (at 251.46 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9caca942-015a-4abe-b25f-388bbeeb3bf0)
-    (property "Reference" "R28" (at 254 31.75 0)
+    (property "Reference" "R29" (at 254 31.75 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "47k" (at 254 34.29 0)
@@ -2201,7 +2259,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "R28") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
@@ -2210,7 +2268,7 @@
   (symbol (lib_id "Device:D_Zener") (at 85.09 50.8 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9ee7e0fa-9f9f-408c-8dce-d77c9fbe80b7)
-    (property "Reference" "D4" (at 87.63 49.53 90)
+    (property "Reference" "D?" (at 87.63 49.53 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 87.63 53.34 90)
@@ -2227,10 +2285,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D9") (unit 1)
+          (reference "D19") (unit 1)
         )
       )
     )
@@ -2239,7 +2297,7 @@
   (symbol (lib_id "power:GND") (at 74.93 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a04f333e-681b-4526-9d81-43b2cd75085d)
-    (property "Reference" "#PWR014" (at 74.93 66.04 0)
+    (property "Reference" "#PWR?" (at 74.93 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 74.93 64.77 0)
@@ -2255,10 +2313,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR030") (unit 1)
+          (reference "#PWR0193") (unit 1)
         )
       )
     )
@@ -2267,7 +2325,7 @@
   (symbol (lib_id "power:GND") (at 69.85 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a317cd7c-b340-43bd-a879-7ffb1cdd1010)
-    (property "Reference" "#PWR022" (at 69.85 66.04 0)
+    (property "Reference" "#PWR?" (at 69.85 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 69.85 64.77 0)
@@ -2283,10 +2341,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR029") (unit 1)
+          (reference "#PWR0197") (unit 1)
         )
       )
     )
@@ -2295,7 +2353,7 @@
   (symbol (lib_id "power:GND") (at 224.79 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a54e605e-f53e-4eb0-9a70-b867c11d2c8a)
-    (property "Reference" "#PWR024" (at 224.79 115.57 0)
+    (property "Reference" "#PWR?" (at 224.79 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 224.79 114.3 0)
@@ -2311,10 +2369,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR0176") (unit 1)
         )
       )
     )
@@ -2323,7 +2381,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 208.28 36.83 0) (unit 3)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid abbf03de-35cc-4fdd-8b03-67e1776ca13e)
-    (property "Reference" "U8" (at 207.01 35.56 0)
+    (property "Reference" "U13" (at 207.01 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TSV912IDT" (at 207.01 38.1 0)
@@ -2346,7 +2404,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U8") (unit 3)
+          (reference "U13") (unit 3)
         )
       )
     )
@@ -2355,7 +2413,7 @@
   (symbol (lib_id "Device:D_Zener") (at 176.53 146.05 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid adb26ef3-a1f1-4747-b9bc-2f55ce265ee2)
-    (property "Reference" "D4" (at 179.07 144.78 90)
+    (property "Reference" "D?" (at 179.07 144.78 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 179.07 148.59 90)
@@ -2372,7 +2430,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
           (reference "D20") (unit 1)
@@ -2381,38 +2439,10 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 132.08 59.69 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid b4330e7e-1cb8-473c-a695-a2f1958203fd)
-    (property "Reference" "#PWR020" (at 132.08 66.04 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 132.08 64.77 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 132.08 59.69 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 132.08 59.69 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 640c5d61-259a-41bc-9b05-958773b85500))
-    (instances
-      (project "Batt-Power-Prototype-2023_Lucy_V1"
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR020") (unit 1)
-        )
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR032") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "Device:C") (at 71.12 134.62 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b4473aa5-10ad-43a1-9a77-deb813b33e78)
-    (property "Reference" "C15" (at 73.66 132.08 0)
+    (property "Reference" "C?" (at 73.66 132.08 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1n" (at 73.66 134.62 0)
@@ -2429,10 +2459,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C15") (unit 1)
+          (reference "C?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C15") (unit 1)
+          (reference "C38") (unit 1)
         )
       )
     )
@@ -2441,7 +2471,7 @@
   (symbol (lib_id "Device:R") (at 251.46 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b473692f-27c0-4091-bb2b-e4f464c9de2b)
-    (property "Reference" "R29" (at 254 39.37 0)
+    (property "Reference" "R30" (at 254 39.37 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "47k" (at 254 41.91 0)
@@ -2458,7 +2488,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "R29") (unit 1)
+          (reference "R30") (unit 1)
         )
       )
     )
@@ -2467,7 +2497,7 @@
   (symbol (lib_id "power:GND") (at 256.54 48.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c07e18df-a51b-487a-94ae-ace6f88753fe)
-    (property "Reference" "#PWR042" (at 256.54 54.61 0)
+    (property "Reference" "#PWR0180" (at 256.54 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 256.54 53.34 0)
@@ -2483,7 +2513,35 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR042") (unit 1)
+          (reference "#PWR0180") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 182.88 83.82 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid c1eee496-f3c6-45a4-8bc5-e85c83953d3d)
+    (property "Reference" "#PWR?" (at 182.88 90.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 182.88 88.9 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 182.88 83.82 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 182.88 83.82 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 18420d4c-1833-499c-8840-ad3d72d5b0ea))
+    (instances
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
+          (reference "#PWR?") (unit 1)
+        )
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
+          (reference "#PWR02") (unit 1)
         )
       )
     )
@@ -2492,7 +2550,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 101.6 158.75 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cb2e5cb6-1707-4e53-96c9-ea55223a1b5f)
-    (property "Reference" "U8" (at 106.68 151.13 0)
+    (property "Reference" "U14" (at 106.68 151.13 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TSV912IDT" (at 106.68 153.67 0)
@@ -2515,36 +2573,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U8") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:C") (at 132.08 48.26 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid cbc58841-395c-4526-b0b3-b92f76a70f24)
-    (property "Reference" "C16" (at 135.89 46.99 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "100n" (at 135.89 49.53 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 133.0452 52.07 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 132.08 48.26 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid a833d271-3fd8-4ed6-a87b-dcd16e55fe41))
-    (pin "2" (uuid 446cd5f0-c3c7-4762-8512-38706d543167))
-    (instances
-      (project "Batt-Power-Prototype-2023_Lucy_V1"
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C16") (unit 1)
-        )
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C18") (unit 1)
+          (reference "U14") (unit 1)
         )
       )
     )
@@ -2553,7 +2582,7 @@
   (symbol (lib_id "power:GND") (at 64.77 85.09 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d021bf10-bfa5-4b1d-81ad-660624af6c4a)
-    (property "Reference" "#PWR055" (at 64.77 91.44 0)
+    (property "Reference" "#PWR0181" (at 64.77 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 64.77 90.17 0)
@@ -2569,7 +2598,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR055") (unit 1)
+          (reference "#PWR0181") (unit 1)
         )
       )
     )
@@ -2578,7 +2607,7 @@
   (symbol (lib_id "power:GND") (at 208.28 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d1ab322d-7e97-434f-aed2-ca6895fe030a)
-    (property "Reference" "#PWR022" (at 208.28 115.57 0)
+    (property "Reference" "#PWR?" (at 208.28 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 208.28 114.3 0)
@@ -2594,10 +2623,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR034") (unit 1)
+          (reference "#PWR0174") (unit 1)
         )
       )
     )
@@ -2606,7 +2635,7 @@
   (symbol (lib_id "Amplifier_Operational:TSV912IDT") (at 97.79 128.27 0) (unit 2)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d6567360-06f2-4cef-b7a9-39825d9dc857)
-    (property "Reference" "U8" (at 97.79 118.11 0)
+    (property "Reference" "U13" (at 97.79 118.11 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TSV912IDT" (at 97.79 120.65 0)
@@ -2629,7 +2658,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U8") (unit 2)
+          (reference "U13") (unit 2)
         )
       )
     )
@@ -2638,7 +2667,7 @@
   (symbol (lib_id "power:GND") (at 176.53 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid da34fbec-8464-4607-8416-27c0d817467e)
-    (property "Reference" "#PWR024" (at 176.53 161.29 0)
+    (property "Reference" "#PWR?" (at 176.53 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 176.53 160.02 0)
@@ -2654,10 +2683,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0109") (unit 1)
+          (reference "#PWR0170") (unit 1)
         )
       )
     )
@@ -2666,7 +2695,7 @@
   (symbol (lib_id "power:GND") (at 54.61 85.09 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid dadbea0b-086e-4aa1-948b-9636794f424a)
-    (property "Reference" "#PWR025" (at 54.61 91.44 0)
+    (property "Reference" "#PWR?" (at 54.61 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 54.61 90.17 0)
@@ -2682,10 +2711,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR028") (unit 1)
+          (reference "#PWR0183") (unit 1)
         )
       )
     )
@@ -2694,7 +2723,7 @@
   (symbol (lib_id "power:+5V") (at 53.34 113.03 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid daf18f26-3a7f-4ede-998e-ebf55f285796)
-    (property "Reference" "#PWR0105" (at 53.34 116.84 0)
+    (property "Reference" "#PWR0185" (at 53.34 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 53.34 107.95 0)
@@ -2710,7 +2739,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR0105") (unit 1)
+          (reference "#PWR0185") (unit 1)
         )
       )
     )
@@ -2719,7 +2748,7 @@
   (symbol (lib_id "power:GND") (at 85.09 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid de3daff9-2b08-499a-9346-dccd4f960adc)
-    (property "Reference" "#PWR024" (at 85.09 66.04 0)
+    (property "Reference" "#PWR?" (at 85.09 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 85.09 64.77 0)
@@ -2735,10 +2764,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR0194") (unit 1)
         )
       )
     )
@@ -2747,7 +2776,7 @@
   (symbol (lib_id "power:GND") (at 39.37 118.11 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid de93333c-8f63-4b29-adc8-a87c2f0bc135)
-    (property "Reference" "#PWR020" (at 39.37 124.46 0)
+    (property "Reference" "#PWR?" (at 39.37 124.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 39.37 121.92 0)
@@ -2763,10 +2792,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR015") (unit 1)
+          (reference "#PWR0184") (unit 1)
         )
       )
     )
@@ -2775,7 +2804,7 @@
   (symbol (lib_id "Device:R") (at 49.53 71.12 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e9cf26c4-4ead-4a2a-9be5-0164fb33b8f0)
-    (property "Reference" "R11" (at 49.53 66.04 90)
+    (property "Reference" "R?" (at 49.53 66.04 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10k" (at 49.53 68.58 90)
@@ -2792,10 +2821,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "R11") (unit 1)
+          (reference "R?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "R12") (unit 1)
+          (reference "R26") (unit 1)
         )
       )
     )
@@ -2804,7 +2833,7 @@
   (symbol (lib_id "Sensor_Current:ACS723xLCTR-10AU") (at 53.34 130.81 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ea64d2a8-2f66-4e1e-83b4-586cb9accf21)
-    (property "Reference" "U5" (at 55.5341 118.11 0)
+    (property "Reference" "U?" (at 55.5341 118.11 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "ACS723xLCTR-10AU" (at 55.5341 120.65 0)
@@ -2827,10 +2856,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "U5") (unit 1)
+          (reference "U?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "U5") (unit 1)
+          (reference "U11") (unit 1)
         )
       )
     )
@@ -2839,7 +2868,7 @@
   (symbol (lib_id "power:GND") (at 66.04 143.51 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ee2ce735-b679-44ba-b975-8e8693a1e520)
-    (property "Reference" "#PWR022" (at 66.04 149.86 0)
+    (property "Reference" "#PWR?" (at 66.04 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 66.04 148.59 0)
@@ -2855,39 +2884,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR021") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:C") (at 273.05 95.25 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid ef714965-bada-45d7-b21b-1adf1d50bb6c)
-    (property "Reference" "C16" (at 276.86 93.98 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "100n" (at 276.86 96.52 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 274.0152 99.06 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 273.05 95.25 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid b393ad5a-0ec6-43f1-a833-1baefcd30259))
-    (pin "2" (uuid 3c4ba98a-58e3-4bcc-8808-3464ce1c44d6))
-    (instances
-      (project "Batt-Power-Prototype-2023_Lucy_V1"
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "C16") (unit 1)
-        )
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C20") (unit 1)
+          (reference "#PWR0189") (unit 1)
         )
       )
     )
@@ -2896,7 +2896,7 @@
   (symbol (lib_id "power:GND") (at 74.93 85.09 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f05f390f-b089-4129-87b8-d21e0a7700cf)
-    (property "Reference" "#PWR024" (at 74.93 91.44 0)
+    (property "Reference" "#PWR?" (at 74.93 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 74.93 90.17 0)
@@ -2912,10 +2912,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "#PWR031") (unit 1)
+          (reference "#PWR0182") (unit 1)
         )
       )
     )
@@ -2924,7 +2924,7 @@
   (symbol (lib_id "Device:C") (at 64.77 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f402a691-30d0-4385-a190-5824343c2962)
-    (property "Reference" "C25" (at 68.58 77.47 0)
+    (property "Reference" "C37" (at 68.58 77.47 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "6u" (at 68.58 80.01 0)
@@ -2941,7 +2941,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "C25") (unit 1)
+          (reference "C37") (unit 1)
         )
       )
     )
@@ -2950,7 +2950,7 @@
   (symbol (lib_id "Device:D_Zener") (at 74.93 78.74 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fcd6c571-d1a3-4359-82a8-bf7d7631b426)
-    (property "Reference" "D4" (at 77.47 77.47 90)
+    (property "Reference" "D?" (at 77.47 77.47 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 76.2 82.55 90)
@@ -2967,10 +2967,10 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D5") (unit 1)
+          (reference "D17") (unit 1)
         )
       )
     )

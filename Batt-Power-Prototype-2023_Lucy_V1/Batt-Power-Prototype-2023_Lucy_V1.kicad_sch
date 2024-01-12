@@ -3676,7 +3676,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 4fac8888-d01c-46f7-b24b-321ca10b2f23)
   )
-  (label "12V Current Buck" (at 90.17 59.69 0) (fields_autoplaced)
+  (label "12V_Current_Buck" (at 90.17 59.69 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 4fcddc52-bff2-4132-9c90-1cefaa137dce)
   )
@@ -3708,7 +3708,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 7b915242-976e-4bdb-a0d4-e58e62b11ef3)
   )
-  (label "12V Current Buck" (at 332.74 87.63 180) (fields_autoplaced)
+  (label "12V_Current_Buck" (at 332.74 87.63 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 7c11ef7b-ac7e-41cc-b865-d3c2b9f5a96e)
   )
@@ -3813,39 +3813,10 @@
     (uuid fcda480b-b3a0-4d6b-ae42-9578edd53941)
   )
 
-  (global_label "12V_Current_Out" (shape input) (at 290.83 78.74 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left))
-    (uuid 2a505e82-2ef2-411a-98fa-94189540702e)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 309.4179 78.74 0)
-      (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-  )
-  (global_label "12V Current Buck" (shape input) (at 290.83 83.82 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left))
-    (uuid b5f9779d-b748-4bb4-9295-6c74aeae8789)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 310.7484 83.82 0)
-      (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-  )
-  (global_label "ADC_Battery_Voltage" (shape input) (at 290.83 73.66 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left))
-    (uuid dd50156c-dc56-4f91-8f4c-61a8d6419d09)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 313.1069 73.66 0)
-      (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-  )
-  (global_label "ADC_12V_Voltage_Out" (shape input) (at 290.83 81.28 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left))
-    (uuid fda9cd71-f67a-4a07-b138-5d2f2f045cf7)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 314.0745 81.28 0)
-      (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-  )
-
   (symbol (lib_id "RF_Parts:SG-3225CAN") (at 38.608 113.284 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 02e1811d-4a20-4375-92ea-458374d884d0)
-    (property "Reference" "U10" (at 42.418 106.934 0)
+    (property "Reference" "U?" (at 42.418 106.934 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "8MHz" (at 38.608 103.124 0)
@@ -3870,17 +3841,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "U10") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "U2") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "U13") (unit 1)
+          (reference "U1") (unit 1)
         )
       )
     )
@@ -3889,7 +3860,7 @@
   (symbol (lib_id "Device:LED") (at 109.22 113.03 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 03619a11-35b2-4ea9-9967-bb9ef65a21d1)
-    (property "Reference" "D8" (at 106.553 115.8875 90)
+    (property "Reference" "D?" (at 106.553 115.8875 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "AMBER" (at 106.553 113.3475 90)
@@ -3912,12 +3883,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "D8") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D8") (unit 1)
+          (reference "D3") (unit 1)
         )
       )
     )
@@ -3926,7 +3897,7 @@
   (symbol (lib_id "power:GND") (at 228.6 113.03 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0a8ff20c-5ea7-4f2f-ba82-d568f893a922)
-    (property "Reference" "#PWR080" (at 234.95 113.03 0)
+    (property "Reference" "#PWR0112" (at 234.95 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 232.41 113.03 90)
@@ -3942,7 +3913,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR080") (unit 1)
+          (reference "#PWR0112") (unit 1)
         )
       )
     )
@@ -3951,7 +3922,7 @@
   (symbol (lib_id "Mechanical:MountingHole") (at 388.62 34.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0d863a50-5fd4-4bff-9716-424845b3e92c)
-    (property "Reference" "H4" (at 391.16 33.02 0)
+    (property "Reference" "H?" (at 391.16 33.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MountingHole" (at 391.16 35.56 0)
@@ -3969,7 +3940,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "H4") (unit 1)
+          (reference "H?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -3983,7 +3954,7 @@
   (symbol (lib_id "power:+5V") (at 184.15 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0dbd9d2d-468d-44b9-a218-5fac5ef08f18)
-    (property "Reference" "#PWR054" (at 184.15 110.49 0)
+    (property "Reference" "#PWR0114" (at 184.15 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 184.15 102.87 0)
@@ -3999,7 +3970,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR054") (unit 1)
+          (reference "#PWR0114") (unit 1)
         )
       )
     )
@@ -4027,17 +3998,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR046") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR059") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR089") (unit 1)
+          (reference "#PWR0118") (unit 1)
         )
       )
     )
@@ -4046,7 +4017,7 @@
   (symbol (lib_id "power:+3V3") (at 209.55 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1270fe75-b5ce-455d-b27f-6aa41ba9cbb8)
-    (property "Reference" "#PWR083" (at 209.55 36.83 0)
+    (property "Reference" "#PWR?" (at 209.55 36.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 210.82 27.94 0)
@@ -4062,17 +4033,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "#PWR083") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR044") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR077") (unit 1)
+          (reference "#PWR0105") (unit 1)
         )
       )
     )
@@ -4081,7 +4052,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 101.6 67.31 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 12b819e2-3ffe-42eb-b690-4596faf66cd7)
-    (property "Reference" "TP1" (at 105.41 64.77 90)
+    (property "Reference" "TP?" (at 105.41 64.77 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MCO" (at 105.41 62.23 90)
@@ -4100,7 +4071,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "TP1") (unit 1)
+          (reference "TP?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -4114,7 +4085,7 @@
   (symbol (lib_id "power:+3V3") (at 81.28 146.05 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 13605d02-142c-46ba-8302-77c6969471f1)
-    (property "Reference" "#PWR050" (at 81.28 149.86 0)
+    (property "Reference" "#PWR?" (at 81.28 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 81.28 141.605 0)
@@ -4130,17 +4101,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR050") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR063") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR093") (unit 1)
+          (reference "#PWR0122") (unit 1)
         )
       )
     )
@@ -4149,7 +4120,7 @@
   (symbol (lib_id "dk_Interface-Controllers:FT234XD-R") (at 44.45 167.64 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 13e12aa1-4f09-4532-912d-b6546b8eff1e)
-    (property "Reference" "U7" (at 33.655 153.035 0)
+    (property "Reference" "U?" (at 33.655 153.035 0)
       (effects (font (size 1.524 1.524)) (justify left))
     )
     (property "Value" "FT234XD-R" (at 34.29 150.495 0)
@@ -4192,17 +4163,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "U7") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "U8") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "U16") (unit 1)
+          (reference "U2") (unit 1)
         )
       )
     )
@@ -4240,17 +4211,17 @@
           (reference "C?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "C19") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C26") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C45") (unit 1)
+          (reference "C10") (unit 1)
         )
       )
     )
@@ -4259,7 +4230,7 @@
   (symbol (lib_id "Device:R") (at 109.22 105.41 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 151889f9-2c89-4dd1-9735-2fae6f9f7da7)
-    (property "Reference" "R15" (at 101.6 104.14 0)
+    (property "Reference" "R?" (at 101.6 104.14 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "220R" (at 101.6 106.68 0)
@@ -4282,12 +4253,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R15") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R15") (unit 1)
+          (reference "R5") (unit 1)
         )
       )
     )
@@ -4296,7 +4267,7 @@
   (symbol (lib_id "power:GND") (at 71.12 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 159ffcc2-e3a1-457c-b0d4-d5f9ac97c8e9)
-    (property "Reference" "#PWR04" (at 71.12 100.33 0)
+    (property "Reference" "#PWR?" (at 71.12 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 71.12 97.79 0)
@@ -4312,12 +4283,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR04") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR065") (unit 1)
+          (reference "#PWR0128") (unit 1)
         )
       )
     )
@@ -4326,7 +4297,7 @@
   (symbol (lib_id "power:+3V3") (at 128.27 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 161a710e-ecd9-42ca-81e1-9f9e1cb772de)
-    (property "Reference" "#PWR039" (at 128.27 31.75 0)
+    (property "Reference" "#PWR?" (at 128.27 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 128.27 24.13 0)
@@ -4342,12 +4313,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR039") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR070") (unit 1)
+          (reference "#PWR0130") (unit 1)
         )
       )
     )
@@ -4356,7 +4327,7 @@
   (symbol (lib_id "Device:C") (at 41.91 33.274 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 16388aa6-0c9b-42c9-b7ff-5c4f1b6a5d93)
-    (property "Reference" "C8" (at 45.72 32.004 0)
+    (property "Reference" "C?" (at 45.72 32.004 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 45.72 34.544 0)
@@ -4379,12 +4350,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C8") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C33") (unit 1)
+          (reference "C4") (unit 1)
         )
       )
     )
@@ -4393,7 +4364,7 @@
   (symbol (lib_id "Mechanical:MountingHole") (at 388.62 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 193300d0-645c-4ea4-9553-0c9b9d68427e)
-    (property "Reference" "H3" (at 391.16 27.94 0)
+    (property "Reference" "H?" (at 391.16 27.94 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MountingHole" (at 391.16 30.48 0)
@@ -4411,7 +4382,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "H3") (unit 1)
+          (reference "H?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -4425,7 +4396,7 @@
   (symbol (lib_id "Mechanical:MountingHole") (at 388.62 24.13 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1c12fd24-2d96-4c49-b2a1-b66304910bb6)
-    (property "Reference" "H2" (at 391.16 22.86 0)
+    (property "Reference" "H?" (at 391.16 22.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MountingHole" (at 391.16 25.4 0)
@@ -4443,7 +4414,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "H2") (unit 1)
+          (reference "H?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -4457,7 +4428,7 @@
   (symbol (lib_id "power:+3V3") (at 26.67 48.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1f2e4314-3a3d-4026-9434-88b030a9493a)
-    (property "Reference" "#PWR010" (at 26.67 52.07 0)
+    (property "Reference" "#PWR?" (at 26.67 52.07 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 26.67 44.704 0)
@@ -4473,12 +4444,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR010") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR060") (unit 1)
+          (reference "#PWR0137") (unit 1)
         )
       )
     )
@@ -4487,7 +4458,7 @@
   (symbol (lib_id "Switch:SW_SPDT") (at 32.385 52.07 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1f6fe0ed-12f2-443a-80c6-26d1422548e1)
-    (property "Reference" "SW1" (at 34.925 49.53 0)
+    (property "Reference" "SW?" (at 34.925 49.53 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "SW_SPDT" (at 34.925 46.99 0)
@@ -4511,7 +4482,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "SW1") (unit 1)
+          (reference "SW?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -4525,7 +4496,7 @@
   (symbol (lib_id "Connector:USB_B_Micro") (at 138.43 166.37 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 29ad3f7c-0e0c-4056-a059-baca43e44dab)
-    (property "Reference" "J4" (at 140.97 153.67 0)
+    (property "Reference" "J?" (at 140.97 153.67 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "USB_B_Micro" (at 140.97 156.21 0)
@@ -4555,17 +4526,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "J4") (unit 1)
+          (reference "J?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "J6") (unit 1)
+          (reference "J?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "J12") (unit 1)
+          (reference "J1") (unit 1)
         )
       )
     )
@@ -4574,7 +4545,7 @@
   (symbol (lib_id "power:+5V") (at 59.69 177.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2cd5b4cd-5dd7-4190-8c48-395bfe06861d)
-    (property "Reference" "#PWR048" (at 59.69 181.61 0)
+    (property "Reference" "#PWR?" (at 59.69 181.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 59.69 172.72 0)
@@ -4590,17 +4561,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR048") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR061") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR091") (unit 1)
+          (reference "#PWR0116") (unit 1)
         )
       )
     )
@@ -4609,7 +4580,7 @@
   (symbol (lib_id "power:GND") (at 166.37 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2e86aeaf-c3a0-4a58-8602-8161c0a78c12)
-    (property "Reference" "#PWR016" (at 166.37 100.33 0)
+    (property "Reference" "#PWR?" (at 166.37 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 166.37 98.425 0)
@@ -4625,17 +4596,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "#PWR016") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR047") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR079") (unit 1)
+          (reference "#PWR0111") (unit 1)
         )
       )
     )
@@ -4644,7 +4615,7 @@
   (symbol (lib_id "Device:C") (at 53.34 33.528 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 313a81d5-cf3c-4c51-bf65-83d9b9fdbd65)
-    (property "Reference" "C7" (at 57.15 32.258 0)
+    (property "Reference" "C?" (at 57.15 32.258 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 57.15 34.798 0)
@@ -4667,12 +4638,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C7") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C34") (unit 1)
+          (reference "C6") (unit 1)
         )
       )
     )
@@ -4681,7 +4652,7 @@
   (symbol (lib_id "Device:R") (at 60.96 147.32 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3528fb6a-f5b8-4cae-ae35-f0092c1711cd)
-    (property "Reference" "R14" (at 60.96 149.86 90)
+    (property "Reference" "R?" (at 60.96 149.86 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "220R" (at 60.96 144.78 90)
@@ -4707,17 +4678,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "R14") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R16") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R24") (unit 1)
+          (reference "R2") (unit 1)
         )
       )
     )
@@ -4726,7 +4697,7 @@
   (symbol (lib_id "power:GND") (at 118.11 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 36f8f451-c66a-4d0a-a510-e142ffc9d98a)
-    (property "Reference" "#PWR053" (at 118.11 128.27 0)
+    (property "Reference" "#PWR?" (at 118.11 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 118.11 126.365 0)
@@ -4742,12 +4713,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR053") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR068") (unit 1)
+          (reference "#PWR0133") (unit 1)
         )
       )
     )
@@ -4756,7 +4727,7 @@
   (symbol (lib_id "power:+3V3") (at 68.58 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3bd86439-7b7f-4788-9831-f71f03c85fcc)
-    (property "Reference" "#PWR05" (at 68.58 31.75 0)
+    (property "Reference" "#PWR?" (at 68.58 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 64.77 26.67 0)
@@ -4772,12 +4743,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR05") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR064") (unit 1)
+          (reference "#PWR0140") (unit 1)
         )
       )
     )
@@ -4786,7 +4757,7 @@
   (symbol (lib_id "Connector_Generic:Conn_02x05_Odd_Even") (at 217.17 113.03 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3cb904d4-256e-4a28-9472-ac3773759a15)
-    (property "Reference" "J1" (at 218.44 102.87 0)
+    (property "Reference" "J?" (at 218.44 102.87 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "GPIO" (at 218.44 105.41 0)
@@ -4820,17 +4791,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "J1") (unit 1)
+          (reference "J?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "J4") (unit 1)
+          (reference "J?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "J13") (unit 1)
+          (reference "J4") (unit 1)
         )
       )
     )
@@ -4839,7 +4810,7 @@
   (symbol (lib_id "Device:C") (at 30.48 186.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 45d18727-ee61-45b8-9237-359fbe39755b)
-    (property "Reference" "C15" (at 32.385 184.15 0)
+    (property "Reference" "C?" (at 32.385 184.15 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 32.385 189.23 0)
@@ -4868,17 +4839,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "C15") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C6") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C41") (unit 1)
+          (reference "C1") (unit 1)
         )
       )
     )
@@ -4887,7 +4858,7 @@
   (symbol (lib_id "Device:R") (at 181.61 49.53 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 46a2e114-f21d-429a-9aca-9e182b2ca822)
-    (property "Reference" "R26" (at 190.5 52.07 0)
+    (property "Reference" "R?" (at 190.5 52.07 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "120R" (at 190.5 54.61 0)
@@ -4907,12 +4878,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R26") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R23") (unit 1)
+          (reference "R8") (unit 1)
         )
       )
     )
@@ -4921,7 +4892,7 @@
   (symbol (lib_id "Device:C") (at 57.658 113.284 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 49d3b097-f244-451d-9995-845c0e833bcb)
-    (property "Reference" "C54" (at 65.278 112.014 0)
+    (property "Reference" "C?" (at 65.278 112.014 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 67.31 114.3 0)
@@ -4947,17 +4918,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "C54") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C1") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C35") (unit 1)
+          (reference "C8") (unit 1)
         )
       )
     )
@@ -4966,7 +4937,7 @@
   (symbol (lib_id "Device:R") (at 67.31 170.18 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4b78130d-39a6-4e90-b15d-9a745337f4db)
-    (property "Reference" "R16" (at 67.31 172.72 90)
+    (property "Reference" "R?" (at 67.31 172.72 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "27R" (at 67.31 175.26 90)
@@ -4992,17 +4963,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "R16") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R18") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R26") (unit 1)
+          (reference "R4") (unit 1)
         )
       )
     )
@@ -5011,7 +4982,7 @@
   (symbol (lib_id "RF_Parts:VBUS_UP") (at 88.9 166.37 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4bd769d5-0116-4bc0-98c1-74720c4d9d7a)
-    (property "Reference" "#PWR052" (at 88.9 170.18 0)
+    (property "Reference" "#PWR?" (at 88.9 170.18 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "VBUS_UP" (at 88.9 162.56 0)
@@ -5027,17 +4998,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR052") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR065") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR094") (unit 1)
+          (reference "#PWR0124") (unit 1)
         )
       )
     )
@@ -5065,17 +5036,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "#PWR082") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR043") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR0112") (unit 1)
+          (reference "#PWR0107") (unit 1)
         )
       )
     )
@@ -5084,7 +5055,7 @@
   (symbol (lib_id "Interface_CAN_LIN:MCP2542FDxMF") (at 207.01 46.99 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4f39065b-aa77-4c7a-b076-50db3cb158a5)
-    (property "Reference" "U10" (at 205.0541 57.15 0)
+    (property "Reference" "U?" (at 205.0541 57.15 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MCP2542FD-E/SN" (at 205.0541 59.69 0)
@@ -5117,17 +5088,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "U10") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "U7") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "U15") (unit 1)
+          (reference "U4") (unit 1)
         )
       )
     )
@@ -5136,7 +5107,7 @@
   (symbol (lib_id "RF_Parts:VBUS_UP") (at 129.54 160.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5330811f-2da8-4b77-b6ee-a11e6f0e1a7b)
-    (property "Reference" "#PWR054" (at 129.54 163.83 0)
+    (property "Reference" "#PWR?" (at 129.54 163.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "VBUS_UP" (at 129.54 156.21 0)
@@ -5152,17 +5123,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR054") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR067") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR097") (unit 1)
+          (reference "#PWR0127") (unit 1)
         )
       )
     )
@@ -5171,7 +5142,7 @@
   (symbol (lib_id "Connector:Conn_01x04_Socket") (at 165.1 156.21 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 562cf68f-d679-4c50-80c8-db8fc0028ab5)
-    (property "Reference" "J8" (at 165.735 146.05 0)
+    (property "Reference" "J?" (at 165.735 146.05 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "OLED" (at 165.735 148.59 0)
@@ -5193,12 +5164,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "J8") (unit 1)
+          (reference "J?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "J9") (unit 1)
+          (reference "J2") (unit 1)
         )
       )
     )
@@ -5226,17 +5197,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR049") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR062") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR092") (unit 1)
+          (reference "#PWR0120") (unit 1)
         )
       )
     )
@@ -5245,7 +5216,7 @@
   (symbol (lib_id "power:GND") (at 161.29 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5c2d41ea-efd4-4713-be3e-62ccd3b9a2fa)
-    (property "Reference" "#PWR015" (at 161.29 125.73 0)
+    (property "Reference" "#PWR?" (at 161.29 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 161.29 123.825 0)
@@ -5261,17 +5232,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "#PWR015") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR046") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR082") (unit 1)
+          (reference "#PWR0102") (unit 1)
         )
       )
     )
@@ -5280,7 +5251,7 @@
   (symbol (lib_id "Device:D_Zener") (at 184.15 113.03 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5dcb01b9-4d9c-42e1-a719-eb76fed0b21e)
-    (property "Reference" "D4" (at 186.69 111.76 90)
+    (property "Reference" "D?" (at 186.69 111.76 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5231B-7-F" (at 185.42 116.84 90)
@@ -5297,13 +5268,13 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D5") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D13") (unit 1)
+          (reference "D7") (unit 1)
         )
       )
     )
@@ -5312,7 +5283,7 @@
   (symbol (lib_id "Device:R_US") (at 43.18 52.07 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5e434014-0119-4c68-adc9-b743f745ca93)
-    (property "Reference" "R1" (at 43.18 49.53 90)
+    (property "Reference" "R?" (at 43.18 49.53 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10k" (at 43.18 54.61 90)
@@ -5335,12 +5306,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R1") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R14") (unit 1)
+          (reference "R1") (unit 1)
         )
       )
     )
@@ -5349,7 +5320,7 @@
   (symbol (lib_id "power:GND") (at 106.68 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5e713d4c-fa06-43b4-9243-f27fee8fbd50)
-    (property "Reference" "#PWR08" (at 106.68 46.99 0)
+    (property "Reference" "#PWR?" (at 106.68 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 109.728 40.894 0)
@@ -5365,12 +5336,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR08") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR067") (unit 1)
+          (reference "#PWR0131") (unit 1)
         )
       )
     )
@@ -5398,17 +5369,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR055") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR068") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR098") (unit 1)
+          (reference "#PWR0125") (unit 1)
         )
       )
     )
@@ -5417,7 +5388,7 @@
   (symbol (lib_id "Device:C") (at 53.34 185.42 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6313adb4-c816-4ff3-adce-0bbae52c9c06)
-    (property "Reference" "C17" (at 55.245 182.88 0)
+    (property "Reference" "C?" (at 55.245 182.88 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 55.245 187.96 0)
@@ -5446,17 +5417,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "C17") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C14") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C43") (unit 1)
+          (reference "C7") (unit 1)
         )
       )
     )
@@ -5465,7 +5436,7 @@
   (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 179.07 31.75 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 679149fd-8ccd-4c58-8253-2d5ebd4b8b0c)
-    (property "Reference" "JP3" (at 179.07 25.4 90)
+    (property "Reference" "JP1" (at 179.07 25.4 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "SolderJumper_2_Open" (at 179.07 22.86 90)
@@ -5482,7 +5453,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "JP3") (unit 1)
+          (reference "JP1") (unit 1)
         )
       )
     )
@@ -5491,7 +5462,7 @@
   (symbol (lib_id "Device:LED") (at 127 113.03 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6b095ab9-f4d6-4b39-8644-24ef74ba2f12)
-    (property "Reference" "D6" (at 135.89 115.57 90)
+    (property "Reference" "D?" (at 135.89 115.57 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "GREEN" (at 135.89 113.03 90)
@@ -5514,12 +5485,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "D6") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D11") (unit 1)
+          (reference "D5") (unit 1)
         )
       )
     )
@@ -5528,7 +5499,7 @@
   (symbol (lib_id "Device:FerriteBead") (at 118.11 29.21 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 70a12cfa-bcee-4f5c-ac77-743fbbcca20c)
-    (property "Reference" "FB1" (at 118.0592 21.59 90)
+    (property "Reference" "FB?" (at 118.0592 21.59 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "300R" (at 118.0592 24.13 90)
@@ -5551,7 +5522,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "FB1") (unit 1)
+          (reference "FB?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -5584,17 +5555,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "#PWR080") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR012") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR074") (unit 1)
+          (reference "#PWR0108") (unit 1)
         )
       )
     )
@@ -5622,17 +5593,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR047") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR060") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR090") (unit 1)
+          (reference "#PWR0119") (unit 1)
         )
       )
     )
@@ -5641,7 +5612,7 @@
   (symbol (lib_id "Mechanical:MountingHole") (at 388.62 19.05 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7a4dc232-c165-4811-b066-59d9e5ba7b98)
-    (property "Reference" "H1" (at 391.16 17.78 0)
+    (property "Reference" "H?" (at 391.16 17.78 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MountingHole" (at 391.16 20.32 0)
@@ -5659,7 +5630,7 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "H1") (unit 1)
+          (reference "H?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -5673,7 +5644,7 @@
   (symbol (lib_id "power:+3.3VA") (at 73.66 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7ecff981-7a0e-4e7c-9ad3-c4a22937b1e5)
-    (property "Reference" "#PWR07" (at 73.66 31.75 0)
+    (property "Reference" "#PWR?" (at 73.66 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3VA" (at 78.74 26.67 0)
@@ -5689,12 +5660,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR066") (unit 1)
+          (reference "#PWR0132") (unit 1)
         )
       )
     )
@@ -5722,17 +5693,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "#PWR082") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR043") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR076") (unit 1)
+          (reference "#PWR0109") (unit 1)
         )
       )
     )
@@ -5741,7 +5712,7 @@
   (symbol (lib_id "Device:LED") (at 118.11 113.03 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 80d2d5a2-7321-4783-bb74-cbcab896f5ff)
-    (property "Reference" "D7" (at 116.078 115.8875 90)
+    (property "Reference" "D?" (at 116.078 115.8875 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "RED" (at 116.078 113.3475 90)
@@ -5764,12 +5735,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "D7") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D10") (unit 1)
+          (reference "D4") (unit 1)
         )
       )
     )
@@ -5778,7 +5749,7 @@
   (symbol (lib_id "Device:C") (at 30.988 94.234 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 85fb3b7d-a253-4f2a-859d-7b4668fb07ec)
-    (property "Reference" "C1" (at 33.02 90.17 90)
+    (property "Reference" "C?" (at 33.02 90.17 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 33.528 98.044 90)
@@ -5804,17 +5775,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "C1") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C2") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C31") (unit 1)
+          (reference "C2") (unit 1)
         )
       )
     )
@@ -5823,7 +5794,7 @@
   (symbol (lib_id "Switch:SW_Push") (at 30.48 83.82 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8cee2695-561a-4045-b922-a7d7509de6f6)
-    (property "Reference" "SW2" (at 30.48 86.36 0)
+    (property "Reference" "SW?" (at 30.48 86.36 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "RESET" (at 30.48 78.74 0)
@@ -5843,12 +5814,12 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "SW2") (unit 1)
+          (reference "SW?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "SW2") (unit 1)
+          (reference "SW?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -5862,7 +5833,7 @@
   (symbol (lib_id "power:+3V3") (at 24.13 177.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8da64cd6-f2c2-4e03-98e5-8f0bbc0e6c2e)
-    (property "Reference" "#PWR044" (at 24.13 181.61 0)
+    (property "Reference" "#PWR?" (at 24.13 181.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 24.13 173.355 0)
@@ -5878,17 +5849,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR044") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR057") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR087") (unit 1)
+          (reference "#PWR0117") (unit 1)
         )
       )
     )
@@ -5897,7 +5868,7 @@
   (symbol (lib_id "MCU_ST_STM32L4:STM32L432KCUx") (at 71.12 67.31 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 983760dc-edf0-48de-b9f0-5decdfab20fd)
-    (property "Reference" "U1" (at 73.3141 92.71 0)
+    (property "Reference" "U?" (at 73.3141 92.71 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "STM32L432KCUx" (at 73.3141 95.25 0)
@@ -5951,12 +5922,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "U1") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "U14") (unit 1)
+          (reference "U3") (unit 1)
         )
       )
     )
@@ -5984,17 +5955,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR053") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR066") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR095") (unit 1)
+          (reference "#PWR0123") (unit 1)
         )
       )
     )
@@ -6003,7 +5974,7 @@
   (symbol (lib_id "power:+5V") (at 184.15 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9d9135f5-0739-4166-b587-5b35253bba96)
-    (property "Reference" "#PWR029" (at 184.15 158.75 0)
+    (property "Reference" "#PWR?" (at 184.15 158.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 184.15 149.86 0)
@@ -6019,15 +5990,15 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
-          (reference "#PWR029") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR052") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR084") (unit 1)
+          (reference "#PWR0103") (unit 1)
         )
       )
     )
@@ -6036,7 +6007,7 @@
   (symbol (lib_id "Device:C") (at 45.72 185.42 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9e20a57f-4da3-4467-bead-39e22eb8f6df)
-    (property "Reference" "C16" (at 40.005 182.88 0)
+    (property "Reference" "C?" (at 40.005 182.88 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4u7" (at 40.005 187.96 0)
@@ -6062,17 +6033,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "C16") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C13") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C42") (unit 1)
+          (reference "C5") (unit 1)
         )
       )
     )
@@ -6100,17 +6071,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "#PWR084") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR050") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR078") (unit 1)
+          (reference "#PWR0110") (unit 1)
         )
       )
     )
@@ -6119,7 +6090,7 @@
   (symbol (lib_id "power:GND") (at 31.75 39.37 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a02821a6-6218-4d79-8c2f-679c5fb7ae33)
-    (property "Reference" "#PWR06" (at 31.75 45.72 0)
+    (property "Reference" "#PWR?" (at 31.75 45.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 31.75 43.18 0)
@@ -6135,12 +6106,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR062") (unit 1)
+          (reference "#PWR0139") (unit 1)
         )
       )
     )
@@ -6149,7 +6120,7 @@
   (symbol (lib_id "power:GND") (at 208.28 113.03 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a3a0e0c4-b7ea-4471-bc0b-d43fad58cd57)
-    (property "Reference" "#PWR0111" (at 201.93 113.03 0)
+    (property "Reference" "#PWR0113" (at 201.93 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 203.2 113.03 0)
@@ -6165,7 +6136,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR0111") (unit 1)
+          (reference "#PWR0113") (unit 1)
         )
       )
     )
@@ -6174,7 +6145,7 @@
   (symbol (lib_id "Device:C") (at 95.25 34.544 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a7aedda4-78ce-4ab0-93f6-004fea238ae9)
-    (property "Reference" "C10" (at 99.06 33.274 0)
+    (property "Reference" "C?" (at 99.06 33.274 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 99.06 35.814 0)
@@ -6197,12 +6168,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C10") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C36") (unit 1)
+          (reference "C12") (unit 1)
         )
       )
     )
@@ -6211,7 +6182,7 @@
   (symbol (lib_id "RF_Parts:ESDALC6V1W5") (at 184.15 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a7b5a8d7-5d5c-4cad-a772-027e34b8c76e)
-    (property "Reference" "IC1" (at 198.12 81.28 0)
+    (property "Reference" "IC?" (at 198.12 81.28 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "ESDALC6V1W5" (at 198.12 83.82 0)
@@ -6243,12 +6214,12 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "IC1") (unit 1)
+          (reference "IC?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "IC1") (unit 1)
+          (reference "IC?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
@@ -6294,17 +6265,17 @@
           (reference "C?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "C20") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C27") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C46") (unit 1)
+          (reference "C11") (unit 1)
         )
       )
     )
@@ -6313,7 +6284,7 @@
   (symbol (lib_id "power:GND") (at 184.15 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid aa409d1c-e126-4466-8088-321cb3678283)
-    (property "Reference" "#PWR0113" (at 184.15 125.73 0)
+    (property "Reference" "#PWR0104" (at 184.15 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 184.15 124.46 0)
@@ -6329,7 +6300,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR0113") (unit 1)
+          (reference "#PWR0104") (unit 1)
         )
       )
     )
@@ -6338,7 +6309,7 @@
   (symbol (lib_id "Connector:DE9_Receptacle_MountingHoles") (at 168.91 45.72 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ae86b737-fb98-4b40-ba78-849f2e028b85)
-    (property "Reference" "J14" (at 161.29 45.72 0)
+    (property "Reference" "J3" (at 161.29 45.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "DE9_Receptacle_MountingHoles" (at 162.56 30.48 90)
@@ -6363,7 +6334,7 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "J14") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
@@ -6404,17 +6375,17 @@
           (reference "C?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "C45") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C4") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C39") (unit 1)
+          (reference "C15") (unit 1)
         )
       )
     )
@@ -6452,17 +6423,17 @@
           (reference "C?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "C18") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C19") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C44") (unit 1)
+          (reference "C9") (unit 1)
         )
       )
     )
@@ -6471,7 +6442,7 @@
   (symbol (lib_id "Device:R") (at 118.11 105.41 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c4f68e36-1180-40b4-96d7-b79afe7017d7)
-    (property "Reference" "R14" (at 123.19 104.14 0)
+    (property "Reference" "R?" (at 123.19 104.14 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "220R" (at 124.46 106.68 0)
@@ -6494,12 +6465,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R14") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R18") (unit 1)
+          (reference "R6") (unit 1)
         )
       )
     )
@@ -6508,7 +6479,7 @@
   (symbol (lib_id "power:GND") (at 23.368 96.774 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c74fc762-5876-439e-a983-d381122c1c0f)
-    (property "Reference" "#PWR02" (at 23.368 103.124 0)
+    (property "Reference" "#PWR?" (at 23.368 103.124 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 23.368 101.219 0)
@@ -6524,17 +6495,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR041") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR058") (unit 1)
+          (reference "#PWR0135") (unit 1)
         )
       )
     )
@@ -6543,7 +6514,7 @@
   (symbol (lib_id "power:GND") (at 38.608 122.174 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c9ad8e49-5f61-4d4d-9749-abdd789e36be)
-    (property "Reference" "#PWR07" (at 38.608 128.524 0)
+    (property "Reference" "#PWR?" (at 38.608 128.524 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 38.608 126.619 0)
@@ -6559,17 +6530,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR040") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR063") (unit 1)
+          (reference "#PWR0134") (unit 1)
         )
       )
     )
@@ -6578,7 +6549,7 @@
   (symbol (lib_id "Device:D_Zener") (at 161.29 113.03 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cbe4aec4-44f8-4952-a65c-229827c05edb)
-    (property "Reference" "D4" (at 163.83 111.76 90)
+    (property "Reference" "D?" (at 163.83 111.76 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MMSZ5226B-7-F" (at 162.56 116.84 90)
@@ -6595,13 +6566,13 @@
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "D4") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f/88f1faac-12ef-431c-9bd1-139f98cd4cc8"
-          (reference "D5") (unit 1)
+          (reference "D?") (unit 1)
         )
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D1") (unit 1)
+          (reference "D6") (unit 1)
         )
       )
     )
@@ -6610,7 +6581,7 @@
   (symbol (lib_id "power:GND") (at 26.67 57.15 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ce06f11a-2b0d-4db9-8d91-5fb838931675)
-    (property "Reference" "#PWR011" (at 26.67 63.5 0)
+    (property "Reference" "#PWR?" (at 26.67 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 26.67 60.96 0)
@@ -6626,12 +6597,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR061") (unit 1)
+          (reference "#PWR0138") (unit 1)
         )
       )
     )
@@ -6676,17 +6647,17 @@
           (reference "D?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "D10") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "D13") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D15") (unit 1)
+          (reference "D2") (unit 1)
         )
       )
     )
@@ -6695,7 +6666,7 @@
   (symbol (lib_id "power:GND") (at 128.27 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d7cc1a3c-4896-4d22-8642-aeead77dec86)
-    (property "Reference" "#PWR09" (at 128.27 46.99 0)
+    (property "Reference" "#PWR?" (at 128.27 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 128.27 45.72 0)
@@ -6711,12 +6682,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR09") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR071") (unit 1)
+          (reference "#PWR0129") (unit 1)
         )
       )
     )
@@ -6725,7 +6696,7 @@
   (symbol (lib_id "Device:R") (at 67.31 167.64 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d8bb114d-b1fe-456e-ac7c-79492deed457)
-    (property "Reference" "R15" (at 67.31 162.56 90)
+    (property "Reference" "R?" (at 67.31 162.56 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "27R" (at 67.31 165.1 90)
@@ -6751,17 +6722,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "R15") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R17") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R25") (unit 1)
+          (reference "R3") (unit 1)
         )
       )
     )
@@ -6789,17 +6760,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR055") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR051") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR083") (unit 1)
+          (reference "#PWR0101") (unit 1)
         )
       )
     )
@@ -6808,7 +6779,7 @@
   (symbol (lib_id "Device:LED") (at 69.85 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e0b331a4-7452-4d00-80ed-3bc4d3af3c2a)
-    (property "Reference" "D9" (at 69.85 140.97 0)
+    (property "Reference" "D?" (at 69.85 140.97 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "AMBER" (at 69.85 143.51 0)
@@ -6837,17 +6808,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "D9") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "D12") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "D14") (unit 1)
+          (reference "D1") (unit 1)
         )
       )
     )
@@ -6856,7 +6827,7 @@
   (symbol (lib_id "power:+5V") (at 207.01 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e1c6aeaf-9e07-48cd-8b38-a931640dd219)
-    (property "Reference" "#PWR081" (at 207.01 36.83 0)
+    (property "Reference" "#PWR?" (at 207.01 36.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 204.47 27.94 0)
@@ -6872,17 +6843,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "#PWR081") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR013") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR075") (unit 1)
+          (reference "#PWR0106") (unit 1)
         )
       )
     )
@@ -6891,7 +6862,7 @@
   (symbol (lib_id "power:+3V3") (at 161.29 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e4302205-831f-4ea4-99c4-468f309e95ac)
-    (property "Reference" "#PWR014" (at 161.29 110.49 0)
+    (property "Reference" "#PWR?" (at 161.29 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 161.29 102.87 0)
@@ -6907,17 +6878,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR081") (unit 1)
+          (reference "#PWR0115") (unit 1)
         )
       )
     )
@@ -6926,7 +6897,7 @@
   (symbol (lib_id "power:+3V3") (at 23.368 103.124 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e7847b00-af2f-48d6-9a20-b74191538fb9)
-    (property "Reference" "#PWR06" (at 23.368 106.934 0)
+    (property "Reference" "#PWR?" (at 23.368 106.934 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 26.67 101.473 0)
@@ -6942,17 +6913,17 @@
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR03") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR059") (unit 1)
+          (reference "#PWR0136") (unit 1)
         )
       )
     )
@@ -6961,7 +6932,7 @@
   (symbol (lib_id "Device:C") (at 106.68 34.798 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eb160a3a-c434-4ce8-8424-3edbb84c51b0)
-    (property "Reference" "C11" (at 110.49 33.528 0)
+    (property "Reference" "C?" (at 110.49 33.528 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1u" (at 110.49 36.068 0)
@@ -6984,12 +6955,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C11") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C37") (unit 1)
+          (reference "C13") (unit 1)
         )
       )
     )
@@ -6998,7 +6969,7 @@
   (symbol (lib_id "Device:C") (at 31.75 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eece6d51-cc76-437e-8575-fbe7c4bb3885)
-    (property "Reference" "C9" (at 35.56 31.75 0)
+    (property "Reference" "C?" (at 35.56 31.75 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 35.56 34.29 0)
@@ -7021,12 +6992,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C9") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C32") (unit 1)
+          (reference "C3") (unit 1)
         )
       )
     )
@@ -7035,7 +7006,7 @@
   (symbol (lib_id "Device:C") (at 128.27 34.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eff41249-7733-424e-9432-37f6317ae89c)
-    (property "Reference" "C12" (at 132.08 33.02 0)
+    (property "Reference" "C?" (at 132.08 33.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1u" (at 132.08 35.56 0)
@@ -7058,12 +7029,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C12") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C38") (unit 1)
+          (reference "C14") (unit 1)
         )
       )
     )
@@ -7072,7 +7043,7 @@
   (symbol (lib_id "Device:R") (at 127 105.41 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f09c1048-6b87-4a92-960f-93a460cd8633)
-    (property "Reference" "R13" (at 134.62 104.14 0)
+    (property "Reference" "R?" (at 134.62 104.14 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "220R" (at 134.62 106.68 0)
@@ -7095,12 +7066,12 @@
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "R13") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "R21") (unit 1)
+          (reference "R7") (unit 1)
         )
       )
     )
@@ -7128,17 +7099,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR058") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR088") (unit 1)
+          (reference "#PWR0121") (unit 1)
         )
       )
     )
@@ -7166,17 +7137,17 @@
           (reference "#PWR?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/1b232830-45dc-4be3-ab16-3f2b1eb9ac0e"
-          (reference "#PWR051") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "#PWR064") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "#PWR096") (unit 1)
+          (reference "#PWR0126") (unit 1)
         )
       )
     )
@@ -7217,17 +7188,17 @@
           (reference "C?") (unit 1)
         )
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/a8f85b94-518b-47d1-93ae-6585dcdb3412"
-          (reference "C46") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745"
-          (reference "C5") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096"
-          (reference "C40") (unit 1)
+          (reference "C16") (unit 1)
         )
       )
     )
