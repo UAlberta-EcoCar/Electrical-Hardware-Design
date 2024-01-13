@@ -2513,6 +2513,40 @@
     )
   )
 
+  (symbol (lib_id "Device:L") (at 232.41 120.65 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 07e53c74-22b0-4f03-ac81-6d9a1ae2573c)
+    (property "Reference" "L?" (at 232.41 115.57 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "2.2u" (at 232.41 118.11 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "BP_FTP:IND_IFSC_1515AH_VIS" (at 232.41 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.vishay.com/docs/34295/sc15ah01.pdf" (at 232.41 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Digikey #" "541-1404-2-ND" (at 232.41 120.65 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 04443857-d3d7-456f-bcd1-c95a37b809ce))
+    (pin "2" (uuid fa8a484c-ef04-4950-8f44-cb0006745250))
+    (instances
+      (project "H2 Sensor Board Lucy Rev 1"
+        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
+          (reference "L?") (unit 1)
+        )
+      )
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
+          (reference "L3") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "power:+5V") (at 105.41 92.71 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 09ba595a-4d95-4d7f-9480-f33a8a27d27a)
@@ -2742,7 +2776,7 @@
     (property "Footprint" "BP_FTP:IND_IFSC_1515AH_VIS" (at 231.14 30.48 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.vishay.com/docs/34295/sc15ah01.pdf" (at 231.14 30.48 0)
+    (property "Datasheet" "https://www.vishay.com/docs/34295/sc15ah01.pdf" (at 231.14 30.48 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Digikey #" "541-1404-2-ND" (at 231.14 30.48 90)
@@ -3613,6 +3647,40 @@
     )
   )
 
+  (symbol (lib_id "Device:L") (at 232.41 76.2 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 73515602-7354-4f5d-88a0-4164727aff80)
+    (property "Reference" "L?" (at 232.41 71.12 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "2.2u" (at 232.41 73.66 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "BP_FTP:IND_IFSC_1515AH_VIS" (at 232.41 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.vishay.com/docs/34295/sc15ah01.pdf" (at 232.41 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Digikey #" "541-1404-2-ND" (at 232.41 76.2 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid b1b1a4f6-cb3e-4320-8a96-6399339e5e5f))
+    (pin "2" (uuid 58e4e5da-9651-4f5d-9c44-0fadfe69adff))
+    (instances
+      (project "H2 Sensor Board Lucy Rev 1"
+        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
+          (reference "L?") (unit 1)
+        )
+      )
+      (project "Batt-Power-Prototype-2023_Lucy_V1"
+        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
+          (reference "L2") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "power:GND") (at 39.37 113.03 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 76c46c5d-a79e-47d5-8570-3ba6c7f676bc)
@@ -3957,40 +4025,6 @@
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
           (reference "C31") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:L") (at 232.41 120.65 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 8a5450d4-4090-4515-8874-987f2f2d19b3)
-    (property "Reference" "L?" (at 232.41 115.57 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "2.2u" (at 232.41 118.11 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "BP_FTP:IND_IFSC_1515AH_VIS" (at 232.41 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.vishay.com/docs/34295/sc15ah01.pdf" (at 232.41 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Digikey #" "541-1404-2-ND" (at 232.41 120.65 90)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid b1f23550-85b9-454e-8812-03e5b4c0d133))
-    (pin "2" (uuid 719ffe9e-fdd5-4bee-b226-b67d918161e1))
-    (instances
-      (project "H2 Sensor Board Lucy Rev 1"
-        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
-          (reference "L?") (unit 1)
-        )
-      )
-      (project "Batt-Power-Prototype-2023_Lucy_V1"
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "L3") (unit 1)
         )
       )
     )
@@ -5211,40 +5245,6 @@
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
           (reference "C49") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:L") (at 232.41 76.2 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid f9e174a9-2fa7-42b2-8fba-9a00e0c5eb7c)
-    (property "Reference" "L?" (at 232.41 71.12 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "2.2u" (at 232.41 73.66 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "BP_FTP:IND_IFSC_1515AH_VIS" (at 232.41 76.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.vishay.com/docs/34295/sc15ah01.pdf" (at 232.41 76.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Digikey #" "541-1404-2-ND" (at 232.41 76.2 90)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 32dbc5f1-46f1-426c-bdde-e7b2f280dd2e))
-    (pin "2" (uuid 261d63e3-7131-496a-af90-0cace7d625ca))
-    (instances
-      (project "H2 Sensor Board Lucy Rev 1"
-        (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
-          (reference "L?") (unit 1)
-        )
-      )
-      (project "Batt-Power-Prototype-2023_Lucy_V1"
-        (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "L2") (unit 1)
         )
       )
     )
