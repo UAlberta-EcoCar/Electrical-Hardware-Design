@@ -53,8 +53,8 @@
   (pad "1" thru_hole circle (at 3.475 0) (size 6.5 6.5) (drill 4) (layers "*.Cu" "*.Mask") (tstamp dce39587-3199-4ca6-8683-169a2e874770))
   (pad "2" thru_hole circle (at -3.475 0) (size 6.5 6.5) (drill 4) (layers "*.Cu" "*.Mask") (tstamp 8e9ba577-5a04-44fa-be25-e1cfa884f4a5))
   (model "${KIPRJMOD}/SYM&FOOT/3D/PRT-10474.STEP"
-    (offset (xyz -7.5 0 -18))
+    (offset (xyz -7.5 0 16))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 -180 90))
+    (rotate (xyz 0 0 90))
   )
 )
