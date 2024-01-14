@@ -114,8 +114,10 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/main.o
  .data          0x0000000000000000        0x0 build/main.o
  .bss           0x0000000000000000        0x0 build/main.o
+ .bss.FC        0x0000000000000000        0xc build/main.o
+ .bss.CANPackets
+                0x0000000000000000        0x8 build/main.o
  .bss.accData   0x0000000000000000        0x3 build/main.o
- .bss.fcData    0x0000000000000000        0xc build/main.o
  .bss.TxHeader  0x0000000000000000       0x18 build/main.o
  .bss.TxMailbox
                 0x0000000000000000        0x4 build/main.o
@@ -5794,59 +5796,59 @@ LOAD /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3
 LOAD /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000    0x22da3
- .debug_info    0x0000000000000000     0x2f7a build/main.o
- .debug_info    0x0000000000002f7a      0xca2 build/stm32l4xx_it.o
- .debug_info    0x0000000000003c1c     0x180b build/stm32l4xx_hal_msp.o
- .debug_info    0x0000000000005427     0x1157 build/stm32l4xx_hal_can.o
- .debug_info    0x000000000000657e      0xa9e build/stm32l4xx_hal.o
- .debug_info    0x000000000000701c      0xd85 build/stm32l4xx_hal_rcc.o
- .debug_info    0x0000000000007da1     0x1083 build/stm32l4xx_hal_rcc_ex.o
- .debug_info    0x0000000000008e24      0x8ea build/stm32l4xx_hal_gpio.o
- .debug_info    0x000000000000970e     0x23c8 build/stm32l4xx_hal_i2c.o
- .debug_info    0x000000000000bad6      0xb56 build/stm32l4xx_hal_i2c_ex.o
- .debug_info    0x000000000000c62c      0xa8d build/stm32l4xx_hal_pwr_ex.o
- .debug_info    0x000000000000d0b9      0xeb8 build/stm32l4xx_hal_cortex.o
- .debug_info    0x000000000000df71     0x2f95 build/stm32l4xx_hal_tim.o
- .debug_info    0x0000000000010f06     0x1858 build/stm32l4xx_hal_tim_ex.o
- .debug_info    0x000000000001275e     0x3e9e build/stm32l4xx_hal_uart.o
- .debug_info    0x00000000000165fc      0x66a build/system_stm32l4xx.o
- .debug_info    0x0000000000016c66      0xcbb build/stm32l4xx_hal_timebase_tim.o
- .debug_info    0x0000000000017921      0x304 build/list.o
- .debug_info    0x0000000000017c25     0x1c2d build/queue.o
- .debug_info    0x0000000000019852     0x2d3a build/tasks.o
- .debug_info    0x000000000001c58c     0x1da7 build/timers.o
- .debug_info    0x000000000001e333     0x4004 build/cmsis_os2.o
- .debug_info    0x0000000000022337      0x516 build/heap_4.o
- .debug_info    0x000000000002284d      0x534 build/port.o
- .debug_info    0x0000000000022d81       0x22 build/startup_stm32l432xx.o
+.debug_info     0x0000000000000000    0x22de0
+ .debug_info    0x0000000000000000     0x2fb7 build/main.o
+ .debug_info    0x0000000000002fb7      0xca2 build/stm32l4xx_it.o
+ .debug_info    0x0000000000003c59     0x180b build/stm32l4xx_hal_msp.o
+ .debug_info    0x0000000000005464     0x1157 build/stm32l4xx_hal_can.o
+ .debug_info    0x00000000000065bb      0xa9e build/stm32l4xx_hal.o
+ .debug_info    0x0000000000007059      0xd85 build/stm32l4xx_hal_rcc.o
+ .debug_info    0x0000000000007dde     0x1083 build/stm32l4xx_hal_rcc_ex.o
+ .debug_info    0x0000000000008e61      0x8ea build/stm32l4xx_hal_gpio.o
+ .debug_info    0x000000000000974b     0x23c8 build/stm32l4xx_hal_i2c.o
+ .debug_info    0x000000000000bb13      0xb56 build/stm32l4xx_hal_i2c_ex.o
+ .debug_info    0x000000000000c669      0xa8d build/stm32l4xx_hal_pwr_ex.o
+ .debug_info    0x000000000000d0f6      0xeb8 build/stm32l4xx_hal_cortex.o
+ .debug_info    0x000000000000dfae     0x2f95 build/stm32l4xx_hal_tim.o
+ .debug_info    0x0000000000010f43     0x1858 build/stm32l4xx_hal_tim_ex.o
+ .debug_info    0x000000000001279b     0x3e9e build/stm32l4xx_hal_uart.o
+ .debug_info    0x0000000000016639      0x66a build/system_stm32l4xx.o
+ .debug_info    0x0000000000016ca3      0xcbb build/stm32l4xx_hal_timebase_tim.o
+ .debug_info    0x000000000001795e      0x304 build/list.o
+ .debug_info    0x0000000000017c62     0x1c2d build/queue.o
+ .debug_info    0x000000000001988f     0x2d3a build/tasks.o
+ .debug_info    0x000000000001c5c9     0x1da7 build/timers.o
+ .debug_info    0x000000000001e370     0x4004 build/cmsis_os2.o
+ .debug_info    0x0000000000022374      0x516 build/heap_4.o
+ .debug_info    0x000000000002288a      0x534 build/port.o
+ .debug_info    0x0000000000022dbe       0x22 build/startup_stm32l432xx.o
 
-.debug_abbrev   0x0000000000000000     0x36ef
- .debug_abbrev  0x0000000000000000      0x327 build/main.o
- .debug_abbrev  0x0000000000000327      0x17e build/stm32l4xx_it.o
- .debug_abbrev  0x00000000000004a5      0x1e9 build/stm32l4xx_hal_msp.o
- .debug_abbrev  0x000000000000068e      0x228 build/stm32l4xx_hal_can.o
- .debug_abbrev  0x00000000000008b6      0x1ed build/stm32l4xx_hal.o
- .debug_abbrev  0x0000000000000aa3      0x277 build/stm32l4xx_hal_rcc.o
- .debug_abbrev  0x0000000000000d1a      0x257 build/stm32l4xx_hal_rcc_ex.o
- .debug_abbrev  0x0000000000000f71      0x1bd build/stm32l4xx_hal_gpio.o
- .debug_abbrev  0x000000000000112e      0x219 build/stm32l4xx_hal_i2c.o
- .debug_abbrev  0x0000000000001347      0x1b2 build/stm32l4xx_hal_i2c_ex.o
- .debug_abbrev  0x00000000000014f9      0x1e2 build/stm32l4xx_hal_pwr_ex.o
- .debug_abbrev  0x00000000000016db      0x2f6 build/stm32l4xx_hal_cortex.o
- .debug_abbrev  0x00000000000019d1      0x23a build/stm32l4xx_hal_tim.o
- .debug_abbrev  0x0000000000001c0b      0x242 build/stm32l4xx_hal_tim_ex.o
- .debug_abbrev  0x0000000000001e4d      0x27d build/stm32l4xx_hal_uart.o
- .debug_abbrev  0x00000000000020ca      0x118 build/system_stm32l4xx.o
- .debug_abbrev  0x00000000000021e2      0x1a7 build/stm32l4xx_hal_timebase_tim.o
- .debug_abbrev  0x0000000000002389       0xf4 build/list.o
- .debug_abbrev  0x000000000000247d      0x309 build/queue.o
- .debug_abbrev  0x0000000000002786      0x3a5 build/tasks.o
- .debug_abbrev  0x0000000000002b2b      0x302 build/timers.o
- .debug_abbrev  0x0000000000002e2d      0x48a build/cmsis_os2.o
- .debug_abbrev  0x00000000000032b7      0x1d9 build/heap_4.o
- .debug_abbrev  0x0000000000003490      0x24d build/port.o
- .debug_abbrev  0x00000000000036dd       0x12 build/startup_stm32l432xx.o
+.debug_abbrev   0x0000000000000000     0x36f3
+ .debug_abbrev  0x0000000000000000      0x32b build/main.o
+ .debug_abbrev  0x000000000000032b      0x17e build/stm32l4xx_it.o
+ .debug_abbrev  0x00000000000004a9      0x1e9 build/stm32l4xx_hal_msp.o
+ .debug_abbrev  0x0000000000000692      0x228 build/stm32l4xx_hal_can.o
+ .debug_abbrev  0x00000000000008ba      0x1ed build/stm32l4xx_hal.o
+ .debug_abbrev  0x0000000000000aa7      0x277 build/stm32l4xx_hal_rcc.o
+ .debug_abbrev  0x0000000000000d1e      0x257 build/stm32l4xx_hal_rcc_ex.o
+ .debug_abbrev  0x0000000000000f75      0x1bd build/stm32l4xx_hal_gpio.o
+ .debug_abbrev  0x0000000000001132      0x219 build/stm32l4xx_hal_i2c.o
+ .debug_abbrev  0x000000000000134b      0x1b2 build/stm32l4xx_hal_i2c_ex.o
+ .debug_abbrev  0x00000000000014fd      0x1e2 build/stm32l4xx_hal_pwr_ex.o
+ .debug_abbrev  0x00000000000016df      0x2f6 build/stm32l4xx_hal_cortex.o
+ .debug_abbrev  0x00000000000019d5      0x23a build/stm32l4xx_hal_tim.o
+ .debug_abbrev  0x0000000000001c0f      0x242 build/stm32l4xx_hal_tim_ex.o
+ .debug_abbrev  0x0000000000001e51      0x27d build/stm32l4xx_hal_uart.o
+ .debug_abbrev  0x00000000000020ce      0x118 build/system_stm32l4xx.o
+ .debug_abbrev  0x00000000000021e6      0x1a7 build/stm32l4xx_hal_timebase_tim.o
+ .debug_abbrev  0x000000000000238d       0xf4 build/list.o
+ .debug_abbrev  0x0000000000002481      0x309 build/queue.o
+ .debug_abbrev  0x000000000000278a      0x3a5 build/tasks.o
+ .debug_abbrev  0x0000000000002b2f      0x302 build/timers.o
+ .debug_abbrev  0x0000000000002e31      0x48a build/cmsis_os2.o
+ .debug_abbrev  0x00000000000032bb      0x1d9 build/heap_4.o
+ .debug_abbrev  0x0000000000003494      0x24d build/port.o
+ .debug_abbrev  0x00000000000036e1       0x12 build/startup_stm32l432xx.o
 
 .debug_loc      0x0000000000000000     0xf67a
  .debug_loc     0x0000000000000000      0x42a build/main.o
@@ -6080,56 +6082,56 @@ LOAD /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3
  .debug_line    0x0000000000019ee7      0x652 build/port.o
  .debug_line    0x000000000001a539       0x76 build/startup_stm32l432xx.o
 
-.debug_str      0x0000000000000000    0xd860b
- .debug_str     0x0000000000000000    0xccc9c build/main.o
-                                      0xcd22a (size before relaxing)
- .debug_str     0x00000000000ccc9c      0x11f build/stm32l4xx_it.o
+.debug_str      0x0000000000000000    0xd8628
+ .debug_str     0x0000000000000000    0xcccb9 build/main.o
+                                      0xcd247 (size before relaxing)
+ .debug_str     0x00000000000cccb9      0x11f build/stm32l4xx_it.o
                                       0xc5b3d (size before relaxing)
- .debug_str     0x00000000000ccdbb      0x23a build/stm32l4xx_hal_msp.o
+ .debug_str     0x00000000000ccdd8      0x23a build/stm32l4xx_hal_msp.o
                                       0xc6382 (size before relaxing)
- .debug_str     0x00000000000ccff5      0x3fa build/stm32l4xx_hal_can.o
+ .debug_str     0x00000000000cd012      0x3fa build/stm32l4xx_hal_can.o
                                       0xc58a2 (size before relaxing)
- .debug_str     0x00000000000cd3ef      0x556 build/stm32l4xx_hal.o
+ .debug_str     0x00000000000cd40c      0x556 build/stm32l4xx_hal.o
                                       0xc5b61 (size before relaxing)
- .debug_str     0x00000000000cd945      0x451 build/stm32l4xx_hal_rcc.o
+ .debug_str     0x00000000000cd962      0x451 build/stm32l4xx_hal_rcc.o
                                       0xc57e2 (size before relaxing)
- .debug_str     0x00000000000cdd96      0x56b build/stm32l4xx_hal_rcc_ex.o
+ .debug_str     0x00000000000cddb3      0x56b build/stm32l4xx_hal_rcc_ex.o
                                       0xc59f4 (size before relaxing)
- .debug_str     0x00000000000ce301       0xf7 build/stm32l4xx_hal_gpio.o
+ .debug_str     0x00000000000ce31e       0xf7 build/stm32l4xx_hal_gpio.o
                                       0xc5397 (size before relaxing)
- .debug_str     0x00000000000ce3f8      0xd99 build/stm32l4xx_hal_i2c.o
+ .debug_str     0x00000000000ce415      0xd99 build/stm32l4xx_hal_i2c.o
                                       0xc63e5 (size before relaxing)
- .debug_str     0x00000000000cf191       0xb5 build/stm32l4xx_hal_i2c_ex.o
+ .debug_str     0x00000000000cf1ae       0xb5 build/stm32l4xx_hal_i2c_ex.o
                                       0xc575a (size before relaxing)
- .debug_str     0x00000000000cf246      0x457 build/stm32l4xx_hal_pwr_ex.o
+ .debug_str     0x00000000000cf263      0x457 build/stm32l4xx_hal_pwr_ex.o
                                       0xc56b7 (size before relaxing)
- .debug_str     0x00000000000cf69d      0x387 build/stm32l4xx_hal_cortex.o
+ .debug_str     0x00000000000cf6ba      0x387 build/stm32l4xx_hal_cortex.o
                                       0xc5951 (size before relaxing)
- .debug_str     0x00000000000cfa24      0xe68 build/stm32l4xx_hal_tim.o
+ .debug_str     0x00000000000cfa41      0xe68 build/stm32l4xx_hal_tim.o
                                       0xc64ae (size before relaxing)
- .debug_str     0x00000000000d088c      0x658 build/stm32l4xx_hal_tim_ex.o
+ .debug_str     0x00000000000d08a9      0x658 build/stm32l4xx_hal_tim_ex.o
                                       0xc5d80 (size before relaxing)
- .debug_str     0x00000000000d0ee4      0x8a2 build/stm32l4xx_hal_uart.o
+ .debug_str     0x00000000000d0f01      0x8a2 build/stm32l4xx_hal_uart.o
                                       0xc5eaa (size before relaxing)
- .debug_str     0x00000000000d1786       0x3d build/system_stm32l4xx.o
+ .debug_str     0x00000000000d17a3       0x3d build/system_stm32l4xx.o
                                       0xc5223 (size before relaxing)
- .debug_str     0x00000000000d17c3       0x4c build/stm32l4xx_hal_timebase_tim.o
+ .debug_str     0x00000000000d17e0       0x4c build/stm32l4xx_hal_timebase_tim.o
                                       0xc5b27 (size before relaxing)
- .debug_str     0x00000000000d180f     0x1626 build/list.o
+ .debug_str     0x00000000000d182c     0x1626 build/list.o
                                        0xa0a5 (size before relaxing)
- .debug_str     0x00000000000d2e35     0x1272 build/queue.o
+ .debug_str     0x00000000000d2e52     0x1272 build/queue.o
                                        0xb9d2 (size before relaxing)
- .debug_str     0x00000000000d40a7     0x1b69 build/tasks.o
+ .debug_str     0x00000000000d40c4     0x1b69 build/tasks.o
                                        0xc914 (size before relaxing)
- .debug_str     0x00000000000d5c10      0x664 build/timers.o
+ .debug_str     0x00000000000d5c2d      0x664 build/timers.o
                                        0xc365 (size before relaxing)
- .debug_str     0x00000000000d6274     0x1827 build/cmsis_os2.o
+ .debug_str     0x00000000000d6291     0x1827 build/cmsis_os2.o
                                       0xcf1bd (size before relaxing)
- .debug_str     0x00000000000d7a9b      0x338 build/heap_4.o
+ .debug_str     0x00000000000d7ab8      0x338 build/heap_4.o
                                        0xa998 (size before relaxing)
- .debug_str     0x00000000000d7dd3      0x814 build/port.o
+ .debug_str     0x00000000000d7df0      0x814 build/port.o
                                        0x999d (size before relaxing)
- .debug_str     0x00000000000d85e7       0x24 build/startup_stm32l432xx.o
+ .debug_str     0x00000000000d8604       0x24 build/startup_stm32l432xx.o
                                          0x6c (size before relaxing)
 
 .comment        0x0000000000000000       0x49
@@ -6208,6 +6210,7 @@ CAN1_RX0_IRQHandler                               build/stm32l4xx_it.o
 CAN1_RX1_IRQHandler                               build/startup_stm32l432xx.o
 CAN1_SCE_IRQHandler                               build/startup_stm32l432xx.o
 CAN1_TX_IRQHandler                                build/stm32l4xx_it.o
+CANPackets                                        build/main.o
 COMP_IRQHandler                                   build/startup_stm32l432xx.o
 CRS_IRQHandler                                    build/startup_stm32l432xx.o
 CanTaskBuffer                                     build/main.o
@@ -6239,6 +6242,7 @@ EXTI4_IRQHandler                                  build/stm32l4xx_it.o
 EXTI9_5_IRQHandler                                build/stm32l4xx_it.o
 Error_Handler                                     build/main.o
                                                   build/stm32l4xx_hal_msp.o
+FC                                                build/main.o
 FLASH_FlushCaches                                 build/stm32l4xx_hal_flash_ex.o
                                                   build/stm32l4xx_hal_flash.o
 FLASH_IRQHandler                                  build/startup_stm32l432xx.o
@@ -6995,7 +6999,6 @@ errno                                             /usr/share/gcc-arm-none-eabi-1
                                                   /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-sbrkr.o)
 exit                                              /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-exit.o)
                                                   /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
-fcData                                            build/main.o
 fc_state                                          build/main.o
 g_pfnVectors                                      build/startup_stm32l432xx.o
 hardware_init_hook                                /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o

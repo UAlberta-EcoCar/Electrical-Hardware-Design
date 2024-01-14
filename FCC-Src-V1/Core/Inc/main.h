@@ -36,7 +36,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef struct FuelCellData FCData;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

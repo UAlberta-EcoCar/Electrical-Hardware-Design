@@ -34,12 +34,20 @@ typedef struct
 
 } ACCELEROMETER;
 
-typedef struct
+struct FuelCellData
 {
   uint8_t purge_state, supply_state;
   float internal_stack_temp, internal_stack_pressure;
   // Potentially some more data here
-} FC;
+};
+
+struct CANPack
+{
+  struct FCData* pFC;
+  uint8_t FCData_ID;
+};
+
+struct CANPack CANPackets;
 
 typedef struct
 {
@@ -118,7 +126,6 @@ const osSemaphoreAttr_t canMsgOkSem_attributes = {
 uint8_t fc_state = FUEL_CELL_OFF_STATE;
 
 ACCELEROMETER accData;
-FC fcData;
 CANBUS canData;
 
 CAN_TxHeaderTypeDef TxHeader, TxHeaderFuelCellTask;
@@ -679,6 +686,7 @@ void StartFuelCellTask(void *argument)
       TxHeaderFuelCellTask.StdId = 0x103;
       TxHeaderFuelCellTask.DLC = 8;
       uint8_t mymsg[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+
       // Try to add tx message
       fc_tick = HAL_GetTick();
       do
