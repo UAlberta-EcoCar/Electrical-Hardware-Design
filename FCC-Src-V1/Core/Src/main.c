@@ -31,31 +31,25 @@ typedef StaticTask_t osStaticThreadDef_t;
 typedef struct
 {
   uint8_t x, y, z;
+} accData_t;
 
-} ACCELEROMETER;
-
-struct FuelCellData
+typedef struct  
 {
   uint8_t purge_state, supply_state;
   float internal_stack_temp, internal_stack_pressure;
-  // Potentially some more data here
-};
+} fcData_t;
 
-struct CANPack
+typedef struct 
 {
   struct FCData* pFC;
   uint8_t FCData_ID;
-};
-
-struct CANPack CANPackets;
+} canPack_t;
 
 typedef struct
 {
-  // Data received from CAN
   uint8_t H2_OK;
   float cap_voltage;
-
-} CANBUS;
+} canData_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -127,8 +121,7 @@ const osSemaphoreAttr_t canMsgOkSem_attributes = {
 /* USER CODE BEGIN PV */
 uint8_t fc_state = FUEL_CELL_OFF_STATE;
 
-ACCELEROMETER accData;
-CANBUS canData;
+canData_t canData;
 
 CAN_TxHeaderTypeDef TxHeader, TxHeaderFuelCellTask;
 CAN_RxHeaderTypeDef RxHeader;
@@ -140,6 +133,8 @@ uint8_t RxData[8];
 uint8_t RxUARTbuff;
 uint8_t RxUARTData[32];
 uint8_t UartIndex = 0;
+
+uint8_t uselessvariable = 90; 
 
 uint32_t button_debounce;
 /* USER CODE END PV */
