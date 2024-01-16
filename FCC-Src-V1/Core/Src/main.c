@@ -28,6 +28,31 @@
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PTD */
+<<<<<<< HEAD
+=======
+typedef struct
+{
+  uint8_t x, y, z;
+} accData_t;
+
+typedef struct  
+{
+  uint8_t purge_state, supply_state;
+  float internal_stack_temp, internal_stack_pressure;
+} fcData_t;
+
+typedef struct 
+{
+  struct FCData* pFC;
+  uint8_t FCData_ID;
+} canPack_t;
+
+typedef struct
+{
+  uint8_t H2_OK;
+  float cap_voltage;
+} canData_t;
+>>>>>>> bcfaaaa94a4a245e26cd3efa2117dbda2653f00b
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -99,8 +124,11 @@ const osSemaphoreAttr_t canMsgOkSem_attributes = {
 /* USER CODE BEGIN PV */
 uint8_t fc_state = FUEL_CELL_OFF_STATE;
 
+<<<<<<< HEAD
 accData_t accData;
 fcData_t fcData;
+=======
+>>>>>>> bcfaaaa94a4a245e26cd3efa2117dbda2653f00b
 canData_t canData;
 
 CAN_TxHeaderTypeDef TxHeader, TxHeaderFuelCellTask;
@@ -113,6 +141,8 @@ uint8_t RxData[8];
 uint8_t RxUARTbuff;
 uint8_t RxUARTData[32];
 uint8_t UartIndex = 0;
+
+uint8_t uselessvariable = 90; 
 
 uint32_t button_debounce;
 /* USER CODE END PV */
@@ -713,6 +743,7 @@ void StartFuelCellTask(void *argument)
       TxHeaderFuelCellTask.StdId = 0x103;
       TxHeaderFuelCellTask.DLC = 8;
       uint8_t mymsg[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+
       // Try to add tx message
       fc_tick = HAL_GetTick();
       do
