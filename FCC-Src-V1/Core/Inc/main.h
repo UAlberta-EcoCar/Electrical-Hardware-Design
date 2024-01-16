@@ -36,7 +36,24 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef struct
+{
+  uint8_t x, y, z;
+} accData_t;
 
+typedef struct
+{
+  uint8_t purge_state, supply_state;
+  float internal_stack_temp, internal_stack_pressure;
+  // Potentially some more data here
+} fcData_t;
+
+typedef struct
+{
+  // Data received from CAN
+  uint8_t H2_OK;
+  float cap_voltage;
+} canData_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

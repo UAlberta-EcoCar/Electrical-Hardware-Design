@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cccThlSy.s 			page 1
+ARM GAS  /tmp/ccNYnlTX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
   19:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
   20:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   21:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  *
-ARM GAS  /tmp/cccThlSy.s 			page 2
+ARM GAS  /tmp/ccNYnlTX.s 			page 2
 
 
   22:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  * http://www.FreeRTOS.org
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
   76:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	UBaseType_t uxRecursiveCallCount;/*< Maintains a count of the number of times a recursive mutex ha
   77:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** } SemaphoreData_t;
   78:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
-ARM GAS  /tmp/cccThlSy.s 			page 3
+ARM GAS  /tmp/ccNYnlTX.s 			page 3
 
 
   79:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** /* Semaphores do not actually store or copy data, so have an item size of
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  133:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** /* The old xQUEUE name is maintained above then typedefed to the new Queue_t
  134:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** name below to enable the use of older kernel aware debuggers. */
  135:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** typedef xQUEUE Queue_t;
-ARM GAS  /tmp/cccThlSy.s 			page 4
+ARM GAS  /tmp/ccNYnlTX.s 			page 4
 
 
  136:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  190:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** /*
  191:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  * Copies an item into the queue, either at the front of the queue or the
  192:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  * back of the queue.
-ARM GAS  /tmp/cccThlSy.s 			page 5
+ARM GAS  /tmp/ccNYnlTX.s 			page 5
 
 
  193:Middlewares/Third_Party/FreeRTOS/Source/queue.c ****  */
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  247:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		if( ( pxQueue )->cTxLock == queueUNLOCKED )			\
  248:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{													\
  249:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			( pxQueue )->cTxLock = queueLOCKED_UNMODIFIED;	\
-ARM GAS  /tmp/cccThlSy.s 			page 6
+ARM GAS  /tmp/ccNYnlTX.s 			page 6
 
 
  250:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}													\
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
   18:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h ****  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
   19:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h ****  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
   20:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h ****  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-ARM GAS  /tmp/cccThlSy.s 			page 7
+ARM GAS  /tmp/ccNYnlTX.s 			page 7
 
 
   21:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h ****  *
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
   75:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** #define portBYTE_ALIGNMENT			8
   76:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** /*-----------------------------------------------------------*/
   77:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 
-ARM GAS  /tmp/cccThlSy.s 			page 8
+ARM GAS  /tmp/ccNYnlTX.s 			page 8
 
 
   78:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** /* Scheduler utilities. */
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  132:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 	uint8_t ucReturn;
  133:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  134:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 		__asm volatile ( "clz %0, %1" : "=r" ( ucReturn ) : "r" ( ulBitmap ) : "memory" );
-ARM GAS  /tmp/cccThlSy.s 			page 9
+ARM GAS  /tmp/ccNYnlTX.s 			page 9
 
 
  135:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 		return ucReturn;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  189:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** /*-----------------------------------------------------------*/
  190:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  191:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** portFORCE_INLINE static void vPortRaiseBASEPRI( void )
-ARM GAS  /tmp/cccThlSy.s 			page 10
+ARM GAS  /tmp/ccNYnlTX.s 			page 10
 
 
  192:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** {
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  264:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		pxQueue->uxMessagesWaiting = ( UBaseType_t ) 0U;
  101              		.loc 1 264 30
  102 0044 FB68     		ldr	r3, [r7, #12]
-ARM GAS  /tmp/cccThlSy.s 			page 11
+ARM GAS  /tmp/ccNYnlTX.s 			page 11
 
 
  103 0046 0022     		movs	r2, #0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  144              		.loc 1 277 6
  145 0084 002B     		cmp	r3, #0
  146 0086 1AD0     		beq	.L5
-ARM GAS  /tmp/cccThlSy.s 			page 12
+ARM GAS  /tmp/ccNYnlTX.s 			page 12
 
 
  278:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			{
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  181 00ba FFF7FEFF 		bl	vListInitialise
  182              	.L5:
  298:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
-ARM GAS  /tmp/cccThlSy.s 			page 13
+ARM GAS  /tmp/ccNYnlTX.s 			page 13
 
 
  299:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	}
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  226              	.LCFI7:
  227              		.cfi_def_cfa 7, 56
  228 0006 F860     		str	r0, [r7, #12]
-ARM GAS  /tmp/cccThlSy.s 			page 14
+ARM GAS  /tmp/ccNYnlTX.s 			page 14
 
 
  229 0008 B960     		str	r1, [r7, #8]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  274              		.syntax unified
  275 0040 7B62     		str	r3, [r7, #36]
  276              		.loc 2 203 1
-ARM GAS  /tmp/cccThlSy.s 			page 15
+ARM GAS  /tmp/ccNYnlTX.s 			page 15
 
 
  277 0042 00BF     		nop
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  325              		.loc 1 323 3
  326 0072 7B68     		ldr	r3, [r7, #4]
  327 0074 002B     		cmp	r3, #0
-ARM GAS  /tmp/cccThlSy.s 			page 16
+ARM GAS  /tmp/ccNYnlTX.s 			page 16
 
 
  328 0076 02D1     		bne	.L19
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  373 00a6 0AD0     		beq	.L24
  374              	.LBB129:
  375              	.LBB130:
-ARM GAS  /tmp/cccThlSy.s 			page 17
+ARM GAS  /tmp/ccNYnlTX.s 			page 17
 
 
  195:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 	(
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  351:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
  352:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			prvInitialiseNewQueue( uxQueueLength, uxItemSize, pucQueueStorage, ucQueueType, pxNewQueue );
  410              		.loc 1 352 4
-ARM GAS  /tmp/cccThlSy.s 			page 18
+ARM GAS  /tmp/ccNYnlTX.s 			page 18
 
 
  411 00d2 97F83820 		ldrb	r2, [r7, #56]	@ zero_extendqisi2
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  450              		.cfi_def_cfa_offset 8
  451              		.cfi_offset 7, -8
  452              		.cfi_offset 14, -4
-ARM GAS  /tmp/cccThlSy.s 			page 19
+ARM GAS  /tmp/ccNYnlTX.s 			page 19
 
 
  453 0002 8AB0     		sub	sp, sp, #40
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  382:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		deviation as follows:  pvPortMalloc() always ensures returned memory
  383:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		blocks are aligned per the requirements of the MCU stack.  In this case
  384:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		pvPortMalloc() must return a pointer that is guaranteed to meet the
-ARM GAS  /tmp/cccThlSy.s 			page 20
+ARM GAS  /tmp/ccNYnlTX.s 			page 20
 
 
  385:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		alignment requirements of the Queue_t structure - which in this case
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  524              	.L31:
  409:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
  410:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		else
-ARM GAS  /tmp/cccThlSy.s 			page 21
+ARM GAS  /tmp/ccNYnlTX.s 			page 21
 
 
  411:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  425:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	configUSE_TRACE_FACILITY not be set to 1. */
  426:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	( void ) ucQueueType;
  427:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
-ARM GAS  /tmp/cccThlSy.s 			page 22
+ARM GAS  /tmp/ccNYnlTX.s 			page 22
 
 
  428:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	if( uxItemSize == ( UBaseType_t ) 0 )
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  451:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	}
  452:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	#endif /* configUSE_TRACE_FACILITY */
  453:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
-ARM GAS  /tmp/cccThlSy.s 			page 23
+ARM GAS  /tmp/ccNYnlTX.s 			page 23
 
 
  454:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	#if( configUSE_QUEUE_SETS == 1 )
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  469:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
  470:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			/* The queue create function will set all the queue structure members
  471:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			correctly for a generic queue, but this function is creating a
-ARM GAS  /tmp/cccThlSy.s 			page 24
+ARM GAS  /tmp/ccNYnlTX.s 			page 24
 
 
  472:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			mutex.  Overwrite those members that need to be set differently -
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  676              		.thumb_func
  678              	xQueueCreateMutex:
  679              	.LFB9:
-ARM GAS  /tmp/cccThlSy.s 			page 25
+ARM GAS  /tmp/ccNYnlTX.s 			page 25
 
 
  490:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  718              	.LCFI28:
  719              		.cfi_def_cfa_offset 8
  720 002c BD46     		mov	sp, r7
-ARM GAS  /tmp/cccThlSy.s 			page 26
+ARM GAS  /tmp/ccNYnlTX.s 			page 26
 
 
  721              	.LCFI29:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  761              		.loc 1 521 15
  762 0014 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
  763 0016 0093     		str	r3, [sp]
-ARM GAS  /tmp/cccThlSy.s 			page 27
+ARM GAS  /tmp/ccNYnlTX.s 			page 27
 
 
  764 0018 3B68     		ldr	r3, [r7]
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  808              		.cfi_def_cfa_offset 24
  809 0004 00AF     		add	r7, sp, #0
  810              	.LCFI37:
-ARM GAS  /tmp/cccThlSy.s 			page 28
+ARM GAS  /tmp/ccNYnlTX.s 			page 28
 
 
  811              		.cfi_def_cfa_register 7
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  842              		.cfi_def_cfa_offset 8
  843 002e BD46     		mov	sp, r7
  844              	.LCFI39:
-ARM GAS  /tmp/cccThlSy.s 			page 29
+ARM GAS  /tmp/ccNYnlTX.s 			page 29
 
 
  845              		.cfi_def_cfa_register 13
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  889              	
  890              	@ 0 "" 2
  891              		.thumb
-ARM GAS  /tmp/cccThlSy.s 			page 30
+ARM GAS  /tmp/ccNYnlTX.s 			page 30
 
 
  892              		.syntax unified
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  931              		.cfi_restore 7
  932              		.cfi_def_cfa_offset 0
  933 0044 7047     		bx	lr
-ARM GAS  /tmp/cccThlSy.s 			page 31
+ARM GAS  /tmp/ccNYnlTX.s 			page 31
 
 
  934              		.cfi_endproc
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  977 001a BFF36F8F 		isb														
  978 001e BFF34F8F 		dsb														
  979              	
-ARM GAS  /tmp/cccThlSy.s 			page 32
+ARM GAS  /tmp/ccNYnlTX.s 			page 32
 
 
  980              	@ 0 "" 2
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  615:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			{
  616:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				/* Return the mutex.  This will automatically unblock any other
  617:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				task that might be waiting to access the mutex. */
-ARM GAS  /tmp/cccThlSy.s 			page 33
+ARM GAS  /tmp/ccNYnlTX.s 			page 33
 
 
  618:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				( void ) xQueueGenericSend( pxMutex, NULL, queueMUTEX_GIVE_BLOCK_TIME, queueSEND_TO_BACK );
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1049              		.thumb
  1050              		.thumb_func
  1052              	xQueueTakeMutexRecursive:
-ARM GAS  /tmp/cccThlSy.s 			page 34
+ARM GAS  /tmp/ccNYnlTX.s 			page 34
 
 
  1053              	.LFB14:
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1094 0026 00BF     		nop
  1095              	.L62:
  1096              	.LBE138:
-ARM GAS  /tmp/cccThlSy.s 			page 35
+ARM GAS  /tmp/ccNYnlTX.s 			page 35
 
 
  1097              	.LBE137:
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  670:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				( pxMutex->u.xSemaphore.uxRecursiveCallCount )++;
  1131              		.loc 1 670 28
  1132 0058 3B69     		ldr	r3, [r7, #16]
-ARM GAS  /tmp/cccThlSy.s 			page 36
+ARM GAS  /tmp/ccNYnlTX.s 			page 36
 
 
  1133 005a DB68     		ldr	r3, [r3, #12]
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1172 0002 8AB0     		sub	sp, sp, #40
  1173              	.LCFI57:
  1174              		.cfi_def_cfa_offset 48
-ARM GAS  /tmp/cccThlSy.s 			page 37
+ARM GAS  /tmp/ccNYnlTX.s 			page 37
 
 
  1175 0004 02AF     		add	r7, sp, #8
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1223              		.thumb
  1224              		.syntax unified
  1225 0040 7B61     		str	r3, [r7, #20]
-ARM GAS  /tmp/cccThlSy.s 			page 38
+ARM GAS  /tmp/ccNYnlTX.s 			page 38
 
 
  1226              		.loc 2 203 1
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1264              		.cfi_endproc
  1265              	.LFE15:
  1267              		.section	.text.xQueueCreateCountingSemaphore,"ax",%progbits
-ARM GAS  /tmp/cccThlSy.s 			page 39
+ARM GAS  /tmp/ccNYnlTX.s 			page 39
 
 
  1268              		.align	1
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1311              		.loc 2 203 1
  1312 0022 00BF     		nop
  1313              	.L75:
-ARM GAS  /tmp/cccThlSy.s 			page 40
+ARM GAS  /tmp/ccNYnlTX.s 			page 40
 
 
  1314              	.LBE144:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1360              	.L78:
  726:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
  727:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			traceCREATE_COUNTING_SEMAPHORE();
-ARM GAS  /tmp/cccThlSy.s 			page 41
+ARM GAS  /tmp/ccNYnlTX.s 			page 41
 
 
  728:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1403 000c 3B60     		str	r3, [r7]
  742:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** BaseType_t xEntryTimeSet = pdFALSE, xYieldRequired;
  1404              		.loc 1 742 12
-ARM GAS  /tmp/cccThlSy.s 			page 42
+ARM GAS  /tmp/ccNYnlTX.s 			page 42
 
 
  1405 000e 0023     		movs	r3, #0
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1453              		.loc 1 747 2 discriminator 6
  1454 0046 002B     		cmp	r3, #0
  1455 0048 0AD1     		bne	.L86
-ARM GAS  /tmp/cccThlSy.s 			page 43
+ARM GAS  /tmp/ccNYnlTX.s 			page 43
 
 
  1456              	.LBB149:
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1507              	
  1508              	@ 0 "" 2
  1509              		.thumb
-ARM GAS  /tmp/cccThlSy.s 			page 44
+ARM GAS  /tmp/ccNYnlTX.s 			page 44
 
 
  1510              		.syntax unified
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1560 00bc FEE7     		b	.L97
  1561              	.L96:
  752:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	}
-ARM GAS  /tmp/cccThlSy.s 			page 45
+ARM GAS  /tmp/ccNYnlTX.s 			page 45
 
 
  753:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	#endif
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  791:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							queueYIELD_IF_USING_PREEMPTION();
  792:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						}
  793:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						else
-ARM GAS  /tmp/cccThlSy.s 			page 46
+ARM GAS  /tmp/ccNYnlTX.s 			page 46
 
 
  794:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						{
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1588 00e4 002B     		cmp	r3, #0
  1589 00e6 10D0     		beq	.L100
  838:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					{
-ARM GAS  /tmp/cccThlSy.s 			page 47
+ARM GAS  /tmp/ccNYnlTX.s 			page 47
 
 
  839:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						if( xTaskRemoveFromEventList( &( pxQueue->xTasksWaitingToReceive ) ) != pdFALSE )
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1624              	@ 858 "Middlewares/Third_Party/FreeRTOS/Source/queue.c" 1
  1625 0118 BFF34F8F 		dsb
  1626              	@ 0 "" 2
-ARM GAS  /tmp/cccThlSy.s 			page 48
+ARM GAS  /tmp/ccNYnlTX.s 			page 48
 
 
  1627              	@ 858 "Middlewares/Third_Party/FreeRTOS/Source/queue.c" 1
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  886:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					configure the timeout structure. */
  887:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					vTaskInternalSetTimeOutState( &xTimeOut );
  1654              		.loc 1 887 6
-ARM GAS  /tmp/cccThlSy.s 			page 49
+ARM GAS  /tmp/ccNYnlTX.s 			page 49
 
 
  1655 013c 07F11403 		add	r3, r7, #20
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  906:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		if( xTaskCheckForTimeOut( &xTimeOut, &xTicksToWait ) == pdFALSE )
  1691              		.loc 1 906 7 is_stmt 1 discriminator 6
  1692 0186 3A1D     		adds	r2, r7, #4
-ARM GAS  /tmp/cccThlSy.s 			page 50
+ARM GAS  /tmp/ccNYnlTX.s 			page 50
 
 
  1693 0188 07F11403 		add	r3, r7, #20
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1726 01c8 4FF08052 		mov	r2, #268435456
  1727 01cc 1A60     		str	r2, [r3]
  1728              		.syntax unified
-ARM GAS  /tmp/cccThlSy.s 			page 51
+ARM GAS  /tmp/ccNYnlTX.s 			page 51
 
 
  1729              	@ 927 "Middlewares/Third_Party/FreeRTOS/Source/queue.c" 1
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1763 01f6 80BD     		pop	{r7, pc}
  1764              	.L112:
  1765              		.align	2
-ARM GAS  /tmp/cccThlSy.s 			page 52
+ARM GAS  /tmp/ccNYnlTX.s 			page 52
 
 
  1766              	.L111:
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1812 001c 83F31188 		msr basepri, r3											
  1813 0020 BFF36F8F 		isb														
  1814 0024 BFF34F8F 		dsb														
-ARM GAS  /tmp/cccThlSy.s 			page 53
+ARM GAS  /tmp/ccNYnlTX.s 			page 53
 
 
  1815              	
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1867              		.loc 1 957 2 discriminator 2
  1868 005a FEE7     		b	.L120
  1869              	.L119:
-ARM GAS  /tmp/cccThlSy.s 			page 54
+ARM GAS  /tmp/ccNYnlTX.s 			page 54
 
 
  958:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	configASSERT( !( ( xCopyPosition == queueOVERWRITE ) && ( pxQueue->uxLength != 1 ) ) );
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  969:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	that have been assigned a priority at or (logically) below the maximum
  970:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	system call	interrupt priority.  FreeRTOS maintains a separate interrupt
  971:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	safe API to ensure interrupt entry is as fast and as simple as possible.
-ARM GAS  /tmp/cccThlSy.s 			page 55
+ARM GAS  /tmp/ccNYnlTX.s 			page 55
 
 
  972:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	More information (albeit Cortex-M specific) is provided on the following
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  982:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	{
  983:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		if( ( pxQueue->uxMessagesWaiting < pxQueue->uxLength ) || ( xCopyPosition == queueOVERWRITE ) )
  1936              		.loc 1 983 16
-ARM GAS  /tmp/cccThlSy.s 			page 56
+ARM GAS  /tmp/ccNYnlTX.s 			page 56
 
 
  1937 00aa BB6B     		ldr	r3, [r7, #56]
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1007:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							/* Do not notify the queue set as an existing item
 1008:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							was overwritten in the queue so the number of items
 1009:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							in the queue has not changed. */
-ARM GAS  /tmp/cccThlSy.s 			page 57
+ARM GAS  /tmp/ccNYnlTX.s 			page 57
 
 
 1010:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							mtCOVERAGE_TEST_MARKER();
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  1970 00e2 5B6A     		ldr	r3, [r3, #36]
  1971              		.loc 1 1061 8
  1972 00e4 002B     		cmp	r3, #0
-ARM GAS  /tmp/cccThlSy.s 			page 58
+ARM GAS  /tmp/ccNYnlTX.s 			page 58
 
 
  1973 00e6 16D0     		beq	.L130
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1095:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				pxQueue->cTxLock = ( int8_t ) ( cTxLock + 1 );
  1994              		.loc 1 1095 45
  1995 0106 97F83330 		ldrb	r3, [r7, #51]	@ zero_extendqisi2
-ARM GAS  /tmp/cccThlSy.s 			page 59
+ARM GAS  /tmp/ccNYnlTX.s 			page 59
 
 
  1996 010a 0133     		adds	r3, r3, #1
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1104:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
 1105:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	}
 1106:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );
-ARM GAS  /tmp/cccThlSy.s 			page 60
+ARM GAS  /tmp/ccNYnlTX.s 			page 60
 
 
 1107:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1119:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	item size is 0.  Don't directly wake a task that was blocked on a queue
 1120:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	read, instead return a flag to say whether a context switch is required or
 1121:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	not (i.e. has a task with a higher priority than us been woken by this
-ARM GAS  /tmp/cccThlSy.s 			page 61
+ARM GAS  /tmp/ccNYnlTX.s 			page 61
 
 
 1122:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	post). */
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2119 0042 FB61     		str	r3, [r7, #28]
  203:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 
  2120              		.loc 2 203 1
-ARM GAS  /tmp/cccThlSy.s 			page 62
+ARM GAS  /tmp/ccNYnlTX.s 			page 62
 
 
  2121 0044 00BF     		nop
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2168              		.loc 1 1133 2 discriminator 3
  2169 0076 FEE7     		b	.L142
  2170              	.L141:
-ARM GAS  /tmp/cccThlSy.s 			page 63
+ARM GAS  /tmp/ccNYnlTX.s 			page 63
 
 
 1134:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1157:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		space'. */
 1158:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		if( uxMessagesWaiting < pxQueue->uxLength )
  2200              		.loc 1 1158 34
-ARM GAS  /tmp/cccThlSy.s 			page 64
+ARM GAS  /tmp/ccNYnlTX.s 			page 64
 
 
  2201 009e 3B6B     		ldr	r3, [r7, #48]
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1192:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							}
 1193:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						}
 1194:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						else
-ARM GAS  /tmp/cccThlSy.s 			page 65
+ARM GAS  /tmp/ccNYnlTX.s 			page 65
 
 
 1195:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						{
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1233:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							/* The task waiting has a higher priority so record that a
 1234:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							context	switch is required. */
 1235:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							if( pxHigherPriorityTaskWoken != NULL )
-ARM GAS  /tmp/cccThlSy.s 			page 66
+ARM GAS  /tmp/ccNYnlTX.s 			page 66
 
 
  2238              		.loc 1 1235 10
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1264:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
 1265:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		else
 1266:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
-ARM GAS  /tmp/cccThlSy.s 			page 67
+ARM GAS  /tmp/ccNYnlTX.s 			page 67
 
 
 1267:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			traceQUEUE_SEND_FROM_ISR_FAILED( pxQueue );
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1277:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait )
 1278:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** {
  2309              		.loc 1 1278 1
-ARM GAS  /tmp/cccThlSy.s 			page 68
+ARM GAS  /tmp/ccNYnlTX.s 			page 68
 
 
  2310              		.cfi_startproc
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2356              		.loc 1 1284 2 discriminator 1
  2357 002e FEE7     		b	.L151
  2358              	.L150:
-ARM GAS  /tmp/cccThlSy.s 			page 69
+ARM GAS  /tmp/ccNYnlTX.s 			page 69
 
 
 1285:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2402 005e FFF7FEFF 		bl	xTaskGetSchedulerState
  2403 0062 0346     		mov	r3, r0
  2404 0064 002B     		cmp	r3, #0
-ARM GAS  /tmp/cccThlSy.s 			page 70
+ARM GAS  /tmp/ccNYnlTX.s 			page 70
 
 
  2405 0066 02D1     		bne	.L157
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1305:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			const UBaseType_t uxMessagesWaiting = pxQueue->uxMessagesWaiting;
  2446              		.loc 1 1305 22
  2447 0092 BB6A     		ldr	r3, [r7, #40]
-ARM GAS  /tmp/cccThlSy.s 			page 71
+ARM GAS  /tmp/ccNYnlTX.s 			page 71
 
 
  2448 0094 9B6B     		ldr	r3, [r3, #56]
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2484              		.syntax unified
  2485              	@ 1323 "Middlewares/Third_Party/FreeRTOS/Source/queue.c" 1
  2486 00ce BFF34F8F 		dsb
-ARM GAS  /tmp/cccThlSy.s 			page 72
+ARM GAS  /tmp/ccNYnlTX.s 			page 72
 
 
  2487              	@ 0 "" 2
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1350:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					/* The queue was empty and a block time was specified so
 1351:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					configure the timeout structure. */
 1352:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					vTaskInternalSetTimeOutState( &xTimeOut );
-ARM GAS  /tmp/cccThlSy.s 			page 73
+ARM GAS  /tmp/ccNYnlTX.s 			page 73
 
 
  2515              		.loc 1 1352 6
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1369:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
 1370:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		/* Update the timeout state to see if it has expired yet. */
 1371:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		if( xTaskCheckForTimeOut( &xTimeOut, &xTicksToWait ) == pdFALSE )
-ARM GAS  /tmp/cccThlSy.s 			page 74
+ARM GAS  /tmp/ccNYnlTX.s 			page 74
 
 
  2553              		.loc 1 1371 7 is_stmt 1 discriminator 6
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2596              	@ 0 "" 2
  2597              		.thumb
  2598              		.syntax unified
-ARM GAS  /tmp/cccThlSy.s 			page 75
+ARM GAS  /tmp/ccNYnlTX.s 			page 75
 
 
  2599 018a 80E7     		b	.L160
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1413:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
 1414:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	} /*lint -restore */
 1415:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** }
-ARM GAS  /tmp/cccThlSy.s 			page 76
+ARM GAS  /tmp/ccNYnlTX.s 			page 76
 
 
  2623              		.loc 1 1415 1 discriminator 6
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1423:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
 1424:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** #if( configUSE_MUTEXES == 1 )
 1425:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	BaseType_t xInheritanceOccurred = pdFALSE;
-ARM GAS  /tmp/cccThlSy.s 			page 77
+ARM GAS  /tmp/ccNYnlTX.s 			page 77
 
 
  2672              		.loc 1 1425 13
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2715              	
  2716              	@ 0 "" 2
  2717              		.thumb
-ARM GAS  /tmp/cccThlSy.s 			page 78
+ARM GAS  /tmp/ccNYnlTX.s 			page 78
 
 
  2718              		.syntax unified
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2764              	.L184:
  2765              	.LBE190:
  2766              	.LBE189:
-ARM GAS  /tmp/cccThlSy.s 			page 79
+ARM GAS  /tmp/ccNYnlTX.s 			page 79
 
 
  2767              		.loc 1 1438 3 discriminator 3
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1467:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					{
 1468:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						/* Record the information required to implement
 1469:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						priority inheritance should it become necessary. */
-ARM GAS  /tmp/cccThlSy.s 			page 80
+ARM GAS  /tmp/ccNYnlTX.s 			page 80
 
 
 1470:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						pxQueue->u.xSemaphore.xMutexHolder = pvTaskIncrementMutexHeldCount();
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1487:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					else
 1488:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					{
 1489:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						mtCOVERAGE_TEST_MARKER();
-ARM GAS  /tmp/cccThlSy.s 			page 81
+ARM GAS  /tmp/ccNYnlTX.s 			page 81
 
 
 1490:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					}
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2862              	.LBE193:
  2863              	.LBE192:
  2864              		.loc 1 1509 7 discriminator 4
-ARM GAS  /tmp/cccThlSy.s 			page 82
+ARM GAS  /tmp/ccNYnlTX.s 			page 82
 
 
  2865 00fa FEE7     		b	.L191
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1539:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		prvLockQueue( pxQueue );
  2890              		.loc 1 1539 3
  2891 0120 FFF7FEFF 		bl	vPortEnterCritical
-ARM GAS  /tmp/cccThlSy.s 			page 83
+ARM GAS  /tmp/ccNYnlTX.s 			page 83
 
 
  2892 0124 FB6A     		ldr	r3, [r7, #44]
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1554:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					if( pxQueue->uxQueueType == queueQUEUE_IS_MUTEX )
  2932              		.loc 1 1554 17
  2933 0174 FB6A     		ldr	r3, [r7, #44]
-ARM GAS  /tmp/cccThlSy.s 			page 84
+ARM GAS  /tmp/ccNYnlTX.s 			page 84
 
 
  2934 0176 1B68     		ldr	r3, [r3]
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  2969              		.syntax unified
  2970              	@ 1573 "Middlewares/Third_Party/FreeRTOS/Source/queue.c" 1
  2971 01b8 BFF34F8F 		dsb
-ARM GAS  /tmp/cccThlSy.s 			page 85
+ARM GAS  /tmp/ccNYnlTX.s 			page 85
 
 
  2972              	@ 0 "" 2
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1601:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				{
 1602:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					/* xInheritanceOccurred could only have be set if
 1603:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					pxQueue->uxQueueType == queueQUEUE_IS_MUTEX so no need to
-ARM GAS  /tmp/cccThlSy.s 			page 86
+ARM GAS  /tmp/ccNYnlTX.s 			page 86
 
 
 1604:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					test the mutex type again to check it is actually a mutex. */
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3023              		.loc 1 1633 1 discriminator 7
  3024 020a 1846     		mov	r0, r3
  3025 020c 3837     		adds	r7, r7, #56
-ARM GAS  /tmp/cccThlSy.s 			page 87
+ARM GAS  /tmp/ccNYnlTX.s 			page 87
 
 
  3026              	.LCFI89:
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1643:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	/* Check the pointer is not NULL. */
 1644:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	configASSERT( ( pxQueue ) );
  3073              		.loc 1 1644 2
-ARM GAS  /tmp/cccThlSy.s 			page 88
+ARM GAS  /tmp/ccNYnlTX.s 			page 88
 
 
  3074 0014 3B6B     		ldr	r3, [r7, #48]
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3121              		.loc 2 195 2 is_stmt 1
  3122              		.syntax unified
  3123              	@ 195 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h" 1
-ARM GAS  /tmp/cccThlSy.s 			page 89
+ARM GAS  /tmp/ccNYnlTX.s 			page 89
 
 
  3124 0048 4FF05003 			mov r3, #80												
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3171              	@ 0 "" 2
  3172              		.thumb
  3173              		.syntax unified
-ARM GAS  /tmp/cccThlSy.s 			page 90
+ARM GAS  /tmp/ccNYnlTX.s 			page 90
 
 
  3174 0088 FB61     		str	r3, [r7, #28]
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1679:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				/* The data is not being removed, so reset the read pointer. */
 1680:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				pxQueue->u.xQueue.pcReadFrom = pcOriginalReadPosition;
  3202              		.loc 1 1680 34
-ARM GAS  /tmp/cccThlSy.s 			page 91
+ARM GAS  /tmp/ccNYnlTX.s 			page 91
 
 
  3203 00ac 3B6B     		ldr	r3, [r7, #48]
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3236              		.loc 1 1701 5
  3237 00da FFF7FEFF 		bl	vPortExitCritical
 1702:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				return pdPASS;
-ARM GAS  /tmp/cccThlSy.s 			page 92
+ARM GAS  /tmp/ccNYnlTX.s 			page 92
 
 
  3238              		.loc 1 1702 12
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1729:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		taskEXIT_CRITICAL();
  3266              		.loc 1 1729 3
  3267 0104 FFF7FEFF 		bl	vPortExitCritical
-ARM GAS  /tmp/cccThlSy.s 			page 93
+ARM GAS  /tmp/ccNYnlTX.s 			page 93
 
 
 1730:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3309              		.loc 1 1742 6
  3310 015c 002B     		cmp	r3, #0
  3311 015e 17D0     		beq	.L224
-ARM GAS  /tmp/cccThlSy.s 			page 94
+ARM GAS  /tmp/ccNYnlTX.s 			page 94
 
 
 1743:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			{
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3347 0196 FFF7FEFF 		bl	xTaskResumeAll
  3348 019a 78E7     		b	.L214
  3349              	.L223:
-ARM GAS  /tmp/cccThlSy.s 			page 95
+ARM GAS  /tmp/ccNYnlTX.s 			page 95
 
 
 1762:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			}
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3384              		.global	xQueueReceiveFromISR
  3385              		.syntax unified
  3386              		.thumb
-ARM GAS  /tmp/cccThlSy.s 			page 96
+ARM GAS  /tmp/ccNYnlTX.s 			page 96
 
 
  3387              		.thumb_func
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3431 0028 00BF     		nop
  3432              	.L231:
  3433              	.LBE203:
-ARM GAS  /tmp/cccThlSy.s 			page 97
+ARM GAS  /tmp/ccNYnlTX.s 			page 97
 
 
  3434              	.LBE202:
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1798:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	FreeRTOS API functions.  If configASSERT() is defined in FreeRTOSConfig.h
 1799:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	then portASSERT_IF_INTERRUPT_PRIORITY_INVALID() will result in an assertion
 1800:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	failure if a FreeRTOS API function is called from an interrupt that has been
-ARM GAS  /tmp/cccThlSy.s 			page 98
+ARM GAS  /tmp/ccNYnlTX.s 			page 98
 
 
 1801:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	assigned a priority above the configured maximum system call priority.
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3515 0086 3B6B     		ldr	r3, [r7, #48]
  3516 0088 93F84430 		ldrb	r3, [r3, #68]
  3517 008c 87F82730 		strb	r3, [r7, #39]
-ARM GAS  /tmp/cccThlSy.s 			page 99
+ARM GAS  /tmp/ccNYnlTX.s 			page 99
 
 
 1818:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1838:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 							*pxHigherPriorityTaskWoken = pdTRUE;
  3552              		.loc 1 1838 35
  3553 00c8 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cccThlSy.s 			page 100
+ARM GAS  /tmp/ccNYnlTX.s 			page 100
 
 
  3554 00ca 0122     		movs	r2, #1
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3580              	.LBE208:
  3581              	.LBB210:
  3582              	.LBB211:
-ARM GAS  /tmp/cccThlSy.s 			page 101
+ARM GAS  /tmp/ccNYnlTX.s 			page 101
 
 
  229:Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h **** 	(
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3627              		.cfi_offset 14, -4
  3628 0002 8CB0     		sub	sp, sp, #48
  3629              	.LCFI102:
-ARM GAS  /tmp/cccThlSy.s 			page 102
+ARM GAS  /tmp/ccNYnlTX.s 			page 102
 
 
  3630              		.cfi_def_cfa_offset 56
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3675              		.loc 1 1884 2 discriminator 3
  3676 0038 0123     		movs	r3, #1
  3677 003a 00E0     		b	.L248
-ARM GAS  /tmp/cccThlSy.s 			page 103
+ARM GAS  /tmp/ccNYnlTX.s 			page 103
 
 
  3678              	.L247:
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3727 0072 00BF     		nop
  3728              	.L252:
  3729              	.LBE217:
-ARM GAS  /tmp/cccThlSy.s 			page 104
+ARM GAS  /tmp/ccNYnlTX.s 			page 104
 
 
  3730              	.LBE216:
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3761              		.loc 1 1906 5
  3762 009a 002B     		cmp	r3, #0
  3763 009c 0CD0     		beq	.L254
-ARM GAS  /tmp/cccThlSy.s 			page 105
+ARM GAS  /tmp/ccNYnlTX.s 			page 105
 
 
 1907:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 1923:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	}
 1924:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );
 1925:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
-ARM GAS  /tmp/cccThlSy.s 			page 106
+ARM GAS  /tmp/ccNYnlTX.s 			page 106
 
 
 1926:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	return xReturn;
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3847              		.loc 2 195 2
  3848              		.syntax unified
  3849              	@ 195 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h" 1
-ARM GAS  /tmp/cccThlSy.s 			page 107
+ARM GAS  /tmp/ccNYnlTX.s 			page 107
 
 
  3850 000e 4FF05003 			mov r3, #80												
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3895              		.thumb_func
  3897              	uxQueueSpacesAvailable:
  3898              	.LFB26:
-ARM GAS  /tmp/cccThlSy.s 			page 108
+ARM GAS  /tmp/ccNYnlTX.s 			page 108
 
 
 1944:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** /*-----------------------------------------------------------*/
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3943              	.L262:
 1952:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
 1953:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	taskENTER_CRITICAL();
-ARM GAS  /tmp/cccThlSy.s 			page 109
+ARM GAS  /tmp/ccNYnlTX.s 			page 109
 
 
  3944              		.loc 1 1953 2
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  3989              		.cfi_offset 7, -4
  3990 0002 87B0     		sub	sp, sp, #28
  3991              	.LCFI117:
-ARM GAS  /tmp/cccThlSy.s 			page 110
+ARM GAS  /tmp/ccNYnlTX.s 			page 110
 
 
  3992              		.cfi_def_cfa_offset 32
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4036              		.cfi_def_cfa_offset 4
  4037 0034 BD46     		mov	sp, r7
  4038              	.LCFI120:
-ARM GAS  /tmp/cccThlSy.s 			page 111
+ARM GAS  /tmp/ccNYnlTX.s 			page 111
 
 
  4039              		.cfi_def_cfa_register 13
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4087 0016 83F31188 		msr basepri, r3											
  4088 001a BFF36F8F 		isb														
  4089 001e BFF34F8F 		dsb														
-ARM GAS  /tmp/cccThlSy.s 			page 112
+ARM GAS  /tmp/ccNYnlTX.s 			page 112
 
 
  4090              	
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2007:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	#else
 2008:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	{
 2009:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		/* The queue must have been statically allocated, so is not going to be
-ARM GAS  /tmp/cccThlSy.s 			page 113
+ARM GAS  /tmp/ccNYnlTX.s 			page 113
 
 
 2010:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		deleted.  Avoid compiler warnings about the unused parameter. */
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4159 000e 0C37     		adds	r7, r7, #12
  4160              	.LCFI130:
  4161              		.cfi_def_cfa_offset 4
-ARM GAS  /tmp/cccThlSy.s 			page 114
+ARM GAS  /tmp/ccNYnlTX.s 			page 114
 
 
  4162 0010 BD46     		mov	sp, r7
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4208              		.cfi_def_cfa_offset 4
  4209 0014 BD46     		mov	sp, r7
  4210              	.LCFI137:
-ARM GAS  /tmp/cccThlSy.s 			page 115
+ARM GAS  /tmp/ccNYnlTX.s 			page 115
 
 
  4211              		.cfi_def_cfa_register 13
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4257              		@ sp needed
  4258 0014 5DF8047B 		ldr	r7, [sp], #4
  4259              	.LCFI144:
-ARM GAS  /tmp/cccThlSy.s 			page 116
+ARM GAS  /tmp/ccNYnlTX.s 			page 116
 
 
  4260              		.cfi_restore 7
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4297 0010 7B68     		ldr	r3, [r7, #4]
  4298 0012 1B6B     		ldr	r3, [r3, #48]
  4299 0014 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/cccThlSy.s 			page 117
+ARM GAS  /tmp/ccNYnlTX.s 			page 117
 
 
  4300              		.loc 1 2061 36
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4342              		.cfi_def_cfa_offset 8
  4343              		.cfi_offset 7, -8
  4344              		.cfi_offset 14, -4
-ARM GAS  /tmp/cccThlSy.s 			page 118
+ARM GAS  /tmp/ccNYnlTX.s 			page 118
 
 
  4345 0002 86B0     		sub	sp, sp, #24
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4383 0038 43E0     		b	.L285
  4384              	.L284:
 2092:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			}
-ARM GAS  /tmp/cccThlSy.s 			page 119
+ARM GAS  /tmp/ccNYnlTX.s 			page 119
 
 
 2093:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			else
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4425              	.L286:
 2107:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
 2108:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		else
-ARM GAS  /tmp/cccThlSy.s 			page 120
+ARM GAS  /tmp/ccNYnlTX.s 			page 120
 
 
 2109:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2120:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		}
 2121:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		else
 2122:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
-ARM GAS  /tmp/cccThlSy.s 			page 121
+ARM GAS  /tmp/ccNYnlTX.s 			page 121
 
 
 2123:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			mtCOVERAGE_TEST_MARKER();
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4495 00d0 BD46     		mov	sp, r7
  4496              	.LCFI155:
  4497              		.cfi_def_cfa_register 13
-ARM GAS  /tmp/cccThlSy.s 			page 122
+ARM GAS  /tmp/ccNYnlTX.s 			page 122
 
 
  4498              		@ sp needed
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4546 0022 DA68     		ldr	r2, [r3, #12]
  4547              		.loc 1 2158 56
  4548 0024 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cccThlSy.s 			page 123
+ARM GAS  /tmp/ccNYnlTX.s 			page 123
 
 
  4549 0026 9B68     		ldr	r3, [r3, #8]
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2172:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** {
  4592              		.loc 1 2172 1
  4593              		.cfi_startproc
-ARM GAS  /tmp/cccThlSy.s 			page 124
+ARM GAS  /tmp/ccNYnlTX.s 			page 124
 
 
  4594              		@ args = 0, pretend = 0, frame = 16
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2203:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				}
 2204:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				else
 2205:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				{
-ARM GAS  /tmp/cccThlSy.s 			page 125
+ARM GAS  /tmp/ccNYnlTX.s 			page 125
 
 
 2206:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					/* Tasks that are removed from the event list will get
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2241:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					{
 2242:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						mtCOVERAGE_TEST_MARKER();
 2243:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					}
-ARM GAS  /tmp/cccThlSy.s 			page 126
+ARM GAS  /tmp/ccNYnlTX.s 			page 126
 
 
 2244:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				}
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4668              	.L303:
 2265:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
 2266:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			if( listLIST_IS_EMPTY( &( pxQueue->xTasksWaitingToSend ) ) == pdFALSE )
-ARM GAS  /tmp/cccThlSy.s 			page 127
+ARM GAS  /tmp/ccNYnlTX.s 			page 127
 
 
  4669              		.loc 1 2266 8
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4703              		.loc 1 2285 20
  4704 0090 7B68     		ldr	r3, [r7, #4]
  4705 0092 FF22     		movs	r2, #255
-ARM GAS  /tmp/cccThlSy.s 			page 128
+ARM GAS  /tmp/ccNYnlTX.s 			page 128
 
 
  4706 0094 83F84420 		strb	r2, [r3, #68]
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4750 000c 7B68     		ldr	r3, [r7, #4]
  4751 000e 9B6B     		ldr	r3, [r3, #56]
  4752              		.loc 1 2297 5
-ARM GAS  /tmp/cccThlSy.s 			page 129
+ARM GAS  /tmp/ccNYnlTX.s 			page 129
 
 
  4753 0010 002B     		cmp	r3, #0
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4793              		@ frame_needed = 1, uses_anonymous_args = 0
  4794              		@ link register save eliminated.
  4795 0000 80B4     		push	{r7}
-ARM GAS  /tmp/cccThlSy.s 			page 130
+ARM GAS  /tmp/ccNYnlTX.s 			page 130
 
 
  4796              	.LCFI171:
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4841              		.loc 1 2320 11
  4842 0030 0123     		movs	r3, #1
  4843 0032 7B61     		str	r3, [r7, #20]
-ARM GAS  /tmp/cccThlSy.s 			page 131
+ARM GAS  /tmp/ccNYnlTX.s 			page 131
 
 
  4844 0034 01E0     		b	.L314
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4888              		.cfi_def_cfa_offset 24
  4889 0004 00AF     		add	r7, sp, #0
  4890              	.LCFI179:
-ARM GAS  /tmp/cccThlSy.s 			page 132
+ARM GAS  /tmp/ccNYnlTX.s 			page 132
 
 
  4891              		.cfi_def_cfa_register 7
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4928              	.LFE38:
  4930              		.section	.text.xQueueIsQueueFullFromISR,"ax",%progbits
  4931              		.align	1
-ARM GAS  /tmp/cccThlSy.s 			page 133
+ARM GAS  /tmp/ccNYnlTX.s 			page 133
 
 
  4932              		.global	xQueueIsQueueFullFromISR
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  4977 0024 00BF     		nop
  4978              	.L322:
  4979              	.LBE235:
-ARM GAS  /tmp/cccThlSy.s 			page 134
+ARM GAS  /tmp/ccNYnlTX.s 			page 134
 
 
  4980              	.LBE234:
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  5024              		.syntax unified
  5025              		.thumb
  5026              		.thumb_func
-ARM GAS  /tmp/cccThlSy.s 			page 135
+ARM GAS  /tmp/ccNYnlTX.s 			page 135
 
 
  5028              	vQueueAddToRegistry:
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2421:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						/* The co-routine waiting has a higher priority so record
 2422:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						that a yield might be appropriate. */
 2423:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 						xReturn = errQUEUE_YIELD;
-ARM GAS  /tmp/cccThlSy.s 			page 136
+ARM GAS  /tmp/ccNYnlTX.s 			page 136
 
 
 2424:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 					}
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2478:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			else
 2479:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			{
 2480:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				mtCOVERAGE_TEST_MARKER();
-ARM GAS  /tmp/cccThlSy.s 			page 137
+ARM GAS  /tmp/ccNYnlTX.s 			page 137
 
 
 2481:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 			}
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2535:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** #endif /* configUSE_CO_ROUTINES */
 2536:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** /*-----------------------------------------------------------*/
 2537:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
-ARM GAS  /tmp/cccThlSy.s 			page 138
+ARM GAS  /tmp/ccNYnlTX.s 			page 138
 
 
 2538:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** #if ( configUSE_CO_ROUTINES == 1 )
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2592:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
 2593:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		/* We cannot block from an ISR, so check there is data available. If
 2594:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		not then just leave without doing anything. */
-ARM GAS  /tmp/cccThlSy.s 			page 139
+ARM GAS  /tmp/ccNYnlTX.s 			page 139
 
 
 2595:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		if( pxQueue->uxMessagesWaiting > ( UBaseType_t ) 0 )
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2649:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	{
  5030              		.loc 1 2649 2
  5031              		.cfi_startproc
-ARM GAS  /tmp/cccThlSy.s 			page 140
+ARM GAS  /tmp/ccNYnlTX.s 			page 140
 
 
  5032              		@ args = 0, pretend = 0, frame = 16
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  5072              		.loc 1 2663 5
  5073 0032 06E0     		b	.L329
  5074              	.L328:
-ARM GAS  /tmp/cccThlSy.s 			page 141
+ARM GAS  /tmp/ccNYnlTX.s 			page 141
 
 
 2654:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 		{
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2677:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	const char *pcQueueGetName( QueueHandle_t xQueue ) /*lint !e971 Unqualified char types are allowed
 2678:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	{
  5116              		.loc 1 2678 2
-ARM GAS  /tmp/cccThlSy.s 			page 142
+ARM GAS  /tmp/ccNYnlTX.s 			page 142
 
 
  5117              		.cfi_startproc
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  5159              		.loc 1 2684 83 discriminator 2
  5160 002e FB68     		ldr	r3, [r7, #12]
  5161 0030 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/cccThlSy.s 			page 143
+ARM GAS  /tmp/ccNYnlTX.s 			page 143
 
 
  5162 0032 FB60     		str	r3, [r7, #12]
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2706:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 	{
  5201              		.loc 1 2706 2
  5202              		.cfi_startproc
-ARM GAS  /tmp/cccThlSy.s 			page 144
+ARM GAS  /tmp/ccNYnlTX.s 			page 144
 
 
  5203              		@ args = 0, pretend = 0, frame = 16
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  5242 002e 1344     		add	r3, r3, r2
  5243 0030 0022     		movs	r2, #0
  5244 0032 5A60     		str	r2, [r3, #4]
-ARM GAS  /tmp/cccThlSy.s 			page 145
+ARM GAS  /tmp/ccNYnlTX.s 			page 145
 
 
 2722:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 				break;
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
 2732:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** #endif /* configQUEUE_REGISTRY_SIZE */
 2733:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** /*-----------------------------------------------------------*/
 2734:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** 
-ARM GAS  /tmp/cccThlSy.s 			page 146
+ARM GAS  /tmp/ccNYnlTX.s 			page 146
 
 
 2735:Middlewares/Third_Party/FreeRTOS/Source/queue.c **** #if ( configUSE_TIMERS == 1 )
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  5322              		.loc 1 2755 3 discriminator 3
  5323 002a 7B69     		ldr	r3, [r7, #20]
  5324 002c 93F84530 		ldrb	r3, [r3, #69]
-ARM GAS  /tmp/cccThlSy.s 			page 147
+ARM GAS  /tmp/ccNYnlTX.s 			page 147
 
 
  5325 0030 5BB2     		sxtb	r3, r3
@@ -8818,109 +8818,109 @@ ARM GAS  /tmp/cccThlSy.s 			page 1
  5369              		.file 5 "/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
  5370              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
  5371              		.file 7 "Middlewares/Third_Party/FreeRTOS/Source/include/list.h"
-ARM GAS  /tmp/cccThlSy.s 			page 148
+ARM GAS  /tmp/ccNYnlTX.s 			page 148
 
 
  5372              		.file 8 "Middlewares/Third_Party/FreeRTOS/Source/include/task.h"
  5373              		.file 9 "Middlewares/Third_Party/FreeRTOS/Source/include/queue.h"
-ARM GAS  /tmp/cccThlSy.s 			page 149
+ARM GAS  /tmp/ccNYnlTX.s 			page 149
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 queue.c
-     /tmp/cccThlSy.s:24     .bss.xQueueRegistry:0000000000000000 xQueueRegistry
-     /tmp/cccThlSy.s:21     .bss.xQueueRegistry:0000000000000000 $d
-     /tmp/cccThlSy.s:27     .text.xQueueGenericReset:0000000000000000 $t
-     /tmp/cccThlSy.s:33     .text.xQueueGenericReset:0000000000000000 xQueueGenericReset
-     /tmp/cccThlSy.s:200    .text.xQueueGenericReset:00000000000000cc $d
-     /tmp/cccThlSy.s:205    .text.xQueueGenericCreateStatic:0000000000000000 $t
-     /tmp/cccThlSy.s:211    .text.xQueueGenericCreateStatic:0000000000000000 xQueueGenericCreateStatic
-     /tmp/cccThlSy.s:546    .text.prvInitialiseNewQueue:0000000000000000 prvInitialiseNewQueue
-     /tmp/cccThlSy.s:436    .text.xQueueGenericCreate:0000000000000000 $t
-     /tmp/cccThlSy.s:442    .text.xQueueGenericCreate:0000000000000000 xQueueGenericCreate
-     /tmp/cccThlSy.s:541    .text.prvInitialiseNewQueue:0000000000000000 $t
-     /tmp/cccThlSy.s:612    .text.prvInitialiseMutex:0000000000000000 $t
-     /tmp/cccThlSy.s:617    .text.prvInitialiseMutex:0000000000000000 prvInitialiseMutex
-     /tmp/cccThlSy.s:1383   .text.xQueueGenericSend:0000000000000000 xQueueGenericSend
-     /tmp/cccThlSy.s:672    .text.xQueueCreateMutex:0000000000000000 $t
-     /tmp/cccThlSy.s:678    .text.xQueueCreateMutex:0000000000000000 xQueueCreateMutex
-     /tmp/cccThlSy.s:729    .text.xQueueCreateMutexStatic:0000000000000000 $t
-     /tmp/cccThlSy.s:735    .text.xQueueCreateMutexStatic:0000000000000000 xQueueCreateMutexStatic
-     /tmp/cccThlSy.s:789    .text.xQueueGetMutexHolder:0000000000000000 $t
-     /tmp/cccThlSy.s:795    .text.xQueueGetMutexHolder:0000000000000000 xQueueGetMutexHolder
-     /tmp/cccThlSy.s:852    .text.xQueueGetMutexHolderFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:858    .text.xQueueGetMutexHolderFromISR:0000000000000000 xQueueGetMutexHolderFromISR
-     /tmp/cccThlSy.s:938    .text.xQueueGiveMutexRecursive:0000000000000000 $t
-     /tmp/cccThlSy.s:944    .text.xQueueGiveMutexRecursive:0000000000000000 xQueueGiveMutexRecursive
-     /tmp/cccThlSy.s:1046   .text.xQueueTakeMutexRecursive:0000000000000000 $t
-     /tmp/cccThlSy.s:1052   .text.xQueueTakeMutexRecursive:0000000000000000 xQueueTakeMutexRecursive
-     /tmp/cccThlSy.s:2647   .text.xQueueSemaphoreTake:0000000000000000 xQueueSemaphoreTake
-     /tmp/cccThlSy.s:1155   .text.xQueueCreateCountingSemaphoreStatic:0000000000000000 $t
-     /tmp/cccThlSy.s:1161   .text.xQueueCreateCountingSemaphoreStatic:0000000000000000 xQueueCreateCountingSemaphoreStatic
-     /tmp/cccThlSy.s:1268   .text.xQueueCreateCountingSemaphore:0000000000000000 $t
-     /tmp/cccThlSy.s:1274   .text.xQueueCreateCountingSemaphore:0000000000000000 xQueueCreateCountingSemaphore
-     /tmp/cccThlSy.s:1377   .text.xQueueGenericSend:0000000000000000 $t
-     /tmp/cccThlSy.s:4334   .text.prvCopyDataToQueue:0000000000000000 prvCopyDataToQueue
-     /tmp/cccThlSy.s:4875   .text.prvIsQueueFull:0000000000000000 prvIsQueueFull
-     /tmp/cccThlSy.s:4590   .text.prvUnlockQueue:0000000000000000 prvUnlockQueue
-     /tmp/cccThlSy.s:1767   .text.xQueueGenericSend:00000000000001f8 $d
-     /tmp/cccThlSy.s:1772   .text.xQueueGenericSendFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:1778   .text.xQueueGenericSendFromISR:0000000000000000 xQueueGenericSendFromISR
-     /tmp/cccThlSy.s:2047   .text.xQueueGiveFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:2053   .text.xQueueGiveFromISR:0000000000000000 xQueueGiveFromISR
-     /tmp/cccThlSy.s:2301   .text.xQueueReceive:0000000000000000 $t
-     /tmp/cccThlSy.s:2307   .text.xQueueReceive:0000000000000000 xQueueReceive
-     /tmp/cccThlSy.s:4509   .text.prvCopyDataFromQueue:0000000000000000 prvCopyDataFromQueue
-     /tmp/cccThlSy.s:4729   .text.prvIsQueueEmpty:0000000000000000 prvIsQueueEmpty
-     /tmp/cccThlSy.s:2636   .text.xQueueReceive:00000000000001bc $d
-     /tmp/cccThlSy.s:2641   .text.xQueueSemaphoreTake:0000000000000000 $t
-     /tmp/cccThlSy.s:4272   .text.prvGetDisinheritPriorityAfterTimeout:0000000000000000 prvGetDisinheritPriorityAfterTimeout
-     /tmp/cccThlSy.s:3036   .text.xQueueSemaphoreTake:0000000000000214 $d
-     /tmp/cccThlSy.s:3041   .text.xQueuePeek:0000000000000000 $t
-     /tmp/cccThlSy.s:3047   .text.xQueuePeek:0000000000000000 xQueuePeek
-     /tmp/cccThlSy.s:3378   .text.xQueuePeek:00000000000001c0 $d
-     /tmp/cccThlSy.s:3383   .text.xQueueReceiveFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:3389   .text.xQueueReceiveFromISR:0000000000000000 xQueueReceiveFromISR
-     /tmp/cccThlSy.s:3611   .text.xQueuePeekFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:3617   .text.xQueuePeekFromISR:0000000000000000 xQueuePeekFromISR
-ARM GAS  /tmp/cccThlSy.s 			page 150
+     /tmp/ccNYnlTX.s:24     .bss.xQueueRegistry:0000000000000000 xQueueRegistry
+     /tmp/ccNYnlTX.s:21     .bss.xQueueRegistry:0000000000000000 $d
+     /tmp/ccNYnlTX.s:27     .text.xQueueGenericReset:0000000000000000 $t
+     /tmp/ccNYnlTX.s:33     .text.xQueueGenericReset:0000000000000000 xQueueGenericReset
+     /tmp/ccNYnlTX.s:200    .text.xQueueGenericReset:00000000000000cc $d
+     /tmp/ccNYnlTX.s:205    .text.xQueueGenericCreateStatic:0000000000000000 $t
+     /tmp/ccNYnlTX.s:211    .text.xQueueGenericCreateStatic:0000000000000000 xQueueGenericCreateStatic
+     /tmp/ccNYnlTX.s:546    .text.prvInitialiseNewQueue:0000000000000000 prvInitialiseNewQueue
+     /tmp/ccNYnlTX.s:436    .text.xQueueGenericCreate:0000000000000000 $t
+     /tmp/ccNYnlTX.s:442    .text.xQueueGenericCreate:0000000000000000 xQueueGenericCreate
+     /tmp/ccNYnlTX.s:541    .text.prvInitialiseNewQueue:0000000000000000 $t
+     /tmp/ccNYnlTX.s:612    .text.prvInitialiseMutex:0000000000000000 $t
+     /tmp/ccNYnlTX.s:617    .text.prvInitialiseMutex:0000000000000000 prvInitialiseMutex
+     /tmp/ccNYnlTX.s:1383   .text.xQueueGenericSend:0000000000000000 xQueueGenericSend
+     /tmp/ccNYnlTX.s:672    .text.xQueueCreateMutex:0000000000000000 $t
+     /tmp/ccNYnlTX.s:678    .text.xQueueCreateMutex:0000000000000000 xQueueCreateMutex
+     /tmp/ccNYnlTX.s:729    .text.xQueueCreateMutexStatic:0000000000000000 $t
+     /tmp/ccNYnlTX.s:735    .text.xQueueCreateMutexStatic:0000000000000000 xQueueCreateMutexStatic
+     /tmp/ccNYnlTX.s:789    .text.xQueueGetMutexHolder:0000000000000000 $t
+     /tmp/ccNYnlTX.s:795    .text.xQueueGetMutexHolder:0000000000000000 xQueueGetMutexHolder
+     /tmp/ccNYnlTX.s:852    .text.xQueueGetMutexHolderFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:858    .text.xQueueGetMutexHolderFromISR:0000000000000000 xQueueGetMutexHolderFromISR
+     /tmp/ccNYnlTX.s:938    .text.xQueueGiveMutexRecursive:0000000000000000 $t
+     /tmp/ccNYnlTX.s:944    .text.xQueueGiveMutexRecursive:0000000000000000 xQueueGiveMutexRecursive
+     /tmp/ccNYnlTX.s:1046   .text.xQueueTakeMutexRecursive:0000000000000000 $t
+     /tmp/ccNYnlTX.s:1052   .text.xQueueTakeMutexRecursive:0000000000000000 xQueueTakeMutexRecursive
+     /tmp/ccNYnlTX.s:2647   .text.xQueueSemaphoreTake:0000000000000000 xQueueSemaphoreTake
+     /tmp/ccNYnlTX.s:1155   .text.xQueueCreateCountingSemaphoreStatic:0000000000000000 $t
+     /tmp/ccNYnlTX.s:1161   .text.xQueueCreateCountingSemaphoreStatic:0000000000000000 xQueueCreateCountingSemaphoreStatic
+     /tmp/ccNYnlTX.s:1268   .text.xQueueCreateCountingSemaphore:0000000000000000 $t
+     /tmp/ccNYnlTX.s:1274   .text.xQueueCreateCountingSemaphore:0000000000000000 xQueueCreateCountingSemaphore
+     /tmp/ccNYnlTX.s:1377   .text.xQueueGenericSend:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4334   .text.prvCopyDataToQueue:0000000000000000 prvCopyDataToQueue
+     /tmp/ccNYnlTX.s:4875   .text.prvIsQueueFull:0000000000000000 prvIsQueueFull
+     /tmp/ccNYnlTX.s:4590   .text.prvUnlockQueue:0000000000000000 prvUnlockQueue
+     /tmp/ccNYnlTX.s:1767   .text.xQueueGenericSend:00000000000001f8 $d
+     /tmp/ccNYnlTX.s:1772   .text.xQueueGenericSendFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:1778   .text.xQueueGenericSendFromISR:0000000000000000 xQueueGenericSendFromISR
+     /tmp/ccNYnlTX.s:2047   .text.xQueueGiveFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:2053   .text.xQueueGiveFromISR:0000000000000000 xQueueGiveFromISR
+     /tmp/ccNYnlTX.s:2301   .text.xQueueReceive:0000000000000000 $t
+     /tmp/ccNYnlTX.s:2307   .text.xQueueReceive:0000000000000000 xQueueReceive
+     /tmp/ccNYnlTX.s:4509   .text.prvCopyDataFromQueue:0000000000000000 prvCopyDataFromQueue
+     /tmp/ccNYnlTX.s:4729   .text.prvIsQueueEmpty:0000000000000000 prvIsQueueEmpty
+     /tmp/ccNYnlTX.s:2636   .text.xQueueReceive:00000000000001bc $d
+     /tmp/ccNYnlTX.s:2641   .text.xQueueSemaphoreTake:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4272   .text.prvGetDisinheritPriorityAfterTimeout:0000000000000000 prvGetDisinheritPriorityAfterTimeout
+     /tmp/ccNYnlTX.s:3036   .text.xQueueSemaphoreTake:0000000000000214 $d
+     /tmp/ccNYnlTX.s:3041   .text.xQueuePeek:0000000000000000 $t
+     /tmp/ccNYnlTX.s:3047   .text.xQueuePeek:0000000000000000 xQueuePeek
+     /tmp/ccNYnlTX.s:3378   .text.xQueuePeek:00000000000001c0 $d
+     /tmp/ccNYnlTX.s:3383   .text.xQueueReceiveFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:3389   .text.xQueueReceiveFromISR:0000000000000000 xQueueReceiveFromISR
+     /tmp/ccNYnlTX.s:3611   .text.xQueuePeekFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:3617   .text.xQueuePeekFromISR:0000000000000000 xQueuePeekFromISR
+ARM GAS  /tmp/ccNYnlTX.s 			page 150
 
 
-     /tmp/cccThlSy.s:3817   .text.uxQueueMessagesWaiting:0000000000000000 $t
-     /tmp/cccThlSy.s:3823   .text.uxQueueMessagesWaiting:0000000000000000 uxQueueMessagesWaiting
-     /tmp/cccThlSy.s:3891   .text.uxQueueSpacesAvailable:0000000000000000 $t
-     /tmp/cccThlSy.s:3897   .text.uxQueueSpacesAvailable:0000000000000000 uxQueueSpacesAvailable
-     /tmp/cccThlSy.s:3973   .text.uxQueueMessagesWaitingFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:3979   .text.uxQueueMessagesWaitingFromISR:0000000000000000 uxQueueMessagesWaitingFromISR
-     /tmp/cccThlSy.s:4050   .text.vQueueDelete:0000000000000000 $t
-     /tmp/cccThlSy.s:4056   .text.vQueueDelete:0000000000000000 vQueueDelete
-     /tmp/cccThlSy.s:5199   .text.vQueueUnregisterQueue:0000000000000000 vQueueUnregisterQueue
-     /tmp/cccThlSy.s:4130   .text.uxQueueGetQueueNumber:0000000000000000 $t
-     /tmp/cccThlSy.s:4136   .text.uxQueueGetQueueNumber:0000000000000000 uxQueueGetQueueNumber
-     /tmp/cccThlSy.s:4175   .text.vQueueSetQueueNumber:0000000000000000 $t
-     /tmp/cccThlSy.s:4181   .text.vQueueSetQueueNumber:0000000000000000 vQueueSetQueueNumber
-     /tmp/cccThlSy.s:4222   .text.ucQueueGetQueueType:0000000000000000 $t
-     /tmp/cccThlSy.s:4228   .text.ucQueueGetQueueType:0000000000000000 ucQueueGetQueueType
-     /tmp/cccThlSy.s:4267   .text.prvGetDisinheritPriorityAfterTimeout:0000000000000000 $t
-     /tmp/cccThlSy.s:4329   .text.prvCopyDataToQueue:0000000000000000 $t
-     /tmp/cccThlSy.s:4504   .text.prvCopyDataFromQueue:0000000000000000 $t
-     /tmp/cccThlSy.s:4585   .text.prvUnlockQueue:0000000000000000 $t
-     /tmp/cccThlSy.s:4724   .text.prvIsQueueEmpty:0000000000000000 $t
-     /tmp/cccThlSy.s:4782   .text.xQueueIsQueueEmptyFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:4788   .text.xQueueIsQueueEmptyFromISR:0000000000000000 xQueueIsQueueEmptyFromISR
-     /tmp/cccThlSy.s:4870   .text.prvIsQueueFull:0000000000000000 $t
-     /tmp/cccThlSy.s:4931   .text.xQueueIsQueueFullFromISR:0000000000000000 $t
-     /tmp/cccThlSy.s:4937   .text.xQueueIsQueueFullFromISR:0000000000000000 xQueueIsQueueFullFromISR
-     /tmp/cccThlSy.s:5022   .text.vQueueAddToRegistry:0000000000000000 $t
-     /tmp/cccThlSy.s:5028   .text.vQueueAddToRegistry:0000000000000000 vQueueAddToRegistry
-     /tmp/cccThlSy.s:5103   .text.vQueueAddToRegistry:0000000000000050 $d
-     /tmp/cccThlSy.s:5108   .text.pcQueueGetName:0000000000000000 $t
-     /tmp/cccThlSy.s:5114   .text.pcQueueGetName:0000000000000000 pcQueueGetName
-     /tmp/cccThlSy.s:5188   .text.pcQueueGetName:0000000000000048 $d
-     /tmp/cccThlSy.s:5193   .text.vQueueUnregisterQueue:0000000000000000 $t
-     /tmp/cccThlSy.s:5276   .text.vQueueUnregisterQueue:0000000000000050 $d
-     /tmp/cccThlSy.s:5281   .text.vQueueWaitForMessageRestricted:0000000000000000 $t
-     /tmp/cccThlSy.s:5287   .text.vQueueWaitForMessageRestricted:0000000000000000 vQueueWaitForMessageRestricted
+     /tmp/ccNYnlTX.s:3817   .text.uxQueueMessagesWaiting:0000000000000000 $t
+     /tmp/ccNYnlTX.s:3823   .text.uxQueueMessagesWaiting:0000000000000000 uxQueueMessagesWaiting
+     /tmp/ccNYnlTX.s:3891   .text.uxQueueSpacesAvailable:0000000000000000 $t
+     /tmp/ccNYnlTX.s:3897   .text.uxQueueSpacesAvailable:0000000000000000 uxQueueSpacesAvailable
+     /tmp/ccNYnlTX.s:3973   .text.uxQueueMessagesWaitingFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:3979   .text.uxQueueMessagesWaitingFromISR:0000000000000000 uxQueueMessagesWaitingFromISR
+     /tmp/ccNYnlTX.s:4050   .text.vQueueDelete:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4056   .text.vQueueDelete:0000000000000000 vQueueDelete
+     /tmp/ccNYnlTX.s:5199   .text.vQueueUnregisterQueue:0000000000000000 vQueueUnregisterQueue
+     /tmp/ccNYnlTX.s:4130   .text.uxQueueGetQueueNumber:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4136   .text.uxQueueGetQueueNumber:0000000000000000 uxQueueGetQueueNumber
+     /tmp/ccNYnlTX.s:4175   .text.vQueueSetQueueNumber:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4181   .text.vQueueSetQueueNumber:0000000000000000 vQueueSetQueueNumber
+     /tmp/ccNYnlTX.s:4222   .text.ucQueueGetQueueType:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4228   .text.ucQueueGetQueueType:0000000000000000 ucQueueGetQueueType
+     /tmp/ccNYnlTX.s:4267   .text.prvGetDisinheritPriorityAfterTimeout:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4329   .text.prvCopyDataToQueue:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4504   .text.prvCopyDataFromQueue:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4585   .text.prvUnlockQueue:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4724   .text.prvIsQueueEmpty:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4782   .text.xQueueIsQueueEmptyFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4788   .text.xQueueIsQueueEmptyFromISR:0000000000000000 xQueueIsQueueEmptyFromISR
+     /tmp/ccNYnlTX.s:4870   .text.prvIsQueueFull:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4931   .text.xQueueIsQueueFullFromISR:0000000000000000 $t
+     /tmp/ccNYnlTX.s:4937   .text.xQueueIsQueueFullFromISR:0000000000000000 xQueueIsQueueFullFromISR
+     /tmp/ccNYnlTX.s:5022   .text.vQueueAddToRegistry:0000000000000000 $t
+     /tmp/ccNYnlTX.s:5028   .text.vQueueAddToRegistry:0000000000000000 vQueueAddToRegistry
+     /tmp/ccNYnlTX.s:5103   .text.vQueueAddToRegistry:0000000000000050 $d
+     /tmp/ccNYnlTX.s:5108   .text.pcQueueGetName:0000000000000000 $t
+     /tmp/ccNYnlTX.s:5114   .text.pcQueueGetName:0000000000000000 pcQueueGetName
+     /tmp/ccNYnlTX.s:5188   .text.pcQueueGetName:0000000000000048 $d
+     /tmp/ccNYnlTX.s:5193   .text.vQueueUnregisterQueue:0000000000000000 $t
+     /tmp/ccNYnlTX.s:5276   .text.vQueueUnregisterQueue:0000000000000050 $d
+     /tmp/ccNYnlTX.s:5281   .text.vQueueWaitForMessageRestricted:0000000000000000 $t
+     /tmp/ccNYnlTX.s:5287   .text.vQueueWaitForMessageRestricted:0000000000000000 vQueueWaitForMessageRestricted
                            .group:0000000000000000 wm4.0.7c07f3f6b993d5df097fdb8d3ce9a6de
                            .group:0000000000000000 wm4.ieeefp.h.77.c88535c35f465c05b101960cf0179075
                            .group:0000000000000000 wm4._newlib_version.h.4.bfdf54b0af045d4a71376ae00f63a22c
@@ -8943,7 +8943,7 @@ DEFINED SYMBOLS
                            .group:0000000000000000 wm4.stdlib.h.56.f4862cfbf4363a1db01842d5bdf72c18
                            .group:0000000000000000 wm4.string.h.8.c4b8571ce60dff2817f43fec8b86aecd
                            .group:0000000000000000 wm4.stddef.h.155.ba788add86a0e365f264484f110c3c29
-ARM GAS  /tmp/cccThlSy.s 			page 151
+ARM GAS  /tmp/ccNYnlTX.s 			page 151
 
 
                            .group:0000000000000000 wm4._intsup.h.10.48bafbb683905c4daa4565a85aeeb264
