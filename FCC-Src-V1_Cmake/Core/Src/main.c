@@ -724,7 +724,6 @@ void StartI2cTask(void *argument) {
 /* USER CODE END Header_StartFuelCellTask */
 void StartFuelCellTask(void *argument) {
   /* USER CODE BEGIN StartFuelCellTask */
-  osStatus_t os_stat;
   HAL_StatusTypeDef hal_stat;
 
   /* Infinite loop */
