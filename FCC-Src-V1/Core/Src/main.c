@@ -22,47 +22,60 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "canid.h"
+#include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PTD */
-<<<<<<< HEAD
-=======
-typedef struct
-{
+#define ALL_RELAY_OFF 0x00
+#define CHRGE_RELAY 0x01
+#define RES_RELAY 0x02
+#define DSCHRGE_RELAY 0x04
+#define MTR_RELAY 0x08
+
+typedef enum {
+  RELAY_STBY = ALL_RELAY_OFF,
+  RELAY_STRTP = RES_RELAY | DSCHRGE_RELAY,
+  RELAY_CHRGE = RES_RELAY,
+  RELAY_RUN = CHRGE_RELAY | DSCHRGE_RELAY | MTR_RELAY,
+} rbState_t;
+
+typedef enum {
+  FUEL_CELL_OFF_STATE = 0x00,
+  FUEL_CELL_STRTUP_STATE = 0x01,
+  FUEL_CELL_CHRGE_STATE = 0x02,
+  FUEL_CELL_RUN_STATE = 0x04
+} fcState_t;
+
+typedef struct {
   uint8_t x, y, z;
 } accData_t;
 
-typedef struct  
-{
+typedef struct {
   uint8_t purge_state, supply_state;
   float internal_stack_temp, internal_stack_pressure;
 } fcData_t;
 
-typedef struct 
-{
-  struct FCData* pFC;
-  uint8_t FCData_ID;
+typedef struct {
+  fcData_t *pFC;
+  uint32_t FCData_ID;
 } canPack_t;
 
-typedef struct
-{
+typedef struct {
   uint8_t H2_OK;
   float cap_voltage;
 } canData_t;
->>>>>>> bcfaaaa94a4a245e26cd3efa2117dbda2653f00b
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define FULL_CAP_CHARGE_V 18
+#define CAN_MESSAGE_SENT_TIMEOUT_MS 5000
+#define CAN_ADD_TX_TIMEOUT_MS 5000
 
-#define FUEL_CELL_OFF_STATE 0x00
-#define FUEL_CELL_STRTUP_STATE 0x01
-#define FUEL_CELL_CHRGE_STATE 0x02
-#define FUEL_CELL_RUN_STATE 0x04
+#define FULL_CAP_CHARGE_V 18
 
 #define CAN_TX_MAILBOX_NONE 0x00000000U // Remove reference to tx mailbox
 /* USER CODE END PD */
@@ -119,30 +132,21 @@ const osThreadAttr_t FuelCellTask_attributes = {
 };
 /* Definitions for canMsgOkSem */
 osSemaphoreId_t canMsgOkSemHandle;
-const osSemaphoreAttr_t canMsgOkSem_attributes = {
-    .name = "canMsgOkSem"};
+const osSemaphoreAttr_t canMsgOkSem_attributes = {.name = "canMsgOkSem"};
 /* USER CODE BEGIN PV */
-uint8_t fc_state = FUEL_CELL_OFF_STATE;
+rbState_t rb_state = RELAY_STBY;
+fcState_t fc_state = FUEL_CELL_OFF_STATE;
 
-<<<<<<< HEAD
-accData_t accData;
-fcData_t fcData;
-=======
->>>>>>> bcfaaaa94a4a245e26cd3efa2117dbda2653f00b
+CAN_RxHeaderTypeDef RxHeader;
+uint8_t RxData[8];
+
 canData_t canData;
 
-CAN_TxHeaderTypeDef TxHeader, TxHeaderFuelCellTask;
-CAN_RxHeaderTypeDef RxHeader;
-
-uint32_t TxMailbox, TxMailboxFuelCellTask;
-uint8_t TxData[8];
-uint8_t RxData[8];
+uint32_t TxMailboxFuelCellTask;
 
 uint8_t RxUARTbuff;
 uint8_t RxUARTData[32];
 uint8_t UartIndex = 0;
-
-uint8_t uselessvariable = 90; 
 
 uint32_t button_debounce;
 /* USER CODE END PV */
@@ -159,77 +163,66 @@ void StartI2cTask(void *argument);
 void StartFuelCellTask(void *argument);
 
 /* USER CODE BEGIN PFP */
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-{
+int _write(int file, char *ptr, int len) {
+  HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, 10);
+  return len;
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
 }
 
 /* Transmit Completed Callbacks for Message Sent Confirmations */
-void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
-{
-  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX0)
-  {
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
+  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX0) {
     TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
     osSemaphoreRelease(canMsgOkSemHandle);
   }
 }
-void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan)
-{
-  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX1)
-  {
+void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {
+  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX1) {
     TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
     osSemaphoreRelease(canMsgOkSemHandle);
   }
 }
-void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan)
-{
-  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX2)
-  {
+void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {
+  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX2) {
     TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
     osSemaphoreRelease(canMsgOkSemHandle);
   }
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-  if (RxUARTbuff == (char)0x04)
-  {
+const char msg[64] = "\r\n\tBuffer Overflowed - Message Lost\r\n";
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  if (RxUARTbuff == (char)0x04) {
     // RxUARTData[UartIndex++] = '\r';
     // RxUARTData[UartIndex] = '\n';
     HAL_UART_Transmit_DMA(huart, RxUARTData, UartIndex);
     UartIndex = 0;
-  }
-  else
-  {
+  } else {
     RxUARTData[UartIndex] = RxUARTbuff;
-    if (UartIndex == (sizeof(RxUARTData) - 1))
-    {
-      uint8_t msg[] = "\r\n\tBuffer Overflowed - Message Lost\r\n";
-      HAL_UART_Transmit_DMA(huart, msg, sizeof(msg));
+    if (UartIndex == (sizeof(RxUARTData) - 1)) {
+      printf("\r\n\tBuffer Overflowed\r\n");
+      // HAL_UART_Transmit_DMA(huart, (const uint8_t*)msg, 64);
       UartIndex = 0;
-    }
-    else
-    {
+    } else {
       UartIndex++;
     }
   }
   HAL_UART_Receive_DMA(huart, &RxUARTbuff, 1U);
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-  switch (GPIO_Pin)
-  {
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  switch (GPIO_Pin) {
   case BRD_STRT_Pin:
-    if (HAL_GetTick() - button_debounce > 1000)
-    {
-      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE | FUEL_CELL_RUN_STATE)) // If fc_state is non-zero
+    if (HAL_GetTick() - button_debounce > 1000) {
+      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
+                      FUEL_CELL_RUN_STATE)) // If fc_state is non-zero
       {
         button_debounce = HAL_GetTick();
         fc_state = FUEL_CELL_OFF_STATE;
-      }
-      else
-      {
+      } else {
         button_debounce = HAL_GetTick();
         fc_state = FUEL_CELL_STRTUP_STATE;
       }
@@ -239,12 +232,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     /* Do something */
     break;
   case EXT_STRT_Pin:
-    if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE | FUEL_CELL_RUN_STATE))
-    {
+    if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
+                    FUEL_CELL_RUN_STATE)) {
       fc_state = FUEL_CELL_OFF_STATE;
-    }
-    else
-    {
+    } else {
       fc_state = FUEL_CELL_STRTUP_STATE;
     }
     break;
@@ -263,6 +254,36 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     break;
   }
 }
+
+HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
+                                           uint32_t msg_length,
+                                           uint32_t *TxMailbox) {
+  uint32_t fc_tick;
+  HAL_StatusTypeDef hal_stat;
+  CAN_TxHeaderTypeDef TxHeader;
+
+  // These will never change
+  TxHeader.IDE = CAN_ID_STD;
+  TxHeader.RTR = CAN_RTR_DATA;
+  TxHeader.ExtId = 0;
+  TxHeader.TransmitGlobalTime = DISABLE;
+
+  // User will give us this information
+  TxHeader.StdId = msg_id;
+  TxHeader.DLC = msg_length;
+
+  // Start a timer to check timeout conditions
+  fc_tick = HAL_GetTick();
+
+  /* Try to add a Tx message. Returns HAL_ERROR if there are no avail
+   * mailboxes or if the peripheral is not initialized. */
+  do {
+    hal_stat = HAL_CAN_AddTxMessage(&hcan1, &TxHeader, msg, TxMailbox);
+  } while (hal_stat != HAL_OK &&
+           (HAL_GetTick() - fc_tick < CAN_ADD_TX_TIMEOUT_MS));
+
+  return hal_stat;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -274,15 +295,15 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
  * @brief  The application entry point.
  * @retval int
  */
-int main(void)
-{
+int main(void) {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick.
+   */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
@@ -344,11 +365,12 @@ int main(void)
   I2cTaskHandle = osThreadNew(StartI2cTask, NULL, &I2cTask_attributes);
 
   /* creation of FuelCellTask */
-  FuelCellTaskHandle = osThreadNew(StartFuelCellTask, NULL, &FuelCellTask_attributes);
+  FuelCellTaskHandle =
+      osThreadNew(StartFuelCellTask, NULL, &FuelCellTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  if (CanTaskHandle == NULL || I2cTaskHandle == NULL || FuelCellTaskHandle == NULL)
-  {
+  if (CanTaskHandle == NULL || I2cTaskHandle == NULL ||
+      FuelCellTaskHandle == NULL) {
     while (1)
       ;
   }
@@ -365,8 +387,7 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  while (1) {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -378,15 +399,13 @@ int main(void)
  * @brief System Clock Configuration
  * @retval None
  */
-void SystemClock_Config(void)
-{
+void SystemClock_Config(void) {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
    */
-  if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
-  {
+  if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK) {
     Error_Handler();
   }
 
@@ -402,21 +421,20 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
     Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
    */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
+                                RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
-  {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
     Error_Handler();
   }
   HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_8);
@@ -427,8 +445,7 @@ void SystemClock_Config(void)
  * @param None
  * @retval None
  */
-static void MX_CAN1_Init(void)
-{
+static void MX_CAN1_Init(void) {
 
   /* USER CODE BEGIN CAN1_Init 0 */
 
@@ -449,8 +466,7 @@ static void MX_CAN1_Init(void)
   hcan1.Init.AutoRetransmission = DISABLE;
   hcan1.Init.ReceiveFifoLocked = DISABLE;
   hcan1.Init.TransmitFifoPriority = DISABLE;
-  if (HAL_CAN_Init(&hcan1) != HAL_OK)
-  {
+  if (HAL_CAN_Init(&hcan1) != HAL_OK) {
     Error_Handler();
   }
   /* USER CODE BEGIN CAN1_Init 2 */
@@ -465,8 +481,7 @@ static void MX_CAN1_Init(void)
   sf.FilterMode = CAN_FILTERMODE_IDMASK;
   sf.FilterScale = CAN_FILTERSCALE_32BIT;
   sf.FilterActivation = CAN_FILTER_ENABLE;
-  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK)
-  {
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
     Error_Handler();
   }
   /* USER CODE END CAN1_Init 2 */
@@ -477,8 +492,7 @@ static void MX_CAN1_Init(void)
  * @param None
  * @retval None
  */
-static void MX_I2C1_Init(void)
-{
+static void MX_I2C1_Init(void) {
 
   /* USER CODE BEGIN I2C1_Init 0 */
 
@@ -496,22 +510,19 @@ static void MX_I2C1_Init(void)
   hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
-  {
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK) {
     Error_Handler();
   }
 
   /** Configure Analogue filter
    */
-  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
-  {
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK) {
     Error_Handler();
   }
 
   /** Configure Digital filter
    */
-  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
-  {
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK) {
     Error_Handler();
   }
   /* USER CODE BEGIN I2C1_Init 2 */
@@ -524,8 +535,7 @@ static void MX_I2C1_Init(void)
  * @param None
  * @retval None
  */
-static void MX_USART1_UART_Init(void)
-{
+static void MX_USART1_UART_Init(void) {
 
   /* USER CODE BEGIN USART1_Init 0 */
 
@@ -544,8 +554,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart1) != HAL_OK)
-  {
+  if (HAL_UART_Init(&huart1) != HAL_OK) {
     Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
@@ -556,8 +565,7 @@ static void MX_USART1_UART_Init(void)
 /**
  * Enable DMA controller clock
  */
-static void MX_DMA_Init(void)
-{
+static void MX_DMA_Init(void) {
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
@@ -576,8 +584,7 @@ static void MX_DMA_Init(void)
  * @param None
  * @retval None
  */
-static void MX_GPIO_Init(void)
-{
+static void MX_GPIO_Init(void) {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
   /* USER CODE END MX_GPIO_Init_1 */
@@ -589,7 +596,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, SUPPLY_VLVE_Pin | PURGE_VLVE_Pin | CAN_STBY_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, SUPPLY_VLVE_Pin | PURGE_VLVE_Pin | CAN_STBY_Pin,
+                    GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_RESET);
@@ -680,12 +688,11 @@ static void MX_GPIO_Init(void)
  * @retval None
  */
 /* USER CODE END Header_StartCanTask */
-void StartCanTask(void *argument)
-{
+void StartCanTask(void *argument) {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for (;;)
-  {
+  for (;;) {
+    printf("ID: %d, Data: %d\r\n", RxHeader.StdId, RxData[0]);
     osDelay(10);
   }
   /* USER CODE END 5 */
@@ -698,12 +705,10 @@ void StartCanTask(void *argument)
  * @retval None
  */
 /* USER CODE END Header_StartI2cTask */
-void StartI2cTask(void *argument)
-{
+void StartI2cTask(void *argument) {
   /* USER CODE BEGIN StartI2cTask */
   /* Infinite loop */
-  for (;;)
-  {
+  for (;;) {
     osDelay(1);
   }
   /* USER CODE END StartI2cTask */
@@ -716,60 +721,63 @@ void StartI2cTask(void *argument)
  * @retval None
  */
 /* USER CODE END Header_StartFuelCellTask */
-void StartFuelCellTask(void *argument)
-{
+void StartFuelCellTask(void *argument) {
   /* USER CODE BEGIN StartFuelCellTask */
-#define CAN_MESSAGE_TIMEOUT_MS 5000
-#define CAN_ADD_TX_TIMEOUT_MS 5000
   osStatus_t os_stat;
-  uint32_t fc_tick;
   HAL_StatusTypeDef hal_stat;
 
-  TxHeaderFuelCellTask.IDE = CAN_ID_STD;
-  TxHeaderFuelCellTask.RTR = CAN_RTR_DATA;
-  TxHeaderFuelCellTask.ExtId = 0;
-  TxHeaderFuelCellTask.TransmitGlobalTime = DISABLE;
   /* Infinite loop */
-  for (;;)
-  {
-    switch (fc_state)
-    {
+  for (;;) {
+    switch (fc_state) {
     case FUEL_CELL_OFF_STATE:
+      rb_state = RELAY_STBY;
       HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
       HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_RESET);
-      // CAN message to relay board all relays off
+      hal_stat =
+          HAL_CAN_SafeAddTxMessage(&rb_state, (uint32_t)RELAY_CONFIGURATION_ID,
+                                   1UL, &TxMailboxFuelCellTask);
+      if (hal_stat == HAL_OK) {
+        if (osSemaphoreAcquire(canMsgOkSemHandle,
+                               CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
+          // Message succesfully sent
+          // Should we suspend the task here?
+        }
+      } else {
+        // Add error handle here
+        // HAL_UART_Transmit_DMA()
+        // Perhaps abort the Tx request
+      }
+
       break;
     case FUEL_CELL_STRTUP_STATE:
-      TxHeaderFuelCellTask.StdId = 0x103;
-      TxHeaderFuelCellTask.DLC = 8;
-      uint8_t mymsg[8] = {1, 2, 3, 4, 5, 6, 7, 8};
-
-      // Try to add tx message
-      fc_tick = HAL_GetTick();
-      do
-      {
-        hal_stat = HAL_CAN_AddTxMessage(&hcan1, &TxHeaderFuelCellTask, mymsg, &TxMailboxFuelCellTask);
-      } while (hal_stat != HAL_OK && (HAL_GetTick() - fc_tick < CAN_ADD_TX_TIMEOUT_MS));
-
-      // Wait for tx message to be sent. If never successfully sent, timeout and return to off state.
-      if (osSemaphoreAcquire(canMsgOkSemHandle, CAN_MESSAGE_TIMEOUT_MS) == osOK)
-      {
-        HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_SET);
-        osDelay(500);
-        HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
-        fc_state = FUEL_CELL_CHRGE_STATE;
-      }
-      else
-      {
-        // Tx never added or didn't send succesfully in CAN_MESSAGE_TIMEOUT_MS
-        fc_state = FUEL_CELL_OFF_STATE;
+      rb_state = RELAY_STRTP;
+      hal_stat =
+          HAL_CAN_SafeAddTxMessage(&rb_state, (uint32_t)RELAY_CONFIGURATION_ID,
+                                   1UL, &TxMailboxFuelCellTask);
+      if (hal_stat == HAL_OK) {
+        if (osSemaphoreAcquire(canMsgOkSemHandle,
+                               CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
+          // Start the hydrogen supply and purge for 500 ms
+          HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin,
+                            GPIO_PIN_SET);
+          HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_SET);
+          osDelay(500);
+          HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin,
+                            GPIO_PIN_RESET);
+          fc_state = FUEL_CELL_CHRGE_STATE;
+        } else {
+          // Tx never added or didn't send succesfully in CAN_MESSAGE_TIMEOUT_MS
+          fc_state = FUEL_CELL_OFF_STATE;
+          // should probably abort the Tx request
+        }
       }
       break;
     case FUEL_CELL_CHRGE_STATE:
-      if (canData.cap_voltage >= FULL_CAP_CHARGE_V)
-      {
-        fc_state = FUEL_CELL_RUN_STATE;
+      rb_state = RELAY_CHRGE;
+      // Need to be monitoring capicator voltage, will likely be handled in
+      // RxMailbox interrupt
+      if (canData.cap_voltage >= FULL_CAP_CHARGE_V) {
+      } else {
       }
       // CAN message to relay board cap charge mode
       // Wait for caps to charge up
@@ -780,6 +788,7 @@ void StartFuelCellTask(void *argument)
 
       break;
     }
+    osDelay(10);
   }
   /* USER CODE END StartFuelCellTask */
 }
@@ -792,13 +801,11 @@ void StartFuelCellTask(void *argument)
  * @param  htim : TIM handle
  * @retval None
  */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM1)
-  {
+  if (htim->Instance == TIM1) {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
@@ -810,13 +817,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
  * @brief  This function is executed in case of error occurrence.
  * @retval None
  */
-void Error_Handler(void)
-{
+void Error_Handler(void) {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1)
-  {
+  while (1) {
   }
   /* USER CODE END Error_Handler_Debug */
 }
@@ -829,11 +834,11 @@ void Error_Handler(void)
  * @param  line: assert_param error line source number
  * @retval None
  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
+void assert_failed(uint8_t *file, uint32_t line) {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* User can add his own implementation to report the file name and line
+     number, ex: printf("Wrong parameters value: file %s on line %d\r\n", file,
+     line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

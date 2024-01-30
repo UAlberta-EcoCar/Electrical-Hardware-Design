@@ -229,7 +229,6 @@ void CAN1_TX_IRQHandler(void)
   /* USER CODE END CAN1_TX_IRQn 0 */
   HAL_CAN_IRQHandler(&hcan1);
   /* USER CODE BEGIN CAN1_TX_IRQn 1 */
-
   /* USER CODE END CAN1_TX_IRQn 1 */
 }
 

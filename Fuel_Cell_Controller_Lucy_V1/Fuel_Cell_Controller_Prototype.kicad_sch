@@ -3828,15 +3828,10 @@
     (effects (font (size 2.5 2.5) (thickness 0.5) bold italic) (justify left bottom))
     (uuid 6c1f41ce-35a0-4192-8b5d-39084ec1369a)
   )
-  (text "12V = 11V * (R_{1}+R_{2})/R_{2}\n1.09R_{2} = R_{1} + R_{2}\n0.09R_{2} = R_{1}\n\n12V = 4.5V * (R_{1}+R_{2})/R_{2}\n2.67R_{2} = R_{1} + R_{2}\n1.67R_{2} = R_{1}"
-    (at 154.94 72.39 0)
+  (text "V_{IN,UV} = V_{UVLO,F} * (R_{1}+R_{2})/R_{2}\n11V = 1.1V * (R_{1}+R_{2})/R_{2}\n11*R2 = 1.1*R1 + 1.1*R2\nR2 = 0.11*R1\n\nR2 = 1.1k\nR1 = 10k"
+    (at 154.94 76.2 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 71e48bdd-0450-45c1-a4f9-59c67c93ea63)
-  )
-  (text "5V = 4.5V * (R_{1}+R_{2})/R_{2}\n1.11R_{2} = R_{1} + R_{2}\n0.11R_{2} = R_{1}"
-    (at 157.48 123.19 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 7e4a61a9-bc44-41e7-ad1c-63eafd5e4b73)
   )
   (text "R_{1}" (at 176.53 35.56 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3898,6 +3893,11 @@
   (text "R_{2}" (at 176.53 105.41 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid f2bacf59-46b3-4b3c-9df5-c17ce27b8d62)
+  )
+  (text "V_{IN,UV} = V_{UVLO,F} * (R_{1}+R_{2})/R_{2}\n4.5V = 1.1V * (R_{1}+R_{2})/R_{2}\n4.5*R2 = 1.1*R1 + 1.1*R2\nR2 = 0.32*R1\n\nR2 = 3.2k\nR1 = 10k"
+    (at 152.4 133.35 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid fb44513d-a715-4e68-8b2f-b7c0e1f3e67c)
   )
 
   (label "MCU_3V3" (at 57.15 212.09 180) (fields_autoplaced)
