@@ -78,4 +78,9 @@
   (pad "4" thru_hole circle (at 0 -2.999999) (size 1.52 1.52) (drill 1.02) (layers "*.Cu" "*.Mask") (tstamp 0849dfec-cf1b-442b-acde-948794469fae))
   (pad "5" thru_hole circle (at -2.999999 -2.999999) (size 1.52 1.52) (drill 1.02) (layers "*.Cu" "*.Mask") (tstamp 94de116f-960c-4233-9624-55b992cbe373))
   (pad "6" thru_hole circle (at -5.999998 -2.999999) (size 1.52 1.52) (drill 1.02) (layers "*.Cu" "*.Mask") (tstamp 1fd32222-4792-475c-8f56-5c142ed7694c))
+  (model "${KIPRJMOD}/SYM&FOOT/3D/0430450612.step"
+    (offset (xyz -3 1.5 0.5))
+    (scale (xyz 1 1 1))
+    (rotate (xyz -90 0 0))
+  )
 )

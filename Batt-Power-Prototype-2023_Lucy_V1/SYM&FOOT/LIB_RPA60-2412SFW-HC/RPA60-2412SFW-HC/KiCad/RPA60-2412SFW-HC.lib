@@ -1,0 +1,29 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model RPA60-2412SFW-HC
+#/1190041/1146735/2.50/6/4/Power Supply
+DEF RPA60-2412SFW-HC PS 0 30 Y Y 1 F N
+F0 "PS" 1050 300 50 H V L CNN
+F1 "RPA60-2412SFW-HC" 1050 200 50 H V L CNN
+F2 "RPA602412SFWHC" 1050 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/RPA60-2412SFW-HC.pdf" 1050 0 50 H I L CNN
+F4 "Isolated DC/DC Converters 60W 9-36Vin 12Vout 5A" 1050 -100 50 H I L CNN "Description"
+F5 "10.7" 1050 -200 50 H I L CNN "Height"
+F6 "RECOM Power" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "RPA60-2412SFW-HC" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "919-RPA60-2412SFW-HC" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/RECOM-Power/RPA60-2412SFW-HC?qs=FLBwGrBR9%252B1HOZNjXa%252B%252BWg%3D%3D" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "" 1050 -700 50 H I L CNN "Arrow Part Number"
+F11 "" 1050 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X +VIN 1 0 -200 200 R 50 50 0 0 P
+X -VIN 2 0 -100 200 R 50 50 0 0 P
+X CTRL 3 0 0 200 R 50 50 0 0 P
+X TRIM 4 1200 0 200 L 50 50 0 0 P
+X -VOUT 5 1200 -100 200 L 50 50 0 0 P
+X +VOUT 6 1200 -200 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

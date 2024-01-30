@@ -1,0 +1,133 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "RPA60-2412SFW-HC"
+   (description "Isolated DC/DC Converters 60W 9-36Vin 12Vout 5A")
+   (family "ANA")
+   (package "RPA602412SFWHC")
+   (attribute "Datasheet Link" "https://componentsearchengine.com/Datasheets/1/RPA60-2412SFW-HC.pdf")
+   (attribute "Geometry.Height" "10.7mm")
+   (attribute "Manufacturer_Name" "RECOM Power")
+   (attribute "Manufacturer_Part_Number" "RPA60-2412SFW-HC")
+   (attribute "Mouser Part Number" "919-RPA60-2412SFW-HC")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/RECOM-Power/RPA60-2412SFW-HC?qs=FLBwGrBR9%252B1HOZNjXa%252B%252BWg%3D%3D")
+   (attribute "Arrow Part Number" "")
+   (attribute "Arrow Price/Stock" "")
+   (gate
+    (symbol "RPA60-2412SFW-HC")
+    (pin "+VIN" 1 PS)
+    (pin "-VIN" 2 PS)
+    (pin "CTRL" 3 PS)
+    (pin "TRIM" 4 PS)
+    (pin "-VOUT" 5 PS)
+    (pin "+VOUT" 6 PS)
+   )
+  )
+  (symbol "RPA60-2412SFW-HC"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1000 100) (pt 1000 -300) (pt 200 -300) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "RPA602412SFWHC"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -2.54 20.32)
+      (pt 48.26 20.32)
+      (pt 48.26 -5.08)
+      (pt -2.54 -5.08)
+      (pt -2.54 20.32))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -2.54 20.32)
+      (pt 48.26 20.32)
+      (pt 48.26 -5.08)
+      (pt -2.54 -5.08)
+      (pt -2.54 20.32))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -5.34 21.32)
+      (pt 49.26 21.32)
+      (pt 49.26 -6.08)
+      (pt -5.34 -6.08)
+      (pt -5.34 21.32))))
+   (layer TSLK
+    (graphic
+     (stroke 0.4)
+     (path
+      (closed true)
+      (pt -4.14 -0.38)
+      (arc (pt -4.140 -0.380) (pt -4.340 -0.480) (pt -4.140 -0.280) (start 180.0) (sweep .0))
+      (pt -4.34 -0.38)
+      (arc (pt -4.340 -0.380) (pt -4.340 -0.480) (pt -4.140 -0.280) (start 180.0) (sweep 180.0))
+      (pt -4.14 -0.38))))
+   (leg 1 (pt 0.000 0.000) (padstack 0))
+   (leg 2 (pt 0.000 5.080) (padstack 0))
+   (leg 3 (pt 0.000 15.240) (padstack 0))
+   (leg 4 (pt 45.720 17.780) (padstack 0))
+   (leg 5 (pt 45.720 7.620) (padstack 0))
+   (leg 6 (pt 45.720 -2.540) (padstack 0))
+   (padstack 0
+    (hole 1.5)
+    (plated true)
+    (pad (layer TCOP) (round 2.250))
+    (pad (layer INNER) (round 2.250))
+    (pad (layer BCOP) (round 2.250))
+   )
+   (model "RPA60-2412SFW-HC.stp"
+    (euler 0 0 0)
+    (offset -2.809999942779541 -5.079999923706055 10.319999694824219)
+   )
+  )
+ )
+)
