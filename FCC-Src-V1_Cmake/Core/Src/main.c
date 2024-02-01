@@ -24,6 +24,8 @@
 /* USER CODE BEGIN Includes */
 #include "canid.h"
 #include "cmsis_os2.h"
+#include "stm32l4xx_hal_can.h"
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
@@ -258,18 +260,18 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
 HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
                                            uint32_t msg_length,
-                                           uint32_t *TxMailbox) {
+                                           uint32_t *TxMailbox, uint32_t rtr) {
   uint32_t fc_tick;
   HAL_StatusTypeDef hal_stat;
   CAN_TxHeaderTypeDef TxHeader;
 
   // These will never change
   TxHeader.IDE = CAN_ID_STD;
-  TxHeader.RTR = CAN_RTR_DATA;
   TxHeader.ExtId = 0;
   TxHeader.TransmitGlobalTime = DISABLE;
 
   // User will give us this information
+  TxHeader.RTR = rtr;
   TxHeader.StdId = msg_id;
   TxHeader.DLC = msg_length;
 
@@ -693,8 +695,9 @@ void StartCanTask(void *argument) {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for (;;) {
-    printf("ID: %d, Data: %d\r\n", RxHeader.StdId, RxData[0]);
+    printf("ID: %d, Data: %d\r\n", (uint8_t)RxHeader.StdId, RxData[0]);
     osDelay(10);
+    osDelay(osWaitForever);
   }
   /* USER CODE END 5 */
 }
@@ -733,27 +736,29 @@ void StartFuelCellTask(void *argument) {
       rb_state = RELAY_STBY;
       HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
       HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_RESET);
-      hal_stat =
-          HAL_CAN_SafeAddTxMessage(&rb_state, (uint32_t)RELAY_CONFIGURATION_ID,
-                                   1UL, &TxMailboxFuelCellTask);
+      hal_stat = HAL_CAN_SafeAddTxMessage(
+          (uint8_t *)&rb_state, (uint32_t)RELAY_CONFIGURATION_ID, 1UL,
+          &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
       if (hal_stat == HAL_OK) {
         if (osSemaphoreAcquire(canMsgOkSemHandle,
                                CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
-          // Message succesfully sent
+          printf("Message sent on CANbus to Relay Board: RELAY_STBY\r\n");
+
           // Should we suspend the task here?
+        } else {
+          HAL_CAN_AbortTxRequest(&hcan1, TxMailboxFuelCellTask);
+          printf("Message send timeout to Relay Board\r\n");
         }
       } else {
-        // Add error handle here
-        // HAL_UART_Transmit_DMA()
-        // Perhaps abort the Tx request
+        printf("CANBUS Tx Error Code: %x", hcan1.ErrorCode);
       }
 
       break;
     case FUEL_CELL_STRTUP_STATE:
       rb_state = RELAY_STRTP;
-      hal_stat =
-          HAL_CAN_SafeAddTxMessage(&rb_state, (uint32_t)RELAY_CONFIGURATION_ID,
-                                   1UL, &TxMailboxFuelCellTask);
+      hal_stat = HAL_CAN_SafeAddTxMessage(
+          (uint8_t *)&rb_state, (uint32_t)RELAY_CONFIGURATION_ID, 1UL,
+          &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
       if (hal_stat == HAL_OK) {
         if (osSemaphoreAcquire(canMsgOkSemHandle,
                                CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
@@ -765,8 +770,10 @@ void StartFuelCellTask(void *argument) {
           HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin,
                             GPIO_PIN_RESET);
           fc_state = FUEL_CELL_CHRGE_STATE;
+          printf("Message sent on CANbus to Relay Board: RELAY_STRTP\r\n");
         } else {
-          // Tx never added or didn't send succesfully in CAN_MESSAGE_TIMEOUT_MS
+          HAL_CAN_AbortTxRequest(&hcan1, TxMailboxFuelCellTask);
+          printf("Message send timeout to Relay Board\r\n");
           fc_state = FUEL_CELL_OFF_STATE;
           // should probably abort the Tx request
         }
@@ -774,6 +781,9 @@ void StartFuelCellTask(void *argument) {
       break;
     case FUEL_CELL_CHRGE_STATE:
       rb_state = RELAY_CHRGE;
+      hal_stat = HAL_CAN_SafeAddTxMessage(
+          (uint8_t *)&rb_state, (uint32_t)REQUEST_FOR_CAP_VOLTAGE, 0UL,
+          &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_REMOTE);
       // Need to be monitoring capicator voltage, will likely be handled in
       // RxMailbox interrupt
       if (canData.cap_voltage >= FULL_CAP_CHARGE_V) {

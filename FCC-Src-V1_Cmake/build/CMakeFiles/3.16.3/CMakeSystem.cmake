@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "5.15.133.1-microsoft-standard-WSL2")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/gcc-arm-none-eabi.cmake")
+include("/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/gcc-arm-none-eabi.cmake")
 
 set(CMAKE_SYSTEM "Generic")
 set(CMAKE_SYSTEM_NAME "Generic")
