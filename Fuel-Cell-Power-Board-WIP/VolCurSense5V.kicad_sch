@@ -673,10 +673,7 @@
           (reference "#PWR064") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR069") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR061") (unit 1)
+          (reference "#PWR054") (unit 1)
         )
       )
     )
@@ -705,10 +702,7 @@
           (reference "R12") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "R26") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "R7") (unit 1)
+          (reference "R30") (unit 1)
         )
       )
     )
@@ -736,10 +730,36 @@
           (reference "#PWR023") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR030") (unit 1)
+          (reference "#PWR049") (unit 1)
         )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR012") (unit 1)
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:D_Zener") (at 68.58 85.09 270) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 2d848abd-ce7f-403f-93b7-2e4d0db42732)
+    (property "Reference" "D16" (at 71.12 84.455 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MM3Z3V3ST1GOSDKR-ND" (at 71.12 86.995 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-323" (at 68.58 85.09 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mm3z2v4st1-d.pdf" (at 68.58 85.09 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 8550b92f-eec3-45c2-bedc-2f3a8b80a9d5))
+    (pin "2" (uuid 49e43510-6299-4231-b2dc-159b0caf3e69))
+    (instances
+      (project "FCBoard"
+        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/5be85d44-b1c4-47a6-b267-9e3b1f3657e3"
+          (reference "D16") (unit 1)
+        )
+        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
+          (reference "D17") (unit 1)
         )
       )
     )
@@ -767,10 +787,7 @@
           (reference "#PWR065") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR070") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR074") (unit 1)
+          (reference "#PWR055") (unit 1)
         )
       )
     )
@@ -799,10 +816,7 @@
           (reference "R21") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "R27") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "R9") (unit 1)
+          (reference "R31") (unit 1)
         )
       )
     )
@@ -830,10 +844,7 @@
           (reference "#PWR024") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR031") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR013") (unit 1)
+          (reference "#PWR050") (unit 1)
         )
       )
     )
@@ -865,10 +876,7 @@
           (reference "C6") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "C2") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "C18") (unit 1)
+          (reference "C35") (unit 1)
         )
       )
     )
@@ -896,10 +904,7 @@
           (reference "#PWR067") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR072") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR076") (unit 1)
+          (reference "#PWR057") (unit 1)
         )
       )
     )
@@ -914,7 +919,7 @@
     (property "Value" "TSV912IDT" (at 152.4 98.425 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "FPCB_Footprints:SO8_STM" (at 153.67 96.52 0)
+    (property "Footprint" "BATT_FTP:SO8_STM" (at 153.67 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "www.st.com/resource/en/datasheet/tsv911.pdf" (at 153.67 96.52 0)
@@ -934,10 +939,7 @@
           (reference "U8") (unit 3)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "U10") (unit 3)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "U4") (unit 3)
+          (reference "U13") (unit 3)
         )
       )
     )
@@ -952,7 +954,7 @@
     (property "Value" "TSV912IDT" (at 138.43 49.53 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "FPCB_Footprints:SO8_STM" (at 138.43 55.88 0)
+    (property "Footprint" "BATT_FTP:SO8_STM" (at 138.43 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "www.st.com/resource/en/datasheet/tsv911.pdf" (at 138.43 55.88 0)
@@ -972,10 +974,7 @@
           (reference "U8") (unit 2)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "U10") (unit 2)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "U4") (unit 2)
+          (reference "U13") (unit 2)
         )
       )
     )
@@ -1007,10 +1006,7 @@
           (reference "C6") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "C3") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "C26") (unit 1)
+          (reference "C37") (unit 1)
         )
       )
     )
@@ -1039,10 +1035,7 @@
           (reference "R10") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "R15") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "R3") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -1080,42 +1073,7 @@
           (reference "U6") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "U9") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "U1") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:D_Zener") (at 111.76 58.42 270) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 9276fe5e-c835-44b7-82db-6e1c545f0f6e)
-    (property "Reference" "D14" (at 114.3 57.785 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "MM3Z3V3ST1GOSDKR-ND" (at 114.3 60.325 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "FPCB_Footprints:SOD-323_1P8X1P35_ONS" (at 111.76 58.42 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mm3z2v4st1-d.pdf" (at 111.76 58.42 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 777b0c42-abc4-4c49-9c55-a0da1385bd7f))
-    (pin "2" (uuid 34f0f069-e624-457f-807a-26c8f4b66d10))
-    (instances
-      (project "FCBoard"
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/5be85d44-b1c4-47a6-b267-9e3b1f3657e3"
-          (reference "D14") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "D9") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "D17") (unit 1)
+          (reference "U12") (unit 1)
         )
       )
     )
@@ -1130,7 +1088,7 @@
     (property "Value" "TSV912IDT" (at 92.71 74.93 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "FPCB_Footprints:SO8_STM" (at 92.71 81.28 0)
+    (property "Footprint" "BATT_FTP:SO8_STM" (at 92.71 81.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "www.st.com/resource/en/datasheet/tsv911.pdf" (at 92.71 81.28 0)
@@ -1150,10 +1108,7 @@
           (reference "U8") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "U10") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "U4") (unit 1)
+          (reference "U13") (unit 1)
         )
       )
     )
@@ -1185,10 +1140,7 @@
           (reference "C17") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "C4") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "C20") (unit 1)
+          (reference "C36") (unit 1)
         )
       )
     )
@@ -1216,10 +1168,7 @@
           (reference "#PWR063") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR034") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR060") (unit 1)
+          (reference "#PWR053") (unit 1)
         )
       )
     )
@@ -1247,42 +1196,36 @@
           (reference "#PWR066") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR071") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR075") (unit 1)
+          (reference "#PWR056") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:D_Zener") (at 68.58 85.09 270) (unit 1)
+  (symbol (lib_id "Device:D_Zener") (at 111.76 58.42 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid c31899ac-85ed-402a-b809-04bafa16fe80)
-    (property "Reference" "D14" (at 71.12 84.455 90)
+    (uuid c35cf448-388c-4dec-a400-3760cef9fb22)
+    (property "Reference" "D16" (at 114.3 57.785 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "MM3Z3V3ST1GOSDKR-ND" (at 71.12 86.995 90)
+    (property "Value" "MM3Z3V3ST1GOSDKR-ND" (at 114.3 60.325 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "FPCB_Footprints:SOD-323_1P8X1P35_ONS" (at 68.58 85.09 0)
+    (property "Footprint" "Diode_SMD:D_SOD-323" (at 111.76 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mm3z2v4st1-d.pdf" (at 68.58 85.09 0)
+    (property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mm3z2v4st1-d.pdf" (at 111.76 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a8252564-5f15-489a-a2d6-5db57a8a39aa))
-    (pin "2" (uuid 0ec464b5-de74-42b3-952e-ed66ab7b7c6b))
+    (pin "1" (uuid f4478fe2-5763-4fdc-97dd-7186fadcd82a))
+    (pin "2" (uuid b9d22ef4-f72d-4429-a08e-127535cf6e78))
     (instances
       (project "FCBoard"
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/5be85d44-b1c4-47a6-b267-9e3b1f3657e3"
-          (reference "D14") (unit 1)
+          (reference "D16") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "D13") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "D15") (unit 1)
+          (reference "D8") (unit 1)
         )
       )
     )
@@ -1310,10 +1253,7 @@
           (reference "#PWR062") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR033") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR059") (unit 1)
+          (reference "#PWR052") (unit 1)
         )
       )
     )
@@ -1341,10 +1281,7 @@
           (reference "#PWR053") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR032") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR058") (unit 1)
+          (reference "#PWR051") (unit 1)
         )
       )
     )
@@ -1372,10 +1309,7 @@
           (reference "#PWR068") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "#PWR073") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "#PWR077") (unit 1)
+          (reference "#PWR058") (unit 1)
         )
       )
     )
@@ -1404,10 +1338,7 @@
           (reference "R11") (unit 1)
         )
         (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/59d9b0c4-d4f4-4be3-8a94-d2e2577f3ec5"
-          (reference "R16") (unit 1)
-        )
-        (path "/7aefa7f6-8562-49e0-9457-229f56bba97d/12238aff-aead-4dd2-8d1e-518f8d68aa91"
-          (reference "R5") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
