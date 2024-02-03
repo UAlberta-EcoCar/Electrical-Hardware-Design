@@ -1,0 +1,35 @@
+(footprint "Display_128x64_096_I2C" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (descr "Display 0.96\" OLED 128x64 pixel with SSD1306 controller and I2C interface")
+  (tags "display OLED SSD1306 128x64")
+  (attr through_hole)
+  (fp_text reference "Display 128x64 0.96\" I2C" (at -0.2286 10.8712) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 2c89c836-6761-42c1-b4df-c8efa9dedf44)
+  )
+  (fp_text value "Display_128x64" (at 0.04 3.77) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 23ec5366-a2f6-45ec-baca-7927a7007630)
+  )
+  (fp_text user "VDD" (at -1.27 2.159) (layer "F.SilkS") hide
+      (effects (font (size 1 0.7) (thickness 0.15)))
+    (tstamp 70f4b728-41ba-476e-b0df-a36a6b6dff66)
+  )
+  (fp_text user "GND" (at -3.81 2.159) (layer "F.SilkS") hide
+      (effects (font (size 1 0.7) (thickness 0.15)))
+    (tstamp 7ef309df-44c9-443a-8e19-5a24acd35c2c)
+  )
+  (fp_text user "SDA" (at 3.937 2.159) (layer "F.SilkS") hide
+      (effects (font (size 1 0.7) (thickness 0.15)))
+    (tstamp 9803fea9-424b-418c-aecf-983d6f3d6199)
+  )
+  (fp_text user "SCL" (at 1.27 2.159) (layer "F.SilkS") hide
+      (effects (font (size 1 0.7) (thickness 0.15)))
+    (tstamp ac6d6206-b102-4cc1-8add-c950432d4cb5)
+  )
+  (model "${KIPRJMOD}/SYM&FTP/3D/Pantalla_OLED_0.96_128x64.stp"
+    (offset (xyz 0 -12.225 2.5))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+)
