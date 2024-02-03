@@ -1,0 +1,69 @@
+{
+  "version": "0.2.1",
+  "configurations": [
+    {
+      "project": "CMakeLists.txt",
+      "projectTarget": "RF-Module-Firmware-HAL.elf",
+      "name": "Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${debugInfo.fullTargetPath}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "${st.gdb}",
+      "miDebuggerServerAddress": "localhost:3333",
+      "debugServerPath": "${st.gdbserver}",
+      "debugServerArgs": "--stm32cubeprogrammer-path ${st.cubeprogrammer} --swd --port-number 3333",
+      "serverStarted": "Waiting for connection on port .*\\.\\.\\.",
+      "stopAtConnect": true,
+      "postRemoteConnectCommands": [
+        {
+          "text": "load build/debug/build/RF-Module-Firmware-HAL.elf"
+        }
+      ],
+      "svdPath": "${st.svd}/STM32L4x2.svd"
+    },
+    {
+      "type": "cppdbg",
+      "name": "RF-Module-Firmware-HAL.elf",
+      "project": "Debug\\RF-Module-Firmware-HAL.elf",
+      "projectTarget": "",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}\\BUILD\\${workspaceRootFolderName}.elf",
+      "MIMode": "gdb",
+      "externalConsole": true,
+      "inheritEnvironments": [
+        "gcc_arm"
+      ],
+      "miDebuggerPath": "${env.gccpath}\\bin\\arm-none-eabi-gdb.exe",
+      "setupCommands": [
+        {
+          "text": "Documentation: Learn how to configure embedded debugging",
+          "description": "For more info, see http://aka.ms/vsembeddeddebug",
+          "ignoreFailures": true
+        },
+        {
+          "text": "-environment-cd ${workspaceRoot}/BUILD"
+        },
+        {
+          "text": "-file-exec-and-symbols ${workspaceRootFolderName}.elf",
+          "description": "load file",
+          "ignoreFailures": false
+        },
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "visualizerFile": "${debugInfo.linuxNatvisPath}",
+      "showDisplayString": true,
+      "miDebuggerServerAddress": "localhost:3333",
+      "launchCompleteCommand": "None",
+      "debugServerPath": "path-to-your\\gdbserver.exe",
+      "debugServerArgs": "-f path-to-your/board.cfg",
+      "serverStarted": "GDB\\ server\\ started",
+      "filterStderr": true,
+      "filterStdout": true
+    }
+  ]
+}

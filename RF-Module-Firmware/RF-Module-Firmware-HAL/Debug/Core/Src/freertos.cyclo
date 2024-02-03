@@ -1,0 +1,13 @@
+../Core/Src/freertos.c:127:13:configureTimerForRunTimeStats	1
+../Core/Src/freertos.c:131:22:getRunTimeCounterValue	1
+../Core/Src/freertos.c:134:33:breakpoint	1
+../Core/Src/freertos.c:146:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:209:6:Start_MainT	1
+../Core/Src/freertos.c:236:6:StartCAN_TX_Thread	2
+../Core/Src/freertos.c:281:6:StartCAN_RX_Thread	1
+../Core/Src/freertos.c:317:6:StartRF_RXTX	2
+../Core/Src/freertos.c:356:6:HAL_CAN_RxFifo0MsgPendingCallback	2
+../Core/Src/freertos.c:363:6:HAL_CAN_TxMailbox0CompleteCallback	1
+../Core/Src/freertos.c:367:6:HAL_CAN_TxMailbox1CompleteCallback	1
+../Core/Src/freertos.c:371:6:HAL_CAN_TxMailbox2CompleteCallback	1
+../Core/Src/freertos.c:375:6:HAL_GPIO_EXTI_Callback	2
