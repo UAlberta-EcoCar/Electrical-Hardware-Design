@@ -2001,6 +2001,10 @@
     (stroke (width 0) (type default))
     (uuid a61327b3-5542-4198-9d4d-4ff189a5bf5e)
   )
+  (wire (pts (xy 102.87 36.83) (xy 102.87 35.56))
+    (stroke (width 0) (type default))
+    (uuid a62f61d4-7350-4fa0-89af-2ce4e3a447ef)
+  )
   (wire (pts (xy 245.11 133.35) (xy 250.19 133.35))
     (stroke (width 0) (type default))
     (uuid a7174f7a-f303-4246-b26f-59de8084aa2f)
@@ -2381,7 +2385,7 @@
     (stroke (width 0) (type default))
     (uuid f5cd4512-d692-4b51-8ea2-1918162b870c)
   )
-  (wire (pts (xy 102.87 43.18) (xy 102.87 45.72))
+  (wire (pts (xy 102.87 44.45) (xy 102.87 45.72))
     (stroke (width 0) (type default))
     (uuid f62e446e-a4c6-48aa-b067-7f503af31f29)
   )
@@ -2608,8 +2612,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 264.16 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 95672aad-e7be-4367-b12b-e8dc70c08390))
-    (pin "2" (uuid 0ef13255-c873-4c73-84da-ea6c7b4df2cb))
+    (pin "1" (uuid cf29177c-13e8-4c91-a2f3-416fa421e845))
+    (pin "2" (uuid d2d15c47-1db5-48b6-9d4b-ae842b41141c))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -2637,8 +2641,11 @@
     (property "JLCPCB Part#(Optional)" "C1525" (at 224.79 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ebe8ae2f-31a1-41f5-aa3a-8781312b2d6e))
-    (pin "2" (uuid 7dfdb4dd-078f-45f5-aa13-6a53dccf0a03))
+    (property "Digikey #" "1276-1043-1-ND" (at 224.79 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid f7821661-d24f-47e3-94b9-3dd9db65d927))
+    (pin "2" (uuid c574bc30-3131-488f-88b4-62973590f7c3))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2668,8 +2675,8 @@
     (property "Datasheet" "~" (at 73.66 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 9409a4b2-3130-4930-89d3-0cfa2dbc5c6c))
-    (pin "2" (uuid 710ac8ce-28d7-4e35-82ed-cb0eac13ff6f))
+    (pin "1" (uuid 62e9c747-77e3-4d9c-b28e-2aed377fe9c1))
+    (pin "2" (uuid 838411f2-97f7-447c-a5e1-89974e7d81e6))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -2749,8 +2756,8 @@
     (property "Datasheet" "~" (at 245.11 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b01571ef-20e0-4d00-84eb-8870c68c9783))
-    (pin "2" (uuid 7f3146d2-d31e-4ce2-8fa6-9dcf00fccd1e))
+    (pin "1" (uuid d5daa3b7-e67a-4b0e-affd-654f673d1518))
+    (pin "2" (uuid 2876390b-f2d0-4ed0-9953-d30fa8e8fd42))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2774,14 +2781,20 @@
     (property "Value" "10k" (at 242.57 146.05 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 240.538 144.78 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 240.538 144.78 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 238.76 144.78 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ec8dd81f-8f9c-4402-b114-90280d8ca44e))
-    (pin "2" (uuid 0ba42443-2353-4c59-96d3-d3a9ca501091))
+    (property "JLCPCB Part#(Optional)" "C25744" (at 238.76 144.78 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Digikey #" "RMCF0603FT10K0CT-ND" (at 238.76 144.78 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 6de75e7e-8200-431c-a93c-9cb2ca701148))
+    (pin "2" (uuid 021f9aa4-4d64-4c2a-9666-ed9e0abe07d6))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2814,12 +2827,12 @@
     (property "Digikey #" "31-AP62250Z6-7TR-ND" (at 204.47 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid bd2e104d-63ec-44a9-b5da-68e59a368698))
-    (pin "2" (uuid 096b40e0-b0bd-4141-bc77-71ee08096d2c))
-    (pin "3" (uuid a1d03a4d-77e5-4161-8274-e59b1453f59a))
-    (pin "4" (uuid 1167c424-e791-46fc-9f14-8993d510eec1))
-    (pin "5" (uuid c54338c6-5382-4289-b319-7743a1ea0056))
-    (pin "6" (uuid 591ff582-0626-467c-846a-7338216249a4))
+    (pin "1" (uuid 6b095e1b-60c1-442d-84e8-a10511df20ed))
+    (pin "2" (uuid 987d9ec4-5489-47ab-a289-70d854e55ab7))
+    (pin "3" (uuid 5c3e82b5-3b52-4622-8415-e5a9db934a49))
+    (pin "4" (uuid f8a81aeb-2d91-4b8e-aa94-16b5a6efa568))
+    (pin "5" (uuid 1b71a8da-857c-49ee-947a-e8b5bdf8a45a))
+    (pin "6" (uuid 78562c74-ba65-4d2d-922d-15acd43f9bcf))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2843,14 +2856,14 @@
     (property "Value" "52.3k" (at 240.03 45.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 235.712 44.45 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 235.712 44.45 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 237.49 44.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 7e201c80-50ee-4c4f-9944-5be507777348))
-    (pin "2" (uuid 44736d11-a663-4c73-b1b0-cddb6b55348d))
+    (pin "1" (uuid a0436dd3-9aaa-469c-a0a2-42cc83a2d81b))
+    (pin "2" (uuid b2948028-81cf-44e2-855b-f3628af50d7d))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2910,8 +2923,8 @@
     (property "Datasheet" "~" (at 255.27 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 59cefefb-147f-4f41-a2f4-e6e287d37214))
-    (pin "2" (uuid a7b48c52-63e9-4e74-81e2-704808ba41e8))
+    (pin "1" (uuid d6af8534-3b00-4f1a-9c1c-6be3e641ec7f))
+    (pin "2" (uuid 9510a8df-eb2e-4609-8ceb-a393e2248922))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2944,8 +2957,8 @@
     (property "Digikey #" "732-13496-1-ND" (at 231.14 30.48 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 9d8f3725-1a86-420c-938d-ff2f1524245d))
-    (pin "2" (uuid 1183771e-3272-423a-8a6c-c9ef04d7570d))
+    (pin "1" (uuid 8ee372ca-fa25-462a-858e-e607077ebe2d))
+    (pin "2" (uuid 90cd74f6-9a43-47ac-99e4-2186c01550c8))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -2978,9 +2991,9 @@
     (property "Digikey #" "AZ1117IH-5.0TRG1DICT-ND" (at 123.19 93.98 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4b0f092b-d6fa-47cf-beaa-43e616dfeb1e))
-    (pin "2" (uuid 56145fb4-97ec-4cd5-8179-4a38b2f8a5ae))
-    (pin "3" (uuid 8bedc946-9510-4434-afb0-d45d38bfa208))
+    (pin "1" (uuid 44955b41-94de-42fe-99db-9d4f1b13a999))
+    (pin "2" (uuid e71927d4-ecce-430c-b989-ca5d62e7e131))
+    (pin "3" (uuid 2eb3e3ee-8e04-4569-b8db-b7d6973ede95))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3013,8 +3026,8 @@
     (property "Digikey #" "732-13496-1-ND" (at 232.41 76.2 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 48c2e7d2-5059-464e-a244-9fc4371d33c0))
-    (pin "2" (uuid 5dac9942-a350-4312-8550-b4d91780fd4a))
+    (pin "1" (uuid 0799804d-9b46-42d3-b5f8-5a851a35ce4d))
+    (pin "2" (uuid 526c3224-0785-4a08-a748-06ee4733dacf))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3077,8 +3090,11 @@
     (property "JLCPCB Part#(Optional)" "C1525" (at 226.06 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid d7d34bbd-4b7c-49b5-a3d6-2b08d98da818))
-    (pin "2" (uuid 53ff48bc-7b0d-4773-9d20-4b69ec648adb))
+    (property "Digikey #" "1276-1043-1-ND" (at 226.06 83.82 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 85c72e76-ebb0-43fa-9b6d-9c01c3943741))
+    (pin "2" (uuid 5cb332c0-3b88-42fc-ac41-812ccb158bad))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3108,9 +3124,12 @@
     (property "Datasheet" "~" (at 66.04 35.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid c25c6fd0-2440-466d-af56-e1f690dcc884))
-    (pin "2" (uuid ca117e49-9e7c-4088-93e8-1fd0e574dc7e))
-    (pin "3" (uuid 002a4013-d402-4c73-b1a5-b2c3da6807c9))
+    (property "Digikey #" "1655-MBRD835CT-ND" (at 66.04 35.56 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 72efef00-2bcb-485a-a812-40a37e26eb7b))
+    (pin "2" (uuid dcb45355-38c6-47a4-8007-2fbba8413216))
+    (pin "3" (uuid 95a207b7-9f68-4a18-b46e-aed9fa05229f))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3135,8 +3154,8 @@
     (property "Datasheet" "~" (at 185.42 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 125b7adc-667b-4586-b82e-e275c0d4a166))
-    (pin "2" (uuid 6b72005b-2692-4d65-93cc-6debc4182f3f))
+    (pin "1" (uuid c038079f-0df1-4213-b038-0b896c17b78b))
+    (pin "2" (uuid 9f43cd6e-ee96-4875-8faf-191f29b6149d))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3221,8 +3240,8 @@
     (property "Datasheet" "~" (at 102.87 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 3e4e39f0-f95e-4b8f-9aea-12ffc140b1be))
-    (pin "2" (uuid f0883a94-d6d3-4bdd-929b-bf58fa492c23))
+    (pin "1" (uuid 7489c104-355a-4f4a-997a-50136d11c089))
+    (pin "2" (uuid 15f7ca5b-9025-4285-b0fb-87b6c69180a3))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3253,10 +3272,10 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 88.9 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 22b29f61-765c-4972-87a0-a5c91bf6c2df))
-    (pin "2" (uuid 4af44359-75d2-490f-a592-c93a361d97af))
-    (pin "3" (uuid 01423a68-30ed-4db7-9deb-2389d7ecf6b3))
-    (pin "4" (uuid c0412747-38f7-4a77-bf41-5c0e4fe407c4))
+    (pin "1" (uuid cd6349ac-bfac-4804-8b81-69d3bb30434e))
+    (pin "2" (uuid f4523729-d970-4504-a4ac-10d56dc00a44))
+    (pin "3" (uuid cd3f64aa-7128-46c2-ab21-3cb50f1795f5))
+    (pin "4" (uuid 33b8914e-7504-4d9f-98e2-f02cdac9c87c))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3281,8 +3300,8 @@
     (property "Datasheet" "~" (at 185.42 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid c872ca38-58ac-489e-91c8-fefe01e7fe2a))
-    (pin "2" (uuid 44e1f980-c05d-4a99-a433-f006fd05e444))
+    (pin "1" (uuid 818dd28f-1925-4efb-ad24-682891f19ab5))
+    (pin "2" (uuid 9b409c79-0e81-443a-a3c7-941858dfbe9c))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3318,8 +3337,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 129.54 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 57bbcfd0-04cb-405b-81e3-2612d649d250))
-    (pin "2" (uuid cbca1fc0-0344-4a55-a21a-eaac2728fc69))
+    (pin "1" (uuid e975dbad-97f4-48f0-9f74-8f3bd30b1e4b))
+    (pin "2" (uuid 8baed9cc-465e-43c8-8f4c-67a461a17f84))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3374,8 +3393,8 @@
     (property "Datasheet" "https://cdn.sparkfun.com/datasheets/Prototyping/xt60.pdf" (at 24.13 73.66 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 36a98a52-0b75-414e-9f58-767f7e4a5ce3))
-    (pin "2" (uuid 0ccc07f3-47e5-4fc7-aefb-546f1c9ebece))
+    (pin "1" (uuid e86501d4-365d-43ce-a22e-358b0b703976))
+    (pin "2" (uuid 07169125-7a85-4125-9ab2-2f9909d3f4e8))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3468,8 +3487,8 @@
     (property "Datasheet" "~" (at 245.11 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid f2cfe1cc-b252-469a-83b0-2f185e6d2abe))
-    (pin "2" (uuid 40df876c-395c-4ab3-9242-dfa5b991b3e8))
+    (pin "1" (uuid 097fa1b4-8ef6-48c6-a454-e11ad454491b))
+    (pin "2" (uuid 74deb503-753d-4e5a-9ee3-ec032cfb1fa2))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3502,12 +3521,12 @@
     (property "Digikey #" "945-2958-ND" (at 129.54 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid dfadc5f9-f8af-4f30-8a9c-e18fef1de2b0))
-    (pin "2" (uuid 27849bc6-a473-497d-bff7-15242a1b23d5))
-    (pin "3" (uuid 1cbf0dfd-f9c9-4faf-a5a4-2b717f1ed7e6))
-    (pin "4" (uuid dc02b1bf-ba47-47ab-994d-aa7ccb580bf7))
-    (pin "5" (uuid e8f1c998-5538-4944-9591-709f83f97451))
-    (pin "6" (uuid 0ecef851-cbd9-49e2-a2e1-efd16e240e29))
+    (pin "1" (uuid 71f54f3b-5bbb-4109-afa1-7d524b2822df))
+    (pin "2" (uuid 50e2115d-dd6e-4c7d-b7fc-0cc0dcc9a06d))
+    (pin "3" (uuid 7a387125-a476-4d2a-94cb-e9152a9cb072))
+    (pin "4" (uuid 3e54cee8-4f80-4b2b-9dab-b82509eca503))
+    (pin "5" (uuid fa4e9336-8209-41ea-bf8c-7d62c3a92434))
+    (pin "6" (uuid 0d8864ce-d5aa-4d00-9301-e2ae871edabc))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3538,8 +3557,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 129.54 25.4 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a0339e6c-10dc-4e66-8ac8-a6a3c3f19147))
-    (pin "2" (uuid 15a889e1-2072-4a88-b923-7431bebc2328))
+    (pin "1" (uuid e309a0df-2151-4242-92e4-b3a44b0704aa))
+    (pin "2" (uuid 1411d325-d928-4625-a021-ac4da4c3254f))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3564,8 +3583,11 @@
     (property "Datasheet" "https://www.mccsemi.com/pdf/Products/S10AL-S10ML(SMC).pdf" (at 55.88 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 27ee0e3b-f88f-4e9f-8928-4945334c70f6))
-    (pin "2" (uuid eda31421-e5d5-4003-b7e6-219dcbfe270f))
+    (property "Digikey #" "S10ML-TPMSCT-ND" (at 55.88 40.64 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid c943d62b-b6e9-4524-9eb1-b4f827fad6eb))
+    (pin "2" (uuid 2dde1b87-c615-45af-95ad-19745f636861))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -3599,11 +3621,11 @@
     (property "Digikey #" "490-14381-1-ND" (at 66.04 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "JLCPCB Part#(Optional)" "C440198" (at 66.04 107.95 0)
+    (property "JLCPCB Part#(Optional)" "C96446" (at 66.04 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0f86ce62-e7f9-452d-a553-04828e6282d8))
-    (pin "2" (uuid 3c0ff5da-e40b-434e-a24f-5a1260375c10))
+    (pin "1" (uuid 6afe4aee-3835-48db-87f1-b940d8660d51))
+    (pin "2" (uuid cbcb6a39-f89a-4147-86f5-a53087d131c5))
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/241c9f80-f5a7-4c53-a17b-685ae9aa572d"
@@ -3694,8 +3716,8 @@
     (property "JLCPCB Part#(Optional)" "C72041" (at 273.05 52.07 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 20e821a0-27aa-4d5e-9cfb-c8527394cf87))
-    (pin "2" (uuid 31224f74-24d9-4e52-bd24-09a2e03b9661))
+    (pin "1" (uuid db9bfde3-2e1e-478f-b5b2-b370da85c2d2))
+    (pin "2" (uuid 20853ef9-0c3b-4c9c-8c72-cc29311e2e68))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3710,30 +3732,30 @@
     )
   )
 
-  (symbol (lib_id "Device:C") (at 102.87 39.37 0) (unit 1)
+  (symbol (lib_id "Device:C") (at 102.87 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5ef225f0-ece6-4f92-80e0-e52befa07182)
-    (property "Reference" "L4" (at 97.2484 38.2969 0)
+    (property "Reference" "C54" (at 96.52 39.37 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10u" (at 96.5869 40.4182 0)
+    (property "Value" "10u" (at 96.5869 41.6882 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "BP_FTP:CAPC3225X270N" (at 103.8352 43.18 0)
+    (property "Footprint" "BP_FTP:CAPC3225X270N" (at 103.8352 44.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.yuden.co.jp/productdata/catalog/mlcc06_e.pdf" (at 102.87 39.37 0)
+    (property "Datasheet" "https://www.yuden.co.jp/productdata/catalog/mlcc06_e.pdf" (at 102.87 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Digikey #" "UMK325C7106KM-T-ND" (at 102.87 39.37 0)
+    (property "Digikey #" "UMK325C7106KM-T-ND" (at 102.87 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4c72e994-795c-4f07-bf7f-3312e2c52ead))
-    (pin "2" (uuid 8d9f9fcc-a2eb-4558-9ced-d95d0524f0f9))
+    (pin "1" (uuid a506e471-a28a-4b46-aa76-990c95c5881e))
+    (pin "2" (uuid 0c7c30ce-4783-4ca2-b9bd-464f95af2d28))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
-          (reference "L4") (unit 1)
+          (reference "C54") (unit 1)
         )
       )
     )
@@ -3814,8 +3836,8 @@
     (property "Datasheet" "~" (at 184.15 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 60e853ae-f766-41ec-a3f6-e062a3830951))
-    (pin "2" (uuid acd0d71c-78bd-41e5-911f-e87bdb65c36b))
+    (pin "1" (uuid 7d9a484a-908e-4adf-bac6-cf59e715488d))
+    (pin "2" (uuid 2f1857ba-0eea-44fd-b1ed-4a4c10432585))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3903,8 +3925,8 @@
     (property "Digikey #" "732-13496-1-ND" (at 232.41 120.65 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e7d3c6c1-f5cd-4af8-9d10-f20d45141788))
-    (pin "2" (uuid 45d71255-919e-40d7-afb7-175e06914495))
+    (pin "1" (uuid 7582d640-c847-4c92-ae1a-faadeb0e9528))
+    (pin "2" (uuid 241516d4-34ed-4a8e-a85c-bfdff3d7352d))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -3925,7 +3947,7 @@
     (property "Reference" "R?" (at 280.67 41.91 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "560R" (at 280.67 44.45 0)
+    (property "Value" "1k" (at 280.67 44.45 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 274.828 43.18 90)
@@ -3937,8 +3959,8 @@
     (property "JLCPCB Part#(Optional)" "C28636" (at 273.05 43.18 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 58609853-97fc-45ec-94a5-ef70df3472a7))
-    (pin "2" (uuid c64b740f-8764-471f-af83-9d9a54531862))
+    (pin "1" (uuid da8136a5-4be3-44e9-8790-018318d306c3))
+    (pin "2" (uuid 8a537d9d-4752-47be-a6dd-6b37439d9895))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4024,8 +4046,8 @@
     (property "JLCPCB Part#(Optional)" "C72041" (at 162.56 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 69205ace-8938-4759-869c-69d513e2a37e))
-    (pin "2" (uuid 162e2a59-e9b5-4458-a291-f34fed607ecc))
+    (pin "1" (uuid f665c119-3a94-4dc2-9321-ece53c4880a7))
+    (pin "2" (uuid 9634ba06-910a-494a-b2a3-8c00127de4b4))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4058,12 +4080,12 @@
     (property "Digikey #" "31-AP62250Z6-7TR-ND" (at 204.47 78.74 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ec9c4de4-2338-4828-9a27-0a3d5176d1eb))
-    (pin "2" (uuid 5c15b5f9-b28c-4f14-b571-be2edf734616))
-    (pin "3" (uuid fa25eccb-17fc-47cd-afda-35eda92ea379))
-    (pin "4" (uuid 6cccb6cc-1412-481d-8f43-3bda9ca29c4c))
-    (pin "5" (uuid f7980b70-9dec-4f0b-bc90-7711b92052ef))
-    (pin "6" (uuid ba1d1125-1a15-4a8e-89c8-ce15b903f6ff))
+    (pin "1" (uuid 8d9cae4f-22e5-4cf1-b885-2fd601e93a11))
+    (pin "2" (uuid a2c32dec-ad4a-42a9-8558-f1710afe67f7))
+    (pin "3" (uuid c6a7e1c2-e5fe-4a6c-b407-e699ce2535a6))
+    (pin "4" (uuid ca47347e-7a9f-47fc-8a3d-6fde43b4a788))
+    (pin "5" (uuid 1fd23145-824e-4c5c-9870-45968fde9d34))
+    (pin "6" (uuid c68b46bd-1341-4d4b-80cf-963b28d5420d))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4087,14 +4109,17 @@
     (property "Value" "52.3k" (at 241.3 135.89 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 236.982 134.62 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 236.982 134.62 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 238.76 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1abe42f3-0503-416f-b120-beb5c329b0b7))
-    (pin "2" (uuid 0bca06c9-08af-4e79-a9ff-e8b5ca46af8e))
+    (property "Digikey #" "RMCF0603FT52K3CT-ND" (at 238.76 134.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 74aa1274-f93c-4ed0-884c-2c3969d699fa))
+    (pin "2" (uuid 670b9ad5-93b8-425c-a23d-901621df892b))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4130,8 +4155,8 @@
     (property "JLCPCB Part#(Optional)" "C72041" (at 113.03 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 23fbf9f3-e0a7-49cd-a34e-3f77574fed42))
-    (pin "2" (uuid 51684dc6-0ad0-41b1-bd12-d1899521be63))
+    (pin "1" (uuid eb0722fb-7956-4b00-973e-48314e93035b))
+    (pin "2" (uuid 8f20bce5-135a-444e-bad8-b0146f309340))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4161,8 +4186,8 @@
     (property "Datasheet" "~" (at 254 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 5f181860-124a-46e9-bfff-72d8f048fe14))
-    (pin "2" (uuid 874b1e0b-4b11-4fc0-90f8-51d5828d1611))
+    (pin "1" (uuid b7655c78-fdfa-44ab-8294-d3de19c7c0dd))
+    (pin "2" (uuid 45317a33-427f-4863-bc7f-06831f0083f4))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4183,7 +4208,7 @@
     (property "Reference" "R?" (at 115.57 105.41 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "560R" (at 115.57 107.95 0)
+    (property "Value" "1k" (at 115.57 107.95 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 111.252 106.68 90)
@@ -4195,8 +4220,8 @@
     (property "JLCPCB Part#(Optional)" "C28636" (at 113.03 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e233fd9c-7174-41d4-a5ed-0fe424b83037))
-    (pin "2" (uuid 86856ad5-6fdc-49be-97bf-6019f7344e64))
+    (pin "1" (uuid 4e631a19-8769-424b-87b6-eb41365f74a1))
+    (pin "2" (uuid c9de5c85-9f39-4c6d-b64d-5ddf4ad74396))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4232,8 +4257,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 265.43 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 00545d1a-becc-47d7-b55d-901e21c7eb4f))
-    (pin "2" (uuid 2c11d306-ca25-4133-8e8b-8af0e0105a8b))
+    (pin "1" (uuid bb40e4b3-82bf-44ec-843d-3dc55433ad75))
+    (pin "2" (uuid 1e51dcb6-068e-44ac-9627-b1e69abb7722))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4252,14 +4277,20 @@
     (property "Value" "10k" (at 242.57 101.6 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 240.538 100.33 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 240.538 100.33 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 238.76 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 9ebc291c-a5e4-487a-9be3-993eb768f172))
-    (pin "2" (uuid 6001d72e-6d93-4c85-aac0-60169159c472))
+    (property "JLCPCB Part#(Optional)" "C25744" (at 238.76 100.33 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Digikey #" "RMCF0603FT10K0CT-ND" (at 238.76 100.33 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 6aee36f0-942c-49e6-839d-3a62c8dc01e2))
+    (pin "2" (uuid 417e848c-8b5a-461c-84ad-bc505bf68b05))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4347,9 +4378,9 @@
     (property "Digikey #" "AZ1117IH-3.3TRG1DICT-ND" (at 53.34 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 043e34c9-86e0-468f-9067-4e1959a9f01d))
-    (pin "2" (uuid 4c66cbd1-718a-48d9-9e85-e0832db0630f))
-    (pin "3" (uuid 06879022-5731-4088-bfc7-b0be681f3ecc))
+    (pin "1" (uuid a9b2fc1b-fc75-4ce2-87e1-dca93baa7193))
+    (pin "2" (uuid a29222e5-98fb-4d58-bc74-78a8dc7c2166))
+    (pin "3" (uuid e0626645-51ba-4a83-bc19-e321241811ef))
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/241c9f80-f5a7-4c53-a17b-685ae9aa572d"
@@ -4379,8 +4410,8 @@
     (property "Datasheet" "~" (at 147.32 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a52e8994-fa4a-4470-995d-010de3bcaff5))
-    (pin "2" (uuid a9a08b80-5cae-4dc8-86f2-c5fa2f9489ad))
+    (pin "1" (uuid bc3f8f89-7683-4a92-a2a9-a520e2b2e577))
+    (pin "2" (uuid f0c30474-e7a6-4778-ac1b-c980305a6ca2))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4435,8 +4466,8 @@
     (property "Datasheet" "~" (at 147.32 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ccb949b8-6f84-43ff-b5ac-01aad247072c))
-    (pin "2" (uuid 3309b9a7-4242-4f73-b8cd-cf6c2a8b6461))
+    (pin "1" (uuid e2abc3de-f3e2-4782-9a9c-fcefae916e4a))
+    (pin "2" (uuid d91dd68a-3784-41a9-805f-e8015895e1fd))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4473,8 +4504,8 @@
     (property "JLCPCB Part#(Optional)" "C59461" (at 39.37 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 2b42c530-cae3-4a20-a30e-ee4224e43408))
-    (pin "2" (uuid 3cd83456-2d62-4dae-883a-05d195928450))
+    (pin "1" (uuid 20c7d15b-ad40-460a-a4c8-44010fe003a1))
+    (pin "2" (uuid 66f3b176-a2b2-460f-877d-5c6b98888e7d))
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/241c9f80-f5a7-4c53-a17b-685ae9aa572d"
@@ -4498,14 +4529,17 @@
     (property "Value" "52.3k" (at 241.3 91.44 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 236.982 90.17 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 236.982 90.17 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 238.76 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid d2e3f6ec-95e1-48da-b3f3-119166c7d7ae))
-    (pin "2" (uuid f436efd7-eeb2-4391-83e4-92bdf7648ea5))
+    (property "Digikey #" "RMCF0603FT52K3CT-ND" (at 238.76 90.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 896c378e-ea37-48c3-8075-ec506441b545))
+    (pin "2" (uuid ce0d1574-3abe-42c0-9a61-6b9530085183))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4526,7 +4560,7 @@
     (property "Reference" "R?" (at 281.94 132.08 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "560R" (at 281.94 134.62 0)
+    (property "Value" "1k" (at 281.94 134.62 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 276.098 133.35 90)
@@ -4538,8 +4572,8 @@
     (property "JLCPCB Part#(Optional)" "C28636" (at 274.32 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 71c937f4-550a-4f0f-8b9a-319bf5ad7d3f))
-    (pin "2" (uuid 8e1cc60e-a2b1-4beb-86e1-8f502b0ca7b4))
+    (pin "1" (uuid 16905761-2d14-49f8-9af9-f8316deba776))
+    (pin "2" (uuid 22bd699f-4b77-4cf4-85bb-51445676cf9b))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4575,10 +4609,10 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 30.48 175.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 17d0725f-235f-40ef-89dd-fb853e2c18c1))
-    (pin "2" (uuid 8cac8be5-f0ac-4028-b952-ca2cf2277262))
-    (pin "3" (uuid c764f774-c75f-4fe4-8af5-17e4fc7f2dc2))
-    (pin "4" (uuid 43ed23a5-51c9-4c60-9330-385f200e47b1))
+    (pin "1" (uuid c7a1a33b-3849-490a-a92b-49fcc01da9b1))
+    (pin "2" (uuid de29e0ae-2d61-46aa-873d-d7682ed8b0b0))
+    (pin "3" (uuid a82a2b9c-7a80-4925-81e0-5fef78eca980))
+    (pin "4" (uuid 127da454-989e-4958-89c9-f25ce50b1d63))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4639,8 +4673,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 154.94 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 32867749-ab15-441c-8c1d-ab9c0a4210ed))
-    (pin "2" (uuid 29d9217d-7915-4f67-9b9b-e736b89b65aa))
+    (pin "1" (uuid 6051a905-b1f5-47bc-b43a-e4e4e20729ac))
+    (pin "2" (uuid 288f73f6-a0f4-4b7e-8309-8b64f6c7346d))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4665,8 +4699,11 @@
     (property "Datasheet" "~" (at 191.77 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b3ec8a97-70eb-4435-9b4e-6cea792b329d))
-    (pin "2" (uuid c9700eb1-03c3-4682-b530-601cb95d3739))
+    (property "JLCPCB Part#(Optional)" "C14663" (at 191.77 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid a83a3e83-448d-40f7-af08-2f764609ddc0))
+    (pin "2" (uuid ff6c02e8-1fb5-4e6c-a36e-d2cdcb0a60fe))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4702,8 +4739,8 @@
     (property "JLCPCB Part#(Optional)" "C72041" (at 274.32 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 7ee39e88-2212-4896-a0df-6d10363e61ce))
-    (pin "2" (uuid 4c98a600-2091-45f5-8781-266d51d4df89))
+    (pin "1" (uuid d8041a38-9bc2-4587-8c9e-d4e296ec9db4))
+    (pin "2" (uuid c7dd7041-2da6-426c-9506-26f3dfe42868))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4733,8 +4770,8 @@
     (property "Datasheet" "~" (at 73.66 71.12 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid fff4ebb9-9538-4e99-a439-4c5d672ab47d))
-    (pin "2" (uuid 73558796-ad4d-44f6-9eae-24efe9bc3853))
+    (pin "1" (uuid b82b61b3-9622-442b-97e7-918969c15176))
+    (pin "2" (uuid 38e24948-5e42-4fc5-becb-c0168b2eee01))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4762,8 +4799,11 @@
     (property "JLCPCB Part#(Optional)" "C1525" (at 226.06 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b1615312-9dbc-4097-a8b1-7859a6f9f959))
-    (pin "2" (uuid 1ac85e3f-5499-4c0d-9724-294c386507db))
+    (property "Digikey #" "1276-1043-1-ND" (at 226.06 128.27 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 25b580ca-dd5e-4887-be23-f66b6c305033))
+    (pin "2" (uuid a5c2c61f-e612-4143-9b32-90f375ec7b6d))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4793,8 +4833,8 @@
     (property "Datasheet" "~" (at 243.84 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b3eee142-c1f1-482a-a51a-67cd0f0701fc))
-    (pin "2" (uuid f46d6ef5-7bee-4c68-afbc-82f5bcb56bb0))
+    (pin "1" (uuid a5d0349a-5387-441c-b0c4-1c89752f99ff))
+    (pin "2" (uuid cc6067b3-e181-4a7e-a07e-9243f70d4282))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4855,8 +4895,8 @@
     (property "JLCPCB Part#(Optional)" "C72041" (at 274.32 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 74914fb1-f35f-4499-99fe-bbc57d1ea65c))
-    (pin "2" (uuid c784d226-fe60-438e-83ad-7ed7358540da))
+    (pin "1" (uuid 1a074db2-5eff-43ee-be1b-7a99df471d67))
+    (pin "2" (uuid 87d5e028-4420-4d8b-8e95-16ae2d9c05be))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -4922,8 +4962,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 265.43 130.81 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid f5ee1e70-931e-4578-b519-829a9f75d1d2))
-    (pin "2" (uuid 0303b74d-c61e-4533-8fdf-0f2af61547a7))
+    (pin "1" (uuid 6379d5eb-f11c-47c6-9b46-c2a583ea0e5d))
+    (pin "2" (uuid 1656db91-aa3c-4f1d-864d-13442e0cf5ba))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -4967,14 +5007,20 @@
     (property "Value" "10k" (at 241.3 55.88 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 239.268 54.61 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 239.268 54.61 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 237.49 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 9606e5cc-b965-40e2-8ec1-fbede48e1bef))
-    (pin "2" (uuid 8f793fdf-a77c-4498-ae3a-31985b86ec6a))
+    (property "JLCPCB Part#(Optional)" "C25744" (at 237.49 54.61 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Digikey #" "RMCF0603FT10K0CT-ND" (at 237.49 54.61 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid ac0e634c-4363-4911-abd7-0c0e74faacda))
+    (pin "2" (uuid c5c543dc-dcd1-42c3-ad4b-c5628f7c07ba))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5046,8 +5092,8 @@
     (property "JLCPCB Part#(Optional)" "C72041" (at 31.75 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 72a998cb-0def-48e8-8267-b7408b276b68))
-    (pin "2" (uuid 576425db-f364-4e1c-9f78-111c88533756))
+    (pin "1" (uuid f7c19ac0-b0c8-4881-836c-9613ad5abb13))
+    (pin "2" (uuid 0f52d6b9-314a-4f0f-bf36-79220302faba))
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/241c9f80-f5a7-4c53-a17b-685ae9aa572d"
@@ -5077,8 +5123,11 @@
     (property "Datasheet" "~" (at 189.23 45.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 15624cbf-011e-44dd-a2f4-b68b15cbf82b))
-    (pin "2" (uuid f89b8f59-b799-4554-a133-1fdd847c2e8d))
+    (property "JLCPCB Part#(Optional)" "C14663" (at 189.23 45.72 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid a781cb53-7e47-4241-a3c9-68cc6355464d))
+    (pin "2" (uuid 8432867b-0496-4d02-b1fb-9d1a4ad681f3))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5108,8 +5157,11 @@
     (property "Datasheet" "~" (at 191.77 135.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1d76d5d2-425d-4878-a278-5249a134541b))
-    (pin "2" (uuid 68001dff-98c7-466c-8c77-c147858ab947))
+    (property "JLCPCB Part#(Optional)" "C14663" (at 191.77 135.89 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 19c4ed71-a541-4ebe-ba39-5c027b46c1b5))
+    (pin "2" (uuid 5801abba-d026-489c-b69b-59e18904a6f7))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5169,11 +5221,14 @@
     (property "Datasheet" "~" (at 134.62 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "JLCPCB Part#(Optional)" "C440198" (at 134.62 106.68 0)
+    (property "JLCPCB Part#(Optional)" "C96446" (at 134.62 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ad72bed1-23ef-485f-97bf-ba1926fb2d0d))
-    (pin "2" (uuid fa81672c-5724-4771-bb33-5394e11c25c9))
+    (property "Digikey #" "490-14381-1-ND" (at 134.62 106.68 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid eaf4fd05-a67c-4b1b-aae4-70e5ea702d71))
+    (pin "2" (uuid 0a45c02d-e3b4-4176-a6d4-e316d2fe347c))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5209,10 +5264,10 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 30.48 190.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid eb3a5568-71b8-46c5-ad98-cee80eae1f72))
-    (pin "2" (uuid 6fbb6e28-25d1-4500-851d-6d38444f7ddd))
-    (pin "3" (uuid 1129acba-ff87-4e62-a5d5-042ed07b8a8a))
-    (pin "4" (uuid e57a44c4-be70-401d-9bbc-e1865cb7943e))
+    (pin "1" (uuid 0a621a2b-a69c-41ae-9603-da798f1a76cc))
+    (pin "2" (uuid 2b4372df-079c-4eb7-94a5-9f29240017cd))
+    (pin "3" (uuid 47dd9ff3-e17b-4952-b57a-c3d4c2cfd6b1))
+    (pin "4" (uuid d71d60a9-5626-437b-9072-f09831cbbdd5))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5240,8 +5295,11 @@
     (property "JLCPCB Part#(Optional)" "C45783" (at 105.41 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 27238bae-f912-4348-9634-950bdb10ece8))
-    (pin "2" (uuid 7a1e2750-c99a-4e76-aee3-490aecbffc72))
+    (property "Digikey #" "490-7612-2-ND" (at 105.41 106.68 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 5c5fbc9d-42da-41d1-8096-6039c7ea05f6))
+    (pin "2" (uuid 6ce41a96-5972-46a9-b697-199e3431ee2b))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5287,7 +5345,7 @@
     (property "Reference" "R?" (at 281.94 87.63 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "560R" (at 281.94 90.17 0)
+    (property "Value" "1k" (at 281.94 90.17 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 276.098 88.9 90)
@@ -5299,8 +5357,8 @@
     (property "JLCPCB Part#(Optional)" "C28636" (at 274.32 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a8adb873-2d34-457c-a9b6-58df443f1e7c))
-    (pin "2" (uuid 3dde1ee6-8fe4-400b-8520-40c07c3e0f74))
+    (pin "1" (uuid a1daddc3-b125-4495-9fe9-c19dd8420dca))
+    (pin "2" (uuid c3b14926-6f70-457d-b945-9d3dd740b1d5))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5336,10 +5394,10 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 30.48 167.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 5064e9e7-c939-4802-b15c-5c760625a89e))
-    (pin "2" (uuid c5db260c-429e-4446-ae62-46e479fb6cdc))
-    (pin "3" (uuid 9c96042b-6c75-48db-a941-a816b7aae238))
-    (pin "4" (uuid 23c796c0-2bf4-4c86-ae2f-529adedbc649))
+    (pin "1" (uuid 394d2469-633f-4154-9576-eb6a8fd3c272))
+    (pin "2" (uuid 4da4df4f-5266-459d-9d16-32ce06fa30ef))
+    (pin "3" (uuid 6b12ff59-e14f-43dd-9b99-3187ef2db5f7))
+    (pin "4" (uuid 4faad5b4-ff85-477b-abbe-a1f178abc707))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5385,7 +5443,7 @@
     (property "Reference" "R?" (at 25.4 106.68 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "260R" (at 25.4 109.22 0)
+    (property "Value" "400R" (at 25.4 109.22 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 29.972 107.95 90)
@@ -5400,14 +5458,14 @@
     (property "PCBA" "-" (at 31.75 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Digikey #" "RMCF0603FT261RCT-ND" (at 31.75 107.95 0)
+    (property "Digikey #" "" (at 31.75 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "JLCPCB Part#(Optional)" "C22966" (at 31.75 107.95 0)
+    (property "JLCPCB Part#(Optional)" "C17655" (at 31.75 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a5cb1071-e458-48bb-8ebe-786507fa1cc6))
-    (pin "2" (uuid 0c092e6b-328c-4cd7-b7b6-eb744594ea37))
+    (pin "1" (uuid 417bf51c-1e40-4322-98f4-0748704e46cf))
+    (pin "2" (uuid a4d51562-1e7d-46e3-89db-5c604646041c))
     (instances
       (project "CAN-USB RF Module"
         (path "/05ffaa46-4df3-4c93-a015-882eb69d3f55/241c9f80-f5a7-4c53-a17b-685ae9aa572d"
@@ -5437,8 +5495,8 @@
     (property "Datasheet" "https://cdn.sparkfun.com/datasheets/Prototyping/xt60.pdf" (at 24.13 64.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b634b4f1-e3f9-491c-966e-b88c3628f993))
-    (pin "2" (uuid 3cd254e9-a809-4011-832a-f31a9dc1860e))
+    (pin "1" (uuid 727aca7f-cc99-4e50-bb63-ac363b476412))
+    (pin "2" (uuid badcf5d2-b808-41a2-a3e2-4286e7bbb06b))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5469,10 +5527,10 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 30.48 182.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 051f7ac9-2b1c-4a9f-87b2-a0bacca3d321))
-    (pin "2" (uuid 1610acb0-1be7-476c-b349-5a7735e8c639))
-    (pin "3" (uuid d3af0419-71d1-4f5a-bf7b-56d6dfea2e18))
-    (pin "4" (uuid 29545d56-e1a9-4475-a13d-55008875d8be))
+    (pin "1" (uuid af8d64f6-ec6d-4357-9621-53e2db49e7ba))
+    (pin "2" (uuid 96b71c6a-082c-430c-b24e-b77de8121332))
+    (pin "3" (uuid d520f4d3-1661-47e1-a99f-53733b33be65))
+    (pin "4" (uuid 3abe94cc-63ae-4f8b-ab13-71b950128b72))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5488,7 +5546,7 @@
     (property "Reference" "R15" (at 165.1 31.75 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "1k98" (at 165.1 34.29 0)
+    (property "Value" "3k3" (at 165.1 34.29 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 160.782 33.02 90)
@@ -5497,8 +5555,11 @@
     (property "Datasheet" "~" (at 162.56 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 47c20276-7e13-4307-9477-e6dedf02402a))
-    (pin "2" (uuid e7e9f2bc-77d7-4cd6-ac3a-780183ab54ed))
+    (property "JLCPCB Part#(Optional)" "C26010" (at 162.56 33.02 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 6a4c392d-aba9-45b8-96c6-2a9f3d432791))
+    (pin "2" (uuid 1d720ad1-681a-4d4f-b4c8-045b5c5281b1))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5523,8 +5584,8 @@
     (property "Datasheet" "~" (at 255.27 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 3c24690c-fb28-4199-b9c4-2849376bad5b))
-    (pin "2" (uuid 16b6f8ea-2175-4918-8c5c-2efcbebb8ca6))
+    (pin "1" (uuid f35470d7-d77a-4a91-8f26-c7258421f833))
+    (pin "2" (uuid c6e92e69-853b-48f7-b9df-d3961f76681f))
     (instances
       (project "H2 Sensor Board Lucy Rev 1"
         (path "/61fdd4a1-2d1e-44dc-8644-252e12d35745/3bc5ea2f-35c7-4100-bf1f-fa9268f700b9"
@@ -5545,7 +5606,7 @@
     (property "Reference" "U17" (at 203.2 25.4 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "~" (at 203.2 33.02 0)
+    (property "Value" "AP62250Z6" (at 203.2 33.02 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-563" (at 203.2 33.02 0)
@@ -5554,12 +5615,12 @@
     (property "Datasheet" "" (at 203.2 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e6a1514e-f543-40aa-8896-79258e8ca934))
-    (pin "2" (uuid a4f47f0f-a0b5-4c9f-ab1d-6fd3769b3ed0))
-    (pin "3" (uuid bcacf922-8004-4670-b550-269da2f7e6ba))
-    (pin "4" (uuid 699b15ac-42a7-4e59-af23-f85443bf142b))
-    (pin "5" (uuid fbbcc91e-2fc7-4165-8a3b-1a2564f694a2))
-    (pin "6" (uuid 96910ec9-52f8-4cd3-afd1-48cc3333be1e))
+    (pin "1" (uuid c9665aa2-f14b-4268-b68e-3385148754a8))
+    (pin "2" (uuid 4c46c1a6-adac-488d-bf5f-9a894cab854e))
+    (pin "3" (uuid 2ce1140f-1a42-411f-96e2-9ab1cd2d9649))
+    (pin "4" (uuid 250f43de-e610-46f6-8bb3-47f3fe3040b1))
+    (pin "5" (uuid 9a5791c8-8d2f-4dfc-9b06-8898639558a9))
+    (pin "6" (uuid 63659aff-da9d-4b6f-9e9e-b8bb8c5783e2))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5590,8 +5651,8 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 74.93 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 229c2ba1-0b23-4456-b327-bbdfcf3b7a2c))
-    (pin "2" (uuid 660d1e26-1aed-4faf-b1d8-2330c695d8ce))
+    (pin "1" (uuid 9b7bcbb1-57b1-4929-8ed4-0645c31c7fff))
+    (pin "2" (uuid af37bb14-73a2-4715-8a2f-f7ef4ca3d40a))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
@@ -5622,10 +5683,10 @@
     (property "JLCPCB Part#(Optional)" "NA" (at 44.45 35.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 6ed3f60f-38dc-495f-987e-b86a39654c23))
-    (pin "2" (uuid a6f378bc-fadd-464e-8950-8e5078dcd0b6))
-    (pin "3" (uuid 1da4d4b7-1511-4107-986a-1c7acf3518a5))
-    (pin "4" (uuid 2dbeb1b2-9c9e-457f-8418-7c05661e2a3e))
+    (pin "1" (uuid 27cc0f96-80f8-4762-bde2-7129a95fd816))
+    (pin "2" (uuid e9155ae2-f836-4b60-b587-6c4bc7deea00))
+    (pin "3" (uuid 4cd4c8c4-351e-4f4a-8fd4-c7e26a6fbcae))
+    (pin "4" (uuid a18ff382-8b39-4b1f-9b4f-8113be89832a))
     (instances
       (project "Batt-Power-Prototype-2023_Lucy_V1"
         (path "/c58627b7-5b67-4b57-b29b-cc34a75a9096/caf32978-5421-40df-803f-f9402117c79f"
