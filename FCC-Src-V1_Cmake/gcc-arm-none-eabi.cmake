@@ -5,7 +5,7 @@ set(CMAKE_SYSTEM_PROCESSOR arm)
 set(TOOLCHAIN_PREFIX arm-none-eabi-)
 set(FLAGS
     "-fdata-sections -ffunction-sections \
-    --specs=nano.specs -Wl,--gc-sections")
+    --specs=nano.specs -Wl,--gc-sections") # changed nano to nosys
 set(CPP_FLAGS
     "-fno-rtti -fno-exceptions \
     -fno-threadsafe-statics")

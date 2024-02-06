@@ -29,16 +29,16 @@ The CXX compiler identification is GNU, found in "/home/nick_s/Electrical-Hardwa
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_878e2/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_878e2.dir/build.make CMakeFiles/cmTC_878e2.dir/build
+Run Build Command(s):/usr/bin/make cmTC_47a96/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_47a96.dir/build.make CMakeFiles/cmTC_47a96.dir/build
 make[2]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_878e2.dir/testCCompiler.c.obj
-/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections    -o CMakeFiles/cmTC_878e2.dir/testCCompiler.c.obj   -c /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C static library libcmTC_878e2.a
-/usr/bin/cmake -P CMakeFiles/cmTC_878e2.dir/cmake_clean_target.cmake
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_878e2.dir/link.txt --verbose=1
-/usr/bin/arm-none-eabi-ar qc libcmTC_878e2.a  CMakeFiles/cmTC_878e2.dir/testCCompiler.c.obj
-/usr/bin/arm-none-eabi-ranlib libcmTC_878e2.a
+Building C object CMakeFiles/cmTC_47a96.dir/testCCompiler.c.obj
+/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections    -o CMakeFiles/cmTC_47a96.dir/testCCompiler.c.obj   -c /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C static library libcmTC_47a96.a
+/usr/bin/cmake -P CMakeFiles/cmTC_47a96.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47a96.dir/link.txt --verbose=1
+/usr/bin/arm-none-eabi-ar qc libcmTC_47a96.a  CMakeFiles/cmTC_47a96.dir/testCCompiler.c.obj
+/usr/bin/arm-none-eabi-ranlib libcmTC_47a96.a
 make[2]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 
@@ -47,11 +47,11 @@ make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Co
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_f43a3/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_f43a3.dir/build.make CMakeFiles/cmTC_f43a3.dir/build
+Run Build Command(s):/usr/bin/make cmTC_bf515/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_bf515.dir/build.make CMakeFiles/cmTC_bf515.dir/build
 make[2]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj
-/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections   -v -o CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Building C object CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj
+/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections   -v -o CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 Reading specs from /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/nano.specs
 rename spec link to nano_link
@@ -63,8 +63,8 @@ Configured with: /mnt/workspace/workspace/GCC-10-pipeline/jenkins-GCC-10-pipelin
 Thread model: single
 Supported LTO compression algorithms: zlib
 gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) 
-COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
- /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1 -isystem =/include/newlib-nano -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj -version -fdata-sections -ffunction-sections -o /tmp/cce7wDb9.s
+COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1 -isystem =/include/newlib-nano -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj -version -fdata-sections -ffunction-sections -o /tmp/ccxWKSKe.s
 GNU C17 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)
 	compiled by GNU C version 4.8.4, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
 
@@ -86,17 +86,17 @@ GNU C17 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (relea
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: ada28fdd13bdd399f195284d34df0081
-COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
- /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj /tmp/cce7wDb9.s
+COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj /tmp/ccxWKSKe.s
 GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621
 COMPILER_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/
 LIBRARY_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi/lib/
-COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
-Linking C static library libcmTC_f43a3.a
-/usr/bin/cmake -P CMakeFiles/cmTC_f43a3.dir/cmake_clean_target.cmake
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f43a3.dir/link.txt --verbose=1
-/usr/bin/arm-none-eabi-ar qc libcmTC_f43a3.a  CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj
-/usr/bin/arm-none-eabi-ranlib libcmTC_f43a3.a
+COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+Linking C static library libcmTC_bf515.a
+/usr/bin/cmake -P CMakeFiles/cmTC_bf515.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf515.dir/link.txt --verbose=1
+/usr/bin/arm-none-eabi-ar qc libcmTC_bf515.a  CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj
+/usr/bin/arm-none-eabi-ranlib libcmTC_bf515.a
 make[2]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 
@@ -121,11 +121,11 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-none-eabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_f43a3/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_f43a3.dir/build.make CMakeFiles/cmTC_f43a3.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_bf515/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bf515.dir/build.make CMakeFiles/cmTC_bf515.dir/build]
   ignore line: [make[2]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj]
-  ignore line: [/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl --gc-sections   -v -o CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Building C object CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl --gc-sections   -v -o CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [Reading specs from /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/nano.specs]
   ignore line: [rename spec link to nano_link]
@@ -137,8 +137,8 @@ Parsed C implicit link information from above output:
   ignore line: [Thread model: single]
   ignore line: [Supported LTO compression algorithms: zlib]
   ignore line: [gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
-  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1 -isystem =/include/newlib-nano -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj -version -fdata-sections -ffunction-sections -o /tmp/cce7wDb9.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
+  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1 -isystem =/include/newlib-nano -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj -version -fdata-sections -ffunction-sections -o /tmp/ccxWKSKe.s]
   ignore line: [GNU C17 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)]
   ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
   ignore line: []
@@ -160,17 +160,17 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: ada28fdd13bdd399f195284d34df0081]
-  ignore line: [COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
-  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj /tmp/cce7wDb9.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
+  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj /tmp/ccxWKSKe.s]
   ignore line: [GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621]
   ignore line: [COMPILER_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/]
   ignore line: [LIBRARY_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
-  ignore line: [Linking C static library libcmTC_f43a3.a]
-  ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_f43a3.dir/cmake_clean_target.cmake]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f43a3.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_f43a3.a  CMakeFiles/cmTC_f43a3.dir/CMakeCCompilerABI.c.obj]
-  ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_f43a3.a]
+  ignore line: [COLLECT_GCC_OPTIONS='-fdata-sections' '-ffunction-sections' '-specs=nano.specs' '-v' '-o' 'CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
+  ignore line: [Linking C static library libcmTC_bf515.a]
+  ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_bf515.dir/cmake_clean_target.cmake]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf515.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_bf515.a  CMakeFiles/cmTC_bf515.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_bf515.a]
   ignore line: [make[2]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
   ignore line: [make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
   ignore line: []
@@ -183,16 +183,16 @@ Parsed C implicit link information from above output:
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_c334f/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_c334f.dir/build.make CMakeFiles/cmTC_c334f.dir/build
+Run Build Command(s):/usr/bin/make cmTC_985c0/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_985c0.dir/build.make CMakeFiles/cmTC_985c0.dir/build
 make[2]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c334f.dir/testCXXCompiler.cxx.obj
-/usr/bin/arm-none-eabi-g++     -o CMakeFiles/cmTC_c334f.dir/testCXXCompiler.cxx.obj -c /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX static library libcmTC_c334f.a
-/usr/bin/cmake -P CMakeFiles/cmTC_c334f.dir/cmake_clean_target.cmake
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c334f.dir/link.txt --verbose=1
-/usr/bin/arm-none-eabi-ar qc libcmTC_c334f.a  CMakeFiles/cmTC_c334f.dir/testCXXCompiler.cxx.obj
-/usr/bin/arm-none-eabi-ranlib libcmTC_c334f.a
+Building CXX object CMakeFiles/cmTC_985c0.dir/testCXXCompiler.cxx.obj
+/usr/bin/arm-none-eabi-g++     -o CMakeFiles/cmTC_985c0.dir/testCXXCompiler.cxx.obj -c /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX static library libcmTC_985c0.a
+/usr/bin/cmake -P CMakeFiles/cmTC_985c0.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_985c0.dir/link.txt --verbose=1
+/usr/bin/arm-none-eabi-ar qc libcmTC_985c0.a  CMakeFiles/cmTC_985c0.dir/testCXXCompiler.cxx.obj
+/usr/bin/arm-none-eabi-ranlib libcmTC_985c0.a
 make[2]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 
@@ -201,11 +201,11 @@ make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Co
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_5eebf/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-/usr/bin/make -f CMakeFiles/cmTC_5eebf.dir/build.make CMakeFiles/cmTC_5eebf.dir/build
+Run Build Command(s):/usr/bin/make cmTC_ea4e0/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ea4e0.dir/build.make CMakeFiles/cmTC_ea4e0.dir/build
 make[2]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj
-/usr/bin/arm-none-eabi-g++    -v -o CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Building CXX object CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj
+/usr/bin/arm-none-eabi-g++    -v -o CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
 Using built-in specs.
 COLLECT_GCC=/usr/bin/arm-none-eabi-g++
 Target: arm-none-eabi
@@ -213,8 +213,8 @@ Configured with: /mnt/workspace/workspace/GCC-10-pipeline/jenkins-GCC-10-pipelin
 Thread model: single
 Supported LTO compression algorithms: zlib
 gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
- /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj -version -o /tmp/ccYEBir5.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj -version -o /tmp/ccSE58Pg.s
 GNU C++14 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)
 	compiled by GNU C version 4.8.4, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
 
@@ -241,17 +241,17 @@ GNU C++14 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (rel
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 62a2c0a0f0d30bb0bbe5c686601adbb0
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
- /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccYEBir5.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccSE58Pg.s
 GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621
 COMPILER_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/
 LIBRARY_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
-Linking CXX static library libcmTC_5eebf.a
-/usr/bin/cmake -P CMakeFiles/cmTC_5eebf.dir/cmake_clean_target.cmake
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5eebf.dir/link.txt --verbose=1
-/usr/bin/arm-none-eabi-ar qc libcmTC_5eebf.a  CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj
-/usr/bin/arm-none-eabi-ranlib libcmTC_5eebf.a
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+Linking CXX static library libcmTC_ea4e0.a
+/usr/bin/cmake -P CMakeFiles/cmTC_ea4e0.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea4e0.dir/link.txt --verbose=1
+/usr/bin/arm-none-eabi-ar qc libcmTC_ea4e0.a  CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj
+/usr/bin/arm-none-eabi-ranlib libcmTC_ea4e0.a
 make[2]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp'
 
@@ -280,11 +280,11 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-none-eabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_5eebf/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_5eebf.dir/build.make CMakeFiles/cmTC_5eebf.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_ea4e0/fast && make[1]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ea4e0.dir/build.make CMakeFiles/cmTC_ea4e0.dir/build]
   ignore line: [make[2]: Entering directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj]
-  ignore line: [/usr/bin/arm-none-eabi-g++    -v -o CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Building CXX object CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/usr/bin/arm-none-eabi-g++    -v -o CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/arm-none-eabi-g++]
   ignore line: [Target: arm-none-eabi]
@@ -292,8 +292,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [Thread model: single]
   ignore line: [Supported LTO compression algorithms: zlib]
   ignore line: [gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
-  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj -version -o /tmp/ccYEBir5.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
+  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus -quiet -v -iprefix /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/ -isysroot /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi -D__USES_INITFINI__ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -auxbase-strip CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj -version -o /tmp/ccSE58Pg.s]
   ignore line: [GNU C++14 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)]
   ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
   ignore line: []
@@ -320,17 +320,17 @@ Parsed CXX implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 62a2c0a0f0d30bb0bbe5c686601adbb0]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
-  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccYEBir5.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
+  ignore line: [ /usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccSE58Pg.s]
   ignore line: [GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621]
   ignore line: [COMPILER_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/]
   ignore line: [LIBRARY_PATH=/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/:/usr/share/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
-  ignore line: [Linking CXX static library libcmTC_5eebf.a]
-  ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_5eebf.dir/cmake_clean_target.cmake]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5eebf.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_5eebf.a  CMakeFiles/cmTC_5eebf.dir/CMakeCXXCompilerABI.cpp.obj]
-  ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_5eebf.a]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t']
+  ignore line: [Linking CXX static library libcmTC_ea4e0.a]
+  ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_ea4e0.dir/cmake_clean_target.cmake]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea4e0.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_ea4e0.a  CMakeFiles/cmTC_ea4e0.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_ea4e0.a]
   ignore line: [make[2]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
   ignore line: [make[1]: Leaving directory '/home/nick_s/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles/CMakeTmp']
   ignore line: []
