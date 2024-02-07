@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\EcoCar\Battery-Power-Board\Batt-Power-Prototype-2023_Lucy_V1\Batt-Power-Prototype-2023_Lucy_V1.kicad_sch</source>
-    <date>2/6/2024 12:05:04 AM</date>
+    <date>2/6/2024 10:31:39 PM</date>
     <tool>Eeschema 7.0.6</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -1726,10 +1726,10 @@
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
         <field name="Digikey #">RMCF0603FT10K0CT-ND</field>
-        <field name="JLCPCB Part#(Optional)">C25744</field>
+        <field name="JLCPCB Part#(Optional)">C25804</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="JLCPCB Part#(Optional)" value="C25744"/>
+      <property name="JLCPCB Part#(Optional)" value="C25804"/>
       <property name="Digikey #" value="RMCF0603FT10K0CT-ND"/>
       <property name="Sheetname" value="Power"/>
       <property name="Sheetfile" value="power.kicad_sch"/>
@@ -1758,10 +1758,10 @@
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
         <field name="Digikey #">RMCF0603FT10K0CT-ND</field>
-        <field name="JLCPCB Part#(Optional)">C25744</field>
+        <field name="JLCPCB Part#(Optional)">C25804</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="JLCPCB Part#(Optional)" value="C25744"/>
+      <property name="JLCPCB Part#(Optional)" value="C25804"/>
       <property name="Digikey #" value="RMCF0603FT10K0CT-ND"/>
       <property name="Sheetname" value="Power"/>
       <property name="Sheetfile" value="power.kicad_sch"/>
@@ -1790,10 +1790,10 @@
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
         <field name="Digikey #">RMCF0603FT10K0CT-ND</field>
-        <field name="JLCPCB Part#(Optional)">C25744</field>
+        <field name="JLCPCB Part#(Optional)">C25804</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="JLCPCB Part#(Optional)" value="C25744"/>
+      <property name="JLCPCB Part#(Optional)" value="C25804"/>
       <property name="Digikey #" value="RMCF0603FT10K0CT-ND"/>
       <property name="Sheetname" value="Power"/>
       <property name="Sheetfile" value="power.kicad_sch"/>
@@ -2230,10 +2230,12 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
+        <field name="Digikey #">RMCF0603FT10K0CT-ND</field>
         <field name="JLCPCB Part#(Optional)">C25804</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="JLCPCB Part#(Optional)" value="C25804"/>
+      <property name="Digikey #" value="RMCF0603FT10K0CT-ND"/>
       <property name="Sheetname" value="Current &amp; Voltage Senseing"/>
       <property name="Sheetfile" value="CVsense.kicad_sch"/>
       <property name="ki_description" value="Resistor"/>
