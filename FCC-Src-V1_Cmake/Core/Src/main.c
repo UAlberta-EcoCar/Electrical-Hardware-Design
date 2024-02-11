@@ -22,9 +22,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "ADS1115.h"
 #include "canid.h"
 #include "cmsis_os2.h"
+#include "portmacro.h"
 #include "stm32l4xx_hal_can.h"
+#include "stm32l4xx_hal_def.h"
+#include "stm32l4xx_hal_i2c.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -99,7 +103,7 @@ DMA_HandleTypeDef hdma_usart1_tx;
 
 /* Definitions for CanTask */
 osThreadId_t CanTaskHandle;
-uint32_t CanTaskBuffer[128];
+uint32_t CanTaskBuffer[256];
 osStaticThreadDef_t CanTaskControlBlock;
 const osThreadAttr_t CanTask_attributes = {
     .name = "CanTask",
@@ -111,7 +115,7 @@ const osThreadAttr_t CanTask_attributes = {
 };
 /* Definitions for I2cTask */
 osThreadId_t I2cTaskHandle;
-uint32_t I2cTaskBuffer[128];
+uint32_t I2cTaskBuffer[256];
 osStaticThreadDef_t I2cTaskControlBlock;
 const osThreadAttr_t I2cTask_attributes = {
     .name = "I2cTask",
@@ -123,7 +127,7 @@ const osThreadAttr_t I2cTask_attributes = {
 };
 /* Definitions for FuelCellTask */
 osThreadId_t FuelCellTaskHandle;
-uint32_t FuelCellTaskBuffer[128];
+uint32_t FuelCellTaskBuffer[256];
 osStaticThreadDef_t FuelCellTaskControlBlock;
 const osThreadAttr_t FuelCellTask_attributes = {
     .name = "FuelCellTask",
@@ -139,6 +143,8 @@ const osSemaphoreAttr_t canMsgOkSem_attributes = {.name = "canMsgOkSem"};
 /* USER CODE BEGIN PV */
 rbState_t rb_state = RELAY_STBY;
 fcState_t fc_state = FUEL_CELL_OFF_STATE;
+
+fcData_t fcData;
 
 CAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[8];
@@ -167,7 +173,7 @@ void StartFuelCellTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 int _write(int file, char *ptr, int len) {
-  HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, 10);
+  HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
   return len;
 }
 
@@ -291,7 +297,11 @@ HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+ADS1115_Config_t configReg;
+ADS1115_Handle_t *pADS;
 
+#define ADS1115_ADR1 0x48
+#define ADS1115_ADR2 0x49
 /* USER CODE END 0 */
 
 /**
@@ -335,6 +345,18 @@ int main(void) {
   HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_SET);
 
   HAL_UART_Receive_DMA(&huart1, &RxUARTbuff, 1U);
+
+  configReg.channel = CHANNEL_AIN0_GND;
+  configReg.pgaConfig = PGA_4_096;
+  configReg.operatingMode = MODE_CONTINOUS;
+  configReg.dataRate = DRATE_8;
+  configReg.compareMode = COMP_HYSTERESIS;
+  configReg.polarityMode = POLARITY_ACTIVE_LOW;
+  configReg.latchingMode = LATCHING_NONE;
+  configReg.queueComparator = QUEUE_ONE;
+  pADS = ADS1115_init(&hi2c1, (uint16_t)ADS1115_ADR1, configReg);
+  ADS1115_updateConfig(pADS, configReg);
+  ADS1115_setConversionReadyPin(pADS);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -695,12 +717,13 @@ void StartCanTask(void *argument) {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for (;;) {
-    printf("ID: %d, Data: %d\r\n", (uint8_t)RxHeader.StdId, RxData[0]);
+    // printf("ID: %d, Data: %d\r\n", (uint8_t)RxHeader.StdId, RxData[0]);
     osDelay(10);
-    osDelay(osWaitForever);
   }
   /* USER CODE END 5 */
 }
+
+char number[32];
 
 /* USER CODE BEGIN Header_StartI2cTask */
 /**
@@ -711,9 +734,30 @@ void StartCanTask(void *argument) {
 /* USER CODE END Header_StartI2cTask */
 void StartI2cTask(void *argument) {
   /* USER CODE BEGIN StartI2cTask */
+  const float VOLT_CONVERSION = 4.094F / 32768.0F;
   /* Infinite loop */
+
+  // Init stack variables
+  fcData.internal_stack_temp = 0;
+  fcData.internal_stack_pressure = 0;
+
+  // ADS1115_startContinousMode(pADS);
+  osDelay(portTICK_PERIOD_MS * 250);
   for (;;) {
-    osDelay(1);
+    configReg.channel = CHANNEL_AIN0_GND;
+    ADS1115_updateConfig(pADS, configReg);
+    osDelay(200);
+    fcData.internal_stack_temp = ADS1115_getData(pADS) * VOLT_CONVERSION;
+
+    configReg.channel = CHANNEL_AIN1_GND;
+    ADS1115_updateConfig(pADS, configReg);
+    osDelay(200);
+    fcData.internal_stack_pressure = ADS1115_getData(pADS) * VOLT_CONVERSION;
+
+    sprintf(number, "PRES: %0.4f\r\n", fcData.internal_stack_pressure);
+    printf("%s", number);
+    sprintf(number, "TEMP: %0.4f\r\n", fcData.internal_stack_temp);
+    printf("%s", number);
   }
   /* USER CODE END StartI2cTask */
 }
@@ -742,7 +786,7 @@ void StartFuelCellTask(void *argument) {
       if (hal_stat == HAL_OK) {
         if (osSemaphoreAcquire(canMsgOkSemHandle,
                                CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
-          printf("Message sent on CANbus to Relay Board: RELAY_STBY\r\n");
+          // printf("Message sent on CANbus to Relay Board: RELAY_STBY\r\n");
 
           // Should we suspend the task here?
         } else {

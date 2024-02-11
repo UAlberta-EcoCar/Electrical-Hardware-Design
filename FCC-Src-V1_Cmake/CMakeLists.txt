@@ -120,6 +120,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,--start-group
     -lc
     -lm
+    -u_printf_float
     -lstdc++
     -Wl,--end-group
     -Wl,--print-memory-usage)
