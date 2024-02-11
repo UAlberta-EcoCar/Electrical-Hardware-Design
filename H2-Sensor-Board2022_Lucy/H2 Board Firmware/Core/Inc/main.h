@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -46,7 +46,7 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+extern bool h2_leak;
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -57,18 +57,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define GPLED3_Pin GPIO_PIN_14
-#define GPLED3_GPIO_Port GPIOC
-#define H2_SENSE_Pin GPIO_PIN_3
-#define H2_SENSE_GPIO_Port GPIOA
-#define GPLED_TEST_Pin GPIO_PIN_10
-#define GPLED_TEST_GPIO_Port GPIOA
+#define H2_SENSE_ADC_Pin GPIO_PIN_3
+#define H2_SENSE_ADC_GPIO_Port GPIOA
+#define H2_TARE_Pin GPIO_PIN_4
+#define H2_TARE_GPIO_Port GPIOA
+#define BEEPER_TIM2_CH2_Pin GPIO_PIN_5
+#define BEEPER_TIM2_CH2_GPIO_Port GPIOA
 #define CAN_STBY_Pin GPIO_PIN_15
 #define CAN_STBY_GPIO_Port GPIOA
-#define GPLED1_Pin GPIO_PIN_4
-#define GPLED1_GPIO_Port GPIOB
-#define GPLED2_Pin GPIO_PIN_5
-#define GPLED2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
