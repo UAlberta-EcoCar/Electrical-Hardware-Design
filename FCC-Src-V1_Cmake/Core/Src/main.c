@@ -226,6 +226,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   switch (GPIO_Pin) {
   case BRD_STRT_Pin:
     if (HAL_GetTick() - button_debounce > 1000) {
+      printf("Start button pressed\r\n");
       if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
                       FUEL_CELL_RUN_STATE)) // If fc_state is non-zero
       {
@@ -238,6 +239,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     }
     break;
   case BRD_PRGE_Pin:
+    printf("Purge button pressed\r\n");
     /* Do something */
     break;
   case EXT_STRT_Pin:
@@ -349,11 +351,14 @@ int main(void) {
   configReg.channel = CHANNEL_AIN0_GND;
   configReg.pgaConfig = PGA_4_096;
   configReg.operatingMode = MODE_CONTINOUS;
-  configReg.dataRate = DRATE_8;
+  configReg.dataRate = DRATE_128;
   configReg.compareMode = COMP_HYSTERESIS;
   configReg.polarityMode = POLARITY_ACTIVE_LOW;
   configReg.latchingMode = LATCHING_NONE;
   configReg.queueComparator = QUEUE_ONE;
+
+  // NOTE: This init function uses malloc and must be called before the
+  // scheduler
   pADS = ADS1115_init(&hi2c1, (uint16_t)ADS1115_ADR1, configReg);
   ADS1115_updateConfig(pADS, configReg);
   ADS1115_setConversionReadyPin(pADS);
@@ -625,7 +630,7 @@ static void MX_GPIO_Init(void) {
                     GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_RESET);
+  // HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : BRD_STRT_Pin BRD_PRGE_Pin */
   GPIO_InitStruct.Pin = BRD_STRT_Pin | BRD_PRGE_Pin;
@@ -733,7 +738,9 @@ char number[32];
  */
 /* USER CODE END Header_StartI2cTask */
 void StartI2cTask(void *argument) {
-  /* USER CODE BEGIN StartI2cTask */
+/* USER CODE BEGIN StartI2cTask */
+#define DELAY_FOR_CHANNEL_SWITCH 20
+
   const float VOLT_CONVERSION = 4.094F / 32768.0F;
   /* Infinite loop */
 
@@ -741,23 +748,19 @@ void StartI2cTask(void *argument) {
   fcData.internal_stack_temp = 0;
   fcData.internal_stack_pressure = 0;
 
-  // ADS1115_startContinousMode(pADS);
-  osDelay(portTICK_PERIOD_MS * 250);
   for (;;) {
     configReg.channel = CHANNEL_AIN0_GND;
     ADS1115_updateConfig(pADS, configReg);
-    osDelay(200);
+    osDelay(DELAY_FOR_CHANNEL_SWITCH);
     fcData.internal_stack_temp = ADS1115_getData(pADS) * VOLT_CONVERSION;
 
     configReg.channel = CHANNEL_AIN1_GND;
     ADS1115_updateConfig(pADS, configReg);
-    osDelay(200);
+    osDelay(DELAY_FOR_CHANNEL_SWITCH);
     fcData.internal_stack_pressure = ADS1115_getData(pADS) * VOLT_CONVERSION;
 
-    sprintf(number, "PRES: %0.4f\r\n", fcData.internal_stack_pressure);
-    printf("%s", number);
-    sprintf(number, "TEMP: %0.4f\r\n", fcData.internal_stack_temp);
-    printf("%s", number);
+    // printf("FC Temp: %0.4f\r\n", fcData.internal_stack_temp);
+    // printf("H2 Pres: %0.4f\r\n", fcData.internal_stack_pressure);
   }
   /* USER CODE END StartI2cTask */
 }
@@ -786,7 +789,7 @@ void StartFuelCellTask(void *argument) {
       if (hal_stat == HAL_OK) {
         if (osSemaphoreAcquire(canMsgOkSemHandle,
                                CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
-          // printf("Message sent on CANbus to Relay Board: RELAY_STBY\r\n");
+          printf("Message sent on CANbus to Relay Board: RELAY_STBY\r\n");
 
           // Should we suspend the task here?
         } else {
@@ -794,7 +797,7 @@ void StartFuelCellTask(void *argument) {
           printf("Message send timeout to Relay Board\r\n");
         }
       } else {
-        printf("CANBUS Tx Error Code: %x", hcan1.ErrorCode);
+        printf("CANBUS Tx Error Code: %ux", hcan1.ErrorCode);
       }
 
       break;
