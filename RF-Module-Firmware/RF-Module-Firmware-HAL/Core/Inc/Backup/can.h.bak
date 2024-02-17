@@ -44,13 +44,8 @@ void MX_CAN1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void CAN_Initialize();
-void CAN_Write_Packet();
-void CAN_Write_Data();
-void CAN_Write();
-int CAN_Transmit(void *data, int size);
-int CAN_Recieve();
-
-void CAN_Set_Transmitter_ID(uint32_t id);
+int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
+		int _buffer_length, uint32_t _RTR);
 
 /* USER CODE END Prototypes */
 

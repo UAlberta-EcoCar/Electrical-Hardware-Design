@@ -63,8 +63,8 @@ void Error_Handler(void);
 #define CAN_STBY_GPIO_Port GPIOC
 #define LED_D3_PWM_Pin GPIO_PIN_1
 #define LED_D3_PWM_GPIO_Port GPIOA
-#define GPIO_SPI_NSS_Pin GPIO_PIN_4
-#define GPIO_SPI_NSS_GPIO_Port GPIOA
+#define SPI_NSS_GPIO_Pin GPIO_PIN_4
+#define SPI_NSS_GPIO_GPIO_Port GPIOA
 #define DIO0_Pin GPIO_PIN_0
 #define DIO0_GPIO_Port GPIOB
 #define DIO1_Pin GPIO_PIN_1
@@ -83,7 +83,7 @@ void Error_Handler(void);
 #define DIO3_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define HARD_FAULT_LED_DELAY 250000
+#define HARD_FAULT_LED_DELAY 800000
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -13,10 +13,10 @@
 /**
  * Used by serializer to encapsulate packets.
  */
-struct Packet {
-	uint32_t packet_id; // Default ID of the packet.
-	void * packet; //Pointer to the packet being transmitted.
-};
+typedef struct {
+	uint32_t id; // Default ID of the packet.
+	uint8_t data[8]; //Pointer to the packet being transmitted.
+} IntrimPacket;
 
 /**
  * Just a test packet that determines

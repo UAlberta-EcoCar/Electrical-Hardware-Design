@@ -9,8 +9,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include rfm95/lib/ideetron/subdir.mk
--include rfm95/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
@@ -18,6 +16,7 @@ RM := rm -rf
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/Inc/ideetron/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -66,8 +65,8 @@ all: main-build
 main-build: RF-Module-Firmware-HAL.elf secondary-outputs
 
 # Tool invocations
-RF-Module-Firmware-HAL.elf RF-Module-Firmware-HAL.map: $(OBJS) $(USER_OBJS) C:\Users\abina\OneDrive\ -\ ualberta.ca\Desktop\side\EcoCar\RF-Module-Firmware\RF-Module-Firmware-HAL\STM32L432KBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "RF-Module-Firmware-HAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\EcoCar\RF-Module-Firmware\RF-Module-Firmware-HAL\STM32L432KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF-Module-Firmware-HAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+RF-Module-Firmware-HAL.elf RF-Module-Firmware-HAL.map: $(OBJS) $(USER_OBJS) C:\Users\abina\OneDrive\ -\ ualberta.ca\Desktop\side\CAN-USB\ RF\ Module\RF-Module-Firmware\RF-Module-Firmware-HAL\STM32L432KBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "RF-Module-Firmware-HAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\CAN-USB RF Module\RF-Module-Firmware\RF-Module-Firmware-HAL\STM32L432KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF-Module-Firmware-HAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

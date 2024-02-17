@@ -1,10 +1,10 @@
 #include "rfm95.h"
-#include "lib/ideetron/Encrypt_V31.h"
+#include "ideetron/Encrypt_V31.h"
 
 #include <assert.h>
 #include <string.h>
 
-#define RFM9x_VER 0x12
+#define RFM9x_VER 0x9
 
 /**
  * Registers addresses.
@@ -126,9 +126,11 @@ static void config_load_default(rfm95_handle_t *handle)
 static void reset(rfm95_handle_t *handle)
 {
 	HAL_GPIO_WritePin(handle->nrst_port, handle->nrst_pin, GPIO_PIN_RESET);
-	HAL_Delay(1); // 0.1ms would theoretically be enough
+	//HAL_Delay(1); // 0.1ms would theoretically be enough
+	osDelay(5);
 	HAL_GPIO_WritePin(handle->nrst_port, handle->nrst_pin, GPIO_PIN_SET);
-	HAL_Delay(5);
+	osDelay(5);
+	//HAL_Delay(5);
 }
 
 static bool configure_frequency(rfm95_handle_t *handle, uint32_t frequency)
@@ -204,62 +206,64 @@ bool rfm95_set_power(rfm95_handle_t *handle, int8_t power)
 
 bool rfm95_init(rfm95_handle_t *handle)
 {
-//	assert(handle->spi_handle->Init.Mode == SPI_MODE_MASTER);
-//	assert(handle->spi_handle->Init.Direction == SPI_DIRECTION_2LINES);
-//	assert(handle->spi_handle->Init.DataSize == SPI_DATASIZE_8BIT);
-//	assert(handle->spi_handle->Init.CLKPolarity == SPI_POLARITY_LOW);
-//	assert(handle->spi_handle->Init.CLKPhase == SPI_PHASE_1EDGE);
-//	assert(handle->get_precision_tick != NULL);
-//	assert(handle->random_int != NULL);
-//	assert(handle->precision_sleep_until != NULL);
-//	assert(handle->precision_tick_frequency > 10000);
+	assert(handle->spi_handle->Init.Mode == SPI_MODE_MASTER);
+	assert(handle->spi_handle->Init.Direction == SPI_DIRECTION_2LINES);
+	assert(handle->spi_handle->Init.DataSize == SPI_DATASIZE_8BIT);
+	assert(handle->spi_handle->Init.CLKPolarity == SPI_POLARITY_LOW);
+	assert(handle->spi_handle->Init.CLKPhase == SPI_PHASE_1EDGE);
+	assert(handle->get_precision_tick != NULL);
+	assert(handle->random_int != NULL);
+	assert(handle->precision_sleep_until != NULL);
+	assert(handle->precision_tick_frequency > 10000);
 
 	reset(handle);
 
 	// If there is reload function or the reload was unsuccessful or the magic does not match restore default.
-	if (handle->reload_config == NULL || !handle->reload_config(&handle->config) ||
-	    handle->config.magic != RFM95_EEPROM_CONFIG_MAGIC) {
-		config_load_default(handle);
-	}
+//	if (handle->reload_config == NULL || !handle->reload_config(&handle->config) ||
+//	    handle->config.magic != RFM95_EEPROM_CONFIG_MAGIC) {
+//		config_load_default(handle);
+//	}
 
 	// Check for correct version.
 	uint8_t version;
 	if (!read_register(handle, RFM95_REGISTER_VERSION, &version, 1)) return false;
-	if (version != RFM9x_VER) return false;
+	//if (version != RFM9x_VER) return false;
 	printf("RFM Version: %d", version);
-//	// Module must be placed in sleep mode before switching to lora.
-//	if (!write_register(handle, RFM95_REGISTER_OP_MODE, RFM95_REGISTER_OP_MODE_SLEEP)) return false;
-//	if (!write_register(handle, RFM95_REGISTER_OP_MODE, RFM95_REGISTER_OP_MODE_LORA_SLEEP)) return false;
-//
-//	// Default interrupt configuration, must be done to prevent DIO5 clock interrupts at 1Mhz
-//	if (!write_register(handle, RFM95_REGISTER_DIO_MAPPING_1, RFM95_REGISTER_DIO_MAPPING_1_IRQ_FOR_RXDONE)) return false;
-//
-//	if (handle->on_after_interrupts_configured != NULL) {
-//		handle->on_after_interrupts_configured();
-//	}
-//
-//	// Set module power to 17dbm.
-//	if (!rfm95_set_power(handle, 17)) return false;
-//
-//	// Set LNA to the highest gain with 150% boost.
-//	if (!write_register(handle, RFM95_REGISTER_LNA, 0x23)) return false;
-//
-//	// Preamble set to 8 + 4.25 = 12.25 symbols.
-//	if (!write_register(handle, RFM95_REGISTER_PREAMBLE_MSB, 0x00)) return false;
-//	if (!write_register(handle, RFM95_REGISTER_PREAMBLE_LSB, 0x08)) return false;
-//
-//	// Set TTN sync word 0x34.
-//	if (!write_register(handle, RFM95_REGISTER_SYNC_WORD, 0x34)) return false;
-//
-//	// Set up TX and RX FIFO base addresses.
-//	if (!write_register(handle, RFM95_REGISTER_FIFO_TX_BASE_ADDR, 0x80)) return false;
-//	if (!write_register(handle, RFM95_REGISTER_FIFO_RX_BASE_ADDR, 0x00)) return false;
-//
-//	// Maximum payload length of the RFM95 is 64.
-//	if (!write_register(handle, RFM95_REGISTER_MAX_PAYLOAD_LENGTH, 64)) return false;
-//
-//	// Let module sleep after initialisation.
-//	if (!write_register(handle, RFM95_REGISTER_OP_MODE, RFM95_REGISTER_OP_MODE_LORA_SLEEP)) return false;
+	// Module must be placed in sleep mode before switching to lora.
+	if (!write_register(handle, RFM95_REGISTER_OP_MODE, RFM95_REGISTER_OP_MODE_SLEEP)) return false;
+	if (!write_register(handle, RFM95_REGISTER_OP_MODE, RFM95_REGISTER_OP_MODE_LORA_SLEEP)) return false;
+
+	// Default interrupt configuration, must be done to prevent DIO5 clock interrupts at 1Mhz
+	if (!write_register(handle, RFM95_REGISTER_DIO_MAPPING_1, RFM95_REGISTER_DIO_MAPPING_1_IRQ_FOR_RXDONE)) return false;
+
+	if (handle->on_after_interrupts_configured != NULL) {
+		handle->on_after_interrupts_configured();
+	}
+
+	uint8_t temp;
+	if (!read_register(handle, RFM95_REGISTER_VERSION, &temp, 1)) return false;
+	// Set module power to 17dbm.
+	if (!rfm95_set_power(handle, 17)) return false;
+
+	// Set LNA to the highest gain with 150% boost.
+	if (!write_register(handle, RFM95_REGISTER_LNA, 0x23)) return false;
+
+	// Preamble set to 8 + 4.25 = 12.25 symbols.
+	if (!write_register(handle, RFM95_REGISTER_PREAMBLE_MSB, 0x00)) return false;
+	if (!write_register(handle, RFM95_REGISTER_PREAMBLE_LSB, 0x08)) return false;
+
+	// Set TTN sync word 0x34.
+	if (!write_register(handle, RFM95_REGISTER_SYNC_WORD, 0x34)) return false;
+
+	// Set up TX and RX FIFO base addresses.
+	if (!write_register(handle, RFM95_REGISTER_FIFO_TX_BASE_ADDR, 0x80)) return false;
+	if (!write_register(handle, RFM95_REGISTER_FIFO_RX_BASE_ADDR, 0x00)) return false;
+
+	// Maximum payload length of the RFM95 is 64.
+	if (!write_register(handle, RFM95_REGISTER_MAX_PAYLOAD_LENGTH, 64)) return false;
+
+	// Let module sleep after initialisation.
+	if (!write_register(handle, RFM95_REGISTER_OP_MODE, RFM95_REGISTER_OP_MODE_LORA_SLEEP)) return false;
 
 	return true;
 }
@@ -714,7 +718,7 @@ bool rfm95_send_receive_cycle(rfm95_handle_t *handle, const uint8_t *send_data, 
 	// Build the up-link phy payload.
 	size_t phy_payload_len = encode_phy_payload(handle, phy_payload_buf, send_data, send_data_length, 1);
 
-	uint8_t random_channel = select_random_channel(handle);
+	uint8_t random_channel = 1;//select_random_channel(handle);
 
 	uint32_t tx_ticks;
 

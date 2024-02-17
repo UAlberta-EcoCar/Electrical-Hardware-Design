@@ -30,7 +30,7 @@
 #endif
 
 #ifndef RFM95_SPI_TIMEOUT
-#define RFM95_SPI_TIMEOUT 10
+#define RFM95_SPI_TIMEOUT HAL_MAX_DELAY
 #endif
 
 #ifndef RFM95_WAKEUP_TIMEOUT
@@ -46,6 +46,7 @@
 #endif
 
 #define RFM95_EEPROM_CONFIG_MAGIC 0xab67
+
 
 typedef struct {
 

@@ -130,32 +130,59 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* canHandle)
 void CAN_Initialize() {
 	MX_CAN1_Init();
 	/* USER CODE BEGIN 2 */
-	CAN_FilterTypeDef sf;
-	sf.FilterIdHigh = 0x200 << 5;
-	sf.FilterMaskIdHigh = 0x700 << 5;
-	sf.FilterIdLow = 0x0000;
-	sf.FilterMaskIdLow = 0x0000;
-	sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-	sf.FilterBank = 0;
-	sf.FilterMode = CAN_FILTERMODE_IDMASK;
-	sf.FilterScale = CAN_FILTERSCALE_32BIT;
-	sf.FilterActivation = CAN_FILTER_ENABLE;
+	CAN_FilterTypeDef high_priority_filter;
+	high_priority_filter.FilterIdHigh = 0x100 << 5;
+	high_priority_filter.FilterMaskIdHigh = 0x700 << 5;
+	high_priority_filter.FilterIdLow = 0x0000;
+	high_priority_filter.FilterMaskIdLow = 0x0000;
+	high_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+	high_priority_filter.FilterBank = 0;
+	high_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
+	high_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
+	high_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
 
-	if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+	if (HAL_CAN_ConfigFilter(&hcan1, &high_priority_filter) != HAL_OK) {
 		/* Filter configuration Error */
 		Error_Handler();
 	}
 
+	CAN_FilterTypeDef low_priority_filter;
+	low_priority_filter.FilterIdHigh = 0x100 << 5;
+	low_priority_filter.FilterMaskIdHigh = 0x700 << 5;
+	low_priority_filter.FilterIdLow = 0x0000;
+	low_priority_filter.FilterMaskIdLow = 0x0000;
+	low_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+	low_priority_filter.FilterBank = 0;
+	low_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
+	low_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
+	low_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
+
 	if (HAL_CAN_Start(&hcan1) != HAL_OK) {
+		printf("[!SYSTEM ERROR]CAN Initialization Error At CAN Start");
 		Error_Handler();
 	}
 
 	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING)
 			!= HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT MESSAGE PENDING RX FIFO 0");
 		Error_Handler();
 	}
-	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY)
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING)
 			!= HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT MESSAGE PENDING RX FIFO 1");
+		Error_Handler();
+	}
+
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_FULL) != HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT RX FIFO 0 FULL");
+		Error_Handler();
+	}
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_FULL) != HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT RX FIFO 1 FULL");
 		Error_Handler();
 	}
 
@@ -163,36 +190,29 @@ void CAN_Initialize() {
 //	!= HAL_OK) {
 //		Error_Handler();
 //	}
-
-	TxHeader.StdId = 0x201;
-	//	TxHeader.ExtId = 0x01;
 	TxHeader.RTR = CAN_RTR_DATA;
 	TxHeader.IDE = CAN_ID_STD;
 	TxHeader.DLC = 8;
 	TxHeader.TransmitGlobalTime = DISABLE;
 }
 
-int CAN_Transmit(void *data, int size) {
-	if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, data, &TxMailbox) != HAL_OK) {
+/**
+ * Send 8 bytes at a time, with standard id size.
+ */
+int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
+		int _buffer_length, uint32_t _RTR) {
+
+	TxHeader.StdId = _device_address;
+	TxHeader.RTR = _RTR;
+	if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, _buffer_pointer, &TxMailbox)
+			!= HAL_OK) {
+		printf(
+				"Can transmission error on packet id: %hu and containing data: %u\r\n",
+				_device_address, _buffer_pointer);
 		Error_Handler();
 	}
 
 	return 1;
-}
-
-void CAN_Write_Hello() {
-}
-
-void CAN_Write_Packet() {
-	struct Packet_Hello hello;
-	TxHeader.StdId = hello.packet_id;
-	CAN_Transmit(&hello, sizeof(struct Packet_Hello));
-}
-
-void CAN_Write() {
-}
-
-void CAN_Set_Transmitter_ID(uint32_t id) {
 }
 
 /* USER CODE END 1 */
