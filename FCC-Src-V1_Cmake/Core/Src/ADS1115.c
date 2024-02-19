@@ -89,7 +89,7 @@ void ADS1115_flushData(ADS1115_Handle_t* pConfig){
 }
 
 void ADS1115_setConversionReadyPin(ADS1115_Handle_t* pConfig){
-	ADS1115_setThresholds(pConfig, 0x0000, 0xFFFF);
+	ADS1115_setThresholds(pConfig, 0x0000U, 0x7FFF);
 }
 
 void ADS1115_startContinousMode(ADS1115_Handle_t* pConfig){

@@ -41,13 +41,17 @@ set(PROJECT_INCLUDE_DIRECTORIES
 
 #PROJECT_SOURCES
 
-file(GLOB_RECURSE STM32CUBEMX_RECUR_SOURCES
-  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/*.c)
-
-file(GLOB_RECURSE PROJECT_SOURCES FOLLOW_SYMLINKS
-    ${PROJECT_DIR}/*.cpp
-    ${PROJECT_DIR}/*.c)
-
+set(STM32CUBEMX_RECUR_SOURCES
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/ADS1115.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/freertos.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32l4xx_hal_msp.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32l4xx_hal_timebase_tim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32l4xx_it.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32l4xx.c
+  # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/syscalls.c
+  )
+  
 set(STM32CUBEMX_GENERATED
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c
@@ -104,6 +108,7 @@ target_compile_options(${EXECUTABLE} PRIVATE
     -Wextra
     -Wpedantic
     -Wno-unused-parameter
+    -Wno-format
     $<$<COMPILE_LANGUAGE:CXX>:
         -Wno-volatile
         -Wold-style-cast
