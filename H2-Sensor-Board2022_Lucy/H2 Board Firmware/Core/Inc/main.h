@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -61,13 +61,23 @@ void Error_Handler(void);
 #define H2_SENSE_ADC_GPIO_Port GPIOA
 #define H2_TARE_Pin GPIO_PIN_4
 #define H2_TARE_GPIO_Port GPIOA
-#define BEEPER_TIM2_CH2_Pin GPIO_PIN_5
-#define BEEPER_TIM2_CH2_GPIO_Port GPIOA
+#define BEEPER_Pin GPIO_PIN_5
+#define BEEPER_GPIO_Port GPIOA
 #define CAN_STBY_Pin GPIO_PIN_15
 #define CAN_STBY_GPIO_Port GPIOA
+#define LED_D1_PWM_Pin GPIO_PIN_3
+#define LED_D1_PWM_GPIO_Port GPIOB
+#define LED_D2_PWM_Pin GPIO_PIN_4
+#define LED_D2_PWM_GPIO_Port GPIOB
+#define LED_D3_PWM_Pin GPIO_PIN_5
+#define LED_D3_PWM_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-
+#define HARD_FAULT_LED_DELAY 500000
+#define SAMPLE_COUNT  UINT8_C(50)
+/* Define configASSERT() to call vAssertCalled() if the assertion fails.  The assertion
+ has failed if the value of the parameter passed into configASSERT() equals zero. */
+#define configASSERT ( x )     if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

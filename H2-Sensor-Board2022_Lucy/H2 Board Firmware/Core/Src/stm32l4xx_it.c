@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    stm32l4xx_it.c
-  * @brief   Interrupt Service Routines.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32l4xx_it.c
+ * @brief   Interrupt Service Routines.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -56,6 +56,7 @@
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
+extern CAN_HandleTypeDef hcan1;
 extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
@@ -75,7 +76,7 @@ void NMI_Handler(void)
   /* USER CODE END NonMaskableInt_IRQn 0 */
   HAL_RCC_NMI_IRQHandler();
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  while (1)
+   while (1)
   {
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
@@ -87,11 +88,43 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-
+	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
+	/*Configure GPIO pins : PBPin PBPin PBPin PBPin */
+	GPIO_InitStruct.Pin = LED_D1_PWM_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(LED_D1_PWM_GPIO_Port, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LED_D2_PWM_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(LED_D2_PWM_GPIO_Port, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LED_D3_PWM_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(LED_D3_PWM_GPIO_Port, &GPIO_InitStruct);
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_SET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_SET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin, GPIO_PIN_SET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_RESET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_RESET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin, GPIO_PIN_RESET);
+
     /* USER CODE END W1_HardFault_IRQn 0 */
   }
 }
@@ -173,6 +206,20 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
 
   /* USER CODE END DMA1_Channel1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles CAN1 RX0 interrupt.
+  */
+void CAN1_RX0_IRQHandler(void)
+{
+  /* USER CODE BEGIN CAN1_RX0_IRQn 0 */
+
+  /* USER CODE END CAN1_RX0_IRQn 0 */
+  HAL_CAN_IRQHandler(&hcan1);
+  /* USER CODE BEGIN CAN1_RX0_IRQn 1 */
+
+  /* USER CODE END CAN1_RX0_IRQn 1 */
 }
 
 /**

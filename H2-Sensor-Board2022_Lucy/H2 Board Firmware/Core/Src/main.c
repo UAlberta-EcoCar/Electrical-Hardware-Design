@@ -23,6 +23,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ssd1306.h"
+#include "stdio.h"
+#include "bme280/bme280.h"
+#include <stdlib.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,19 +65,32 @@ UART_HandleTypeDef huart1;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 248 * 4,
+  .priority = (osPriority_t) osPriorityAboveNormal,
 };
 /* Definitions for myTask02 */
 osThreadId_t myTask02Handle;
 const osThreadAttr_t myTask02_attributes = {
   .name = "myTask02",
-  .stack_size = 128 * 4,
+  .stack_size = 248 * 4,
   .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for I2CBusControl */
+osMutexId_t I2CBusControlHandle;
+const osMutexAttr_t I2CBusControl_attributes = {
+  .name = "I2CBusControl"
 };
 /* USER CODE BEGIN PV */
 uint16_t adc_buf[ADC_BUF_LEN];
 uint16_t raw;
+
+char h2_conc_str[32] = { 0 };
+char bme_data_str[1024] = { 0 };
+
+float temperature;
+float humidity;
+float pressure;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,6 +105,19 @@ void StartDefaultTask(void *argument);
 void StartTask02(void *argument);
 
 /* USER CODE BEGIN PFP */
+int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
+		int _buffer_length, uint32_t _RTR);
+
+/*!
+ *  @brief This internal API is used to get compensated temperature data.
+ *
+ *  @param[in] period   : Contains the delay in microseconds.
+ *  @param[in] dev      : Structure instance of bme280_dev.
+ *
+ *  @return Status of execution.
+ */
+static int8_t get_temperature(uint32_t period, struct bme280_dev *dev);
+
 //void DMATransferComplete(DMA_HandleTypeDef *hdma) {
 //	printf("%hu\r\n", adc_buf);
 //}
@@ -147,6 +177,9 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
+  /* Create the mutex(es) */
+  /* creation of I2CBusControl */
+  I2CBusControlHandle = osMutexNew(&I2CBusControl_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
 	/* add mutexes, ... */
@@ -338,7 +371,7 @@ static void MX_CAN1_Init(void)
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
   hcan1.Init.Prescaler = 16;
-  hcan1.Init.Mode = CAN_MODE_NORMAL;
+  hcan1.Init.Mode = CAN_MODE_LOOPBACK;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_3TQ;
   hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;
@@ -387,7 +420,7 @@ static void MX_CAN1_Init(void)
 	//		Error_Handler();
 	//	}
 
-	TxHeader.StdId = 0x201;
+	TxHeader.StdId = 0x101;
 	//	TxHeader.ExtId = 0x01;
 	TxHeader.RTR = CAN_RTR_DATA;
 	TxHeader.IDE = CAN_ID_STD;
@@ -512,7 +545,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CAN_STBY_GPIO_Port, CAN_STBY_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, BEEPER_Pin|CAN_STBY_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LED_D1_PWM_Pin|LED_D2_PWM_Pin|LED_D3_PWM_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : H2_TARE_Pin */
   GPIO_InitStruct.Pin = H2_TARE_Pin;
@@ -520,13 +556,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(H2_TARE_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : BEEPER_TIM2_CH2_Pin */
-  GPIO_InitStruct.Pin = BEEPER_TIM2_CH2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  /*Configure GPIO pin : BEEPER_Pin */
+  GPIO_InitStruct.Pin = BEEPER_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
-  HAL_GPIO_Init(BEEPER_TIM2_CH2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(BEEPER_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA8 */
   GPIO_InitStruct.Pin = GPIO_PIN_8;
@@ -543,6 +578,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CAN_STBY_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : LED_D1_PWM_Pin LED_D2_PWM_Pin LED_D3_PWM_Pin */
+  GPIO_InitStruct.Pin = LED_D1_PWM_Pin|LED_D2_PWM_Pin|LED_D3_PWM_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
@@ -556,9 +598,64 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 	//printf("%hu\r\n", adc_buf[0]);
 	raw = adc_buf[ADC_BUF_LEN - 1];
 }
+
+/**
+ * Send 8 bytes at a time, with standard id size.
+ */
+int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
+		int _buffer_length, uint32_t _RTR) {
+
+	TxHeader.StdId = _device_address;
+	TxHeader.RTR = _RTR;
+	if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, _buffer_pointer, &TxMailbox)
+			!= HAL_OK) {
+		printf(
+				"Can transmission error on packet id: %hu and containing data: %u\r\n",
+				_device_address, _buffer_pointer);
+		Error_Handler();
+	}
+
+	return 1;
+}
+
+int8_t user_i2c_read(uint8_t id, uint8_t reg_addr, uint8_t *data, uint16_t len) {
+	if (HAL_I2C_Master_Transmit(&hi2c1, (id << 1), &reg_addr, 1, 10) != HAL_OK)
+		return -1;
+	if (HAL_I2C_Master_Receive(&hi2c1, (id << 1) | 0x01, data, len, 10)
+			!= HAL_OK)
+		return -1;
+
+	return 0;
+}
+
+void user_delay_ms(uint32_t period) {
+	osDelay(period);
+}
+
+int8_t user_i2c_write(uint8_t id, uint8_t reg_addr, uint8_t *data, uint16_t len) {
+	uint8_t buf[len + 1];
+	buf[0] = reg_addr;
+	memcpy(buf + 1, data, len);
+	while (HAL_I2C_Master_Transmit(&hi2c1, (id << 1), (uint8_t*) buf, len + 1,
+	HAL_MAX_DELAY) != HAL_OK)
+		printf("I2C Error\r\n");
+//	int8_t *buf;
+//	buf = malloc(len + 1);
+//	buf[0] = reg_addr;
+//	memcpy(buf + 1, data, len);
+//
+//	if (HAL_I2C_Master_Transmit(&hi2c1, (id << 1), (uint8_t*) buf, len + 1,
+//	HAL_MAX_DELAY) != HAL_OK)
+//		return -1;
+//
+//	free(buf);
+	return 0;
+}
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
+
 /**
  * @brief  Function implementing the defaultTask thread.
  * @param  argument: Not used
@@ -569,12 +666,69 @@ void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adc_buf, ADC_BUF_LEN);
+	osThreadId_t f1 = osThreadGetId();
+	struct bme280_dev dev;
+	struct bme280_data comp_data;
+	int8_t rslt;
+
+	osMutexAcquire(I2CBusControlHandle, osWaitForever);
+	dev.dev_id = BME280_I2C_ADDR_SEC;
+	dev.intf = BME280_I2C_INTF;
+	dev.read = user_i2c_read;
+	dev.write = user_i2c_write;
+	dev.delay_ms = user_delay_ms;
+	rslt = bme280_init(&dev);
+
+	dev.settings.osr_h = BME280_OVERSAMPLING_1X;
+	dev.settings.osr_p = BME280_OVERSAMPLING_16X;
+	dev.settings.osr_t = BME280_OVERSAMPLING_2X;
+	dev.settings.filter = BME280_FILTER_COEFF_16;
+	rslt = bme280_set_sensor_settings(
+			BME280_OSR_PRESS_SEL | BME280_OSR_TEMP_SEL | BME280_OSR_HUM_SEL
+					| BME280_FILTER_SEL, &dev);
+	rslt = bme280_set_sensor_mode(BME280_NORMAL_MODE, &dev);
+	osDelay(50);
+	osMutexRelease(I2CBusControlHandle);
+	//osThreadYield();
+	//xTaskResumeAll();
 	/* Infinite loop */
+	// \033[2J\033[0;0H
 	for (;;) {
-		printf("\033[2J\033[0;0H[Main Thread] ");
+
+		//HAL_GPIO_WritePin(BEEPER_GPIO_Port, BEEPER_Pin, GPIO_PIN_SET);
+		printf("[Main Thread] ");
 		printf("ADC: ");
-		printf("%hu\r\n", raw);
-		osDelay(100);
+		printf("%hu\r\n", adc_buf[ADC_BUF_LEN - 1]);
+		TxHeader.StdId = 0x102;
+
+		if (osMutexAcquire(I2CBusControlHandle, osWaitForever) == osOK) {
+			rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
+			osMutexRelease(I2CBusControlHandle);
+			if (rslt == BME280_OK) {
+				temperature = comp_data.temperature / 100.0; /* °C  */
+				humidity = comp_data.humidity / 1024.0; /* %   */
+				pressure = comp_data.pressure / 10000.0; /* hPa */
+			}
+
+		} else {
+			printf("[!Main Thread] Failed to aquire control of I2C Bus\r\n");
+		}
+
+		printf("[!Main Thread] Humidity: %03.1f\r\n", humidity);
+		printf("[!Main Thread] Temprature: %03.1f\r\n", temperature);
+		printf("[!Main Thread] Pressure: %03.1f\r\n", pressure);
+
+		if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader,
+				(uint32_t*) &adc_buf[ADC_BUF_LEN - 1], &TxMailbox) != HAL_OK) {
+			printf("Can transmission error on packet id:");
+			Error_Handler();
+		}
+		osDelay(10);
+
+		//HAL_GPIO_WritePin(BEEPER_GPIO_Port, BEEPER_Pin, GPIO_PIN_RESET);
+		//osThreadYield();
+		osDelay(500);
+
 	}
   /* USER CODE END 5 */
 }
@@ -589,9 +743,37 @@ void StartDefaultTask(void *argument)
 void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
+	osDelay(500);
+	if (osMutexAcquire(I2CBusControlHandle, osWaitForever) == osOK) {
+		ssd1306_Init();
+		osMutexRelease(I2CBusControlHandle);
+	} else {
+		printf("[!Secondary Thread] I2C Busy\r\n");
+	}
 	/* Infinite loop */
 	for (;;) {
-		//printf("Hekko\r\n");
+
+		ssd1306_Fill(Black);
+		ssd1306_Line(0, 0, SSD1306_WIDTH, 0, White);
+		ssd1306_SetCursor(0, 2);
+		sprintf(h2_conc_str, "H2 Conc: %d (mV)", adc_buf[ADC_BUF_LEN - 1]);
+		ssd1306_WriteString(h2_conc_str, Font_7x10, White);
+
+		ssd1306_SetCursor(0, 12);
+		sprintf(bme_data_str, "Temperature: %2.0fC", temperature);
+		ssd1306_WriteString(bme_data_str, Font_7x10, White);
+		ssd1306_SetCursor(0, 22);
+
+		sprintf(bme_data_str, "Humidity: %2.0f%%", humidity);
+		ssd1306_WriteString(bme_data_str, Font_7x10, White);
+		ssd1306_SetCursor(0, 32);
+
+		sprintf(bme_data_str, "Pressure: %3.0f hPa", pressure);
+		ssd1306_WriteString(bme_data_str, Font_7x10, White);
+		ssd1306_Line(0, 42, SSD1306_WIDTH, 42, White);
+		osMutexAcquire(I2CBusControlHandle, osWaitForever);
+		ssd1306_UpdateScreen();
+		osMutexRelease(I2CBusControlHandle);
 		osDelay(100);
 	}
   /* USER CODE END StartTask02 */

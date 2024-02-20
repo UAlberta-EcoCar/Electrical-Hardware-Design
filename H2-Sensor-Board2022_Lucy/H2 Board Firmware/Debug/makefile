@@ -15,6 +15,7 @@ RM := rm -rf
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
+-include Core/Src/bme280/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 
@@ -65,7 +66,7 @@ main-build: H2-Sensor-Board-Lucy.elf secondary-outputs
 
 # Tool invocations
 H2-Sensor-Board-Lucy.elf H2-Sensor-Board-Lucy.map: $(OBJS) $(USER_OBJS) C:\Users\abina\OneDrive\ -\ ualberta.ca\Desktop\side\EcoCar\H2\ sensor\ board\H2-Sensor-Board2022_Lucy\H2\ Board\ Firmware\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "H2-Sensor-Board-Lucy.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\EcoCar\H2 sensor board\H2-Sensor-Board2022_Lucy\H2 Board Firmware\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="H2-Sensor-Board-Lucy.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "H2-Sensor-Board-Lucy.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\EcoCar\H2 sensor board\H2-Sensor-Board2022_Lucy\H2 Board Firmware\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="H2-Sensor-Board-Lucy.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
