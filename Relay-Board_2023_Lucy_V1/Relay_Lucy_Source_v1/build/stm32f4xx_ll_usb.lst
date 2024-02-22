@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccjTe2AB.s 			page 1
+ARM GAS  /tmp/cc1ThuXR.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   ==============================================================================
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     [..]
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       (#) Fill parameters of Init structure in USB_OTG_CfgTypeDef structure.
-ARM GAS  /tmp/ccjTe2AB.s 			page 2
+ARM GAS  /tmp/cc1ThuXR.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
   29              		.loc 1 84 1
   30              		.cfi_startproc
   31              		@ args = 56, pretend = 16, frame = 16
-ARM GAS  /tmp/ccjTe2AB.s 			page 3
+ARM GAS  /tmp/cc1ThuXR.s 			page 3
 
 
   32              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
   75 0040 FB6C     		ldr	r3, [r7, #76]
   76              		.loc 1 95 8
   77 0042 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccjTe2AB.s 			page 4
+ARM GAS  /tmp/cc1ThuXR.s 			page 4
 
 
   78 0044 05D1     		bne	.L3
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  113 0082 7B68     		ldr	r3, [r7, #4]
  114 0084 9A63     		str	r2, [r3, #56]
  115 0086 05E0     		b	.L4
-ARM GAS  /tmp/ccjTe2AB.s 			page 5
+ARM GAS  /tmp/cc1ThuXR.s 			page 5
 
 
  116              	.L5:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  154              	.LCFI6:
  155              		.cfi_restore 14
  156              		.cfi_restore 7
-ARM GAS  /tmp/ccjTe2AB.s 			page 6
+ARM GAS  /tmp/cc1ThuXR.s 			page 6
 
 
  157              		.cfi_def_cfa_offset 16
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  195 0010 022B     		cmp	r3, #2
  196 0012 65D1     		bne	.L9
  149:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  /tmp/ccjTe2AB.s 			page 7
+ARM GAS  /tmp/cc1ThuXR.s 			page 7
 
 
  150:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if ((hclk >= 14200000U) && (hclk < 15000000U))
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  237              		.loc 1 163 14
  238 0050 0D23     		movs	r3, #13
  239 0052 7B61     		str	r3, [r7, #20]
-ARM GAS  /tmp/ccjTe2AB.s 			page 8
+ARM GAS  /tmp/cc1ThuXR.s 			page 8
 
 
  240 0054 4CE0     		b	.L20
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  176:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  177:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       /* hclk Clock Range between 20-21.8 MHz */
  178:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       UsbTrd = 0xAU;
-ARM GAS  /tmp/ccjTe2AB.s 			page 9
+ARM GAS  /tmp/cc1ThuXR.s 			page 9
 
 
  282              		.loc 1 178 14
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  324 00ce 1C4A     		ldr	r2, .L23+36
  325 00d0 9342     		cmp	r3, r2
  326 00d2 02D2     		bcs	.L19
-ARM GAS  /tmp/ccjTe2AB.s 			page 10
+ARM GAS  /tmp/cc1ThuXR.s 			page 10
 
 
  191:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  360 0100 7B69     		ldr	r3, [r7, #20]
  361 0102 9B02     		lsls	r3, r3, #10
  362              		.loc 1 211 20
-ARM GAS  /tmp/ccjTe2AB.s 			page 11
+ARM GAS  /tmp/cc1ThuXR.s 			page 11
 
 
  363 0104 03F47053 		and	r3, r3, #15360
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  222:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_EnableGlobalInt(USB_OTG_GlobalTypeDef *USBx)
  223:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
  409              		.loc 1 223 1
-ARM GAS  /tmp/ccjTe2AB.s 			page 12
+ARM GAS  /tmp/cc1ThuXR.s 			page 12
 
 
  410              		.cfi_startproc
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
  232:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
  233:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
-ARM GAS  /tmp/ccjTe2AB.s 			page 13
+ARM GAS  /tmp/cc1ThuXR.s 			page 13
 
 
  234:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_DisableGlobalInt(USB_OTG_GlobalTypeDef *USBx)
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  240:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
  241:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  USB_SetCurrentMode Set functional mode
  242:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
-ARM GAS  /tmp/ccjTe2AB.s 			page 14
+ARM GAS  /tmp/cc1ThuXR.s 			page 14
 
 
  243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  mode  current core mode
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     do
  260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       HAL_Delay(1U);
-ARM GAS  /tmp/ccjTe2AB.s 			page 15
+ARM GAS  /tmp/cc1ThuXR.s 			page 15
 
 
  547              		.loc 1 261 7 discriminator 2
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  589              		.loc 1 273 5 discriminator 2
  590 0074 002B     		cmp	r3, #0
  591 0076 05D0     		beq	.L31
-ARM GAS  /tmp/ccjTe2AB.s 			page 16
+ARM GAS  /tmp/cc1ThuXR.s 			page 16
 
 
  592              		.loc 1 273 63 discriminator 1
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  288:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
  289:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  USB_DevInit Initializes the USB_OTG controller registers
-ARM GAS  /tmp/ccjTe2AB.s 			page 17
+ARM GAS  /tmp/cc1ThuXR.s 			page 17
 
 
  290:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *         for device mode
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  674 002a 0022     		movs	r2, #0
  675 002c 5A60     		str	r2, [r3, #4]
  302:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  /tmp/ccjTe2AB.s 			page 18
+ARM GAS  /tmp/cc1ThuXR.s 			page 18
 
 
  676              		.loc 1 302 26 discriminator 3
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  715 0076 1A60     		str	r2, [r3]
  716 0078 05E0     		b	.L41
  717              	.L40:
-ARM GAS  /tmp/ccjTe2AB.s 			page 19
+ARM GAS  /tmp/cc1ThuXR.s 			page 19
 
 
  319:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  740 00a4 1360     		str	r3, [r2]
  351:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  352:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (cfg.phy_itface == USB_OTG_ULPI_PHY)
-ARM GAS  /tmp/ccjTe2AB.s 			page 20
+ARM GAS  /tmp/cc1ThuXR.s 			page 20
 
 
  741              		.loc 1 352 10
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  775 00da 01D0     		beq	.L45
  373:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  374:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     ret = HAL_ERROR;
-ARM GAS  /tmp/ccjTe2AB.s 			page 21
+ARM GAS  /tmp/cc1ThuXR.s 			page 21
 
 
  776              		.loc 1 374 9
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  817              	.L51:
  388:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  389:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if ((USBx_INEP(i)->DIEPCTL & USB_OTG_DIEPCTL_EPENA) == USB_OTG_DIEPCTL_EPENA)
-ARM GAS  /tmp/ccjTe2AB.s 			page 22
+ARM GAS  /tmp/cc1ThuXR.s 			page 22
 
 
  818              		.loc 1 389 10
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  859              		.loc 1 402 7
  860 0164 3B69     		ldr	r3, [r7, #16]
  861 0166 5A01     		lsls	r2, r3, #5
-ARM GAS  /tmp/ccjTe2AB.s 			page 23
+ARM GAS  /tmp/cc1ThuXR.s 			page 23
 
 
  862 0168 FB68     		ldr	r3, [r7, #12]
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  906              	.L56:
  410:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  411:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if ((USBx_OUTEP(i)->DOEPCTL & USB_OTG_DOEPCTL_EPENA) == USB_OTG_DOEPCTL_EPENA)
-ARM GAS  /tmp/ccjTe2AB.s 			page 24
+ARM GAS  /tmp/cc1ThuXR.s 			page 24
 
 
  907              		.loc 1 411 10
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  948              		.loc 1 424 7
  949 01fa 3B69     		ldr	r3, [r7, #16]
  950 01fc 5A01     		lsls	r2, r3, #5
-ARM GAS  /tmp/ccjTe2AB.s 			page 25
+ARM GAS  /tmp/cc1ThuXR.s 			page 25
 
 
  951 01fe FB68     		ldr	r3, [r7, #12]
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  995 024a 02F50062 		add	r2, r2, #2048
  996 024e 23F48073 		bic	r3, r3, #256
  997 0252 1361     		str	r3, [r2, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 26
+ARM GAS  /tmp/cc1ThuXR.s 			page 26
 
 
  432:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1030              		.loc 1 453 19
  1031 0286 7B68     		ldr	r3, [r7, #4]
  1032 0288 9B69     		ldr	r3, [r3, #24]
-ARM GAS  /tmp/ccjTe2AB.s 			page 27
+ARM GAS  /tmp/cc1ThuXR.s 			page 27
 
 
  1033 028a 43F00802 		orr	r2, r3, #8
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1079              		.global	USB_FlushTxFifo
  1080              		.syntax unified
  1081              		.thumb
-ARM GAS  /tmp/ccjTe2AB.s 			page 28
+ARM GAS  /tmp/cc1ThuXR.s 			page 28
 
 
  1082              		.thumb_func
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  483:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       return HAL_TIMEOUT;
  1117              		.loc 1 483 14
  1118 001c 0323     		movs	r3, #3
-ARM GAS  /tmp/ccjTe2AB.s 			page 29
+ARM GAS  /tmp/cc1ThuXR.s 			page 29
 
 
  1119 001e 1BE0     		b	.L65
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1157 004e 03F02003 		and	r3, r3, #32
  1158              		.loc 1 499 3
  1159 0052 202B     		cmp	r3, #32
-ARM GAS  /tmp/ccjTe2AB.s 			page 30
+ARM GAS  /tmp/cc1ThuXR.s 			page 30
 
 
  1160 0054 F0D0     		beq	.L68
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1205              		.cfi_def_cfa_offset 24
  1206 0004 00AF     		add	r7, sp, #0
  1207              	.LCFI47:
-ARM GAS  /tmp/ccjTe2AB.s 			page 31
+ARM GAS  /tmp/cc1ThuXR.s 			page 31
 
 
  1208              		.cfi_def_cfa_register 7
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1242              		.loc 1 530 10
  1243 0030 FB68     		ldr	r3, [r7, #12]
  1244 0032 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/ccjTe2AB.s 			page 32
+ARM GAS  /tmp/cc1ThuXR.s 			page 32
 
 
  1245 0034 FB60     		str	r3, [r7, #12]
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1291              		.syntax unified
  1292              		.thumb
  1293              		.thumb_func
-ARM GAS  /tmp/ccjTe2AB.s 			page 33
+ARM GAS  /tmp/cc1ThuXR.s 			page 33
 
 
  1295              	USB_SetDevSpeed:
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1330 0026 1846     		mov	r0, r3
  1331 0028 1437     		adds	r7, r7, #20
  1332              	.LCFI54:
-ARM GAS  /tmp/ccjTe2AB.s 			page 34
+ARM GAS  /tmp/cc1ThuXR.s 			page 34
 
 
  1333              		.cfi_def_cfa_offset 4
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1375 000c 3B69     		ldr	r3, [r7, #16]
  1376 000e 03F50063 		add	r3, r3, #2048
  1377              		.loc 1 572 38
-ARM GAS  /tmp/ccjTe2AB.s 			page 35
+ARM GAS  /tmp/cc1ThuXR.s 			page 35
 
 
  1378 0012 9B68     		ldr	r3, [r3, #8]
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1415              		.cfi_def_cfa_offset 4
  1416 0042 BD46     		mov	sp, r7
  1417              	.LCFI61:
-ARM GAS  /tmp/ccjTe2AB.s 			page 36
+ARM GAS  /tmp/cc1ThuXR.s 			page 36
 
 
  1418              		.cfi_def_cfa_register 13
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  602:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (ep->is_in == 1U)
  1462              		.loc 1 602 9
  1463 0014 3B68     		ldr	r3, [r7]
-ARM GAS  /tmp/ccjTe2AB.s 			page 37
+ARM GAS  /tmp/cc1ThuXR.s 			page 37
 
 
  1464 0016 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  609:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                                    ((uint32_t)ep->type << 18) | (epnum << 22) |
  1512              		.loc 1 609 49
  1513 006a 3B68     		ldr	r3, [r7]
-ARM GAS  /tmp/ccjTe2AB.s 			page 38
+ARM GAS  /tmp/cc1ThuXR.s 			page 38
 
 
  1514 006c 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1557 00b6 5A01     		lsls	r2, r3, #5
  1558 00b8 FB68     		ldr	r3, [r7, #12]
  1559 00ba 1344     		add	r3, r3, r2
-ARM GAS  /tmp/ccjTe2AB.s 			page 39
+ARM GAS  /tmp/cc1ThuXR.s 			page 39
 
 
  1560 00bc 03F53063 		add	r3, r3, #2816
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1603              	.LCFI66:
  1604              		.cfi_def_cfa_offset 4
  1605 0106 BD46     		mov	sp, r7
-ARM GAS  /tmp/ccjTe2AB.s 			page 40
+ARM GAS  /tmp/cc1ThuXR.s 			page 40
 
 
  1606              	.LCFI67:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  639:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  640:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* Read DEPCTLn register */
  641:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (ep->is_in == 1U)
-ARM GAS  /tmp/ccjTe2AB.s 			page 41
+ARM GAS  /tmp/cc1ThuXR.s 			page 41
 
 
  1651              		.loc 1 641 9
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1698 005c FA68     		ldr	r2, [r7, #12]
  1699 005e 0A44     		add	r2, r2, r1
  1700 0060 02F51062 		add	r2, r2, #2304
-ARM GAS  /tmp/ccjTe2AB.s 			page 42
+ARM GAS  /tmp/cc1ThuXR.s 			page 42
 
 
  1701 0064 43F08053 		orr	r3, r3, #268435456
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1744 00b0 03F53063 		add	r3, r3, #2816
  1745 00b4 1A68     		ldr	r2, [r3]
  1746              		.loc 1 657 40
-ARM GAS  /tmp/ccjTe2AB.s 			page 43
+ARM GAS  /tmp/cc1ThuXR.s 			page 43
 
 
  1747 00b6 3B68     		ldr	r3, [r7]
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  664:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  665:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   return HAL_OK;
  1793              		.loc 1 665 10
-ARM GAS  /tmp/ccjTe2AB.s 			page 44
+ARM GAS  /tmp/cc1ThuXR.s 			page 44
 
 
  1794 0102 0023     		movs	r3, #0
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1839 000a 7B68     		ldr	r3, [r7, #4]
  1840 000c FB60     		str	r3, [r7, #12]
  677:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t epnum = (uint32_t)ep->num;
-ARM GAS  /tmp/ccjTe2AB.s 			page 45
+ARM GAS  /tmp/cc1ThuXR.s 			page 45
 
 
  1841              		.loc 1 677 32
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1887 0064 5101     		lsls	r1, r2, #5
  1888 0066 FA68     		ldr	r2, [r7, #12]
  1889 0068 0A44     		add	r2, r2, r1
-ARM GAS  /tmp/ccjTe2AB.s 			page 46
+ARM GAS  /tmp/cc1ThuXR.s 			page 46
 
 
  1890 006a 02F51062 		add	r2, r2, #2304
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1939 00c0 FB68     		ldr	r3, [r7, #12]
  1940 00c2 1344     		add	r3, r3, r2
  1941 00c4 03F51063 		add	r3, r3, #2304
-ARM GAS  /tmp/ccjTe2AB.s 			page 47
+ARM GAS  /tmp/cc1ThuXR.s 			page 47
 
 
  1942 00c8 1A68     		ldr	r2, [r3]
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  1985 011e 1344     		add	r3, r3, r2
  1986 0120 03F53063 		add	r3, r3, #2816
  1987 0124 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccjTe2AB.s 			page 48
+ARM GAS  /tmp/cc1ThuXR.s 			page 48
 
 
  1988 0126 BA68     		ldr	r2, [r7, #8]
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  706:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_OUTEP(epnum)->DOEPCTL &= ~(USB_OTG_DOEPCTL_USBAEP |
  2038              		.loc 1 706 32
  2039 0180 BB68     		ldr	r3, [r7, #8]
-ARM GAS  /tmp/ccjTe2AB.s 			page 49
+ARM GAS  /tmp/cc1ThuXR.s 			page 49
 
 
  2040 0182 5A01     		lsls	r2, r3, #5
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  715:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
  716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  De-activate and de-initialize a dedicated endpoint
  717:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
-ARM GAS  /tmp/ccjTe2AB.s 			page 50
+ARM GAS  /tmp/cc1ThuXR.s 			page 50
 
 
  718:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  ep pointer to endpoint structure
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2130 002e B3F1004F 		cmp	r3, #-2147483648
  2131 0032 1FD1     		bne	.L107
  730:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  /tmp/ccjTe2AB.s 			page 51
+ARM GAS  /tmp/cc1ThuXR.s 			page 51
 
 
  731:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPCTL  |= USB_OTG_DIEPCTL_SNAK;
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2180 009c 3B68     		ldr	r3, [r7]
  2181 009e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  2182              		.loc 1 736 83
-ARM GAS  /tmp/ccjTe2AB.s 			page 52
+ARM GAS  /tmp/cc1ThuXR.s 			page 52
 
 
  2183 00a0 03F00F03 		and	r3, r3, #15
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2230 00fa 03F53063 		add	r3, r3, #2816
  2231 00fe 1B68     		ldr	r3, [r3]
  2232 0100 BA68     		ldr	r2, [r7, #8]
-ARM GAS  /tmp/ccjTe2AB.s 			page 53
+ARM GAS  /tmp/cc1ThuXR.s 			page 53
 
 
  2233 0102 5101     		lsls	r1, r2, #5
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2279 0158 1846     		mov	r0, r3
  2280 015a 1437     		adds	r7, r7, #20
  2281              	.LCFI84:
-ARM GAS  /tmp/ccjTe2AB.s 			page 54
+ARM GAS  /tmp/cc1ThuXR.s 			page 54
 
 
  2282              		.cfi_def_cfa_offset 4
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2324 000e FB68     		ldr	r3, [r7, #12]
  2325 0010 FB61     		str	r3, [r7, #28]
  766:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t epnum = (uint32_t)ep->num;
-ARM GAS  /tmp/ccjTe2AB.s 			page 55
+ARM GAS  /tmp/cc1ThuXR.s 			page 55
 
 
  2326              		.loc 1 766 32
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2370 0068 43F40023 		orr	r3, r3, #524288
  2371 006c 1361     		str	r3, [r2, #16]
  777:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPTSIZ &= ~(USB_OTG_DIEPTSIZ_XFRSIZ);
-ARM GAS  /tmp/ccjTe2AB.s 			page 56
+ARM GAS  /tmp/cc1ThuXR.s 			page 56
 
 
  2372              		.loc 1 777 34
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2416 00ca 23F0FF53 		bic	r3, r3, #534773760
  2417 00ce 23F4C013 		bic	r3, r3, #1572864
  2418 00d2 1361     		str	r3, [r2, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 57
+ARM GAS  /tmp/cc1ThuXR.s 			page 57
 
 
  788:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPTSIZ |= (USB_OTG_DIEPTSIZ_PKTCNT &
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2467 0122 B969     		ldr	r1, [r7, #24]
  2468 0124 4801     		lsls	r0, r1, #5
  2469 0126 F969     		ldr	r1, [r7, #28]
-ARM GAS  /tmp/ccjTe2AB.s 			page 58
+ARM GAS  /tmp/cc1ThuXR.s 			page 58
 
 
  2470 0128 0144     		add	r1, r1, r0
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2513              		.loc 1 802 23
  2514 0180 BB68     		ldr	r3, [r7, #8]
  2515 0182 5B69     		ldr	r3, [r3, #20]
-ARM GAS  /tmp/ccjTe2AB.s 			page 59
+ARM GAS  /tmp/cc1ThuXR.s 			page 59
 
 
  2516              		.loc 1 802 10
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2561 01d2 1360     		str	r3, [r2]
  2562 01d4 0FE0     		b	.L117
  2563              	.L118:
-ARM GAS  /tmp/ccjTe2AB.s 			page 60
+ARM GAS  /tmp/cc1ThuXR.s 			page 60
 
 
  812:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         }
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2604 022a FA69     		ldr	r2, [r7, #28]
  2605 022c 0A44     		add	r2, r2, r1
  2606 022e 02F51062 		add	r2, r2, #2304
-ARM GAS  /tmp/ccjTe2AB.s 			page 61
+ARM GAS  /tmp/cc1ThuXR.s 			page 61
 
 
  2607 0232 43F00443 		orr	r3, r3, #-2080374784
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2649 027a 10D1     		bne	.L121
  838:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
  839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           USBx_INEP(epnum)->DIEPCTL |= USB_OTG_DIEPCTL_SODDFRM;
-ARM GAS  /tmp/ccjTe2AB.s 			page 62
+ARM GAS  /tmp/cc1ThuXR.s 			page 62
 
 
  2650              		.loc 1 839 37
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2697              	.L112:
  847:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
  848:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
-ARM GAS  /tmp/ccjTe2AB.s 			page 63
+ARM GAS  /tmp/cc1ThuXR.s 			page 63
 
 
  849:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2739 032e 03F53063 		add	r3, r3, #2816
  2740 0332 1A69     		ldr	r2, [r3, #16]
  2741              		.loc 1 861 67
-ARM GAS  /tmp/ccjTe2AB.s 			page 64
+ARM GAS  /tmp/cc1ThuXR.s 			page 64
 
 
  2742 0334 BB68     		ldr	r3, [r7, #8]
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  867:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       ep->xfer_size = ep->maxpacket * pktcnt;
  2791              		.loc 1 867 25
  2792 038a BB68     		ldr	r3, [r7, #8]
-ARM GAS  /tmp/ccjTe2AB.s 			page 65
+ARM GAS  /tmp/cc1ThuXR.s 			page 65
 
 
  2793 038c DB68     		ldr	r3, [r3, #12]
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  872:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  873:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if (dma == 1U)
  2843              		.loc 1 873 8
-ARM GAS  /tmp/ccjTe2AB.s 			page 66
+ARM GAS  /tmp/cc1ThuXR.s 			page 66
 
 
  2844 03e4 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2886 0422 FB69     		ldr	r3, [r7, #28]
  2887 0424 1344     		add	r3, r3, r2
  2888 0426 03F53063 		add	r3, r3, #2816
-ARM GAS  /tmp/ccjTe2AB.s 			page 67
+ARM GAS  /tmp/cc1ThuXR.s 			page 67
 
 
  2889 042a 1B68     		ldr	r3, [r3]
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2931              		.loc 1 897 1
  2932 0482 1846     		mov	r0, r3
  2933 0484 2037     		adds	r7, r7, #32
-ARM GAS  /tmp/ccjTe2AB.s 			page 68
+ARM GAS  /tmp/cc1ThuXR.s 			page 68
 
 
  2934              	.LCFI90:
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  2976              		.loc 1 911 12
  2977 000e FB68     		ldr	r3, [r7, #12]
  2978 0010 7B61     		str	r3, [r7, #20]
-ARM GAS  /tmp/ccjTe2AB.s 			page 69
+ARM GAS  /tmp/cc1ThuXR.s 			page 69
 
 
  912:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t epnum = (uint32_t)ep->num;
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3023 0068 43F40023 		orr	r3, r3, #524288
  3024 006c 1361     		str	r3, [r2, #16]
  922:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPTSIZ &= ~(USB_OTG_DIEPTSIZ_XFRSIZ);
-ARM GAS  /tmp/ccjTe2AB.s 			page 70
+ARM GAS  /tmp/cc1ThuXR.s 			page 70
 
 
  3025              		.loc 1 922 34
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3069 00ca 23F0FF53 		bic	r3, r3, #534773760
  3070 00ce 23F4C013 		bic	r3, r3, #1572864
  3071 00d2 1361     		str	r3, [r2, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 71
+ARM GAS  /tmp/cc1ThuXR.s 			page 71
 
 
  933:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3119 0126 01F51061 		add	r1, r1, #2304
  3120 012a 1343     		orrs	r3, r3, r2
  3121 012c 0B61     		str	r3, [r1, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 72
+ARM GAS  /tmp/cc1ThuXR.s 			page 72
 
 
  3122              	.L136:
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  954:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       /* EP enable, IN data in FIFO */
  955:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPCTL |= (USB_OTG_DIEPCTL_CNAK | USB_OTG_DIEPCTL_EPENA);
  3162              		.loc 1 955 33
-ARM GAS  /tmp/ccjTe2AB.s 			page 73
+ARM GAS  /tmp/cc1ThuXR.s 			page 73
 
 
  3163 0172 3B69     		ldr	r3, [r7, #16]
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3202 01be 3B69     		ldr	r3, [r7, #16]
  3203 01c0 5A01     		lsls	r2, r3, #5
  3204 01c2 7B69     		ldr	r3, [r7, #20]
-ARM GAS  /tmp/ccjTe2AB.s 			page 74
+ARM GAS  /tmp/cc1ThuXR.s 			page 74
 
 
  3205 01c4 1344     		add	r3, r3, r2
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  980:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  981:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_OUTEP(epnum)->DOEPTSIZ |= (USB_OTG_DOEPTSIZ_PKTCNT & (1U << 19));
  3250              		.loc 1 981 33
-ARM GAS  /tmp/ccjTe2AB.s 			page 75
+ARM GAS  /tmp/cc1ThuXR.s 			page 75
 
 
  3251 021a 3B69     		ldr	r3, [r7, #16]
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3298 0272 3B69     		ldr	r3, [r7, #16]
  3299 0274 5A01     		lsls	r2, r3, #5
  3300 0276 7B69     		ldr	r3, [r7, #20]
-ARM GAS  /tmp/ccjTe2AB.s 			page 76
+ARM GAS  /tmp/cc1ThuXR.s 			page 76
 
 
  3301 0278 1344     		add	r3, r3, r2
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3347              		.thumb_func
  3349              	USB_EPStopXfer:
  3350              	.LFB251:
-ARM GAS  /tmp/ccjTe2AB.s 			page 77
+ARM GAS  /tmp/cc1ThuXR.s 			page 77
 
 
  998:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3386 0022 5A01     		lsls	r2, r3, #5
  3387 0024 3B69     		ldr	r3, [r7, #16]
  3388 0026 1344     		add	r3, r3, r2
-ARM GAS  /tmp/ccjTe2AB.s 			page 78
+ARM GAS  /tmp/cc1ThuXR.s 			page 78
 
 
  3389 0028 03F51063 		add	r3, r3, #2304
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3436              		.loc 1 1023 14
  3437 0082 FB68     		ldr	r3, [r7, #12]
  3438 0084 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/ccjTe2AB.s 			page 79
+ARM GAS  /tmp/cc1ThuXR.s 			page 79
 
 
  3439 0086 FB60     		str	r3, [r7, #12]
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3481 00cc 3BD1     		bne	.L149
 1036:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
 1037:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_OUTEP(ep->num)->DOEPCTL |= (USB_OTG_DOEPCTL_SNAK);
-ARM GAS  /tmp/ccjTe2AB.s 			page 80
+ARM GAS  /tmp/cc1ThuXR.s 			page 80
 
 
  3482              		.loc 1 1037 7
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3529 0122 9342     		cmp	r3, r2
  3530 0124 02D9     		bls	.L150
 1045:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
-ARM GAS  /tmp/ccjTe2AB.s 			page 81
+ARM GAS  /tmp/cc1ThuXR.s 			page 81
 
 
 1046:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           ret = HAL_ERROR;
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3578              	USB_WritePacket:
  3579              	.LFB252:
 1055:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  /tmp/ccjTe2AB.s 			page 82
+ARM GAS  /tmp/cc1ThuXR.s 			page 82
 
 
 1056:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3611 0022 002B     		cmp	r3, #0
  3612 0024 23D1     		bne	.L154
 1079:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  /tmp/ccjTe2AB.s 			page 83
+ARM GAS  /tmp/cc1ThuXR.s 			page 83
 
 
 1080:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     count32b = ((uint32_t)len + 3U) / 4U;
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3658              	.L155:
 1081:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  3659              		.loc 1 1081 5 discriminator 1
-ARM GAS  /tmp/ccjTe2AB.s 			page 84
+ARM GAS  /tmp/cc1ThuXR.s 			page 84
 
 
  3660 0066 BA69     		ldr	r2, [r7, #24]
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3701              		.cfi_offset 7, -4
  3702 0002 8BB0     		sub	sp, sp, #44
  3703              	.LCFI111:
-ARM GAS  /tmp/ccjTe2AB.s 			page 85
+ARM GAS  /tmp/cc1ThuXR.s 			page 85
 
 
  3704              		.cfi_def_cfa_offset 48
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3746 0040 0133     		adds	r3, r3, #1
  3747 0042 7B62     		str	r3, [r7, #36]
 1115:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     pDest++;
-ARM GAS  /tmp/ccjTe2AB.s 			page 86
+ARM GAS  /tmp/cc1ThuXR.s 			page 86
 
 
  3748              		.loc 1 1115 10 discriminator 3
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3788              		.loc 1 1127 43 discriminator 1
  3789 0080 22FA03F3 		lsr	r3, r2, r3
  3790              		.loc 1 1127 27 discriminator 1
-ARM GAS  /tmp/ccjTe2AB.s 			page 87
+ARM GAS  /tmp/cc1ThuXR.s 			page 87
 
 
  3791 0084 DAB2     		uxtb	r2, r3
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3839              	.LFB254:
 1136:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1137:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
-ARM GAS  /tmp/ccjTe2AB.s 			page 88
+ARM GAS  /tmp/cc1ThuXR.s 			page 88
 
 
 1138:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  USB_EPSetStall : set a stall condition over an EP
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3881 002c 12DB     		blt	.L166
  3882              		.loc 1 1150 69 discriminator 1
  3883 002e BB68     		ldr	r3, [r7, #8]
-ARM GAS  /tmp/ccjTe2AB.s 			page 89
+ARM GAS  /tmp/cc1ThuXR.s 			page 89
 
 
  3884 0030 002B     		cmp	r3, #0
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3930 008a 002B     		cmp	r3, #0
  3931 008c 0FD0     		beq	.L168
 1159:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  /tmp/ccjTe2AB.s 			page 90
+ARM GAS  /tmp/cc1ThuXR.s 			page 90
 
 
 1160:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_OUTEP(epnum)->DOEPCTL &= ~(USB_OTG_DOEPCTL_EPDIS);
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  3979              	.LFE254:
  3981              		.section	.text.USB_EPClearStall,"ax",%progbits
  3982              		.align	1
-ARM GAS  /tmp/ccjTe2AB.s 			page 91
+ARM GAS  /tmp/cc1ThuXR.s 			page 91
 
 
  3983              		.global	USB_EPClearStall
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4023 001e 5A01     		lsls	r2, r3, #5
  4024 0020 FB68     		ldr	r3, [r7, #12]
  4025 0022 1344     		add	r3, r3, r2
-ARM GAS  /tmp/ccjTe2AB.s 			page 92
+ARM GAS  /tmp/cc1ThuXR.s 			page 92
 
 
  4026 0024 03F51063 		add	r3, r3, #2304
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4072 007e 5101     		lsls	r1, r2, #5
  4073 0080 FA68     		ldr	r2, [r7, #12]
  4074 0082 0A44     		add	r2, r2, r1
-ARM GAS  /tmp/ccjTe2AB.s 			page 93
+ARM GAS  /tmp/cc1ThuXR.s 			page 93
 
 
  4075 0084 02F53062 		add	r2, r2, #2816
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4122              		.cfi_endproc
  4123              	.LFE255:
  4125              		.section	.text.USB_StopDevice,"ax",%progbits
-ARM GAS  /tmp/ccjTe2AB.s 			page 94
+ARM GAS  /tmp/cc1ThuXR.s 			page 94
 
 
  4126              		.align	1
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4165 001e 1A46     		mov	r2, r3
  4166              		.loc 1 1212 27 discriminator 3
  4167 0020 4FF67F33 		movw	r3, #64383
-ARM GAS  /tmp/ccjTe2AB.s 			page 95
+ARM GAS  /tmp/cc1ThuXR.s 			page 95
 
 
  4168 0024 9360     		str	r3, [r2, #8]
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4210 006a 7868     		ldr	r0, [r7, #4]
  4211 006c FFF7FEFF 		bl	USB_FlushRxFifo
  4212 0070 0346     		mov	r3, r0
-ARM GAS  /tmp/ccjTe2AB.s 			page 96
+ARM GAS  /tmp/cc1ThuXR.s 			page 96
 
 
  4213 0072 FB73     		strb	r3, [r7, #15]
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4255              		.syntax unified
  4256              		.thumb
  4257              		.thumb_func
-ARM GAS  /tmp/ccjTe2AB.s 			page 97
+ARM GAS  /tmp/cc1ThuXR.s 			page 97
 
 
  4259              	USB_SetDevAddress:
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4299 0030 03F4FE63 		and	r3, r3, #2032
  4300              		.loc 1 1249 21
  4301 0034 F968     		ldr	r1, [r7, #12]
-ARM GAS  /tmp/ccjTe2AB.s 			page 98
+ARM GAS  /tmp/cc1ThuXR.s 			page 98
 
 
  4302 0036 01F50061 		add	r1, r1, #2048
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4347              		.cfi_def_cfa_register 7
  4348 0006 7860     		str	r0, [r7, #4]
 1261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
-ARM GAS  /tmp/ccjTe2AB.s 			page 99
+ARM GAS  /tmp/cc1ThuXR.s 			page 99
 
 
  4349              		.loc 1 1261 12
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1271:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
 1272:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  USB_DevDisconnect : Disconnect the USB device by disabling Rpu
 1273:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
-ARM GAS  /tmp/ccjTe2AB.s 			page 100
+ARM GAS  /tmp/cc1ThuXR.s 			page 100
 
 
 1274:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4437              		.cfi_def_cfa_offset 4
  4438 003a BD46     		mov	sp, r7
  4439              	.LCFI149:
-ARM GAS  /tmp/ccjTe2AB.s 			page 101
+ARM GAS  /tmp/cc1ThuXR.s 			page 101
 
 
  4440              		.cfi_def_cfa_register 13
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4484 0014 1340     		ands	r3, r3, r2
  4485 0016 FB60     		str	r3, [r7, #12]
 1299:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  /tmp/ccjTe2AB.s 			page 102
+ARM GAS  /tmp/cc1ThuXR.s 			page 102
 
 
 1300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   return tmpreg;
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4531 0008 7B68     		ldr	r3, [r7, #4]
  4532 000a FB60     		str	r3, [r7, #12]
 1311:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t tmpreg;
-ARM GAS  /tmp/ccjTe2AB.s 			page 103
+ARM GAS  /tmp/cc1ThuXR.s 			page 103
 
 
 1312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1324:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** uint32_t USB_ReadDevAllInEpInterrupt(USB_OTG_GlobalTypeDef *USBx)
 1325:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
  4577              		.loc 1 1325 1
-ARM GAS  /tmp/ccjTe2AB.s 			page 104
+ARM GAS  /tmp/cc1ThuXR.s 			page 104
 
 
  4578              		.cfi_startproc
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4624              	.LCFI168:
  4625              		.cfi_restore 7
  4626              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccjTe2AB.s 			page 105
+ARM GAS  /tmp/cc1ThuXR.s 			page 105
 
 
  4627 0032 7047     		bx	lr
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4669 001e BB60     		str	r3, [r7, #8]
 1348:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg &= USBx_DEVICE->DOEPMSK;
  4670              		.loc 1 1348 13
-ARM GAS  /tmp/ccjTe2AB.s 			page 106
+ARM GAS  /tmp/cc1ThuXR.s 			page 106
 
 
  4671 0020 FB68     		ldr	r3, [r7, #12]
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4714              		.cfi_def_cfa_offset 4
  4715              		.cfi_offset 7, -4
  4716 0002 87B0     		sub	sp, sp, #28
-ARM GAS  /tmp/ccjTe2AB.s 			page 107
+ARM GAS  /tmp/cc1ThuXR.s 			page 107
 
 
  4717              	.LCFI176:
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4762 0048 3A69     		ldr	r2, [r7, #16]
  4763 004a 1340     		ands	r3, r3, r2
  4764 004c BB60     		str	r3, [r7, #8]
-ARM GAS  /tmp/ccjTe2AB.s 			page 108
+ARM GAS  /tmp/cc1ThuXR.s 			page 108
 
 
 1371:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4809 0008 3960     		str	r1, [r7]
 1383:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx->GINTSTS |= interrupt;
  4810              		.loc 1 1383 17
-ARM GAS  /tmp/ccjTe2AB.s 			page 109
+ARM GAS  /tmp/cc1ThuXR.s 			page 109
 
 
  4811 000a 7B68     		ldr	r3, [r7, #4]
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4855 0004 00AF     		add	r7, sp, #0
  4856              	.LCFI189:
  4857              		.cfi_def_cfa_register 7
-ARM GAS  /tmp/ccjTe2AB.s 			page 110
+ARM GAS  /tmp/cc1ThuXR.s 			page 110
 
 
  4858 0006 7860     		str	r0, [r7, #4]
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4904              		.cfi_def_cfa_register 7
  4905 0006 7860     		str	r0, [r7, #4]
 1406:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
-ARM GAS  /tmp/ccjTe2AB.s 			page 111
+ARM GAS  /tmp/cc1ThuXR.s 			page 111
 
 
  4906              		.loc 1 1406 12
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1415:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1416:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
 1417:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  Prepare the EP0 to start the first control setup
-ARM GAS  /tmp/ccjTe2AB.s 			page 112
+ARM GAS  /tmp/cc1ThuXR.s 			page 112
 
 
 1418:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  4992              		.loc 1 1433 24
  4993 002a 1B68     		ldr	r3, [r3]
  4994              		.loc 1 1433 34
-ARM GAS  /tmp/ccjTe2AB.s 			page 113
+ARM GAS  /tmp/cc1ThuXR.s 			page 113
 
 
  4995 002c 03F00043 		and	r3, r3, #-2147483648
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1445:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 1446:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_OUTEP(0U)->DOEPDMA = (uint32_t)psetup;
  5038              		.loc 1 1446 5
-ARM GAS  /tmp/ccjTe2AB.s 			page 114
+ARM GAS  /tmp/cc1ThuXR.s 			page 114
 
 
  5039 0088 7B69     		ldr	r3, [r7, #20]
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  Reset the USB Core (needed after USB clock settings change)
 1456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
 1457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
-ARM GAS  /tmp/ccjTe2AB.s 			page 115
+ARM GAS  /tmp/cc1ThuXR.s 			page 115
 
 
 1458:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5126 0024 F2DA     		bge	.L212
 1473:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1474:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* Core Soft Reset */
-ARM GAS  /tmp/ccjTe2AB.s 			page 116
+ARM GAS  /tmp/cc1ThuXR.s 			page 116
 
 
 1475:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   count = 0U;
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5166              		.cfi_def_cfa_offset 4
  5167 005a BD46     		mov	sp, r7
  5168              	.LCFI209:
-ARM GAS  /tmp/ccjTe2AB.s 			page 117
+ARM GAS  /tmp/cc1ThuXR.s 			page 117
 
 
  5169              		.cfi_def_cfa_register 13
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5213              		.loc 1 1501 21
  5214 0012 0023     		movs	r3, #0
  5215 0014 FB75     		strb	r3, [r7, #23]
-ARM GAS  /tmp/ccjTe2AB.s 			page 118
+ARM GAS  /tmp/cc1ThuXR.s 			page 118
 
 
 1502:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5244 0042 0AD1     		bne	.L219
 1528:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
 1529:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       /* Force Device Enumeration to FS/LS mode only */
-ARM GAS  /tmp/ccjTe2AB.s 			page 119
+ARM GAS  /tmp/cc1ThuXR.s 			page 119
 
 
 1530:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_HOST->HCFG |= USB_OTG_HCFG_FSLSS;
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1547:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     ret = HAL_ERROR;
  5282              		.loc 1 1547 9
  5283 0092 0123     		movs	r3, #1
-ARM GAS  /tmp/ccjTe2AB.s 			page 120
+ARM GAS  /tmp/cc1ThuXR.s 			page 120
 
 
  5284 0094 FB75     		strb	r3, [r7, #23]
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5325 00d4 0133     		adds	r3, r3, #1
  5326 00d6 3B61     		str	r3, [r7, #16]
  5327              	.L223:
-ARM GAS  /tmp/ccjTe2AB.s 			page 121
+ARM GAS  /tmp/cc1ThuXR.s 			page 121
 
 
 1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1576:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 1577:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     /* set Rx FIFO size */
 1578:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GRXFSIZ  = 0x80U;
-ARM GAS  /tmp/ccjTe2AB.s 			page 122
+ARM GAS  /tmp/cc1ThuXR.s 			page 122
 
 
  5364              		.loc 1 1578 20
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5401              	.LCFI215:
  5402              		.cfi_def_cfa_offset 24
  5403 014a BD46     		mov	sp, r7
-ARM GAS  /tmp/ccjTe2AB.s 			page 123
+ARM GAS  /tmp/cc1ThuXR.s 			page 123
 
 
  5404              	.LCFI216:
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5447              		.cfi_def_cfa_offset 24
  5448 0004 00AF     		add	r7, sp, #0
  5449              	.LCFI221:
-ARM GAS  /tmp/ccjTe2AB.s 			page 124
+ARM GAS  /tmp/cc1ThuXR.s 			page 124
 
 
  5450              		.cfi_def_cfa_register 7
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1619:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 1620:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_HOST->HFIR = 6000U;
  5494              		.loc 1 1620 5
-ARM GAS  /tmp/ccjTe2AB.s 			page 125
+ARM GAS  /tmp/cc1ThuXR.s 			page 125
 
 
  5495 0058 FB68     		ldr	r3, [r7, #12]
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5533              		@ frame_needed = 1, uses_anonymous_args = 0
  5534 0000 80B5     		push	{r7, lr}
  5535              	.LCFI225:
-ARM GAS  /tmp/ccjTe2AB.s 			page 126
+ARM GAS  /tmp/cc1ThuXR.s 			page 126
 
 
  5536              		.cfi_def_cfa_offset 8
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5578 003a 02F58862 		add	r2, r2, #1088
  5579              		.loc 1 1650 38
  5580 003e 23F48073 		bic	r3, r3, #256
-ARM GAS  /tmp/ccjTe2AB.s 			page 127
+ARM GAS  /tmp/cc1ThuXR.s 			page 127
 
 
  5581              		.loc 1 1650 14
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5622 0004 00AF     		add	r7, sp, #0
  5623              	.LCFI232:
  5624              		.cfi_def_cfa_register 7
-ARM GAS  /tmp/ccjTe2AB.s 			page 128
+ARM GAS  /tmp/cc1ThuXR.s 			page 128
 
 
  5625 0006 7860     		str	r0, [r7, #4]
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5666 0046 03F48053 		and	r3, r3, #4096
  5667              		.loc 1 1678 6
  5668 004a B3F5805F 		cmp	r3, #4096
-ARM GAS  /tmp/ccjTe2AB.s 			page 129
+ARM GAS  /tmp/cc1ThuXR.s 			page 129
 
 
  5669 004e 09D1     		bne	.L239
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1692:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *            @arg HCD_SPEED_LOW: Low speed mode
 1693:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** uint32_t USB_GetHostSpeed(USB_OTG_GlobalTypeDef *USBx)
-ARM GAS  /tmp/ccjTe2AB.s 			page 130
+ARM GAS  /tmp/cc1ThuXR.s 			page 130
 
 
 1695:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5759              	.LFE274:
  5761              		.section	.text.USB_GetCurrentFrame,"ax",%progbits
  5762              		.align	1
-ARM GAS  /tmp/ccjTe2AB.s 			page 131
+ARM GAS  /tmp/cc1ThuXR.s 			page 131
 
 
  5763              		.global	USB_GetCurrentFrame
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5806              	.LCFI247:
  5807              		.cfi_restore 7
  5808              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccjTe2AB.s 			page 132
+ARM GAS  /tmp/cc1ThuXR.s 			page 132
 
 
  5809 0020 7047     		bx	lr
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5836              		.cfi_def_cfa_register 7
  5837 0006 7860     		str	r0, [r7, #4]
  5838 0008 0846     		mov	r0, r1
-ARM GAS  /tmp/ccjTe2AB.s 			page 133
+ARM GAS  /tmp/cc1ThuXR.s 			page 133
 
 
  5839 000a 1146     		mov	r1, r2
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5878 0054 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
  5879 0056 5A01     		lsls	r2, r3, #5
  5880 0058 3B69     		ldr	r3, [r7, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 134
+ARM GAS  /tmp/cc1ThuXR.s 			page 134
 
 
  5881 005a 1344     		add	r3, r3, r2
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
  5914              		.loc 1 1770 12
  5915 009a 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccjTe2AB.s 			page 135
+ARM GAS  /tmp/cc1ThuXR.s 			page 135
 
 
  5916 009c 51D0     		beq	.L263
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  5956 00ea FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
  5957 00ec 5101     		lsls	r1, r2, #5
  5958 00ee 3A69     		ldr	r2, [r7, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 136
+ARM GAS  /tmp/cc1ThuXR.s 			page 136
 
 
  5959 00f0 0A44     		add	r2, r2, r1
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1805:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1806:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     default:
 1807:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       ret = HAL_ERROR;
-ARM GAS  /tmp/ccjTe2AB.s 			page 137
+ARM GAS  /tmp/cc1ThuXR.s 			page 137
 
 
  5998              		.loc 1 1807 11
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6041 0182 01F58061 		add	r1, r1, #1024
  6042 0186 1343     		orrs	r3, r3, r2
  6043 0188 8B61     		str	r3, [r1, #24]
-ARM GAS  /tmp/ccjTe2AB.s 			page 138
+ARM GAS  /tmp/cc1ThuXR.s 			page 138
 
 
 1816:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6078 01c4 7B61     		str	r3, [r7, #20]
  6079 01c6 01E0     		b	.L259
  6080              	.L258:
-ARM GAS  /tmp/ccjTe2AB.s 			page 139
+ARM GAS  /tmp/cc1ThuXR.s 			page 139
 
 
 1836:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6121              		.loc 1 1845 92
  6122 0204 7B69     		ldr	r3, [r7, #20]
  6123 0206 1343     		orrs	r3, r3, r2
-ARM GAS  /tmp/ccjTe2AB.s 			page 140
+ARM GAS  /tmp/cc1ThuXR.s 			page 140
 
 
 1842:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                                       ((((uint32_t)epnum & 0x7FU) << 11) & USB_OTG_HCCHAR_EPNUM) |
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6170              		.thumb_func
  6172              	USB_HC_StartXfer:
  6173              	.LFB277:
-ARM GAS  /tmp/ccjTe2AB.s 			page 141
+ARM GAS  /tmp/cc1ThuXR.s 			page 141
 
 
 1854:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6206 0020 DB6B     		ldr	r3, [r3, #60]
  6207              		.loc 1 1875 19
  6208 0022 03F48073 		and	r3, r3, #256
-ARM GAS  /tmp/ccjTe2AB.s 			page 142
+ARM GAS  /tmp/cc1ThuXR.s 			page 142
 
 
  6209              		.loc 1 1875 6
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6253 006c 0BD1     		bne	.L267
  6254              		.loc 1 1885 27 discriminator 1
  6255 006e BB68     		ldr	r3, [r7, #8]
-ARM GAS  /tmp/ccjTe2AB.s 			page 143
+ARM GAS  /tmp/cc1ThuXR.s 			page 143
 
 
  6256 0070 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6297 00aa 0BD9     		bls	.L272
 1899:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
 1900:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       num_packets = max_hc_pkt_count;
-ARM GAS  /tmp/ccjTe2AB.s 			page 144
+ARM GAS  /tmp/cc1ThuXR.s 			page 144
 
 
  6298              		.loc 1 1900 19
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1918:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 1919:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     hc->XferSize = hc->xfer_len;
  6335              		.loc 1 1919 22
-ARM GAS  /tmp/ccjTe2AB.s 			page 145
+ARM GAS  /tmp/cc1ThuXR.s 			page 145
 
 
  6336 00dc BB68     		ldr	r3, [r7, #8]
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1929:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     /* xfer_buff MUST be 32-bits aligned */
 1930:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_HC(ch_num)->HCDMA = (uint32_t)hc->xfer_buff;
  6377              		.loc 1 1930 42
-ARM GAS  /tmp/ccjTe2AB.s 			page 146
+ARM GAS  /tmp/cc1ThuXR.s 			page 146
 
 
  6378 0116 BB68     		ldr	r3, [r7, #8]
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6427              		.loc 1 1935 30
  6428 0170 7B7E     		ldrb	r3, [r7, #25]	@ zero_extendqisi2
  6429              		.loc 1 1935 52
-ARM GAS  /tmp/ccjTe2AB.s 			page 147
+ARM GAS  /tmp/cc1ThuXR.s 			page 147
 
 
  6430 0172 5B07     		lsls	r3, r3, #29
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 1950:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg |= USB_OTG_HCCHAR_CHENA;
  6470              		.loc 1 1950 10
  6471 01b6 3B69     		ldr	r3, [r7, #16]
-ARM GAS  /tmp/ccjTe2AB.s 			page 148
+ARM GAS  /tmp/cc1ThuXR.s 			page 148
 
 
  6472 01b8 43F00043 		orr	r3, r3, #-2147483648
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6516 0200 09020000 		.word	.L283+1
  6517 0204 2D020000 		.word	.L281+1
  6518              		.p2align 1
-ARM GAS  /tmp/ccjTe2AB.s 			page 149
+ARM GAS  /tmp/cc1ThuXR.s 			page 149
 
 
  6519              	.L283:
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6554 0232 9B08     		lsrs	r3, r3, #2
  6555              		.loc 1 1979 19
  6556 0234 FB82     		strh	r3, [r7, #22]	@ movhi
-ARM GAS  /tmp/ccjTe2AB.s 			page 150
+ARM GAS  /tmp/cc1ThuXR.s 			page 150
 
 
 1980:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         /* check if there is enough space in FIFO space */
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6595 0266 BB68     		ldr	r3, [r7, #8]
  6596 0268 5B69     		ldr	r3, [r3, #20]
  6597              		.loc 1 1993 11
-ARM GAS  /tmp/ccjTe2AB.s 			page 151
+ARM GAS  /tmp/cc1ThuXR.s 			page 151
 
 
  6598 026a 9BB2     		uxth	r3, r3
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6642 0002 85B0     		sub	sp, sp, #20
  6643              	.LCFI259:
  6644              		.cfi_def_cfa_offset 24
-ARM GAS  /tmp/ccjTe2AB.s 			page 152
+ARM GAS  /tmp/cc1ThuXR.s 			page 152
 
 
  6645 0004 00AF     		add	r7, sp, #0
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6687              		@ args = 0, pretend = 0, frame = 32
  6688              		@ frame_needed = 1, uses_anonymous_args = 0
  6689              		@ link register save eliminated.
-ARM GAS  /tmp/ccjTe2AB.s 			page 153
+ARM GAS  /tmp/cc1ThuXR.s 			page 153
 
 
  6690 0000 80B4     		push	{r7}
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 2026:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (((USBx->GAHBCFG & USB_OTG_GAHBCFG_DMAEN) == USB_OTG_GAHBCFG_DMAEN) &&
  6738              		.loc 1 2026 13
  6739 0044 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/ccjTe2AB.s 			page 154
+ARM GAS  /tmp/cc1ThuXR.s 			page 154
 
 
  6740 0046 9B68     		ldr	r3, [r3, #8]
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6783 008e 002B     		cmp	r3, #0
  6784 0090 40F0AB80 		bne	.L304
 2038:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  /tmp/ccjTe2AB.s 			page 155
+ARM GAS  /tmp/cc1ThuXR.s 			page 155
 
 
 2039:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       if ((USBx->HNPTXSTS & (0xFFU << 16)) == 0U)
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6830 00ec 1DD8     		bhi	.L310
 2048:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           {
 2049:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****             break;
-ARM GAS  /tmp/ccjTe2AB.s 			page 156
+ARM GAS  /tmp/cc1ThuXR.s 			page 156
 
 
 2050:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           }
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6869              		.loc 1 2061 28
  6870 012e BB69     		ldr	r3, [r7, #24]
  6871 0130 5A01     		lsls	r2, r3, #5
-ARM GAS  /tmp/ccjTe2AB.s 			page 157
+ARM GAS  /tmp/cc1ThuXR.s 			page 157
 
 
  6872 0132 FB69     		ldr	r3, [r7, #28]
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6921              	.L308:
 2067:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       do
 2068:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
-ARM GAS  /tmp/ccjTe2AB.s 			page 158
+ARM GAS  /tmp/cc1ThuXR.s 			page 158
 
 
 2069:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         count++;
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  6964              	.L304:
 2080:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
 2081:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
-ARM GAS  /tmp/ccjTe2AB.s 			page 159
+ARM GAS  /tmp/cc1ThuXR.s 			page 159
 
 
 2082:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7008              		.cfi_def_cfa_register 7
  7009 0006 7860     		str	r0, [r7, #4]
  7010 0008 0B46     		mov	r3, r1
-ARM GAS  /tmp/ccjTe2AB.s 			page 160
+ARM GAS  /tmp/cc1ThuXR.s 			page 160
 
 
  7011 000a FB70     		strb	r3, [r7, #3]
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7053 0050 BB60     		str	r3, [r7, #8]
 2107:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx_HC(chnum)->HCCHAR = tmpreg;
  7054              		.loc 1 2107 3
-ARM GAS  /tmp/ccjTe2AB.s 			page 161
+ARM GAS  /tmp/cc1ThuXR.s 			page 161
 
 
  7055 0052 3B69     		ldr	r3, [r7, #16]
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7100 0000 80B5     		push	{r7, lr}
  7101              	.LCFI276:
  7102              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccjTe2AB.s 			page 162
+ARM GAS  /tmp/cc1ThuXR.s 			page 162
 
 
  7103              		.cfi_offset 7, -8
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7142 0036 01D0     		beq	.L318
 2134:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 2135:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     ret = HAL_ERROR;
-ARM GAS  /tmp/ccjTe2AB.s 			page 163
+ARM GAS  /tmp/cc1ThuXR.s 			page 163
 
 
  7143              		.loc 1 2135 9
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7186 007e 0133     		adds	r3, r3, #1
  7187 0080 BB61     		str	r3, [r7, #24]
  7188              	.L319:
-ARM GAS  /tmp/ccjTe2AB.s 			page 164
+ARM GAS  /tmp/cc1ThuXR.s 			page 164
 
 
 2139:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
 2157:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     do
 2158:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
 2159:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       count++;
-ARM GAS  /tmp/ccjTe2AB.s 			page 165
+ARM GAS  /tmp/cc1ThuXR.s 			page 165
 
 
  7231              		.loc 1 2159 12
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7272 0106 4FF0FF33 		mov	r3, #-1
  7273 010a 5361     		str	r3, [r2, #20]
 2170:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx->GINTSTS = 0xFFFFFFFFU;
-ARM GAS  /tmp/ccjTe2AB.s 			page 166
+ARM GAS  /tmp/cc1ThuXR.s 			page 166
 
 
  7274              		.loc 1 2170 17
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7317 0004 00AF     		add	r7, sp, #0
  7318              	.LCFI283:
  7319              		.cfi_def_cfa_register 7
-ARM GAS  /tmp/ccjTe2AB.s 			page 167
+ARM GAS  /tmp/cc1ThuXR.s 			page 167
 
 
  7320 0006 7860     		str	r0, [r7, #4]
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7365              		.syntax unified
  7366              		.thumb
  7367              		.thumb_func
-ARM GAS  /tmp/ccjTe2AB.s 			page 168
+ARM GAS  /tmp/cc1ThuXR.s 			page 168
 
 
  7369              	USB_DeActivateRemoteWakeup:
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7408              		@ sp needed
  7409 0028 5DF8047B 		ldr	r7, [sp], #4
  7410              	.LCFI292:
-ARM GAS  /tmp/ccjTe2AB.s 			page 169
+ARM GAS  /tmp/cc1ThuXR.s 			page 169
 
 
  7411              		.cfi_restore 7
@@ -10094,132 +10094,132 @@ ARM GAS  /tmp/ccjTe2AB.s 			page 1
  7422              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
  7423              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  7424              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
-ARM GAS  /tmp/ccjTe2AB.s 			page 170
+ARM GAS  /tmp/cc1ThuXR.s 			page 170
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_ll_usb.c
-     /tmp/ccjTe2AB.s:20     .text.USB_CoreInit:0000000000000000 $t
-     /tmp/ccjTe2AB.s:26     .text.USB_CoreInit:0000000000000000 USB_CoreInit
-     /tmp/ccjTe2AB.s:5085   .text.USB_CoreReset:0000000000000000 USB_CoreReset
-     /tmp/ccjTe2AB.s:166    .text.USB_SetTurnaroundTime:0000000000000000 $t
-     /tmp/ccjTe2AB.s:172    .text.USB_SetTurnaroundTime:0000000000000000 USB_SetTurnaroundTime
-     /tmp/ccjTe2AB.s:387    .text.USB_SetTurnaroundTime:000000000000011c $d
-     /tmp/ccjTe2AB.s:401    .text.USB_EnableGlobalInt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:407    .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
-     /tmp/ccjTe2AB.s:451    .text.USB_DisableGlobalInt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:457    .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
-     /tmp/ccjTe2AB.s:501    .text.USB_SetCurrentMode:0000000000000000 $t
-     /tmp/ccjTe2AB.s:507    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
-     /tmp/ccjTe2AB.s:4841   .text.USB_GetMode:0000000000000000 USB_GetMode
-     /tmp/ccjTe2AB.s:627    .text.USB_DevInit:0000000000000000 $t
-     /tmp/ccjTe2AB.s:633    .text.USB_DevInit:0000000000000000 USB_DevInit
-     /tmp/ccjTe2AB.s:1295   .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
-     /tmp/ccjTe2AB.s:1084   .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
-     /tmp/ccjTe2AB.s:1192   .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
-     /tmp/ccjTe2AB.s:1073   .text.USB_DevInit:00000000000002b8 $d
-     /tmp/ccjTe2AB.s:1078   .text.USB_FlushTxFifo:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1181   .text.USB_FlushTxFifo:0000000000000064 $d
-     /tmp/ccjTe2AB.s:1186   .text.USB_FlushRxFifo:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1284   .text.USB_FlushRxFifo:000000000000005c $d
-     /tmp/ccjTe2AB.s:1289   .text.USB_SetDevSpeed:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1347   .text.USB_GetDevSpeed:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1353   .text.USB_GetDevSpeed:0000000000000000 USB_GetDevSpeed
-     /tmp/ccjTe2AB.s:1429   .text.USB_ActivateEndpoint:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1435   .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
-     /tmp/ccjTe2AB.s:1618   .text.USB_ActivateDedicatedEndpoint:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1624   .text.USB_ActivateDedicatedEndpoint:0000000000000000 USB_ActivateDedicatedEndpoint
-     /tmp/ccjTe2AB.s:1813   .text.USB_DeactivateEndpoint:0000000000000000 $t
-     /tmp/ccjTe2AB.s:1819   .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
-     /tmp/ccjTe2AB.s:2074   .text.USB_DeactivateEndpoint:00000000000001b0 $d
-     /tmp/ccjTe2AB.s:2080   .text.USB_DeactivateDedicatedEndpoint:0000000000000000 $t
-     /tmp/ccjTe2AB.s:2086   .text.USB_DeactivateDedicatedEndpoint:0000000000000000 USB_DeactivateDedicatedEndpoint
-     /tmp/ccjTe2AB.s:2296   .text.USB_EPStartXfer:0000000000000000 $t
-     /tmp/ccjTe2AB.s:2302   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
-     /tmp/ccjTe2AB.s:3578   .text.USB_WritePacket:0000000000000000 USB_WritePacket
-     /tmp/ccjTe2AB.s:2772   .text.USB_EPStartXfer:0000000000000370 $d
-     /tmp/ccjTe2AB.s:2775   .text.USB_EPStartXfer:0000000000000374 $t
-     /tmp/ccjTe2AB.s:2944   .text.USB_EPStartXfer:000000000000048c $d
-     /tmp/ccjTe2AB.s:2949   .text.USB_EP0StartXfer:0000000000000000 $t
-     /tmp/ccjTe2AB.s:2955   .text.USB_EP0StartXfer:0000000000000000 USB_EP0StartXfer
-     /tmp/ccjTe2AB.s:3343   .text.USB_EPStopXfer:0000000000000000 $t
-     /tmp/ccjTe2AB.s:3349   .text.USB_EPStopXfer:0000000000000000 USB_EPStopXfer
-     /tmp/ccjTe2AB.s:3572   .text.USB_WritePacket:0000000000000000 $t
-     /tmp/ccjTe2AB.s:3685   .text.USB_ReadPacket:0000000000000000 $t
-     /tmp/ccjTe2AB.s:3691   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
-     /tmp/ccjTe2AB.s:3832   .text.USB_EPSetStall:0000000000000000 $t
-     /tmp/ccjTe2AB.s:3838   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
-     /tmp/ccjTe2AB.s:3982   .text.USB_EPClearStall:0000000000000000 $t
-     /tmp/ccjTe2AB.s:3988   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
-     /tmp/ccjTe2AB.s:4126   .text.USB_StopDevice:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4132   .text.USB_StopDevice:0000000000000000 USB_StopDevice
-     /tmp/ccjTe2AB.s:4253   .text.USB_SetDevAddress:0000000000000000 $t
-ARM GAS  /tmp/ccjTe2AB.s 			page 171
+     /tmp/cc1ThuXR.s:20     .text.USB_CoreInit:0000000000000000 $t
+     /tmp/cc1ThuXR.s:26     .text.USB_CoreInit:0000000000000000 USB_CoreInit
+     /tmp/cc1ThuXR.s:5085   .text.USB_CoreReset:0000000000000000 USB_CoreReset
+     /tmp/cc1ThuXR.s:166    .text.USB_SetTurnaroundTime:0000000000000000 $t
+     /tmp/cc1ThuXR.s:172    .text.USB_SetTurnaroundTime:0000000000000000 USB_SetTurnaroundTime
+     /tmp/cc1ThuXR.s:387    .text.USB_SetTurnaroundTime:000000000000011c $d
+     /tmp/cc1ThuXR.s:401    .text.USB_EnableGlobalInt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:407    .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
+     /tmp/cc1ThuXR.s:451    .text.USB_DisableGlobalInt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:457    .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
+     /tmp/cc1ThuXR.s:501    .text.USB_SetCurrentMode:0000000000000000 $t
+     /tmp/cc1ThuXR.s:507    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
+     /tmp/cc1ThuXR.s:4841   .text.USB_GetMode:0000000000000000 USB_GetMode
+     /tmp/cc1ThuXR.s:627    .text.USB_DevInit:0000000000000000 $t
+     /tmp/cc1ThuXR.s:633    .text.USB_DevInit:0000000000000000 USB_DevInit
+     /tmp/cc1ThuXR.s:1295   .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
+     /tmp/cc1ThuXR.s:1084   .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
+     /tmp/cc1ThuXR.s:1192   .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
+     /tmp/cc1ThuXR.s:1073   .text.USB_DevInit:00000000000002b8 $d
+     /tmp/cc1ThuXR.s:1078   .text.USB_FlushTxFifo:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1181   .text.USB_FlushTxFifo:0000000000000064 $d
+     /tmp/cc1ThuXR.s:1186   .text.USB_FlushRxFifo:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1284   .text.USB_FlushRxFifo:000000000000005c $d
+     /tmp/cc1ThuXR.s:1289   .text.USB_SetDevSpeed:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1347   .text.USB_GetDevSpeed:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1353   .text.USB_GetDevSpeed:0000000000000000 USB_GetDevSpeed
+     /tmp/cc1ThuXR.s:1429   .text.USB_ActivateEndpoint:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1435   .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
+     /tmp/cc1ThuXR.s:1618   .text.USB_ActivateDedicatedEndpoint:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1624   .text.USB_ActivateDedicatedEndpoint:0000000000000000 USB_ActivateDedicatedEndpoint
+     /tmp/cc1ThuXR.s:1813   .text.USB_DeactivateEndpoint:0000000000000000 $t
+     /tmp/cc1ThuXR.s:1819   .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
+     /tmp/cc1ThuXR.s:2074   .text.USB_DeactivateEndpoint:00000000000001b0 $d
+     /tmp/cc1ThuXR.s:2080   .text.USB_DeactivateDedicatedEndpoint:0000000000000000 $t
+     /tmp/cc1ThuXR.s:2086   .text.USB_DeactivateDedicatedEndpoint:0000000000000000 USB_DeactivateDedicatedEndpoint
+     /tmp/cc1ThuXR.s:2296   .text.USB_EPStartXfer:0000000000000000 $t
+     /tmp/cc1ThuXR.s:2302   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
+     /tmp/cc1ThuXR.s:3578   .text.USB_WritePacket:0000000000000000 USB_WritePacket
+     /tmp/cc1ThuXR.s:2772   .text.USB_EPStartXfer:0000000000000370 $d
+     /tmp/cc1ThuXR.s:2775   .text.USB_EPStartXfer:0000000000000374 $t
+     /tmp/cc1ThuXR.s:2944   .text.USB_EPStartXfer:000000000000048c $d
+     /tmp/cc1ThuXR.s:2949   .text.USB_EP0StartXfer:0000000000000000 $t
+     /tmp/cc1ThuXR.s:2955   .text.USB_EP0StartXfer:0000000000000000 USB_EP0StartXfer
+     /tmp/cc1ThuXR.s:3343   .text.USB_EPStopXfer:0000000000000000 $t
+     /tmp/cc1ThuXR.s:3349   .text.USB_EPStopXfer:0000000000000000 USB_EPStopXfer
+     /tmp/cc1ThuXR.s:3572   .text.USB_WritePacket:0000000000000000 $t
+     /tmp/cc1ThuXR.s:3685   .text.USB_ReadPacket:0000000000000000 $t
+     /tmp/cc1ThuXR.s:3691   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
+     /tmp/cc1ThuXR.s:3832   .text.USB_EPSetStall:0000000000000000 $t
+     /tmp/cc1ThuXR.s:3838   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
+     /tmp/cc1ThuXR.s:3982   .text.USB_EPClearStall:0000000000000000 $t
+     /tmp/cc1ThuXR.s:3988   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
+     /tmp/cc1ThuXR.s:4126   .text.USB_StopDevice:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4132   .text.USB_StopDevice:0000000000000000 USB_StopDevice
+     /tmp/cc1ThuXR.s:4253   .text.USB_SetDevAddress:0000000000000000 $t
+ARM GAS  /tmp/cc1ThuXR.s 			page 171
 
 
-     /tmp/ccjTe2AB.s:4259   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
-     /tmp/ccjTe2AB.s:4325   .text.USB_DevConnect:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4331   .text.USB_DevConnect:0000000000000000 USB_DevConnect
-     /tmp/ccjTe2AB.s:4388   .text.USB_DevDisconnect:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4394   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
-     /tmp/ccjTe2AB.s:4451   .text.USB_ReadInterrupts:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4457   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
-     /tmp/ccjTe2AB.s:4506   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4512   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
-     /tmp/ccjTe2AB.s:4569   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4575   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
-     /tmp/ccjTe2AB.s:4632   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4638   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
-     /tmp/ccjTe2AB.s:4699   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4705   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
-     /tmp/ccjTe2AB.s:4785   .text.USB_ClearInterrupts:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4791   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
-     /tmp/ccjTe2AB.s:4835   .text.USB_GetMode:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4882   .text.USB_ActivateSetup:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4888   .text.USB_ActivateSetup:0000000000000000 USB_ActivateSetup
-     /tmp/ccjTe2AB.s:4946   .text.USB_EP0_OutStart:0000000000000000 $t
-     /tmp/ccjTe2AB.s:4952   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
-     /tmp/ccjTe2AB.s:5075   .text.USB_EP0_OutStart:00000000000000b8 $d
-     /tmp/ccjTe2AB.s:5080   .text.USB_CoreReset:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5179   .text.USB_CoreReset:0000000000000064 $d
-     /tmp/ccjTe2AB.s:5184   .text.USB_HostInit:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5190   .text.USB_HostInit:0000000000000000 USB_HostInit
-     /tmp/ccjTe2AB.s:5419   .text.USB_HostInit:0000000000000154 $d
-     /tmp/ccjTe2AB.s:5428   .text.USB_InitFSLSPClkSel:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5434   .text.USB_InitFSLSPClkSel:0000000000000000 USB_InitFSLSPClkSel
-     /tmp/ccjTe2AB.s:5522   .text.USB_ResetPort:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5528   .text.USB_ResetPort:0000000000000000 USB_ResetPort
-     /tmp/ccjTe2AB.s:5602   .text.USB_DriveVbus:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5608   .text.USB_DriveVbus:0000000000000000 USB_DriveVbus
-     /tmp/ccjTe2AB.s:5704   .text.USB_GetHostSpeed:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5710   .text.USB_GetHostSpeed:0000000000000000 USB_GetHostSpeed
-     /tmp/ccjTe2AB.s:5762   .text.USB_GetCurrentFrame:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5768   .text.USB_GetCurrentFrame:0000000000000000 USB_GetCurrentFrame
-     /tmp/ccjTe2AB.s:5814   .text.USB_HC_Init:0000000000000000 $t
-     /tmp/ccjTe2AB.s:5820   .text.USB_HC_Init:0000000000000000 USB_HC_Init
-     /tmp/ccjTe2AB.s:5871   .text.USB_HC_Init:0000000000000044 $d
-     /tmp/ccjTe2AB.s:5875   .text.USB_HC_Init:0000000000000054 $t
-     /tmp/ccjTe2AB.s:6166   .text.USB_HC_StartXfer:0000000000000000 $t
-     /tmp/ccjTe2AB.s:6172   .text.USB_HC_StartXfer:0000000000000000 USB_HC_StartXfer
-     /tmp/ccjTe2AB.s:6992   .text.USB_DoPing:0000000000000000 USB_DoPing
-     /tmp/ccjTe2AB.s:6514   .text.USB_HC_StartXfer:00000000000001f8 $d
-     /tmp/ccjTe2AB.s:6518   .text.USB_HC_StartXfer:0000000000000208 $t
-     /tmp/ccjTe2AB.s:6620   .text.USB_HC_StartXfer:0000000000000280 $d
-     /tmp/ccjTe2AB.s:6625   .text.USB_HC_ReadInterrupt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:6631   .text.USB_HC_ReadInterrupt:0000000000000000 USB_HC_ReadInterrupt
-     /tmp/ccjTe2AB.s:6677   .text.USB_HC_Halt:0000000000000000 $t
-     /tmp/ccjTe2AB.s:6683   .text.USB_HC_Halt:0000000000000000 USB_HC_Halt
-     /tmp/ccjTe2AB.s:6986   .text.USB_DoPing:0000000000000000 $t
-     /tmp/ccjTe2AB.s:7083   .text.USB_DoPing:0000000000000074 $d
-     /tmp/ccjTe2AB.s:7088   .text.USB_StopHost:0000000000000000 $t
-     /tmp/ccjTe2AB.s:7094   .text.USB_StopHost:0000000000000000 USB_StopHost
-     /tmp/ccjTe2AB.s:7297   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
-ARM GAS  /tmp/ccjTe2AB.s 			page 172
+     /tmp/cc1ThuXR.s:4259   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
+     /tmp/cc1ThuXR.s:4325   .text.USB_DevConnect:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4331   .text.USB_DevConnect:0000000000000000 USB_DevConnect
+     /tmp/cc1ThuXR.s:4388   .text.USB_DevDisconnect:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4394   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
+     /tmp/cc1ThuXR.s:4451   .text.USB_ReadInterrupts:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4457   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
+     /tmp/cc1ThuXR.s:4506   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4512   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
+     /tmp/cc1ThuXR.s:4569   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4575   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
+     /tmp/cc1ThuXR.s:4632   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4638   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
+     /tmp/cc1ThuXR.s:4699   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4705   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
+     /tmp/cc1ThuXR.s:4785   .text.USB_ClearInterrupts:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4791   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
+     /tmp/cc1ThuXR.s:4835   .text.USB_GetMode:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4882   .text.USB_ActivateSetup:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4888   .text.USB_ActivateSetup:0000000000000000 USB_ActivateSetup
+     /tmp/cc1ThuXR.s:4946   .text.USB_EP0_OutStart:0000000000000000 $t
+     /tmp/cc1ThuXR.s:4952   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
+     /tmp/cc1ThuXR.s:5075   .text.USB_EP0_OutStart:00000000000000b8 $d
+     /tmp/cc1ThuXR.s:5080   .text.USB_CoreReset:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5179   .text.USB_CoreReset:0000000000000064 $d
+     /tmp/cc1ThuXR.s:5184   .text.USB_HostInit:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5190   .text.USB_HostInit:0000000000000000 USB_HostInit
+     /tmp/cc1ThuXR.s:5419   .text.USB_HostInit:0000000000000154 $d
+     /tmp/cc1ThuXR.s:5428   .text.USB_InitFSLSPClkSel:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5434   .text.USB_InitFSLSPClkSel:0000000000000000 USB_InitFSLSPClkSel
+     /tmp/cc1ThuXR.s:5522   .text.USB_ResetPort:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5528   .text.USB_ResetPort:0000000000000000 USB_ResetPort
+     /tmp/cc1ThuXR.s:5602   .text.USB_DriveVbus:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5608   .text.USB_DriveVbus:0000000000000000 USB_DriveVbus
+     /tmp/cc1ThuXR.s:5704   .text.USB_GetHostSpeed:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5710   .text.USB_GetHostSpeed:0000000000000000 USB_GetHostSpeed
+     /tmp/cc1ThuXR.s:5762   .text.USB_GetCurrentFrame:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5768   .text.USB_GetCurrentFrame:0000000000000000 USB_GetCurrentFrame
+     /tmp/cc1ThuXR.s:5814   .text.USB_HC_Init:0000000000000000 $t
+     /tmp/cc1ThuXR.s:5820   .text.USB_HC_Init:0000000000000000 USB_HC_Init
+     /tmp/cc1ThuXR.s:5871   .text.USB_HC_Init:0000000000000044 $d
+     /tmp/cc1ThuXR.s:5875   .text.USB_HC_Init:0000000000000054 $t
+     /tmp/cc1ThuXR.s:6166   .text.USB_HC_StartXfer:0000000000000000 $t
+     /tmp/cc1ThuXR.s:6172   .text.USB_HC_StartXfer:0000000000000000 USB_HC_StartXfer
+     /tmp/cc1ThuXR.s:6992   .text.USB_DoPing:0000000000000000 USB_DoPing
+     /tmp/cc1ThuXR.s:6514   .text.USB_HC_StartXfer:00000000000001f8 $d
+     /tmp/cc1ThuXR.s:6518   .text.USB_HC_StartXfer:0000000000000208 $t
+     /tmp/cc1ThuXR.s:6620   .text.USB_HC_StartXfer:0000000000000280 $d
+     /tmp/cc1ThuXR.s:6625   .text.USB_HC_ReadInterrupt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:6631   .text.USB_HC_ReadInterrupt:0000000000000000 USB_HC_ReadInterrupt
+     /tmp/cc1ThuXR.s:6677   .text.USB_HC_Halt:0000000000000000 $t
+     /tmp/cc1ThuXR.s:6683   .text.USB_HC_Halt:0000000000000000 USB_HC_Halt
+     /tmp/cc1ThuXR.s:6986   .text.USB_DoPing:0000000000000000 $t
+     /tmp/cc1ThuXR.s:7083   .text.USB_DoPing:0000000000000074 $d
+     /tmp/cc1ThuXR.s:7088   .text.USB_StopHost:0000000000000000 $t
+     /tmp/cc1ThuXR.s:7094   .text.USB_StopHost:0000000000000000 USB_StopHost
+     /tmp/cc1ThuXR.s:7297   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
+ARM GAS  /tmp/cc1ThuXR.s 			page 172
 
 
-     /tmp/ccjTe2AB.s:7303   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
-     /tmp/ccjTe2AB.s:7363   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccjTe2AB.s:7369   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
+     /tmp/cc1ThuXR.s:7303   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
+     /tmp/cc1ThuXR.s:7363   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc1ThuXR.s:7369   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
 
 UNDEFINED SYMBOLS
 HAL_Delay

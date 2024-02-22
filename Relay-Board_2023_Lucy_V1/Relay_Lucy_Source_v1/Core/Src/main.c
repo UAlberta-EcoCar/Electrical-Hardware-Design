@@ -24,12 +24,14 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usbd_cdc_if.h"
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PTD */
-typedef enum {
+typedef enum
+{
   ALL_RELAY_OFF = 0x00,
   CAP_RELAY = 0x01,
   RES_RELAY = 0x02,
@@ -37,14 +39,16 @@ typedef enum {
   MTR_RELAY = 0x08,
 } relayBit_t;
 
-typedef enum {
+typedef enum
+{
   RELAY_STBY = ALL_RELAY_OFF,
   RELAY_STRTP = RES_RELAY | DSCHRGE_RELAY,
   RELAY_CHRGE = RES_RELAY,
   RELAY_RUN = CAP_RELAY | DSCHRGE_RELAY | MTR_RELAY,
 } rbState_t;
 
-typedef struct {
+typedef struct
+{
   float fc_volt;
   float fc_curr;
   float mtr_volt;
@@ -52,6 +56,7 @@ typedef struct {
   float cap_volt;
   float cap_curr;
 } rbData_t;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -67,6 +72,8 @@ typedef struct {
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
+DMA_HandleTypeDef hdma_adc1;
+DMA_HandleTypeDef hdma_adc2;
 
 CAN_HandleTypeDef hcan1;
 
@@ -115,6 +122,8 @@ const osSemaphoreAttr_t canMsgReceivedSem_attributes = {
 rbState_t rb_state = RELAY_STBY;
 rbData_t relay_board_data;
 
+volatile uint16_t adc1Results[3];
+
 CAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[8];
 /* USER CODE END PV */
@@ -122,6 +131,7 @@ uint8_t RxData[8];
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_CAN1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
@@ -130,17 +140,20 @@ void StartCanTask(void *argument);
 void StartAdcTask(void *argument);
 
 /* USER CODE BEGIN PFP */
-int _write(int file, char *ptr, int len) {
+int _write(int file, char *ptr, int len)
+{
   CDC_Transmit_FS((uint8_t *)ptr, (uint16_t)len);
   return len;
 }
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
   osSemaphoreRelease(canMsgReceivedSemHandle);
 }
 
-void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
   osSemaphoreRelease(canMsgReceivedSemHandle);
 }
@@ -151,6 +164,11 @@ void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {}
 void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {}
 
 void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc1Results, 3);
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -186,6 +204,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_CAN1_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
@@ -240,7 +259,9 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1) {
+
+  while (1)
+  {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -326,13 +347,13 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = DISABLE;
+  hadc1.Init.ScanConvMode = ENABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 3;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -344,7 +365,25 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_4;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_6;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_15;
+  sConfig.Rank = 3;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -378,14 +417,14 @@ static void MX_ADC2_Init(void)
   hadc2.Instance = ADC2;
   hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
   hadc2.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc2.Init.ScanConvMode = DISABLE;
-  hadc2.Init.ContinuousConvMode = DISABLE;
+  hadc2.Init.ScanConvMode = ENABLE;
+  hadc2.Init.ContinuousConvMode = ENABLE;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.NbrOfConversion = 1;
-  hadc2.Init.DMAContinuousRequests = DISABLE;
+  hadc2.Init.NbrOfConversion = 3;
+  hadc2.Init.DMAContinuousRequests = ENABLE;
   hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc2) != HAL_OK)
   {
@@ -396,7 +435,25 @@ static void MX_ADC2_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_5;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_7;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_14;
+  sConfig.Rank = 3;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -454,10 +511,30 @@ static void MX_CAN1_Init(void)
   sf.FilterMode = CAN_FILTERMODE_IDMASK;
   sf.FilterScale = CAN_FILTERSCALE_32BIT;
   sf.FilterActivation = CAN_FILTER_ENABLE;
-  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK)
+  {
     Error_Handler();
   }
   /* USER CODE END CAN1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+  /* DMA2_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
 
 }
 
@@ -564,8 +641,11 @@ void StartRelayTask(void *argument)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for (;;) {
-    switch (rb_state) {
+  rb_state = RELAY_STBY;
+  for (;;)
+  {
+    switch (rb_state)
+    {
     case RELAY_STBY:
       HAL_GPIO_WritePin(GPIOB,
                         DSCHRGE_RELAY_Pin | RES_RELAY_Pin | CAP_RELAY_Pin |
@@ -573,7 +653,6 @@ void StartRelayTask(void *argument)
                             MTR_LED_Pin | CAP_LED_Pin,
                         GPIO_PIN_RESET);
       printf("In relay standby state\r\n");
-      rb_state = RELAY_STRTP;
       break;
     case RELAY_STRTP:
       HAL_GPIO_WritePin(
@@ -584,7 +663,6 @@ void StartRelayTask(void *argument)
                             RES_LED_Pin,
                         GPIO_PIN_SET);
       printf("In relay startup state\r\n");
-      rb_state = RELAY_CHRGE;
       break;
     case RELAY_CHRGE:
       HAL_GPIO_WritePin(GPIOB,
@@ -596,7 +674,6 @@ void StartRelayTask(void *argument)
                         RES_RELAY_Pin | RES_LED_Pin,
                         GPIO_PIN_SET);
       printf("In relay charge state\r\n");
-      rb_state = RELAY_RUN;
       break;
     case RELAY_RUN:
       HAL_GPIO_WritePin(GPIOB,
@@ -608,7 +685,6 @@ void StartRelayTask(void *argument)
                             MTR_LED_Pin | CAP_LED_Pin,
                         GPIO_PIN_SET);
       printf("In relay run state\r\n");
-      rb_state = RELAY_STBY;
       break;
     }
     osDelay(10000);
@@ -627,7 +703,8 @@ void StartCanTask(void *argument)
 {
   /* USER CODE BEGIN StartCanTask */
   /* Infinite loop */
-  for (;;) {
+  for (;;)
+  {
     osDelay(1);
   }
   /* USER CODE END StartCanTask */
@@ -644,8 +721,13 @@ void StartAdcTask(void *argument)
 {
   /* USER CODE BEGIN StartAdcTask */
   /* Infinite loop */
-  for (;;) {
-    osDelay(1);
+  adc1Results[0] = adc1Results[1] = adc1Results[2] = 0;
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc1Results, 3);
+  for (;;)
+  {
+    relay_board_data.fc_volt = adc1Results[0]*FC_VOLT_CONV;
+    printf("FC Voltage %d\r\n", 10U);
+    osDelay(10);
   }
   /* USER CODE END StartAdcTask */
 }
@@ -680,7 +762,8 @@ void Error_Handler(void)
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1) {
+  while (1)
+  {
   }
   /* USER CODE END Error_Handler_Debug */
 }
