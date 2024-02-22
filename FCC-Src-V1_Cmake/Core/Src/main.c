@@ -24,6 +24,12 @@
 /* USER CODE BEGIN Includes */
 #include "ADS1115.h"
 #include "canid.h"
+#include "cmsis_os2.h"
+#include "portmacro.h"
+#include "stm32l4xx_hal.h"
+#include "stm32l4xx_hal_can.h"
+#include "stm32l4xx_hal_def.h"
+#include "stm32l4xx_hal_gpio.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -62,11 +68,6 @@ typedef struct {
 } fcData_t;
 
 typedef struct {
-  fcData_t *pFC;
-  uint32_t FCData_ID;
-} canPack_t;
-
-typedef struct {
   uint8_t H2_OK;
   float cap_voltage;
 } canData_t;
@@ -75,9 +76,11 @@ typedef struct {
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define CAN_MESSAGE_SENT_TIMEOUT_MS 5000
-#define CAN_ADD_TX_TIMEOUT_MS 5000
+#define CAN_ADD_TX_TIMEOUT_MS 500
 
 #define FULL_CAP_CHARGE_V 18
+#define PURGE_PERIOD 180000 // 3 minutes
+#define PURGE_TIME 500
 
 #define CAN_TX_MAILBOX_NONE 0x00000000U // Remove reference to tx mailbox
 /* USER CODE END PD */
@@ -106,7 +109,7 @@ const osThreadAttr_t CanTask_attributes = {
     .cb_size = sizeof(CanTaskControlBlock),
     .stack_mem = &CanTaskBuffer[0],
     .stack_size = sizeof(CanTaskBuffer),
-    .priority = (osPriority_t)osPriorityAboveNormal1,
+    .priority = (osPriority_t)osPriorityNormal1,
 };
 /* Definitions for I2cTask */
 osThreadId_t I2cTaskHandle;
@@ -118,7 +121,7 @@ const osThreadAttr_t I2cTask_attributes = {
     .cb_size = sizeof(I2cTaskControlBlock),
     .stack_mem = &I2cTaskBuffer[0],
     .stack_size = sizeof(I2cTaskBuffer),
-    .priority = (osPriority_t)osPriorityNormal1,
+    .priority = (osPriority_t)osPriorityNormal2,
 };
 /* Definitions for FuelCellTask */
 osThreadId_t FuelCellTaskHandle;
@@ -130,7 +133,7 @@ const osThreadAttr_t FuelCellTask_attributes = {
     .cb_size = sizeof(FuelCellTaskControlBlock),
     .stack_mem = &FuelCellTaskBuffer[0],
     .stack_size = sizeof(FuelCellTaskBuffer),
-    .priority = (osPriority_t)osPriorityNormal1,
+    .priority = (osPriority_t)osPriorityNormal3,
 };
 /* Definitions for canRxQueue */
 osMessageQueueId_t canRxQueueHandle;
@@ -139,6 +142,26 @@ const osMessageQueueAttr_t canRxQueue_attributes = {.name = "canRxQueue"};
 osSemaphoreId_t canMsgOkSemHandle;
 const osSemaphoreAttr_t canMsgOkSem_attributes = {.name = "canMsgOkSem"};
 /* USER CODE BEGIN PV */
+/* Definitions for PurgeTask */
+osThreadId_t PurgeTaskHandle;
+uint32_t PurgeTaskBuffer[128];
+osStaticThreadDef_t PurgeTaskControlBlock;
+const osThreadAttr_t PurgeTask_attributes = {
+    .name = "PurgeTask",
+    .cb_mem = &PurgeTaskControlBlock,
+    .cb_size = sizeof(PurgeTaskControlBlock),
+    .stack_mem = &PurgeTaskBuffer[0],
+    .stack_size = sizeof(PurgeTaskBuffer),
+    .priority = (osPriority_t)osPriorityAboveNormal1,
+};
+
+osSemaphoreId_t relayUpdateConfirmedHandle;
+const osSemaphoreAttr_t relayUpdateConfirmed_attributes = {
+    .name = "relayUpdateConfirmed"};
+
+osSemaphoreId_t purgeSemHandle;
+const osSemaphoreAttr_t purgeSemHandle_attributes = {.name = "purgeSem"};
+
 rbState_t rb_state = {
     ALL_RELAY_OFF,
     RES_RELAY | DSCHRGE_RELAY,
@@ -148,12 +171,12 @@ rbState_t rb_state = {
 
 fcState_t fc_state = FUEL_CELL_OFF_STATE;
 
-fcData_t fcData;
+// Initialize the struct values to zero
+canData_t canData = {0, 0.00F};
+fcData_t fcData = {0, 0, 0.00F, 0.00F};
 
 CAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[8];
-
-canData_t canData;
 
 uint32_t TxMailboxFuelCellTask;
 
@@ -174,6 +197,7 @@ static void MX_USART1_UART_Init(void);
 void StartCanTask(void *argument);
 void StartI2cTask(void *argument);
 void StartFuelCellTask(void *argument);
+void RunPurgeTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 int _write(int file, char *ptr, int len) {
@@ -245,6 +269,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
   HAL_UART_Receive_DMA(huart, &RxUARTbuff, 1U);
 }
 
+uint32_t lockout_parameter = 0;
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   switch (GPIO_Pin) {
   case BRD_STRT_Pin:
@@ -257,7 +283,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
         fc_state = FUEL_CELL_OFF_STATE;
       } else {
         button_debounce[0] = HAL_GetTick();
-        fc_state = FUEL_CELL_STRTUP_STATE;
+        if (lockout_parameter == 0) {
+          fc_state = FUEL_CELL_STRTUP_STATE;
+        }
       }
     }
     break;
@@ -265,15 +293,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     if (HAL_GetTick() - button_debounce[1] > 1000) {
       printf("Purge button pressed\r\n");
       button_debounce[1] = HAL_GetTick();
+      osSemaphoreRelease(purgeSemHandle);
     }
-    /* Do something */
     break;
   case EXT_STRT_Pin:
-    if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
-                    FUEL_CELL_RUN_STATE)) {
-      fc_state = FUEL_CELL_OFF_STATE;
-    } else {
-      fc_state = FUEL_CELL_STRTUP_STATE;
+    if (HAL_GetTick() - button_debounce[2] > 1000) {
+      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
+                      FUEL_CELL_RUN_STATE)) {
+        button_debounce[2] = HAL_GetTick();
+        fc_state = FUEL_CELL_OFF_STATE;
+      } else {
+        button_debounce[2] = HAL_GetTick();
+        if (lockout_parameter == 0) {
+          fc_state = FUEL_CELL_STRTUP_STATE;
+        }
+      }
     }
     break;
   case ACC_INT1_Pin:
@@ -283,8 +317,12 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     /* Do something */
     break;
   case EXT_STOP_Pin:
-    /* Do something */
-    fc_state = FUEL_CELL_OFF_STATE;
+    if (HAL_GetTick() - button_debounce[3] > 1000) {
+      button_debounce[3] = HAL_GetTick();
+      printf("Shell Ext Stop triggered, reset system to resume operation\r\n");
+      fc_state = FUEL_CELL_OFF_STATE;
+      lockout_parameter = 1;
+    }
     break;
   default:
     /* Should never happen */
@@ -367,13 +405,16 @@ int main(void) {
   /* USER CODE BEGIN 2 */
   HAL_CAN_Start(&hcan1);
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING);
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
 
-  button_debounce[0] = button_debounce[1] = HAL_GetTick();
+  button_debounce[0] = button_debounce[1] = button_debounce[2] =
+      button_debounce[3] = HAL_GetTick();
   HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_SET);
 
   HAL_UART_Receive_DMA(&huart1, &RxUARTbuff, 1U);
 
+  // Set up config parameters for ADS1115 chip before sending
   configReg.channel = CHANNEL_AIN0_GND;
   configReg.pgaConfig = PGA_4_096;
   configReg.operatingMode = MODE_CONTINOUS;
@@ -402,6 +443,9 @@ int main(void) {
   canMsgOkSemHandle = osSemaphoreNew(1, 0, &canMsgOkSem_attributes);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
+  relayUpdateConfirmedHandle =
+      osSemaphoreNew(1, 0, &relayUpdateConfirmed_attributes);
+  purgeSemHandle = osSemaphoreNew(1, 0, &purgeSemHandle_attributes);
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
 
@@ -412,7 +456,7 @@ int main(void) {
   /* Create the queue(s) */
   /* creation of canRxQueue */
   canRxQueueHandle =
-      osMessageQueueNew(32, sizeof(uint32_t), &canRxQueue_attributes);
+      osMessageQueueNew(16, sizeof(uint32_t), &canRxQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -430,14 +474,14 @@ int main(void) {
       osThreadNew(StartFuelCellTask, NULL, &FuelCellTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  if (CanTaskHandle == NULL || I2cTaskHandle == NULL ||
-      FuelCellTaskHandle == NULL) {
-    while (1)
-      ;
-  }
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
+  PurgeTaskHandle = osThreadNew(RunPurgeTask, NULL, &PurgeTask_attributes);
 
+  if (CanTaskHandle == NULL || I2cTaskHandle == NULL ||
+      FuelCellTaskHandle == NULL || PurgeTaskHandle == NULL) {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
@@ -516,11 +560,11 @@ static void MX_CAN1_Init(void) {
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 16;
+  hcan1.Init.Prescaler = 5;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan1.Init.TimeSeg1 = CAN_BS1_3TQ;
-  hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;
+  hcan1.Init.TimeSeg1 = CAN_BS1_11TQ;
+  hcan1.Init.TimeSeg2 = CAN_BS2_4TQ;
   hcan1.Init.TimeTriggeredMode = DISABLE;
   hcan1.Init.AutoBusOff = DISABLE;
   hcan1.Init.AutoWakeUp = DISABLE;
@@ -661,7 +705,7 @@ static void MX_GPIO_Init(void) {
                     GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(FTDI_NRST_GPIO_Port, FTDI_NRST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : BRD_STRT_Pin BRD_PRGE_Pin */
   GPIO_InitStruct.Pin = BRD_STRT_Pin | BRD_PRGE_Pin;
@@ -750,7 +794,8 @@ static void MX_GPIO_Init(void) {
  */
 /* USER CODE END Header_StartCanTask */
 void StartCanTask(void *argument) {
-  /* USER CODE BEGIN 5 */
+/* USER CODE BEGIN 5 */
+#define RELAY_CONFIG_CONFIRMED 1
   /* Infinite loop */
   uint32_t queueData;
   for (;;) {
@@ -761,6 +806,11 @@ void StartCanTask(void *argument) {
         osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
         memcpy(&canData.cap_voltage, &queueData, sizeof(uint32_t));
         break;
+      case RELAY_CONFIGURATION_ID: // This is a placeholder
+        osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
+        if (queueData == RELAY_CONFIG_CONFIRMED) {
+          osSemaphoreRelease(relayUpdateConfirmedHandle);
+        }
       default:
         break;
       }
@@ -798,9 +848,6 @@ void StartI2cTask(void *argument) {
     ADS1115_updateConfig(pADS, configReg);
     osDelay(DELAY_FOR_CHANNEL_SWITCH);
     fcData.internal_stack_pressure = ADS1115_getData(pADS) * VOLT_CONVERSION;
-
-    // printf("FC Temp: %0.4f\r\n", fcData.internal_stack_temp);
-    // printf("H2 Pres: %0.4f\r\n", fcData.internal_stack_pressure);
   }
   /* USER CODE END StartI2cTask */
 }
@@ -814,71 +861,142 @@ void StartI2cTask(void *argument) {
 /* USER CODE END Header_StartFuelCellTask */
 void StartFuelCellTask(void *argument) {
   /* USER CODE BEGIN StartFuelCellTask */
+  enum { STBY, STRTP, CHRGE, RUN };
+
   HAL_StatusTypeDef hal_stat;
+  uint8_t relay_config_set[4] = {0, 0, 0, 0};
+  uint32_t purge_timer = HAL_GetTick();
 
   /* Infinite loop */
   for (;;) {
     switch (fc_state) {
     case FUEL_CELL_OFF_STATE:
+      // Ensure flags for other configs are not set
+      relay_config_set[STRTP] = relay_config_set[CHRGE] =
+          relay_config_set[RUN] = 0;
+
+      // Set valves to both off
       HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
       HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_RESET);
-      hal_stat = HAL_CAN_SafeAddTxMessage(
-          (uint8_t *)&rb_state.RELAY_STBY, (uint32_t)RELAY_CONFIGURATION_ID, 4UL,
-          &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
-      if (hal_stat == HAL_OK) {
-        if (osSemaphoreAcquire(canMsgOkSemHandle,
-                               CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
-        } else {
-          HAL_CAN_AbortTxRequest(&hcan1, TxMailboxFuelCellTask);
-          printf("Message send timeout to Relay Board\r\n");
+
+      // If the relay board hasn't confirmed the stby configuration
+      if (relay_config_set[STBY] == 0) {
+        hal_stat = HAL_CAN_SafeAddTxMessage(
+            (uint8_t *)&rb_state.RELAY_STBY, (uint32_t)RELAY_CONFIGURATION_ID,
+            4UL, &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
+        if (hal_stat == HAL_OK) {
+          // Wait up to 5 seconds to get the configuration confirmation
+          if (osSemaphoreAcquire(relayUpdateConfirmedHandle,
+                                 CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
+            printf("Relay board confirmed updated config\r\n");
+            relay_config_set[STBY] = 1;
+          } else {
+            printf("Relay board did not confirm updated config\r\n");
+            relay_config_set[STBY] = 0;
+          }
         }
-      } else {
-        printf("CANBUS Tx Error Code: %x", hcan1.ErrorCode);
       }
       break;
     case FUEL_CELL_STRTUP_STATE:
-      hal_stat = HAL_CAN_SafeAddTxMessage(
-          (uint8_t *)&rb_state.RELAY_STRTP, (uint32_t)RELAY_CONFIGURATION_ID, 4UL,
-          &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
-      if (hal_stat == HAL_OK) {
-        if (osSemaphoreAcquire(canMsgOkSemHandle,
-                               CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
-          // Start the hydrogen supply and purge for 500 ms
-          HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin,
-                            GPIO_PIN_SET);
-          HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_SET);
-          // osDelay(500);
-          HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin,
-                            GPIO_PIN_RESET);
-          fc_state = FUEL_CELL_CHRGE_STATE;
-          printf("Message sent on CANbus to Relay Board: RELAY_STRTP\r\n");
-        } else {
-          HAL_CAN_AbortTxRequest(&hcan1, TxMailboxFuelCellTask);
-          printf("Message send timeout to Relay Board\r\n");
-          fc_state = FUEL_CELL_OFF_STATE;
-          // should probably abort the Tx request
+      // Ensure flags for other configs are not set
+      relay_config_set[STBY] = relay_config_set[CHRGE] = relay_config_set[RUN] =
+          0;
+
+      if (relay_config_set[STRTP] == 0) {
+        hal_stat = HAL_CAN_SafeAddTxMessage(
+            (uint8_t *)&rb_state.RELAY_STRTP, (uint32_t)RELAY_CONFIGURATION_ID,
+            4UL, &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
+        if (hal_stat == HAL_OK) {
+          // Wait up to 5 seconds to get the configuration confirmation
+          if (osSemaphoreAcquire(relayUpdateConfirmedHandle,
+                                 CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
+            printf("Relay board confirmed update config\r\n");
+
+            // Start the hydrogen supply and purge for 500 ms
+            HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin,
+                              GPIO_PIN_SET);
+            HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin,
+                              GPIO_PIN_SET);
+            osDelay(PURGE_TIME);
+            HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin,
+                              GPIO_PIN_RESET);
+
+            fc_state = FUEL_CELL_CHRGE_STATE;
+            relay_config_set[STRTP] = 1;
+
+          } else {
+            printf("Relay board did not confirm updated config\r\n");
+            relay_config_set[STRTP] = 0;
+          }
         }
       }
       break;
     case FUEL_CELL_CHRGE_STATE:
-      // hal_stat = HAL_CAN_SafeAddTxMessage(
-      //     (uint8_t *)&rb_state.RELAY_CHRGE, (uint32_t)REQUEST_FOR_CAP_VOLTAGE, 0UL,
-      //     &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_REMOTE);
-      // printf("Sent message to relay board for cap volt\r\n");
-      //
-      // if (canData.cap_voltage >= FULL_CAP_CHARGE_V) {
-      //   printf("My cap voltage: %0.4f\r\n", canData.cap_voltage);
-      // } else {
-      // }
+      relay_config_set[STBY] = relay_config_set[STRTP] = relay_config_set[RUN] =
+          0;
+      if (relay_config_set[CHRGE] == 0) {
+        hal_stat = HAL_CAN_SafeAddTxMessage(
+            (uint8_t *)&rb_state.RELAY_CHRGE, (uint32_t)RELAY_CONFIGURATION_ID,
+            4UL, &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
+        if (hal_stat == HAL_OK) {
+          if (osSemaphoreAcquire(relayUpdateConfirmedHandle,
+                                 CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
+            printf("Relay board confirmed update config\r\n");
+            relay_config_set[CHRGE] = 1;
+          } else {
+            printf("Relay board did not confirm updated config\r\n");
+            relay_config_set[CHRGE] = 0;
+          }
+        }
+      } else {
+        if (canData.cap_voltage >= FULL_CAP_CHARGE_V) {
+          fc_state = FUEL_CELL_RUN_STATE;
+        } else {
+          // keep requesting new cap voltages
+          hal_stat = HAL_CAN_SafeAddTxMessage(
+              NULL, (uint32_t)REQUEST_FOR_CAP_VOLTAGE, 0UL,
+              &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_REMOTE);
+        }
+      }
       break;
     case FUEL_CELL_RUN_STATE:
-      // CAN message to relay board run mode
-
+      relay_config_set[STBY] = relay_config_set[STRTP] =
+          relay_config_set[CHRGE] = 0;
+      if (relay_config_set[RUN] == 0) {
+        hal_stat = HAL_CAN_SafeAddTxMessage(
+            (uint8_t *)&rb_state.RELAY_RUN, (uint32_t)RELAY_CONFIGURATION_ID,
+            4UL, &TxMailboxFuelCellTask, (uint32_t)CAN_RTR_DATA);
+        if (hal_stat == HAL_OK) {
+          if (osSemaphoreAcquire(relayUpdateConfirmedHandle,
+                                 CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
+            printf("Relay board confirmed update config\r\n");
+            relay_config_set[RUN] = 1;
+          } else {
+            printf("Relay board did not confirm updated config\r\n");
+            relay_config_set[RUN] = 0;
+          }
+        }
+      } else {
+        if (HAL_GetTick() - purge_timer >= PURGE_PERIOD) {
+          purge_timer = HAL_GetTick();
+          osSemaphoreRelease(purgeSemHandle);
+        }
+      }
       break;
     }
     osDelay(10);
   }
   /* USER CODE END StartFuelCellTask */
+}
+
+void RunPurgeTask(void *argument) {
+  for (;;) {
+    if (osOK == osSemaphoreAcquire(purgeSemHandle, osWaitForever)) {
+      HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_SET);
+      osDelay(PURGE_TIME);
+      HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
+    }
+  }
 }
 
 /**
@@ -907,9 +1025,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
  */
 void Error_Handler(void) {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
+  /* User can add his own implementation to report the HAL error return state
+   */
   __disable_irq();
   while (1) {
+    printf("Error Handler Triggered\r\n");
   }
   /* USER CODE END Error_Handler_Debug */
 }
@@ -925,8 +1045,8 @@ void Error_Handler(void) {
 void assert_failed(uint8_t *file, uint32_t line) {
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line
-     number, ex: printf("Wrong parameters value: file %s on line %d\r\n", file,
-     line) */
+     number, ex: printf("Wrong parameters value: file %s on line %d\r\n",
+     file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
