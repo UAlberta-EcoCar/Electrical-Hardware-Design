@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "can.h"
+#include "rng.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -101,6 +102,7 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_SPI1_Init();
+  MX_RNG_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

@@ -265,10 +265,10 @@ void startCANThread(void *argument) {
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	//uint8_t message[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	uint8_t message2[8] = { 0 };
-	__attribute__((packed))           struct Data {
+	struct Data  {
 		float h2;
 		float temp;
-	} reciever;
+	} __attribute__((packed)) reciever;
 
 	IntrimPacket intrim;
 
