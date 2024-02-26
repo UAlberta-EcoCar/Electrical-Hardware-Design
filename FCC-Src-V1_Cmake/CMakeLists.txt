@@ -49,7 +49,7 @@ set(STM32CUBEMX_RECUR_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32l4xx_hal_timebase_tim.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32l4xx_it.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32l4xx.c
-  # ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/syscalls.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/syscalls.c
   )
   
 set(STM32CUBEMX_GENERATED

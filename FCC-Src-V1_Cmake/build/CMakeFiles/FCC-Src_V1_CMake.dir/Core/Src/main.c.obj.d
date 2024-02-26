@@ -70,6 +70,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/main.c.obj: \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Core/Inc/canid.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
+ /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h \
  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h \
  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/types.h \

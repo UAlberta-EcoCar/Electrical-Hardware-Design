@@ -167,10 +167,24 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.s"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Core/Src/system_stm32l4xx.c -o CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.s
 
+CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
+CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj: ../Core/Src/syscalls.c
+CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj"
+	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Core/Src/syscalls.c
+
+CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.i"
+	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Core/Src/syscalls.c > CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.i
+
+CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.s"
+	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Core/Src/syscalls.c -o CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.s
+
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_r
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_r
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash.c.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_f
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ex.c.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_f
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_f
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_g
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.c.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.c.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_d
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_d
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_p
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_p
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.c.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_e
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_t
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_t
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_u
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj: ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_u
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/croutine.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.i: cmake_force
@@ -464,7 +478,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.i: cmake_force
@@ -478,7 +492,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/event_gr
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/list.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.i: cmake_force
@@ -492,7 +506,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.s
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/queue.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.i: cmake_force
@@ -506,7 +520,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.i: cmake_force
@@ -520,7 +534,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_b
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/tasks.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.i: cmake_force
@@ -534,7 +548,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.i: cmake_force
@@ -548,7 +562,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i: cmake_force
@@ -562,7 +576,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RT
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.i: cmake_force
@@ -576,7 +590,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: CMakeFiles/FCC-Src_V1_CMake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj -MF CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj.d -o CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.i: cmake_force
@@ -589,7 +603,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/portable
 
 CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj: CMakeFiles/FCC-Src_V1_CMake.dir/flags.make
 CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj: ../CubeMX/startup_stm32l432xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections     --specs=nano.specs -Wl,--gc-sections $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj -c /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/CubeMX/startup_stm32l432xx.s
 
 CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.i: cmake_force
@@ -609,6 +623,7 @@ FCC__Src_V1_CMake_OBJECTS = \
 "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_hal_timebase_tim.c.obj" \
 "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_it.c.obj" \
 "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.obj" \
+"CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj" \
 "CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj" \
 "CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj" \
 "CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj" \
@@ -651,6 +666,7 @@ FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_hal_msp
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_hal_timebase_tim.c.obj
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_it.c.obj
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.obj
+FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_can.c.obj
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c.obj
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c.obj
@@ -684,7 +700,7 @@ FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/Fr
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/build.make
 FCC-Src_V1_CMake.elf: CMakeFiles/FCC-Src_V1_CMake.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Linking C executable FCC-Src_V1_CMake.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking C executable FCC-Src_V1_CMake.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FCC-Src_V1_CMake.dir/link.txt --verbose=$(VERBOSE)
 	arm-none-eabi-size /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/FCC-Src_V1_CMake.elf
 	arm-none-eabi-objcopy -O ihex /home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC-Src-V1_Cmake/build/FCC-Src_V1_CMake.elf FCC-Src_V1_CMake.hex

@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_hal_timebase_tim.c.obj.d"
   "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_it.c.obj"
   "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_it.c.obj.d"
+  "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj"
+  "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj.d"
   "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.obj"
   "CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.obj.d"
   "CMakeFiles/FCC-Src_V1_CMake.dir/CubeMX/startup_stm32l432xx.s.obj"

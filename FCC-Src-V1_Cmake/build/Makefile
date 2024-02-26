@@ -273,6 +273,30 @@ Core/Src/stm32l4xx_it.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FCC-Src_V1_CMake.dir/build.make CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_it.c.s
 .PHONY : Core/Src/stm32l4xx_it.c.s
 
+Core/Src/syscalls.obj: Core/Src/syscalls.c.obj
+.PHONY : Core/Src/syscalls.obj
+
+# target to build an object file
+Core/Src/syscalls.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FCC-Src_V1_CMake.dir/build.make CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj
+.PHONY : Core/Src/syscalls.c.obj
+
+Core/Src/syscalls.i: Core/Src/syscalls.c.i
+.PHONY : Core/Src/syscalls.i
+
+# target to preprocess a source file
+Core/Src/syscalls.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FCC-Src_V1_CMake.dir/build.make CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.i
+.PHONY : Core/Src/syscalls.c.i
+
+Core/Src/syscalls.s: Core/Src/syscalls.c.s
+.PHONY : Core/Src/syscalls.s
+
+# target to generate assembly for a file
+Core/Src/syscalls.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FCC-Src_V1_CMake.dir/build.make CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.s
+.PHONY : Core/Src/syscalls.c.s
+
 Core/Src/system_stm32l4xx.obj: Core/Src/system_stm32l4xx.c.obj
 .PHONY : Core/Src/system_stm32l4xx.obj
 
@@ -1052,6 +1076,9 @@ help:
 	@echo "... Core/Src/stm32l4xx_it.obj"
 	@echo "... Core/Src/stm32l4xx_it.i"
 	@echo "... Core/Src/stm32l4xx_it.s"
+	@echo "... Core/Src/syscalls.obj"
+	@echo "... Core/Src/syscalls.i"
+	@echo "... Core/Src/syscalls.s"
 	@echo "... Core/Src/system_stm32l4xx.obj"
 	@echo "... Core/Src/system_stm32l4xx.i"
 	@echo "... Core/Src/system_stm32l4xx.s"

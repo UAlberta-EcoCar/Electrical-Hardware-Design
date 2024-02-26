@@ -25,11 +25,11 @@
 #include "ADS1115.h"
 #include "canid.h"
 #include "cmsis_os2.h"
-#include "portmacro.h"
 #include "stm32l4xx_hal.h"
 #include "stm32l4xx_hal_can.h"
 #include "stm32l4xx_hal_def.h"
 #include "stm32l4xx_hal_gpio.h"
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -68,14 +68,14 @@ typedef struct {
 } fcData_t;
 
 typedef struct {
-  uint8_t H2_OK;
+  uint32_t H2_OK;
   float cap_voltage;
 } canData_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define CAN_MESSAGE_SENT_TIMEOUT_MS 5000
+#define CAN_MESSAGE_SENT_TIMEOUT_MS 500
 #define CAN_ADD_TX_TIMEOUT_MS 500
 
 #define FULL_CAP_CHARGE_V 18
@@ -811,6 +811,11 @@ void StartCanTask(void *argument) {
         if (queueData == RELAY_CONFIG_CONFIRMED) {
           osSemaphoreRelease(relayUpdateConfirmedHandle);
         }
+        break;
+      case REQUEST_H2_CONC:
+        osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
+        memcpy(&canData.H2_OK, &queueData, sizeof(uint32_t));
+        break;
       default:
         break;
       }
@@ -830,8 +835,12 @@ void StartCanTask(void *argument) {
 void StartI2cTask(void *argument) {
   /* USER CODE BEGIN StartI2cTask */
 #define DELAY_FOR_CHANNEL_SWITCH 20
+#define B 3950
+#define VOLT_2_TEMP(x)                                                         \
+  B * 298.15 / (298.15 * logf(100 / (100 * (3.3 / x - 1))) + B) - 273.15
 
   const float VOLT_CONVERSION = 4.094F / 32768.0F;
+  const float transfer_func_p = 0.657F;
   /* Infinite loop */
 
   // Init stack variables
@@ -843,11 +852,15 @@ void StartI2cTask(void *argument) {
     ADS1115_updateConfig(pADS, configReg);
     osDelay(DELAY_FOR_CHANNEL_SWITCH);
     fcData.internal_stack_temp = ADS1115_getData(pADS) * VOLT_CONVERSION;
+    fcData.internal_stack_temp = VOLT_2_TEMP(fcData.internal_stack_temp);
 
     configReg.channel = CHANNEL_AIN1_GND;
     ADS1115_updateConfig(pADS, configReg);
     osDelay(DELAY_FOR_CHANNEL_SWITCH);
-    fcData.internal_stack_pressure = ADS1115_getData(pADS) * VOLT_CONVERSION;
+    fcData.internal_stack_pressure =
+        ADS1115_getData(pADS) * VOLT_CONVERSION / transfer_func_p;
+
+    osDelay(10);
   }
   /* USER CODE END StartI2cTask */
 }
@@ -879,6 +892,10 @@ void StartFuelCellTask(void *argument) {
       HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
       HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_RESET);
 
+      hal_stat = HAL_CAN_SafeAddTxMessage(NULL, (uint32_t)REQUEST_H2_CONC, 0UL,
+                                          &TxMailboxFuelCellTask,
+                                          (uint32_t)CAN_RTR_REMOTE);
+
       // If the relay board hasn't confirmed the stby configuration
       if (relay_config_set[STBY] == 0) {
         hal_stat = HAL_CAN_SafeAddTxMessage(
@@ -896,12 +913,15 @@ void StartFuelCellTask(void *argument) {
           }
         }
       }
+
+      printf("Pressure: %0.4f\r\nTemperature: %0.4f\r\n",
+             fcData.internal_stack_pressure, fcData.internal_stack_temp);
+
       break;
     case FUEL_CELL_STRTUP_STATE:
       // Ensure flags for other configs are not set
       relay_config_set[STBY] = relay_config_set[CHRGE] = relay_config_set[RUN] =
           0;
-
       if (relay_config_set[STRTP] == 0) {
         hal_stat = HAL_CAN_SafeAddTxMessage(
             (uint8_t *)&rb_state.RELAY_STRTP, (uint32_t)RELAY_CONFIGURATION_ID,

@@ -190,6 +190,7 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/main.c.obj: ../Core/Src/main.c \
   ../Core/Inc/canid.h \
   ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
   ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h \
   /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h \
   /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
   /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/types.h \
@@ -334,6 +335,52 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/stm32l4xx_it.c.obj: ../Core/Src/stm32l4
   ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
   ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
   ../Core/Inc/stm32l4xx_it.h
+
+CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/syscalls.c.obj: ../Core/Src/syscalls.c \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/errno.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/errno.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/newlib-nano/newlib.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/config.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/ieeefp.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/features.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_types.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/assert.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/signal.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/cdefs.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/signal.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/types.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/endian.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_endian.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/select.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_sigset.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_timeval.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/timespec.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_timespec.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_pthreadtypes.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/sched.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/types.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stdio.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdlib.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/stdlib.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/alloca.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stat.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/time.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/time.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/time.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_time.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/times.h
 
 CMakeFiles/FCC-Src_V1_CMake.dir/Core/Src/system_stm32l4xx.c.obj: ../Core/Src/system_stm32l4xx.c \
   ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h \
@@ -1594,6 +1641,18 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 ../Middlewares/Third_Party/FreeRTOS/Source/timers.c:
 
+../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/croutine.c:
+
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
 ../Drivers/CMSIS/Include/cmsis_gcc.h:
@@ -1605,10 +1664,6 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h:
-
-../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h:
-
-../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h:
 
@@ -1648,10 +1703,6 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
 
-../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h:
-
-/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h:
-
 ../Drivers/CMSIS/Include/cmsis_version.h:
 
 ../Core/Inc/ADS1115.h:
@@ -1668,7 +1719,9 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h:
 
-../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Core/Src/syscalls.c:
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c:
 
@@ -1677,6 +1730,8 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h:
 
 ../Core/Src/stm32l4xx_hal_msp.c:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stat.h:
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h:
 
@@ -1728,6 +1783,8 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 ../Core/Src/main.c:
 
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_time.h:
+
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/assert.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -1736,7 +1793,9 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/cdefs.h:
 
-../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/time.h:
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/alloca.h:
 
@@ -1750,7 +1809,9 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/reent.h:
 
-../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h:
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/time.h:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/time.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 
@@ -1764,7 +1825,19 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma_ex.c:
 
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h:
+
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h:
+
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_endian.h:
+
+../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/times.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 
@@ -1776,9 +1849,9 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/sched.h:
 
-../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h:
-
 ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 
@@ -1786,9 +1859,15 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h:
 
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/signal.h:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/signal.h:
+
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h:
 
 ../Core/Src/stm32l4xx_it.c:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/errno.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 
@@ -1797,6 +1876,16 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c:
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c:
+
+/usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/errno.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/tasks.c:
+
+../Middlewares/Third_Party/FreeRTOS/Source/queue.c:
+
+../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:
+
+../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c:
 
 /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_intsup.h:
 
@@ -1818,9 +1907,9 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.c:
 
-../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h:
-
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c:
+
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_exti.c:
 
@@ -1832,26 +1921,8 @@ CMakeFiles/FCC-Src_V1_CMake.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.c:
 
-../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_ramfunc.c:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c:
-
-../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/croutine.c:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c:
-
-../Middlewares/Third_Party/FreeRTOS/Source/tasks.c:
-
-../Middlewares/Third_Party/FreeRTOS/Source/queue.c:
-
-../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c:
-
-../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:
