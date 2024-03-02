@@ -55,6 +55,13 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for CAN_requested */
+osThreadId_t CAN_requestedHandle;
+const osThreadAttr_t CAN_requested_attributes = {
+  .name = "CAN_requested",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for error_queue */
 osMessageQueueId_t error_queueHandle;
 const osMessageQueueAttr_t error_queue_attributes = {
@@ -72,6 +79,7 @@ static void MX_CAN1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 void StartDefaultTask(void *argument);
+void CAN_transmit(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -144,6 +152,9 @@ int main(void)
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* creation of CAN_requested */
+  CAN_requestedHandle = osThreadNew(CAN_transmit, NULL, &CAN_requested_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -427,12 +438,32 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+	// i don't really know what i should be doing
+  /* Infinite loop */
+  for(;;)
+  {
+	  // do the looping stuff
+    osDelay(1);
+  }
+  /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_CAN_transmit */
+/**
+* @brief Function implementing the CAN_requested thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CAN_transmit */
+void CAN_transmit(void *argument)
+{
+  /* USER CODE BEGIN CAN_transmit */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END 5 */
+  /* USER CODE END CAN_transmit */
 }
 
 /**
