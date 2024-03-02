@@ -57,8 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ADC_Battery_Voltage_Pin GPIO_PIN_1
-#define ADC_Battery_Voltage_GPIO_Port GPIOA
+#define ACD_Battery_Voltage_Pin GPIO_PIN_1
+#define ACD_Battery_Voltage_GPIO_Port GPIOA
 #define Battery_Curr_Pin GPIO_PIN_2
 #define Battery_Curr_GPIO_Port GPIOA
 #define Current_Out_12V_Pin GPIO_PIN_3
