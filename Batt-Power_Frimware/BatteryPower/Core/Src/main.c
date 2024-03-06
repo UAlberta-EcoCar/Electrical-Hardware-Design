@@ -82,6 +82,135 @@ void StartDefaultTask(void *argument);
 void CAN_transmit(void *argument);
 
 /* USER CODE BEGIN PFP */
+int _write(int file, char *ptr, int len) {
+  HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+  return len;
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+  HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
+  osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
+  // need condition for either 4 byte or 8 byte
+  if (RxHeader.DLC == 0UL) {
+    // Data request, don't add anything else to queue
+  } else if (RxHeader.DLC <= 4UL) {
+    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+  } else {
+    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+    osMessageQueuePut(canRxQueueHandle, &RxData[3], 0U, 0UL);
+  }
+}
+
+void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+  HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
+  osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
+  // need condition for either 4 byte or 8 byte
+  if (RxHeader.DLC == 0UL) {
+    // Data request, don't add anything else to queue
+  } else if (RxHeader.DLC <= 4UL) {
+    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+  } else {
+    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+    osMessageQueuePut(canRxQueueHandle, &RxData[3], 0U, 0UL);
+  }
+}
+/* Transmit Completed Callbacks for Message Sent Confirmations */
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
+  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX0) {
+    TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
+    osSemaphoreRelease(canMsgOkSemHandle);
+  }
+}
+void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {
+  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX1) {
+    TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
+    osSemaphoreRelease(canMsgOkSemHandle);
+  }
+}
+void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {
+  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX2) {
+    TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
+    osSemaphoreRelease(canMsgOkSemHandle);
+  }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  if (RxUARTbuff == (char)0x04) {
+    HAL_UART_Transmit_DMA(huart, RxUARTData, UartIndex);
+    UartIndex = 0;
+  } else {
+    RxUARTData[UartIndex] = RxUARTbuff;
+    if (UartIndex == (sizeof(RxUARTData) - 1)) {
+      printf("\r\n\tBuffer Overflowed\r\n");
+      UartIndex = 0;
+    } else {
+      UartIndex++;
+    }
+  }
+  HAL_UART_Receive_DMA(huart, &RxUARTbuff, 1U);
+}
+
+uint32_t lockout_parameter = 0;
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  switch (GPIO_Pin) {
+  case BRD_STRT_Pin:
+    if (HAL_GetTick() - button_debounce[0] > 1000) {
+      printf("Start button pressed\r\n");
+      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
+                      FUEL_CELL_RUN_STATE)) // If fc_state is non-zero
+      {
+        button_debounce[0] = HAL_GetTick();
+        fc_state = FUEL_CELL_OFF_STATE;
+      } else {
+        button_debounce[0] = HAL_GetTick();
+        if (lockout_parameter == 0) {
+          fc_state = FUEL_CELL_STRTUP_STATE;
+        }
+      }
+    }
+    break;
+  case BRD_PRGE_Pin:
+    if (HAL_GetTick() - button_debounce[1] > 1000) {
+      printf("Purge button pressed\r\n");
+      button_debounce[1] = HAL_GetTick();
+      osSemaphoreRelease(purgeSemHandle);
+    }
+    break;
+  case EXT_STRT_Pin:
+    if (HAL_GetTick() - button_debounce[2] > 1000) {
+      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
+                      FUEL_CELL_RUN_STATE)) {
+        button_debounce[2] = HAL_GetTick();
+        fc_state = FUEL_CELL_OFF_STATE;
+      } else {
+        button_debounce[2] = HAL_GetTick();
+        if (lockout_parameter == 0) {
+          fc_state = FUEL_CELL_STRTUP_STATE;
+        }
+      }
+    }
+    break;
+  case ACC_INT1_Pin:
+    /* Do something */
+    break;
+  case ACC_INT2_Pin:
+    /* Do something */
+    break;
+  case EXT_STOP_Pin:
+    if (HAL_GetTick() - button_debounce[3] > 1000) {
+      button_debounce[3] = HAL_GetTick();
+      printf("Shell Ext Stop triggered, reset system to resume operation\r\n");
+      fc_state = FUEL_CELL_OFF_STATE;
+      lockout_parameter = 1;
+    }
+    break;
+  default:
+    /* Should never happen */
+    break;
+  }
+}
+
 
 /* USER CODE END PFP */
 
