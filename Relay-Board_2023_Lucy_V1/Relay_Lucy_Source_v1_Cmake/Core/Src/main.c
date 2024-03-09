@@ -19,6 +19,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "cmsis_os2.h"
+#include "stm32f4xx_hal_adc.h"
+#include "stm32f4xx_hal_can.h"
 #include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -98,14 +101,14 @@ const osThreadAttr_t RelayTask_attributes = {
 };
 /* Definitions for CanTask */
 osThreadId_t CanTaskHandle;
-uint32_t CanTaksBuffer[128];
+uint32_t CanTaskBuffer[128];
 osStaticThreadDef_t CanTaksControlBlock;
 const osThreadAttr_t CanTask_attributes = {
     .name = "CanTask",
     .cb_mem = &CanTaksControlBlock,
     .cb_size = sizeof(CanTaksControlBlock),
-    .stack_mem = &CanTaksBuffer[0],
-    .stack_size = sizeof(CanTaksBuffer),
+    .stack_mem = &CanTaskBuffer[0],
+    .stack_size = sizeof(CanTaskBuffer),
     .priority = (osPriority_t)osPriorityNormal,
 };
 /* Definitions for AdcTask */
@@ -165,6 +168,9 @@ int _write(int file, char *ptr, int len) {
  */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
+  if (osMessageQueueGetSpace(canRxMsgQueueHandle) == 0) {
+    Error_Handler();
+  }
   osMessageQueuePut(canRxMsgQueueHandle, &RxHeader.StdId, 0U, 0UL);
   // need condition for either 4 byte or 8 byte
   if (RxHeader.DLC == 0UL) {
@@ -295,10 +301,6 @@ int main(void) {
   MX_ADC1_Init();
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
-  // HAL_CAN_Start(&hcan1);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -587,9 +589,9 @@ static void MX_CAN1_Init(void) {
   sFilterConfig.FilterBank = 0;
   sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
   sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-  sFilterConfig.FilterIdHigh = 0x0000;
+  sFilterConfig.FilterIdHigh = 0x100 << 5;
   sFilterConfig.FilterIdLow = 0x0000;
-  sFilterConfig.FilterMaskIdHigh = 0x0000;
+  sFilterConfig.FilterMaskIdHigh = 0x7FE << 5;
   sFilterConfig.FilterMaskIdLow = 0x0000;
   sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
   sFilterConfig.FilterActivation = ENABLE;
@@ -769,6 +771,9 @@ static void MX_GPIO_Init(void) {
 void StartRelayTask(void *argument) {
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING);
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   rb_state = RELAY_STBY;
@@ -805,11 +810,7 @@ void StartRelayTask(void *argument) {
                         GPIO_PIN_SET);
       break;
     }
-    printf("FC Volt: %2.4f\tFC Curr: %2.4f\tCAP Volt: %2.4f\tCAP Curr: "
-           "%2.4f\tMTR Volt: %2.4f\tMTR Curr: %2.4f\r\n",
-           relay_board_data.fc_volt, relay_board_data.fc_curr,
-           relay_board_data.cap_volt, relay_board_data.cap_curr,
-           relay_board_data.mtr_volt, relay_board_data.mtr_curr);
+
     osDelay(10);
   }
   /* USER CODE END 5 */
@@ -838,17 +839,11 @@ void StartCanTask(void *argument) {
         hal_stat = HAL_CAN_SafeAddTxMessage((uint8_t *)&placeholder,
                                             RELAY_CONFIGURATION_ID, 4UL,
                                             &TxMailboxCanTask, CAN_RTR_DATA);
-        if (hal_stat != HAL_OK) {
-          Error_Handler();
-        }
         break;
       case REQUEST_FOR_CAP_VOLTAGE:
         hal_stat = HAL_CAN_SafeAddTxMessage(
             (uint8_t *)&relay_board_data.cap_volt, REQUEST_FOR_CAP_VOLTAGE, 4UL,
             &TxMailboxCanTask, CAN_RTR_DATA);
-        if (hal_stat != HAL_OK) {
-          Error_Handler();
-        }
       default:
         break;
       }
@@ -867,20 +862,23 @@ void StartAdcTask(void *argument) {
   const float ADC_VOLT_REF = 3.3F / 4096.0F;
   const float CURR_TRANSFER = 0.667F;
   const float VOLT_TRANSFER = 0.107F;
+  const float VOLT_TO_CURR_UNI = 12.5F; // A/V
+  const float VOLT_TO_CURR_BI = 25.0F; // A/V
   /* Infinite loop */
   adc1Results[0] = adc1Results[1] = adc1Results[2] = 0;
   adc2Results[0] = adc2Results[1] = adc2Results[2] = 0;
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc1Results, 3);
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *)adc2Results, 3);
+  HAL_ADC_GetValue
 
   for (;;) {
     if (conversion_completed == 2) {
       relay_board_data.fc_volt = adc1Results[0] * ADC_VOLT_REF / VOLT_TRANSFER;
       relay_board_data.cap_volt = adc1Results[1] * ADC_VOLT_REF / VOLT_TRANSFER;
-      relay_board_data.fc_curr = adc1Results[2] * ADC_VOLT_REF / CURR_TRANSFER;
+      relay_board_data.fc_curr = ((adc1Results[2] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) * VOLT_TO_CURR_UNI;
 
-      relay_board_data.mtr_curr = adc2Results[0] * ADC_VOLT_REF / CURR_TRANSFER;
-      relay_board_data.cap_curr = adc2Results[1] * ADC_VOLT_REF / CURR_TRANSFER;
+      relay_board_data.mtr_curr = ((adc2Results[0] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) * VOLT_TO_CURR_UNI;
+      relay_board_data.cap_curr = ((adc2Results[1] * ADC_VOLT_REF / CURR_TRANSFER) - 2.5) * VOLT_TO_CURR_BI;
       relay_board_data.mtr_volt = adc2Results[2] * ADC_VOLT_REF / VOLT_TRANSFER;
 
       conversion_completed = 0;

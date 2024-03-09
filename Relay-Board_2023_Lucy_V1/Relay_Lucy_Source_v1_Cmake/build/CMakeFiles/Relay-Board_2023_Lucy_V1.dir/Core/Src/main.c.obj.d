@@ -65,6 +65,7 @@ CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/main.c.obj: \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/USB_DEVICE/App/usb_device.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/Relay_Lucy_Source_v1_Cmake/USB_DEVICE/Target/usbd_conf.h \

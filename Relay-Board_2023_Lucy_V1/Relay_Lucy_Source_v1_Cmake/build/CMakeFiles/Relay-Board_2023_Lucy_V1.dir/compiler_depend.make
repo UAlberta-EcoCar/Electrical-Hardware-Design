@@ -132,6 +132,7 @@ CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/main.c.obj: ../Core/Src/main.c 
   ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
   ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
   ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
   ../USB_DEVICE/App/usb_device.h \
   ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
   ../USB_DEVICE/Target/usbd_conf.h \

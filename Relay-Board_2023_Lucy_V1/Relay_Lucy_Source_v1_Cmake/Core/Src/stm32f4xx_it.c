@@ -22,6 +22,7 @@
 #include "cmsis_os2.h"
 #include "main.h"
 #include "stm32f4xx_hal.h"
+#include <stdint.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -90,10 +91,27 @@ void NMI_Handler(void) {
  */
 void HardFault_Handler(void) {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  GPIO_InitStruct.Pin =
+      DSCHRGE_LED_Pin | RES_LED_Pin | MTR_LED_Pin | CAP_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
   /* USER CODE END HardFault_IRQn 0 */
   while (1) {
     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+    HAL_GPIO_WritePin(GPIOB,
+                      DSCHRGE_LED_Pin | RES_LED_Pin | MTR_LED_Pin | CAP_LED_Pin,
+                      GPIO_PIN_RESET);
+    for (int i = 0; i < 1000000; i++)
+      ;
+    HAL_GPIO_WritePin(GPIOB,
+                      DSCHRGE_LED_Pin | RES_LED_Pin | MTR_LED_Pin | CAP_LED_Pin,
+                      GPIO_PIN_SET);
+    for (int i = 0; i < 1000000; i++)
+      ;
     /* USER CODE END W1_HardFault_IRQn 0 */
   }
 }
