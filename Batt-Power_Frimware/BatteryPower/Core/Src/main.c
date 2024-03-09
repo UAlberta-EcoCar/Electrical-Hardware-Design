@@ -28,6 +28,14 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
+typedef struct {
+  float batt_volt[64];
+  float batt_cur[64];
+  float output_volt[64]; // 12 volt output voltage
+  float output_cur[64]; // 12 volt output current
+  float buck_cur[64]; // 5 volt buck current
+} bbData_t;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -48,10 +56,10 @@ CAN_HandleTypeDef hcan1;
 
 UART_HandleTypeDef huart1;
 
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
+/* Definitions for pull_sensor */
+osThreadId_t pull_sensorHandle;
+const osThreadAttr_t pull_sensor_attributes = {
+  .name = "pull_sensor",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -62,12 +70,36 @@ const osThreadAttr_t CAN_requested_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for ERROR_handler */
+osThreadId_t ERROR_handlerHandle;
+const osThreadAttr_t ERROR_handler_attributes = {
+  .name = "ERROR_handler",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for USB_output */
+osThreadId_t USB_outputHandle;
+const osThreadAttr_t USB_output_attributes = {
+  .name = "USB_output",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for error_queue */
 osMessageQueueId_t error_queueHandle;
 const osMessageQueueAttr_t error_queue_attributes = {
   .name = "error_queue"
 };
+/* Definitions for USB_queue */
+osMessageQueueId_t USB_queueHandle;
+const osMessageQueueAttr_t USB_queue_attributes = {
+  .name = "USB_queue"
+};
 /* USER CODE BEGIN PV */
+
+bbData_t battery_board_data;
+memset(battery_board_data.batt_volt, 0, 64)
+
+volatile uint32_t adcResults[5];
 
 /* USER CODE END PV */
 
@@ -78,139 +110,20 @@ static void MX_DMA_Init(void);
 static void MX_CAN1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
-void StartDefaultTask(void *argument);
-void CAN_transmit(void *argument);
+void StartAdcTask(void *argument);
+void startCanTransmit(void *argument);
+void startErrorTask(void *argument);
+void startUsbTask(void *argument);
 
 /* USER CODE BEGIN PFP */
-int _write(int file, char *ptr, int len) {
-  HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
-  return len;
-}
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-  HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
-  osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
-  // need condition for either 4 byte or 8 byte
-  if (RxHeader.DLC == 0UL) {
-    // Data request, don't add anything else to queue
-  } else if (RxHeader.DLC <= 4UL) {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-  } else {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-    osMessageQueuePut(canRxQueueHandle, &RxData[3], 0U, 0UL);
-  }
-}
+uint32_t conversion_completed = 0;
 
-void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-  HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
-  osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
-  // need condition for either 4 byte or 8 byte
-  if (RxHeader.DLC == 0UL) {
-    // Data request, don't add anything else to queue
-  } else if (RxHeader.DLC <= 4UL) {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-  } else {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-    osMessageQueuePut(canRxQueueHandle, &RxData[3], 0U, 0UL);
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
+  if (hadc->Instance == hadc1.Instance) {
+    conversion_completed++;
   }
 }
-/* Transmit Completed Callbacks for Message Sent Confirmations */
-void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
-  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX0) {
-    TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
-    osSemaphoreRelease(canMsgOkSemHandle);
-  }
-}
-void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {
-  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX1) {
-    TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
-    osSemaphoreRelease(canMsgOkSemHandle);
-  }
-}
-void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {
-  if (TxMailboxFuelCellTask == CAN_TX_MAILBOX2) {
-    TxMailboxFuelCellTask = CAN_TX_MAILBOX_NONE;
-    osSemaphoreRelease(canMsgOkSemHandle);
-  }
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-  if (RxUARTbuff == (char)0x04) {
-    HAL_UART_Transmit_DMA(huart, RxUARTData, UartIndex);
-    UartIndex = 0;
-  } else {
-    RxUARTData[UartIndex] = RxUARTbuff;
-    if (UartIndex == (sizeof(RxUARTData) - 1)) {
-      printf("\r\n\tBuffer Overflowed\r\n");
-      UartIndex = 0;
-    } else {
-      UartIndex++;
-    }
-  }
-  HAL_UART_Receive_DMA(huart, &RxUARTbuff, 1U);
-}
-
-uint32_t lockout_parameter = 0;
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-  switch (GPIO_Pin) {
-  case BRD_STRT_Pin:
-    if (HAL_GetTick() - button_debounce[0] > 1000) {
-      printf("Start button pressed\r\n");
-      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
-                      FUEL_CELL_RUN_STATE)) // If fc_state is non-zero
-      {
-        button_debounce[0] = HAL_GetTick();
-        fc_state = FUEL_CELL_OFF_STATE;
-      } else {
-        button_debounce[0] = HAL_GetTick();
-        if (lockout_parameter == 0) {
-          fc_state = FUEL_CELL_STRTUP_STATE;
-        }
-      }
-    }
-    break;
-  case BRD_PRGE_Pin:
-    if (HAL_GetTick() - button_debounce[1] > 1000) {
-      printf("Purge button pressed\r\n");
-      button_debounce[1] = HAL_GetTick();
-      osSemaphoreRelease(purgeSemHandle);
-    }
-    break;
-  case EXT_STRT_Pin:
-    if (HAL_GetTick() - button_debounce[2] > 1000) {
-      if (fc_state & (FUEL_CELL_STRTUP_STATE | FUEL_CELL_CHRGE_STATE |
-                      FUEL_CELL_RUN_STATE)) {
-        button_debounce[2] = HAL_GetTick();
-        fc_state = FUEL_CELL_OFF_STATE;
-      } else {
-        button_debounce[2] = HAL_GetTick();
-        if (lockout_parameter == 0) {
-          fc_state = FUEL_CELL_STRTUP_STATE;
-        }
-      }
-    }
-    break;
-  case ACC_INT1_Pin:
-    /* Do something */
-    break;
-  case ACC_INT2_Pin:
-    /* Do something */
-    break;
-  case EXT_STOP_Pin:
-    if (HAL_GetTick() - button_debounce[3] > 1000) {
-      button_debounce[3] = HAL_GetTick();
-      printf("Shell Ext Stop triggered, reset system to resume operation\r\n");
-      fc_state = FUEL_CELL_OFF_STATE;
-      lockout_parameter = 1;
-    }
-    break;
-  default:
-    /* Should never happen */
-    break;
-  }
-}
-
 
 /* USER CODE END PFP */
 
@@ -274,16 +187,25 @@ int main(void)
   /* creation of error_queue */
   error_queueHandle = osMessageQueueNew (16, sizeof(uint16_t), &error_queue_attributes);
 
+  /* creation of USB_queue */
+  USB_queueHandle = osMessageQueueNew (16, sizeof(uint16_t), &USB_queue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* creation of pull_sensor */
+  pull_sensorHandle = osThreadNew(StartAdcTask, NULL, &pull_sensor_attributes);
 
   /* creation of CAN_requested */
-  CAN_requestedHandle = osThreadNew(CAN_transmit, NULL, &CAN_requested_attributes);
+  CAN_requestedHandle = osThreadNew(startCanTransmit, NULL, &CAN_requested_attributes);
+
+  /* creation of ERROR_handler */
+  ERROR_handlerHandle = osThreadNew(startErrorTask, NULL, &ERROR_handler_attributes);
+
+  /* creation of USB_output */
+  USB_outputHandle = osThreadNew(startUsbTask, NULL, &USB_output_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -381,11 +303,11 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 5;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -405,6 +327,42 @@ static void MX_ADC1_Init(void)
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_7;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_8;
+  sConfig.Rank = ADC_REGULAR_RANK_3;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_9;
+  sConfig.Rank = ADC_REGULAR_RANK_4;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Rank = ADC_REGULAR_RANK_5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -557,42 +515,92 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_StartAdcTask */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the pull_sensor thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+/* USER CODE END Header_StartAdcTask */
+void StartAdcTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	// i don't really know what i should be doing
+	const float ADC_VOLT_REF = 3.3F / 4096.0F;
+	const float VOLT_TO_CURR = 2.5F; //A/V
+	const float BATTERY_VOLT_DIVIDER = 10.8039215549; // voltage divider input 18.5v/ output 1.7123412v
+	const float OUTPUT_VOLT_DIVIDER = 7.10638299762; // voltage divider input 12v/ output 1.68862275v
+	memset(adcResults, 0, 5);
+	HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+
   /* Infinite loop */
   for(;;)
   {
-	  // do the looping stuff
-    osDelay(1);
+	  if (conversion_completed == 1) {
+		  battery_board_data.batt_volt[0] = adcResults[0] * ADC_VOLT_REF * BATTERY_VOLT_DIVIDER;
+		  battery_board_data.batt_cur[0] = adcResults[1] * ADC_VOLT_REF * VOLT_TO_CURR;
+		  battery_board_data.output_cur[0] = adcResults[2] * ADC_VOLT_REF * VOLT_TO_CURR;
+		  battery_board_data.output_volt[0] = adcResults[3] * ADC_VOLT_REF * OUTPUT_VOLT_DIVIDER;
+		  battery_board_data.output_cur[0] = adcResults[4] * ADC_VOLT_REF * VOLT_TO_CURR;
+		  HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+		  conversion_complete = 0;
+	  }
+	  osDelay(10);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_CAN_transmit */
+/* USER CODE BEGIN Header_startCanTransmit */
 /**
 * @brief Function implementing the CAN_requested thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_CAN_transmit */
-void CAN_transmit(void *argument)
+/* USER CODE END Header_startCanTransmit */
+void startCanTransmit(void *argument)
 {
-  /* USER CODE BEGIN CAN_transmit */
+  /* USER CODE BEGIN startCanTransmit */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END CAN_transmit */
+  /* USER CODE END startCanTransmit */
+}
+
+/* USER CODE BEGIN Header_startErrorTask */
+/**
+* @brief Function implementing the ERROR_handler thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_startErrorTask */
+void startErrorTask(void *argument)
+{
+  /* USER CODE BEGIN startErrorTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END startErrorTask */
+}
+
+/* USER CODE BEGIN Header_startUsbTask */
+/**
+* @brief Function implementing the USB_output thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_startUsbTask */
+void startUsbTask(void *argument)
+{
+  /* USER CODE BEGIN startUsbTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END startUsbTask */
 }
 
 /**

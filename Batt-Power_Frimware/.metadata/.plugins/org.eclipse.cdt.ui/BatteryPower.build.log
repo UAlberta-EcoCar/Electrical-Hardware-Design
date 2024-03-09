@@ -1,0 +1,78 @@
+15:16:58 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:32:23: error: expected ':', ',', ';', '}' or '__attribute__' before '=' token
+   32 |   float batt_volt[64] = {0};
+      |                       ^
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:531:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  531 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:531:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  531 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:531:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:531:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:531:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  531 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:531:16: note: expected 'void *' but argument is of type 'volatile uint16_t *' {aka 'volatile short unsigned int *'}
+../Core/Src/main.c:532:36: error: 'unit32_t' undeclared (first use in this function); did you mean 'uint32_t'?
+  532 |         HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+      |                                    ^~~~~~~~
+      |                                    uint32_t
+../Core/Src/main.c:532:36: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:532:46: error: expected expression before ')' token
+  532 |         HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+      |                                              ^
+../Core/Src/main.c:532:9: error: too few arguments to function 'HAL_ADC_Start_DMA'
+  532 |         HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+      |         ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:278,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:1945:25: note: declared here
+ 1945 | HAL_StatusTypeDef       HAL_ADC_Start_DMA(ADC_HandleTypeDef *hadc, uint32_t *pData, uint32_t Length);
+      |                         ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:538:37: error: 'bbData_t' has no member named 'batt_volt'
+  538 |                   battery_board_data.batt_volt[0] = adcResults[0] * ADC_VOLT_REF * BATTERY_VOLT_DIVIDER;
+      |                                     ^
+../Core/Src/main.c:539:37: error: 'bbData_t' has no member named 'batt_cur'
+  539 |                   battery_board_data.batt_cur[0] = adcResults[1] * ADC_VOLT_REF * VOLT_TO_CURR;
+      |                                     ^
+../Core/Src/main.c:540:37: error: 'bbData_t' has no member named 'output_cur'
+  540 |                   battery_board_data.output_cur[0] = adcResults[2] * ADC_VOLT_REF * VOLT_TO_CURR;
+      |                                     ^
+../Core/Src/main.c:541:37: error: 'bbData_t' has no member named 'output_volt'
+  541 |                   battery_board_data.output_volt[0] = adcResults[3] * ADC_VOLT_REF * OUTPUT_VOLT_DIVIDER;
+      |                                     ^
+../Core/Src/main.c:542:37: error: 'bbData_t' has no member named 'output_cur'
+  542 |                   battery_board_data.output_cur[0] = adcResults[4] * ADC_VOLT_REF * VOLT_TO_CURR;
+      |                                     ^
+../Core/Src/main.c:543:56: error: expected expression before ')' token
+  543 |                   HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+      |                                                        ^
+../Core/Src/main.c:543:19: error: too few arguments to function 'HAL_ADC_Start_DMA'
+  543 |                   HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+      |                   ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:278,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:1945:25: note: declared here
+ 1945 | HAL_StatusTypeDef       HAL_ADC_Start_DMA(ADC_HandleTypeDef *hadc, uint32_t *pData, uint32_t Length);
+      |                         ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:544:19: error: 'conversion_complete' undeclared (first use in this function); did you mean 'conversion_completed'?
+  544 |                   conversion_complete = 0;
+      |                   ^~~~~~~~~~~~~~~~~~~
+      |                   conversion_completed
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+
+15:16:59 Build Failed. 13 errors, 4 warnings. (took 426ms)
+
