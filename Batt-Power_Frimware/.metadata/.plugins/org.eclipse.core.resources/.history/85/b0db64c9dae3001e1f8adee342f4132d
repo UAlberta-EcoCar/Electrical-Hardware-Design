@@ -15,7 +15,6 @@
   *
   ******************************************************************************
   */
-#include <stdlib.h>
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -603,11 +602,6 @@ void CanTask(void *argument)
   for(;;)
   {
 	  if (osMessageQueueGet(canRxMsgQueueHandle, &queueData, 0U, osWaitForever) == osOK) {
-		  floatPackage[0] = battery_board_data[9].batt_cur;
-		  floatPackage[1] = battery_board_data[9].batt_volt;
-		  floatPackage[2] = battery_board_data[9].buck_cur;
-		  floatPackage[3] = battery_board_data[9].output_cur;
-		  floatPackage[4] = battery_board_data[9].output_volt;
 		  // Need to make a switch depending on the data requested
 		  // Only going to send all
 		  hal_stat1 = HAL_CAN_SafeAddTxMessage(
