@@ -65,10 +65,6 @@ const osThreadAttr_t pull_sensor_attributes = {
 };
 /* USER CODE BEGIN PV */
 
-bbData_t battery_board_data = {.batt_cur = {0}, .batt_volt = {0}, .buck_cur = {0}, .output_cur = {0}, .output_volt={0}};
-
-volatile uint32_t adcResults[5];
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,6 +109,9 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+  bbData_t battery_board_data = {.batt_cur = {0}, .batt_volt = {0}, .buck_cur = {0}, .output_cur = {0}, .output_volt={0}};
+
+  volatile uint32_t adcResults[5];
 
   /* USER CODE END Init */
 
@@ -155,7 +154,6 @@ int main(void)
   /* Create the thread(s) */
   /* creation of pull_sensor */
   pull_sensorHandle = osThreadNew(StartAdcTask, NULL, &pull_sensor_attributes);
-
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
