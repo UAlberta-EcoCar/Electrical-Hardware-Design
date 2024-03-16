@@ -1,3 +1,0 @@
-#define RELAY_CONFIGURATION_ID 0x100
-
-
