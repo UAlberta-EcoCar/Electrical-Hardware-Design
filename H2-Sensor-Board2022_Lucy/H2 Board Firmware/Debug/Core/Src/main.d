@@ -44,9 +44,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/can.h ../Core/Inc/dma.h \
+ ../Core/Inc/i2c.h ../Core/Inc/usart.h ../Core/Inc/gpio.h \
  ../Core/Inc/ssd1306.h ../Core/Inc/ssd1306_conf.h \
  ../Core/Inc/ssd1306_fonts.h ../Core/Src/bme280/bme280.h \
- ../Core/Src/bme280/bme280_defs.h
+ ../Core/Src/bme280/bme280_defs.h ../Core/Inc/packets.h \
+ ../Core/Src/MQ8/mq8calibration.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -93,8 +96,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+../Core/Inc/adc.h:
+../Core/Inc/main.h:
+../Core/Inc/can.h:
+../Core/Inc/dma.h:
+../Core/Inc/i2c.h:
+../Core/Inc/usart.h:
+../Core/Inc/gpio.h:
 ../Core/Inc/ssd1306.h:
 ../Core/Inc/ssd1306_conf.h:
 ../Core/Inc/ssd1306_fonts.h:
 ../Core/Src/bme280/bme280.h:
 ../Core/Src/bme280/bme280_defs.h:
+../Core/Inc/packets.h:
+../Core/Src/MQ8/mq8calibration.h:
