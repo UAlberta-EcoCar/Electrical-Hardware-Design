@@ -29,11 +29,11 @@
 /* USER CODE BEGIN PTD */
 
 typedef struct bbData_t {
-  float batt_volt[64];
-  float batt_cur[64];
-  float output_volt[64]; // 12 volt output voltage
-  float output_cur[64]; // 12 volt output current
-  float buck_cur[64]; // 5 volt buck current
+  uint32_t batt_volt;
+  uint32_t batt_cur;
+  uint32_t output_volt; // 12 volt output voltage
+  uint32_t output_cur; // 12 volt output current
+  uint32_t buck_cur; // 5 volt buck current
 } bbData_t;
 
 /* USER CODE END PTD */
@@ -64,8 +64,7 @@ const osThreadAttr_t pull_sensor_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-
-bbData_t battery_board_data = {.batt_cur = {0}, .batt_volt = {0}, .buck_cur = {0}, .output_cur = {0}, .output_volt={0}};
+bbData_t battery_board_data[10];
 
 volatile uint32_t adcResults[5];
 
@@ -198,10 +197,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.MSICalibrationValue = 0;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
   RCC_OscInitStruct.PLL.PLLM = 1;
   RCC_OscInitStruct.PLL.PLLN = 20;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
@@ -221,11 +222,10 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
-  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_1);
 }
 
 /**
@@ -435,14 +435,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /*Configure GPIO pin : CAN_STBY_Pin */
   GPIO_InitStruct.Pin = CAN_STBY_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -474,24 +466,29 @@ static void MX_GPIO_Init(void)
 void StartAdcTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	const float ADC_VOLT_REF = 3.3F / 4096.0F;
-	const float VOLT_TO_CURR = 2.5F; //A/V
-	const float BATTERY_VOLT_DIVIDER = 10.8039215549; // voltage divider input 18.5v/ output 1.7123412v
-	const float OUTPUT_VOLT_DIVIDER = 7.10638299762; // voltage divider input 12v/ output 1.68862275v
+	const float ADC_VOLT_REF = 3.3f / 4096.0f;
+	const float VOLT_TO_CURR = 2.5f; //A/V
+	const float BATTERY_VOLT_DIVIDER = 10.8f; // voltage divider input 18.5v/ output 1.7123412v
+	const float OUTPUT_VOLT_DIVIDER = 7.1f; // voltage divider input 12v/ output 1.68862275v
 	memset(adcResults, 0, 5);
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adcResults, 5);
+	int i = 0;
 
   /* Infinite loop */
   for(;;)
   {
-	  if (conversion_completed == 1) {
-		  battery_board_data.batt_volt[0] = adcResults[0] * ADC_VOLT_REF * BATTERY_VOLT_DIVIDER;
-		  battery_board_data.batt_cur[0] = adcResults[1] * ADC_VOLT_REF * VOLT_TO_CURR;
-		  battery_board_data.output_cur[0] = adcResults[2] * ADC_VOLT_REF * VOLT_TO_CURR;
-		  battery_board_data.output_volt[0] = adcResults[3] * ADC_VOLT_REF * OUTPUT_VOLT_DIVIDER;
-		  battery_board_data.output_cur[0] = adcResults[4] * ADC_VOLT_REF * VOLT_TO_CURR;
+	  if (conversion_completed) {
+		  battery_board_data[i].batt_volt = adcResults[0] * ADC_VOLT_REF * BATTERY_VOLT_DIVIDER;
+		  battery_board_data[i].batt_cur = adcResults[1] * ADC_VOLT_REF * VOLT_TO_CURR;
+		  battery_board_data[i].output_cur = adcResults[2] * ADC_VOLT_REF * VOLT_TO_CURR;
+		  battery_board_data[i].output_volt = adcResults[3] * ADC_VOLT_REF * OUTPUT_VOLT_DIVIDER;
+		  battery_board_data[i].output_cur = adcResults[4] * ADC_VOLT_REF * VOLT_TO_CURR;
 		  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adcResults, 5);
 		  conversion_completed = 0;
+		  i++;
+		  if (i >= 10){
+			  i = 0;
+		  }
 	  }
 	  osDelay(10);
   }

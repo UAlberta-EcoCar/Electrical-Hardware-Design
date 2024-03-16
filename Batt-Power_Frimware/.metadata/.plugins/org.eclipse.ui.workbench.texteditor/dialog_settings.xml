@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="battery_board_data"/>
+		<item key="selection" value="HAL_ADC_Start_DMA"/>
 		<list key="findhistory">
+			<item value="HAL_ADC_ConvCpltCallback"/>
+			<item value="HAL_ADC_Start_DMA"/>
+			<item value="StartAdcTask"/>
 			<item value="battery_board_data"/>
 			<item value="batt_volt"/>
 			<item value="bbData_t"/>

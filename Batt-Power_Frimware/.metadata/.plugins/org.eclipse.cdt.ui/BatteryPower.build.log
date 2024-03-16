@@ -1,34 +1,10 @@
-19:09:52 **** Incremental Build of configuration Debug for project BatteryPower ****
+20:43:47 **** Incremental Build of configuration Debug for project BatteryPower ****
 make -j20 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'StartAdcTask':
-../Core/Src/main.c:481:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
-  481 |         memset(adcResults, 0, 5);
-      |         ^~~~~~
-../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
-   21 | #include "cmsis_os.h"
-  +++ |+#include <string.h>
-   22 | 
-../Core/Src/main.c:481:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
-  481 |         memset(adcResults, 0, 5);
-      |         ^~~~~~
-../Core/Src/main.c:481:9: note: include '<string.h>' or provide a declaration of 'memset'
-../Core/Src/main.c:481:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
-../Core/Src/main.c:481:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  481 |         memset(adcResults, 0, 5);
-      |                ^~~~~~~~~~
-../Core/Src/main.c:481:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
-arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: BatteryPower.elf
- 
 arm-none-eabi-size   BatteryPower.elf 
-arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
    text	   data	    bss	    dec	    hex	filename
-  29644	     24	   9632	  39300	   9984	BatteryPower.elf
+  29612	     24	   8552	  38188	   952c	BatteryPower.elf
 Finished building: default.size.stdout
  
-Finished building: BatteryPower.list
- 
 
-19:09:53 Build Finished. 0 errors, 4 warnings. (took 649ms)
+20:43:47 Build Finished. 0 errors, 0 warnings. (took 200ms)
 

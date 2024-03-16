@@ -1020,3 +1020,309 @@ Finished building: default.size.stdout
  
 Finished building: BatteryPower.list
  
+20:13:28 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:481:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  481 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:481:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  481 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:481:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:481:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  481 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:481:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+../Core/Src/main.c:483:34: error: 'hadc' undeclared (first use in this function); did you mean 'hadc1'?
+  483 |         HAL_ADC_ConvCpltCallback(hadc)
+      |                                  ^~~~
+      |                                  hadc1
+../Core/Src/main.c:483:34: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:483:39: error: expected ';' before 'for'
+  483 |         HAL_ADC_ConvCpltCallback(hadc)
+      |                                       ^
+      |                                       ;
+......
+  486 |   for(;;)
+      |   ~~~                                  
+../Core/Src/main.c:480:21: warning: unused variable 'OUTPUT_VOLT_DIVIDER' [-Wunused-variable]
+  480 |         const float OUTPUT_VOLT_DIVIDER = 7.10638299762; // voltage divider input 12v/ output 1.68862275v
+      |                     ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:479:21: warning: unused variable 'BATTERY_VOLT_DIVIDER' [-Wunused-variable]
+  479 |         const float BATTERY_VOLT_DIVIDER = 10.8039215549; // voltage divider input 18.5v/ output 1.7123412v
+      |                     ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:478:21: warning: unused variable 'VOLT_TO_CURR' [-Wunused-variable]
+  478 |         const float VOLT_TO_CURR = 2.5F; //A/V
+      |                     ^~~~~~~~~~~~
+../Core/Src/main.c:477:21: warning: unused variable 'ADC_VOLT_REF' [-Wunused-variable]
+  477 |         const float ADC_VOLT_REF = 3.3F / 4096.0F;
+      |                     ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+20:13:49 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:481:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  481 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:481:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  481 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:481:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:481:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  481 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:481:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29644	     24	   9816	  39484	   9a3c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:16:22 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:474:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  474 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:474:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  474 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:474:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:474:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  474 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:474:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29500	     24	   9816	  39340	   99ac	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:27:20 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:67:1: error: unknown type name 'bbdata'; did you mean 'bbData_t'?
+   67 | bbdata battery_board_data[10];
+      | ^~~~~~
+      | bbData_t
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:473:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:473:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:473:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:473:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:473:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  473 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:473:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+../Core/Src/main.c:480:40: error: request for member 'batt_volt' in something not a structure or union
+  480 |                   battery_board_data[i].batt_volt = adcResults[0] * ADC_VOLT_REF * BATTERY_VOLT_DIVIDER;
+      |                                        ^
+../Core/Src/main.c:481:40: error: request for member 'batt_cur' in something not a structure or union
+  481 |                   battery_board_data[i].batt_cur = adcResults[1] * ADC_VOLT_REF * VOLT_TO_CURR;
+      |                                        ^
+../Core/Src/main.c:482:40: error: request for member 'output_cur' in something not a structure or union
+  482 |                   battery_board_data[i].output_cur = adcResults[2] * ADC_VOLT_REF * VOLT_TO_CURR;
+      |                                        ^
+../Core/Src/main.c:483:40: error: request for member 'output_volt' in something not a structure or union
+  483 |                   battery_board_data[i].output_volt = adcResults[3] * ADC_VOLT_REF * OUTPUT_VOLT_DIVIDER;
+      |                                        ^
+../Core/Src/main.c:484:40: error: request for member 'output_cur' in something not a structure or union
+  484 |                   battery_board_data[i].output_cur = adcResults[4] * ADC_VOLT_REF * VOLT_TO_CURR;
+      |                                        ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+20:28:25 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:473:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:473:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:473:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:473:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:473:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  473 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:473:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29596	     24	   8552	  38172	   951c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:30:04 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:473:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:473:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:473:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:473:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:473:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  473 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:473:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29596	     24	   8552	  38172	   951c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:30:34 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-size   BatteryPower.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29596	     24	   8552	  38172	   951c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+20:34:24 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:473:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:473:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:473:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:473:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:473:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  473 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:473:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29628	     24	   8552	  38204	   953c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:40:13 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartAdcTask':
+../Core/Src/main.c:473:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'memset'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:473:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  473 |         memset(adcResults, 0, 5);
+      |         ^~~~~~
+../Core/Src/main.c:473:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:473:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:473:16: warning: passing argument 1 of 'memset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  473 |         memset(adcResults, 0, 5);
+      |                ^~~~~~~~~~
+../Core/Src/main.c:473:16: note: expected 'void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29612	     24	   8552	  38188	   952c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:40:29 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-size   BatteryPower.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29612	     24	   8552	  38188	   952c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+20:43:34 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\gfran\Documents\GitHub\Electrical-Hardware-Design\Batt-Power_Frimware\BatteryPower\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BatteryPower.elf
+ 
+arm-none-eabi-size   BatteryPower.elf 
+arm-none-eabi-objdump -h -S  BatteryPower.elf  > "BatteryPower.list"
+   text	   data	    bss	    dec	    hex	filename
+  29612	     24	   8552	  38188	   952c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
+Finished building: BatteryPower.list
+ 
+20:43:47 **** Incremental Build of configuration Debug for project BatteryPower ****
+make -j20 all 
+arm-none-eabi-size   BatteryPower.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29612	     24	   8552	  38188	   952c	BatteryPower.elf
+Finished building: default.size.stdout
+ 
