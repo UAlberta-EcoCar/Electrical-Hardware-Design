@@ -768,3 +768,14 @@
 2024-03-16 14:00:13,800 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 2498mS.
 2024-03-16 14:00:13,801 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
 2024-03-16 14:00:13,808 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2024-03-16 15:58:25,517 [INFO] Activator:176 - 
+
+
+2024-03-16 15:58:25,519 [INFO] Activator:177 - !SESSION log4j initialized
+2024-03-16 15:58:34,887 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-03-16 15:58:36,425 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Exception in thread "Thread-14" java.lang.NullPointerException: Cannot invoke "com.st.stm32cube.ide.mcu.cyclomaticcomplexity.Activator.isDebugging()" because "com.st.stm32cube.ide.mcu.cyclomaticcomplexity.Activator.plugin" is null
+2024-03-16 15:58:36,430 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.cyclomaticcomplexity.Activator.debugTrace(Activator.java:60)
+2024-03-16 15:58:36,435 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.cyclomaticcomplexity.CyclomaticView.TRACE(CyclomaticView.java:771)
+2024-03-16 15:58:36,440 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.cyclomaticcomplexity.CyclomaticView.inputChanged(CyclomaticView.java:730)
+2024-03-16 15:58:36,444 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.cyclomaticcomplexity.CyclomaticView.lambda$4(CyclomaticView.java:561)
+2024-03-16 15:58:36,447 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.Thread.run(Thread.java:833)
