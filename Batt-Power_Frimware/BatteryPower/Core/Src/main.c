@@ -28,7 +28,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
-typedef struct {
+typedef struct bbData_t {
   float batt_volt[64];
   float batt_cur[64];
   float output_volt[64]; // 12 volt output voltage
@@ -96,8 +96,7 @@ const osMessageQueueAttr_t USB_queue_attributes = {
 };
 /* USER CODE BEGIN PV */
 
-bbData_t battery_board_data;
-memset(battery_board_data.batt_volt, 0, 64)
+bbData_t battery_board_data = {.batt_cur = {0}, .batt_volt = {0}, .buck_cur = {0}, .output_cur = {0}, .output_volt={0}};
 
 volatile uint32_t adcResults[5];
 
@@ -530,7 +529,7 @@ void StartAdcTask(void *argument)
 	const float BATTERY_VOLT_DIVIDER = 10.8039215549; // voltage divider input 18.5v/ output 1.7123412v
 	const float OUTPUT_VOLT_DIVIDER = 7.10638299762; // voltage divider input 12v/ output 1.68862275v
 	memset(adcResults, 0, 5);
-	HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
+	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adcResults, 5);
 
   /* Infinite loop */
   for(;;)
@@ -541,8 +540,8 @@ void StartAdcTask(void *argument)
 		  battery_board_data.output_cur[0] = adcResults[2] * ADC_VOLT_REF * VOLT_TO_CURR;
 		  battery_board_data.output_volt[0] = adcResults[3] * ADC_VOLT_REF * OUTPUT_VOLT_DIVIDER;
 		  battery_board_data.output_cur[0] = adcResults[4] * ADC_VOLT_REF * VOLT_TO_CURR;
-		  HAL_ADC_Start_DMA(&hadc1, (unit32_t *)adcResults, 5);
-		  conversion_complete = 0;
+		  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adcResults, 5);
+		  conversion_completed = 0;
 	  }
 	  osDelay(10);
   }
