@@ -23,6 +23,6 @@ extern uint8_t RxData_Reserved[8];
 void MX_CAN1_Init(void);
 void HAL_CAN_MspInit(CAN_HandleTypeDef *canHandle);
 void HAL_CAN_MspDeInit(CAN_HandleTypeDef *canHandle);
-int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
+int CAN_Transmit(uint32_t _device_address, uint8_t *_buffer_pointer,
                  int _buffer_length, uint32_t _RTR);
 void CAN_Initialize();

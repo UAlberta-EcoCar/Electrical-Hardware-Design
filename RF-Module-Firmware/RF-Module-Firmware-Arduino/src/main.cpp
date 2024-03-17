@@ -11,11 +11,13 @@ long lastSendTime = 0; // time of last packet send
 
 #include "can.h"
 
+uint8_t data[] = {1, 2, 3, 4};
+
 void sendMessage(String outgoing)
 {
   LoRa.beginPacket();   // start packet
   LoRa.print(outgoing); // add payload
-  LoRa.endPacket();     // finish packet and send it
+  LoRa.endPacket(true); // finish packet and send it
   msgCount++;           // increment message ID
 }
 
@@ -60,7 +62,7 @@ void setup()
   // pinMode(PB5, OUTPUT);
   // digitalWrite(PB5, HIGH);
   LoRa.setSPI(SPI);
-  LoRa.setTxPower(1);
+  LoRa.setTxPower(5);
   // LoRa.setSignalBandwidth(10.4E3);
   // LoRa.setSpreadingFactor(6);
   if (!LoRa.begin(915E6))
@@ -81,12 +83,26 @@ void setup()
 uint8_t send = 0x01;
 void loop()
 {
+  float f = 3;
   // Serial.println("Running Sending and Recieving");
   digitalToggle(PA10);
-  CAN_Transmit(0x101, (uint32_t *)&send, 1, CAN_RTR_DATA);
-  send += 1;
-  // The actual code that is being used will be done to main loop as usual.
-  // We only read data from CAN bus if there is frames received, so that main code can do it's thing efficiently.
+  Serial.println("Requesting CAN");
+  CAN_Transmit(INT_STACK_PRES_TEMP, (uint8_t *)&f, 4, CAN_RTR_DATA);
+  // CAN_Transmit(H2_ALARM, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(RELAY_CONF, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(CAP_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(MTR_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(INT_STACK_PRES_TEMP, 0, 0, CAN_RTR_REMOTE);
+
+  // CAN_Transmit(ACCEL_X_Y, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(ACCEL_Z_SPEED, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(H2_CONC_MV, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(H2_TEMP, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(H2_PRESSURE, 0, 0, CAN_RTR_REMOTE);
+  // CAN_Transmit(H2_HUMIDITY, 0, 0, CAN_RTR_REMOTE);
+  // send += 1;
+  //  The actual code that is being used will be done to main loop as usual.
+  //  We only read data from CAN bus if there is frames received, so that main code can do it's thing efficiently.
 
   // if (millis() - lastSendTime > interval)
   // {
@@ -100,24 +116,29 @@ void loop()
   // }
 
   // parse for a packet, and call onReceive with the result:
-  // onReceive(LoRa.parsePacket());
+  onReceive(LoRa.parsePacket());
   // put your main code here, to run repeatedly:
   HAL_Delay(500);
   // onReceive(LoRa.parsePacket());
 }
-
+float f = 1.0;
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
   // Just check if there is atleast 1 spot open
   // If we dont and call get message we will loose that message since it wont fit and the ISR will exit.
   if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK)
   {
-    Error_Handler();
+
+    Serial.println("Error CAN RX");
+    // Error_Handler();
   }
-  String message = "";
-  message.concat(RxData[0]);
-  sendMessage(message);
-  Serial.println("Sending ");
+  char *message = "";
+
+  memcpy(&f, &RxData, sizeof(f));
+  sprintf(message, "%lu:%f", (long unsigned)RxHeader.StdId, f);
+  // message.concat(RxData[0]);
+  sendMessage(String(f));
+  Serial.println("Sending");
 }
 
 #ifdef __cplusplus

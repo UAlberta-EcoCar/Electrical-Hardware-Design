@@ -26,11 +26,11 @@ void MX_CAN1_Init(void)
 
     /* USER CODE END CAN1_Init 1 */
     hcan1.Instance = CAN1;
-    hcan1.Init.Prescaler = 16;
+    hcan1.Init.Prescaler = 5;
     hcan1.Init.Mode = CAN_MODE_LOOPBACK;
     hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
-    hcan1.Init.TimeSeg1 = CAN_BS1_2TQ;
-    hcan1.Init.TimeSeg2 = CAN_BS2_2TQ;
+    hcan1.Init.TimeSeg1 = CAN_BS1_11TQ;
+    hcan1.Init.TimeSeg2 = CAN_BS2_4TQ;
     hcan1.Init.TimeTriggeredMode = DISABLE;
     hcan1.Init.AutoBusOff = DISABLE;
     hcan1.Init.AutoWakeUp = DISABLE;
@@ -63,7 +63,14 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *canHandle)
         PA11     ------> CAN1_RX
         PA12     ------> CAN1_TX
         */
-        GPIO_InitStruct.Pin = GPIO_PIN_11 | GPIO_PIN_12;
+        GPIO_InitStruct.Pin = GPIO_PIN_11;
+        GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+        GPIO_InitStruct.Pull = GPIO_PULLUP;
+        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+        GPIO_InitStruct.Alternate = GPIO_AF9_CAN1;
+        HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+        GPIO_InitStruct.Pin = GPIO_PIN_12;
         GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
         GPIO_InitStruct.Pull = GPIO_NOPULL;
         GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -110,7 +117,7 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef *canHandle)
     }
 }
 
-int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
+int CAN_Transmit(uint32_t _device_address, uint8_t *_buffer_pointer,
                  int _buffer_length, uint32_t _RTR)
 {
 
@@ -121,13 +128,11 @@ int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
         printf(
             "Can transmission error on packet id: %hu and containing data: %u\r\n",
             _device_address, _buffer_pointer);
-        Error_Handler();
+        // Error_Handler();
     }
 
     return 1;
 }
-
-
 
 void CAN_Initialize()
 {
@@ -151,15 +156,21 @@ void CAN_Initialize()
     }
 
     CAN_FilterTypeDef low_priority_filter;
-    low_priority_filter.FilterIdHigh = 0x100 << 5;
+    low_priority_filter.FilterIdHigh = 0x200 << 5;
     low_priority_filter.FilterMaskIdHigh = 0x700 << 5;
     low_priority_filter.FilterIdLow = 0x0000;
     low_priority_filter.FilterMaskIdLow = 0x0000;
     low_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-    low_priority_filter.FilterBank = 0;
+    low_priority_filter.FilterBank = 1;
     low_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
     low_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
     low_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
+
+    if (HAL_CAN_ConfigFilter(&hcan1, &low_priority_filter) != HAL_OK)
+    {
+        /* Filter configuration Error */
+        Error_Handler();
+    }
 
     if (HAL_CAN_Start(&hcan1) != HAL_OK)
     {
