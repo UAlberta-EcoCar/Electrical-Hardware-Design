@@ -68,9 +68,9 @@ typedef struct {
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define CAN_MESSAGE_SENT_TIMEOUT_MS 500
-#define CAN_ADD_TX_TIMEOUT_MS 5000
+#define CAN_ADD_TX_TIMEOUT_MS 500
 
-#define FULL_CAP_CHARGE_V 18
+#define FULL_CAP_CHARGE_V 20
 
 #define CAN_TX_MAILBOX_NONE 0x00000000U // Remove reference to tx mailbox
 /* USER CODE END PD */
