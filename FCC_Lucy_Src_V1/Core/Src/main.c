@@ -79,7 +79,7 @@ typedef struct {
 #define CAN_MESSAGE_SENT_TIMEOUT_MS 500
 #define CAN_ADD_TX_TIMEOUT_MS 500
 
-#define FULL_CAP_CHARGE_V 5
+#define FULL_CAP_CHARGE_V 20
 #define PURGE_PERIOD 180000 // 3 minutes
 #define PURGE_TIME 250      // 250 ms
 
@@ -402,9 +402,6 @@ int main(void) {
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_CAN_Start(&hcan1);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
 
   button_debounce[0] = button_debounce[1] = button_debounce[2] =
       button_debounce[3] = HAL_GetTick();
@@ -454,7 +451,7 @@ int main(void) {
   /* Create the queue(s) */
   /* creation of canRxQueue */
   canRxQueueHandle =
-      osMessageQueueNew(16, sizeof(uint32_t), &canRxQueue_attributes);
+      osMessageQueueNew(64, sizeof(uint32_t), &canRxQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -594,6 +591,19 @@ static void MX_CAN1_Init(void) {
   sf.FilterMaskIdLow = 0x0000;
   sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
   sf.FilterBank = 1;
+  sf.FilterMode = CAN_FILTERMODE_IDMASK;
+  sf.FilterScale = CAN_FILTERSCALE_32BIT;
+  sf.FilterActivation = CAN_FILTER_ENABLE;
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+    Error_Handler();
+  }
+  // Accept StdID 0x201
+  sf.FilterIdHigh = 0x201 << 5;
+  sf.FilterMaskIdHigh = 0x7FF << 5;
+  sf.FilterIdLow = 0x0000;
+  sf.FilterMaskIdLow = 0x0000;
+  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  sf.FilterBank = 3;
   sf.FilterMode = CAN_FILTERMODE_IDMASK;
   sf.FilterScale = CAN_FILTERSCALE_32BIT;
   sf.FilterActivation = CAN_FILTER_ENABLE;
@@ -806,6 +816,10 @@ uint8_t latest_voltage_got = 0;
 /* USER CODE END Header_StartCanTask */
 void StartCanTask(void *argument) {
 /* USER CODE BEGIN 5 */
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING);
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
+
 #define RELAY_CONFIG_CONFIRMED 1
 
   float floatPackage[2];
@@ -837,8 +851,8 @@ void StartCanTask(void *argument) {
         }
         break;
       case H2_ALARM:
-        fc_state = FUEL_CELL_OFF_STATE;
-        lockout_parameter = 1;
+        //fc_state = FUEL_CELL_OFF_STATE;
+        //lockout_parameter = 0;
         break;
       default:
         break;
@@ -1030,9 +1044,6 @@ void StartFuelCellTask(void *argument) {
       }
       break;
     }
-    // Printing some stuff to USB
-    printf("Pressure: %0.4f\r\nTemperature: %0.4f\r\n",
-           fcData.internal_stack_pressure, fcData.internal_stack_temp);
     osDelay(10);
   }
   /* USER CODE END StartFuelCellTask */
