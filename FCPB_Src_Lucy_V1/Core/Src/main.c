@@ -22,11 +22,17 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "canid.h"
+#include "cmsis_os2.h"
+#include "stm32l4xx_hal_tim.h"
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticTimer_t osStaticTimerDef_t;
 /* USER CODE BEGIN PTD */
 typedef struct {
   float Volt_12;
@@ -107,6 +113,14 @@ const osThreadAttr_t FanPwmTask_attributes = {
 /* Definitions for canRxQueue */
 osMessageQueueId_t canRxQueueHandle;
 const osMessageQueueAttr_t canRxQueue_attributes = {.name = "canRxQueue"};
+/* Definitions for TimerFanRpm */
+osTimerId_t TimerFanRpmHandle;
+osStaticTimerDef_t TimerFanRpmControlBlock;
+const osTimerAttr_t TimerFanRpm_attributes = {
+    .name = "TimerFanRpm",
+    .cb_mem = &TimerFanRpmControlBlock,
+    .cb_size = sizeof(TimerFanRpmControlBlock),
+};
 /* Definitions for canMsgOkSem */
 osSemaphoreId_t canMsgOkSemHandle;
 const osSemaphoreAttr_t canMsgOkSem_attributes = {.name = "canMsgOkSem"};
@@ -125,6 +139,10 @@ canData_t can_bus_data = {0, 0.00F, 0.00F};
 uint8_t RxUARTbuff;
 uint8_t RxUARTData[32];
 uint8_t UartIndex = 0;
+
+uint32_t TxMailboxPwmTask;
+
+uint32_t InterruptTracker[2] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -138,6 +156,7 @@ static void MX_TIM16_Init(void);
 void StartCanTask(void *argument);
 void StartAdcTask(void *argument);
 void StartFanPwmTask(void *argument);
+void ComputeRpmCallback(void *argument);
 
 /* USER CODE BEGIN PFP */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
@@ -191,8 +210,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   switch (GPIO_Pin) {
   case (TACH1_Pin):
+    InterruptTracker[0]++;
     break;
   case (TACH2_Pin):
+    InterruptTracker[1]++;
     break;
   default:
     /* Should never happen */
@@ -301,6 +322,11 @@ int main(void) {
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
 
+  /* Create the timer(s) */
+  /* creation of TimerFanRpm */
+  TimerFanRpmHandle = osTimerNew(ComputeRpmCallback, osTimerPeriodic, NULL,
+                                 &TimerFanRpm_attributes);
+
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
@@ -308,7 +334,7 @@ int main(void) {
   /* Create the queue(s) */
   /* creation of canRxQueue */
   canRxQueueHandle =
-      osMessageQueueNew(32, sizeof(uint32_t), &canRxQueue_attributes);
+      osMessageQueueNew(64, sizeof(uint32_t), &canRxQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -498,6 +524,33 @@ static void MX_CAN1_Init(void) {
   if (HAL_CAN_Init(&hcan1) != HAL_OK) {
     Error_Handler();
   }
+  CAN_FilterTypeDef sf;
+  // Accept StdID 0x101
+  sf.FilterIdHigh = 0x201 << 5;
+  sf.FilterMaskIdHigh = 0x7FF << 5;
+  sf.FilterIdLow = 0x0000;
+  sf.FilterMaskIdLow = 0x0000;
+  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  sf.FilterBank = 0;
+  sf.FilterMode = CAN_FILTERMODE_IDMASK;
+  sf.FilterScale = CAN_FILTERSCALE_32BIT;
+  sf.FilterActivation = CAN_FILTER_ENABLE;
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+    Error_Handler();
+  }
+  // Accept 0x000 to 0x00F
+  sf.FilterIdHigh = 0x000 << 5;
+  sf.FilterMaskIdHigh = 0x7F0 << 5;
+  sf.FilterIdLow = 0x0000;
+  sf.FilterMaskIdLow = 0x0000;
+  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  sf.FilterBank = 1;
+  sf.FilterMode = CAN_FILTERMODE_IDMASK;
+  sf.FilterScale = CAN_FILTERSCALE_32BIT;
+  sf.FilterActivation = CAN_FILTER_ENABLE;
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+    Error_Handler();
+  }
   /* USER CODE BEGIN CAN1_Init 2 */
 
   /* USER CODE END CAN1_Init 2 */
@@ -521,12 +574,12 @@ static void MX_TIM16_Init(void) {
 
   /* USER CODE END TIM16_Init 1 */
   htim16.Instance = TIM16;
-  htim16.Init.Prescaler = 79;
+  htim16.Init.Prescaler = 799;
   htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim16.Init.Period = 100;
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
-  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim16) != HAL_OK) {
     Error_Handler();
   }
@@ -688,7 +741,21 @@ void StartCanTask(void *argument) {
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING);
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_TX_MAILBOX_EMPTY);
   /* Infinite loop */
+  uint32_t queueData;
   for (;;) {
+    if (osMessageQueueGet(canRxQueueHandle, &queueData, 0U, osWaitForever) ==
+        osOK) {
+      switch (queueData) {
+      case INTERNAL_FUEL_CELL_PACKET:
+        osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
+        memcpy(&can_bus_data.fcPres, &queueData, sizeof(uint32_t));
+        osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
+        memcpy(&can_bus_data.fcTemp, &queueData, sizeof(uint32_t));
+        break;
+      default:
+        break;
+      }
+    }
     osDelay(1);
   }
   /* USER CODE END 5 */
@@ -718,7 +785,7 @@ void StartAdcTask(void *argument) {
 
       conversion_completed = 0;
 
-      HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc1Results, 3);
+      HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc1Results, 4);
     }
     osDelay(10);
   }
@@ -734,11 +801,35 @@ void StartAdcTask(void *argument) {
 /* USER CODE END Header_StartFanPwmTask */
 void StartFanPwmTask(void *argument) {
   /* USER CODE BEGIN StartFanPwmTask */
+  uint32_t CCR1_set;
+
+  osTimerStart(TimerFanRpmHandle, 1000);
+
+  HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
+  HAL_TIMEx_PWMN_Start(&htim16, TIM_CHANNEL_1);
   /* Infinite loop */
   for (;;) {
-    osDelay(1);
+    HAL_CAN_SafeAddTxMessage(NULL, INTERNAL_FUEL_CELL_PACKET, 0UL,
+                             &TxMailboxPwmTask, CAN_RTR_REMOTE);
+    if (can_bus_data.fcTemp > 10.0F) {
+      CCR1_set = (uint32_t)(0.5F * powf(can_bus_data.fcTemp - 10, 1.5F));
+      htim16.Instance->CCR1 = CCR1_set;
+    }
+    else {
+      htim16.Instance->CCR1 = 0;
+    }
+    osDelay(100);
   }
   /* USER CODE END StartFanPwmTask */
+}
+
+/* ComputeRpmCallback function */
+void ComputeRpmCallback(void *argument) {
+  /* USER CODE BEGIN ComputeRpmCallback */
+  fan_pwr_data.Tach_1_RPM = InterruptTracker[0] * 60.0 / 2;
+  fan_pwr_data.Tach_2_RPM = InterruptTracker[1] * 60.0 / 2;
+  InterruptTracker[0] = InterruptTracker[1] = 0;
+  /* USER CODE END ComputeRpmCallback */
 }
 
 /**

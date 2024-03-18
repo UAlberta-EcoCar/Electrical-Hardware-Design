@@ -54,6 +54,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
+extern uint32_t SD_HighSpeed(SD_HandleTypeDef *hsd);
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup SDEx_Exported_Functions
   * @{

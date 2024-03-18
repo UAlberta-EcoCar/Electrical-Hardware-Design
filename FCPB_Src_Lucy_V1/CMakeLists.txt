@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.12)
 # ##############################################################################
 # Edit your MCU information up to the next border
-project(FCPB_Lucy_Src_V1)
+project(FCPB_Src_Lucy_V1)
 set(PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/PROJECT)
 
 set(MCU_FAMILY STM32L4xx)

@@ -25,7 +25,7 @@
 #include "stm32_assert.h"
 #else
 #define assert_param(expr) ((void)0U)
-#endif /* USE_FULL_ASSERT */
+#endif
 
 /** @addtogroup STM32L4xx_LL_Driver
   * @{
@@ -42,7 +42,7 @@
 /* Private constants ---------------------------------------------------------*/
 /* Private macros ------------------------------------------------------------*/
 #if defined(RNG_CR_CED)
-/** @defgroup RNG_LL_Private_Macros RNG Private Macros
+/** @addtogroup RNG_LL_Private_Macros
   * @{
   */
 #define IS_LL_RNG_CED(__MODE__) (((__MODE__) == LL_RNG_CED_ENABLE) || \
@@ -53,18 +53,18 @@
 
 
 #define IS_LL_RNG_NIST_COMPLIANCE(__NIST_COMPLIANCE__) (((__NIST_COMPLIANCE__) == LL_RNG_NIST_COMPLIANT) || \
-                                                        ((__NIST_COMPLIANCE__) == LL_RNG_NOTNIST_COMPLIANT))
+                                                     ((__NIST_COMPLIANCE__) == LL_RNG_NOTNIST_COMPLIANT))
 
 #define IS_LL_RNG_CONFIG1 (__CONFIG1__) ((__CONFIG1__) <= 0x3FUL)
 
 #define IS_LL_RNG_CONFIG2 (__CONFIG2__) ((__CONFIG2__) <= 0x07UL)
 
 #define IS_LL_RNG_CONFIG3 (__CONFIG3__) ((__CONFIG3__) <= 0xFUL)
-#endif /* RNG_CR_CONDRST */
+#endif /* end of RNG_CR_CONDRST*/
 /**
   * @}
   */
-#endif /* RNG_CR_CED */
+#endif
 /* Private function prototypes -----------------------------------------------*/
 
 /* Exported functions --------------------------------------------------------*/
@@ -83,26 +83,16 @@
   *          - SUCCESS: RNG registers are de-initialized
   *          - ERROR: not applicable
   */
-ErrorStatus LL_RNG_DeInit(const RNG_TypeDef *RNGx)
+ErrorStatus LL_RNG_DeInit(RNG_TypeDef *RNGx)
 {
-  ErrorStatus status = SUCCESS;
-
   /* Check the parameters */
   assert_param(IS_RNG_ALL_INSTANCE(RNGx));
-  if (RNGx == RNG)
-  {
-    /* Enable RNG reset state */
-    LL_AHB2_GRP1_ForceReset(LL_AHB2_GRP1_PERIPH_RNG);
+  /* Enable RNG reset state */
+  LL_AHB2_GRP1_ForceReset(LL_AHB2_GRP1_PERIPH_RNG);
 
-    /* Release RNG from reset state */
-    LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_RNG);
-  }
-  else
-  {
-    status = ERROR;
-  }
-
-  return status;
+  /* Release RNG from reset state */
+  LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_RNG);
+  return (SUCCESS);
 }
 
 #if defined(RNG_CR_CED)
@@ -129,7 +119,7 @@ ErrorStatus LL_RNG_Init(RNG_TypeDef *RNGx, LL_RNG_InitTypeDef *RNG_InitStruct)
 #else
   /* Clock Error Detection configuration */
   MODIFY_REG(RNGx->CR, RNG_CR_CED, RNG_InitStruct->ClockErrorDetection);
-#endif /* RNG_CR_CONDRST */
+#endif
 
   return (SUCCESS);
 }
@@ -146,7 +136,7 @@ void LL_RNG_StructInit(LL_RNG_InitTypeDef *RNG_InitStruct)
   RNG_InitStruct->ClockErrorDetection = LL_RNG_CED_ENABLE;
 
 }
-#endif /* RNG_CR_CED */
+#endif
 /**
   * @}
   */
@@ -166,4 +156,3 @@ void LL_RNG_StructInit(LL_RNG_InitTypeDef *RNG_InitStruct)
   */
 
 #endif /* USE_FULL_LL_DRIVER */
-
