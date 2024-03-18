@@ -326,7 +326,7 @@ int main(void) {
   /* Create the queue(s) */
   /* creation of canRxMsgQueue */
   canRxMsgQueueHandle =
-      osMessageQueueNew(32, sizeof(uint32_t), &canRxMsgQueue_attributes);
+      osMessageQueueNew(64, sizeof(uint32_t), &canRxMsgQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
