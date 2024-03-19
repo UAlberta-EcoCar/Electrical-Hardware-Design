@@ -24,14 +24,17 @@
 /* USER CODE BEGIN Includes */
 #include "canid.h"
 #include "cmsis_os2.h"
+#include "stm32l4xx_hal_def.h"
 #include "stm32l4xx_hal_tim.h"
 #include <math.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticQueue_t osStaticMessageQDef_t;
 typedef StaticTimer_t osStaticTimerDef_t;
 /* USER CODE BEGIN PTD */
 typedef struct {
@@ -74,16 +77,16 @@ UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
 DMA_HandleTypeDef hdma_usart1_tx;
 
-/* Definitions for CanTask */
-osThreadId_t CanTaskHandle;
-uint32_t CanTaskBuffer[128];
-osStaticThreadDef_t CanTaskControlBlock;
-const osThreadAttr_t CanTask_attributes = {
-    .name = "CanTask",
-    .cb_mem = &CanTaskControlBlock,
-    .cb_size = sizeof(CanTaskControlBlock),
-    .stack_mem = &CanTaskBuffer[0],
-    .stack_size = sizeof(CanTaskBuffer),
+/* Definitions for CanRxTask */
+osThreadId_t CanRxTaskHandle;
+uint32_t CanRxTaskBuffer[128];
+osStaticThreadDef_t CanRxTaskControlBlock;
+const osThreadAttr_t CanRxTask_attributes = {
+    .name = "CanRxTask",
+    .cb_mem = &CanRxTaskControlBlock,
+    .cb_size = sizeof(CanRxTaskControlBlock),
+    .stack_mem = &CanRxTaskBuffer[0],
+    .stack_size = sizeof(CanRxTaskBuffer),
     .priority = (osPriority_t)osPriorityNormal1,
 };
 /* Definitions for AdcTask */
@@ -110,9 +113,38 @@ const osThreadAttr_t FanPwmTask_attributes = {
     .stack_size = sizeof(FanPwmTaskBuffer),
     .priority = (osPriority_t)osPriorityNormal3,
 };
-/* Definitions for canRxQueue */
-osMessageQueueId_t canRxQueueHandle;
-const osMessageQueueAttr_t canRxQueue_attributes = {.name = "canRxQueue"};
+/* Definitions for CanRtrTask */
+osThreadId_t CanRtrTaskHandle;
+uint32_t CanRtrTaskBuffer[128];
+osStaticThreadDef_t CanRtrTaskControlBlock;
+const osThreadAttr_t CanRtrTask_attributes = {
+    .name = "CanRtrTask",
+    .cb_mem = &CanRtrTaskControlBlock,
+    .cb_size = sizeof(CanRtrTaskControlBlock),
+    .stack_mem = &CanRtrTaskBuffer[0],
+    .stack_size = sizeof(CanRtrTaskBuffer),
+    .priority = (osPriority_t)osPriorityNormal4,
+};
+/* Definitions for canRxDataQueue */
+osMessageQueueId_t canRxDataQueueHandle;
+uint8_t canRxDataQueueBuffer[128 * sizeof(uint32_t)];
+osStaticMessageQDef_t canRxDataQueueControlBlock;
+const osMessageQueueAttr_t canRxDataQueue_attributes = {
+    .name = "canRxDataQueue",
+    .cb_mem = &canRxDataQueueControlBlock,
+    .cb_size = sizeof(canRxDataQueueControlBlock),
+    .mq_mem = &canRxDataQueueBuffer,
+    .mq_size = sizeof(canRxDataQueueBuffer)};
+/* Definitions for canRxRtrQueue */
+osMessageQueueId_t canRxRtrQueueHandle;
+uint8_t canRxRtrQueueBuffer[128 * sizeof(uint32_t)];
+osStaticMessageQDef_t canRxRtrQueueControlBlock;
+const osMessageQueueAttr_t canRxRtrQueue_attributes = {
+    .name = "canRxRtrQueue",
+    .cb_mem = &canRxRtrQueueControlBlock,
+    .cb_size = sizeof(canRxRtrQueueControlBlock),
+    .mq_mem = &canRxRtrQueueBuffer,
+    .mq_size = sizeof(canRxRtrQueueBuffer)};
 /* Definitions for TimerFanRpm */
 osTimerId_t TimerFanRpmHandle;
 osStaticTimerDef_t TimerFanRpmControlBlock;
@@ -141,8 +173,13 @@ uint8_t RxUARTData[32];
 uint8_t UartIndex = 0;
 
 uint32_t TxMailboxPwmTask;
+uint32_t TxMailboxCanRtrTask;
 
 uint32_t InterruptTracker[2] = {0};
+
+// Global error tracking variable
+uint32_t error_counter = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -153,39 +190,42 @@ static void MX_CAN1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM16_Init(void);
-void StartCanTask(void *argument);
+void StartCanRxTask(void *argument);
 void StartAdcTask(void *argument);
 void StartFanPwmTask(void *argument);
+void StartCanRtrTask(void *argument);
 void ComputeRpmCallback(void *argument);
 
 /* USER CODE BEGIN PFP */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
-  osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
-  // need condition for either 4 byte or 8 byte
-  if (RxHeader.DLC == 0UL) {
-    // Data request, don't add anything else to queue
-  } else if (RxHeader.DLC <= 4UL) {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+  if (RxHeader.RTR == CAN_RTR_REMOTE) {
+    osMessageQueuePut(canRxRtrQueueHandle, &RxHeader.StdId, 0U, 0UL);
   } else {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-    osMessageQueuePut(canRxQueueHandle, &RxData[4], 0U, 0UL);
+    osMessageQueuePut(canRxDataQueueHandle, &RxHeader.StdId, 0U, 0UL);
+    // Data request, don't add anything else to queue
+    if (RxHeader.DLC <= 4UL) {
+      osMessageQueuePut(canRxDataQueueHandle, RxData, 0U, 0UL);
+    } else {
+      osMessageQueuePut(canRxDataQueueHandle, RxData, 0U, 0UL);
+      osMessageQueuePut(canRxDataQueueHandle, &RxData[4], 0U, 0UL);
+    }
   }
 }
 
-void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-  HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
-  osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
-  // need condition for either 4 byte or 8 byte
-  if (RxHeader.DLC == 0UL) {
-    // Data request, don't add anything else to queue
-  } else if (RxHeader.DLC <= 4UL) {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-  } else {
-    osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
-    osMessageQueuePut(canRxQueueHandle, &RxData[4], 0U, 0UL);
-  }
-}
+// void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+//   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
+//   osMessageQueuePut(canRxQueueHandle, &RxHeader.StdId, 0U, 0UL);
+//   // need condition for either 4 byte or 8 byte
+//   if (RxHeader.DLC == 0UL) {
+//     // Data request, don't add anything else to queue
+//   } else if (RxHeader.DLC <= 4UL) {
+//     osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+//   } else {
+//     osMessageQueuePut(canRxQueueHandle, RxData, 0U, 0UL);
+//     osMessageQueuePut(canRxQueueHandle, &RxData[4], 0U, 0UL);
+//   }
+// }
 
 /* Transmit Completed Callbacks for Message Sent Confirmations */
 void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {}
@@ -332,23 +372,30 @@ int main(void) {
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the queue(s) */
-  /* creation of canRxQueue */
-  canRxQueueHandle =
-      osMessageQueueNew(64, sizeof(uint32_t), &canRxQueue_attributes);
+  /* creation of canRxDataQueue */
+  canRxDataQueueHandle =
+      osMessageQueueNew(128, sizeof(uint32_t), &canRxDataQueue_attributes);
+
+  /* creation of canRxRtrQueue */
+  canRxRtrQueueHandle =
+      osMessageQueueNew(128, sizeof(uint32_t), &canRxRtrQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of CanTask */
-  CanTaskHandle = osThreadNew(StartCanTask, NULL, &CanTask_attributes);
+  /* creation of CanRxTask */
+  CanRxTaskHandle = osThreadNew(StartCanRxTask, NULL, &CanRxTask_attributes);
 
   /* creation of AdcTask */
   AdcTaskHandle = osThreadNew(StartAdcTask, NULL, &AdcTask_attributes);
 
   /* creation of FanPwmTask */
   FanPwmTaskHandle = osThreadNew(StartFanPwmTask, NULL, &FanPwmTask_attributes);
+
+  /* creation of CanRtrTask */
+  CanRtrTaskHandle = osThreadNew(StartCanRtrTask, NULL, &CanRtrTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -524,33 +571,6 @@ static void MX_CAN1_Init(void) {
   if (HAL_CAN_Init(&hcan1) != HAL_OK) {
     Error_Handler();
   }
-  CAN_FilterTypeDef sf;
-  // Accept StdID 0x101
-  sf.FilterIdHigh = 0x201 << 5;
-  sf.FilterMaskIdHigh = 0x7FF << 5;
-  sf.FilterIdLow = 0x0000;
-  sf.FilterMaskIdLow = 0x0000;
-  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-  sf.FilterBank = 0;
-  sf.FilterMode = CAN_FILTERMODE_IDMASK;
-  sf.FilterScale = CAN_FILTERSCALE_32BIT;
-  sf.FilterActivation = CAN_FILTER_ENABLE;
-  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
-    Error_Handler();
-  }
-  // Accept 0x000 to 0x00F
-  sf.FilterIdHigh = 0x000 << 5;
-  sf.FilterMaskIdHigh = 0x7F0 << 5;
-  sf.FilterIdLow = 0x0000;
-  sf.FilterMaskIdLow = 0x0000;
-  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-  sf.FilterBank = 1;
-  sf.FilterMode = CAN_FILTERMODE_IDMASK;
-  sf.FilterScale = CAN_FILTERSCALE_32BIT;
-  sf.FilterActivation = CAN_FILTER_ENABLE;
-  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
-    Error_Handler();
-  }
   /* USER CODE BEGIN CAN1_Init 2 */
 
   /* USER CODE END CAN1_Init 2 */
@@ -574,9 +594,9 @@ static void MX_TIM16_Init(void) {
 
   /* USER CODE END TIM16_Init 1 */
   htim16.Instance = TIM16;
-  htim16.Init.Prescaler = 799;
+  htim16.Init.Prescaler = 800 - 1;
   htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim16.Init.Period = 100;
+  htim16.Init.Period = 100 - 1;
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
   htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
@@ -632,7 +652,7 @@ static void MX_USART1_UART_Init(void) {
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_RTS_CTS;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
@@ -727,14 +747,14 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartCanTask */
+/* USER CODE BEGIN Header_StartCanRxTask */
 /**
- * @brief  Function implementing the CanTask thread.
+ * @brief  Function implementing the CanRxTask thread.
  * @param  argument: Not used
  * @retval None
  */
-/* USER CODE END Header_StartCanTask */
-void StartCanTask(void *argument) {
+/* USER CODE END Header_StartCanRxTask */
+void StartCanRxTask(void *argument) {
   /* USER CODE BEGIN 5 */
   // Activate notifications after the message queues have been created
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
@@ -743,20 +763,20 @@ void StartCanTask(void *argument) {
   /* Infinite loop */
   uint32_t queueData;
   for (;;) {
-    if (osMessageQueueGet(canRxQueueHandle, &queueData, 0U, osWaitForever) ==
-        osOK) {
+    if (osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U,
+                          osWaitForever) == osOK) {
       switch (queueData) {
       case INTERNAL_FUEL_CELL_PACKET:
-        osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 10UL);
         memcpy(&can_bus_data.fcPres, &queueData, sizeof(uint32_t));
-        osMessageQueueGet(canRxQueueHandle, &queueData, 0U, 10UL);
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 10UL);
         memcpy(&can_bus_data.fcTemp, &queueData, sizeof(uint32_t));
         break;
       default:
         break;
       }
     }
-    osDelay(1);
+    osDelay(10);
   }
   /* USER CODE END 5 */
 }
@@ -809,18 +829,55 @@ void StartFanPwmTask(void *argument) {
   HAL_TIMEx_PWMN_Start(&htim16, TIM_CHANNEL_1);
   /* Infinite loop */
   for (;;) {
-    HAL_CAN_SafeAddTxMessage(NULL, INTERNAL_FUEL_CELL_PACKET, 0UL,
-                             &TxMailboxPwmTask, CAN_RTR_REMOTE);
+    HAL_CAN_SafeAddTxMessage(NULL, (uint32_t)INTERNAL_FUEL_CELL_PACKET, 0UL,
+                             &TxMailboxPwmTask, (uint32_t)CAN_RTR_REMOTE);
     if (can_bus_data.fcTemp > 10.0F) {
       CCR1_set = (uint32_t)(0.5F * powf(can_bus_data.fcTemp - 10, 1.5F));
       htim16.Instance->CCR1 = CCR1_set;
-    }
-    else {
+    } else {
       htim16.Instance->CCR1 = 0;
     }
-    osDelay(100);
+    osDelay(500);
   }
   /* USER CODE END StartFanPwmTask */
+}
+
+/* USER CODE BEGIN Header_StartCanRtrTask */
+/**
+ * @brief Function implementing the CanRtrTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
+/* USER CODE END Header_StartCanRtrTask */
+void StartCanRtrTask(void *argument) {
+  /* USER CODE BEGIN StartCanRtrTask */
+  /* Infinite loop */
+  HAL_StatusTypeDef hal_stat;
+  uint32_t queueData;
+  float floatPackage[2];
+  /* Infinite loop */
+  for (;;) {
+    if (osMessageQueueGet(canRxRtrQueueHandle, &queueData, 0U, osWaitForever) ==
+        osOK) {
+      switch (queueData) {
+      case FAN_RPM_PACKET:
+        floatPackage[0] = fan_pwr_data.Tach_1_RPM;
+        floatPackage[1] = fan_pwr_data.Tach_2_RPM;
+        hal_stat = HAL_CAN_SafeAddTxMessage(
+            (uint8_t *)&floatPackage, FAN_RPM_PACKET, 8UL, &TxMailboxCanRtrTask,
+            (uint32_t)CAN_RTR_DATA);
+        if (hal_stat == HAL_ERROR) {
+          error_counter++;
+        }
+        break;
+      default:
+        // this shouldn't happen
+        break;
+      }
+    }
+    osDelay(10);
+  }
+  /* USER CODE END StartCanRtrTask */
 }
 
 /* ComputeRpmCallback function */
