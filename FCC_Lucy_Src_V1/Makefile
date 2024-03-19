@@ -3,7 +3,7 @@
 BUILD_DIR := build
 BUILD_TYPE ?= Debug
 
-TARGET = FCC-Src_V1_CMake
+TARGET = Fuel_Cell_Controller_Lucy_V1
 
 all: build
 
