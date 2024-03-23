@@ -49,13 +49,13 @@ void sendMessage(String outgoing)
 
 void onReceive(int packetSize)
 {
-  digitalWrite(PA8, HIGH);
+
   if (packetSize == 0)
     return; // if there's no packet, return
 
   // read packet header bytes:
   String incoming = "";
-
+  digitalWrite(PA1, HIGH);
   while (LoRa.available())
   {
     incoming += (char)LoRa.read();
@@ -66,18 +66,18 @@ void onReceive(int packetSize)
   Serial.println("Snr: " + String(LoRa.packetSnr()));
   Serial.println();
   // Serial.printf("h2 hum: %f\r\n", datarecieved.cap_current);
-  digitalWrite(PA8, LOW);
+  digitalWrite(PA1, LOW);
 }
 
 void setup()
 {
   HAL_Init();
-  SystemClock_Config();
+  // SystemClock_Config();
 
   // put your setup code here, to run once:
-  pinMode(PA10, OUTPUT);
+  // pinMode(PA10, OUTPUT);
   pinMode(PA9, OUTPUT);
-  pinMode(PA8, OUTPUT);
+  // pinMode(PA8, OUTPUT);
   Serial.begin(115200);
   while (!Serial)
     ;
@@ -105,11 +105,26 @@ void setup()
   }
   MX_CAN1_Init();
   CAN_Initialize();
-  // LoRa.setTxPower(20);
+  LoRa.setTxPower(20);
   // LoRa.setSpreadingFactor(7);
-  // LoRa.setSignalBandwidth(500E3);
+  LoRa.setSignalBandwidth(500E3);
   // LoRa.setSyncWord(0xF3); // ranges from 0-0xFF, default 0x34, see API docs
   Serial.println("LoRa init succeeded.");
+
+  pinMode(PC15, OUTPUT);
+  digitalWrite(PC15, LOW);
+  // digitalToggle(PA10);
+  pinMode(PA1, OUTPUT);
+
+  TIM_TypeDef *Instance = (TIM_TypeDef *)pinmap_peripheral(digitalPinToPinName(PA10), PinMap_PWM);
+  uint32_t channel = STM_PIN_CHANNEL(pinmap_function(digitalPinToPinName(PA10), PinMap_PWM));
+
+  // Instantiate HardwareTimer object. Thanks to 'new' instantiation, HardwareTimer is not destructed when setup() function is finished.
+  HardwareTimer *MyTim = new HardwareTimer(Instance);
+
+  // Configure and start PWM
+  // MyTim->setPWM(channel, pin, 5, 10, NULL, NULL); // No callback required, we can simplify the function call
+  MyTim->setPWM(channel, PA10, 100, 10); // 5 Hertz, 10% dutycycle
   // LoRa.dumpRegisters(Serial);
 }
 uint8_t send = 0x01;
@@ -118,7 +133,7 @@ void loop()
   float f = 3;
   uint8_t buf[8];
   // Serial.println("Running Sending and Recieving");
-  digitalToggle(PA10);
+
   // Serial.println("Requesting CAN");
   // CAN_Transmit(CAP_VOLT_CURR, (uint8_t *)&datasent.cap_current, 8, CAN_RTR_DATA);
   // digitalWrite(PA9, HIGH);
@@ -149,9 +164,10 @@ void loop()
   //   interval = random(2000) + 1000; // 2-3 seconds
   //   msgCount++;
   // }
-  digitalWrite(PA8, HIGH);
+  // digitalWrite(PA8, HIGH);
   // char buffer[sizeof(Datasent)];
   // memcpy(buffer, &datasent, sizeof(Datasent));
+  // digitalWrite(PA1, HIGH);
   onReceive(LoRa.parsePacket());
   // LoRa.beginPacket();
   // // LoRa.println(buffer);
@@ -177,7 +193,7 @@ void loop()
   // LoRa.print(String(datasent.h2_temp));
   // LoRa.println();
   // LoRa.endPacket();
-  digitalWrite(PA8, LOW);
+  // digitalWrite(PA1, LOW);
 
   // put your main code here, to run repeatedly:
   HAL_Delay(1);
