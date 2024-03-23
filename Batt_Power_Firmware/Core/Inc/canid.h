@@ -1,0 +1,24 @@
+/*
+ * canid.h
+ *
+ *  Created on: Mar 23, 2024
+ *      Author: ddjangl
+ */
+
+#ifndef INC_CANID_H_
+#define INC_CANID_H_
+
+#define H2_ALARM 0x001
+#define SHELL_EXT_STOP 0x002
+#define RELAY_CONFIGURATION_PACKET 0x003
+
+#define CAPACITOR_PACKET 0x101
+#define MOTOR_PACKET 0x102
+#define FUEL_CELL_PACKET 0x103
+
+#define INTERNAL_FUEL_CELL_PACKET 0x201
+#define ACCELERATION_1_PACKET 0x202
+#define ACCELERATION_2_PACKET 0x203
+
+
+#endif /* INC_CANID_H_ */
