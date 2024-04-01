@@ -107,7 +107,7 @@ void setup()
   CAN_Initialize();
   LoRa.setTxPower(20);
   // LoRa.setSpreadingFactor(7);
-  LoRa.setSignalBandwidth(500E3);
+  // LoRa.setSignalBandwidth(500E3);
   // LoRa.setSyncWord(0xF3); // ranges from 0-0xFF, default 0x34, see API docs
   Serial.println("LoRa init succeeded.");
 
@@ -134,22 +134,22 @@ void loop()
   uint8_t buf[8];
   // Serial.println("Running Sending and Recieving");
 
-  // Serial.println("Requesting CAN");
-  // CAN_Transmit(CAP_VOLT_CURR, (uint8_t *)&datasent.cap_current, 8, CAN_RTR_DATA);
-  // digitalWrite(PA9, HIGH);
-  // CAN_Transmit(H2_ALARM, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(RELAY_CONF, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(CAP_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(MTR_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(INT_STACK_PRES_TEMP, 0, 0, CAN_RTR_REMOTE);
+  Serial.println("Requesting CAN");
+  CAN_Transmit(CAP_VOLT_CURR, (uint8_t *)&datasent.cap_current, 8, CAN_RTR_DATA);
+  digitalWrite(PA9, HIGH);
+  CAN_Transmit(H2_ALARM, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(RELAY_CONF, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(CAP_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(MTR_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(INT_STACK_PRES_TEMP, 0, 0, CAN_RTR_REMOTE);
 
-  // CAN_Transmit(ACCEL_X_Y, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(ACCEL_Z_SPEED, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_CONC_MV, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_TEMP, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_PRESSURE, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_HUMIDITY, 0, 0, CAN_RTR_REMOTE);
-  // digitalWrite(PA9, LOW);
+  CAN_Transmit(ACCEL_X_Y, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(ACCEL_Z_SPEED, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(H2_CONC_MV, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(H2_TEMP, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(H2_PRESSURE, 0, 0, CAN_RTR_REMOTE);
+  CAN_Transmit(H2_HUMIDITY, 0, 0, CAN_RTR_REMOTE);
+  digitalWrite(PA9, LOW);
   // send += 1;
   //  The actual code that is being used will be done to main loop as usual.
   //  We only read data from CAN bus if there is frames received, so that main code can do it's thing efficiently.
@@ -167,10 +167,10 @@ void loop()
   // digitalWrite(PA8, HIGH);
   // char buffer[sizeof(Datasent)];
   // memcpy(buffer, &datasent, sizeof(Datasent));
-  // digitalWrite(PA1, HIGH);
-  onReceive(LoRa.parsePacket());
+  digitalWrite(PA1, HIGH);
+  // onReceive(LoRa.parsePacket());
   // LoRa.beginPacket();
-  // // LoRa.println(buffer);
+  LoRa.println((const char *)&datasent);
   // LoRa.print("capc");
   // LoRa.print(String(datasent.cap_current));
   // LoRa.println();
@@ -193,7 +193,7 @@ void loop()
   // LoRa.print(String(datasent.h2_temp));
   // LoRa.println();
   // LoRa.endPacket();
-  // digitalWrite(PA1, LOW);
+  digitalWrite(PA1, LOW);
 
   // put your main code here, to run repeatedly:
   HAL_Delay(1);
