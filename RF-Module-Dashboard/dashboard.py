@@ -3,7 +3,7 @@ import dearpygui.dearpygui as dpg
 def save_callback():
     print("Save Clicked")
 
-dpg.create_context()
+dpg.create_context()    
 dpg.create_viewport()
 dpg.setup_dearpygui()
 
