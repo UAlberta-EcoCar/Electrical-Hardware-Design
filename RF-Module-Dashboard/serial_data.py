@@ -51,7 +51,15 @@ class SerialData():
                 'h2_humidity': data_c_struct.h2_humidity
             }
             self.ser.flushOutput()
-            self.condition.notifyAll()
+            with self.condition:
+                self.condition.notifyAll()
+            
+    def getValue(self, Value):
+        with self.lock:
+            # Wait for new data to be available
+            self.condition.wait()
+            output = self.lucy_data[Value]
+        return output
 
 
 # ser = serial.Serial('/dev/ttyUSB0', 9600)
@@ -147,4 +155,4 @@ class SerialData():
 #         print("pressure: ")
 #         print(testing.getValue("pressure"))
 #         print("state: ")
-#         print(testing.getValue("state"))
+#         print(testing.getValue("state"))  
