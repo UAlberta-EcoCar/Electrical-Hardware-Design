@@ -3,7 +3,7 @@
 BUILD_DIR := build
 BUILD_TYPE ?= Debug
 
-TARGET = Fuel_Cell_Controller_Lucy_V1
+TARGET = FCC_SRC_V1
 
 all: build
 

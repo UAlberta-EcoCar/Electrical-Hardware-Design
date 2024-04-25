@@ -1,3 +1,6 @@
+#ifndef __CANID__H
+#define __CANID__H
+
 #define H2_ALARM 0x001
 #define SHELL_EXT_STOP 0x002
 #define RELAY_CONFIGURATION_PACKET 0x003
@@ -10,4 +13,4 @@
 #define ACCELERATION_1_PACKET 0x202
 #define ACCELERATION_2_PACKET 0x203
 
-
+#endif

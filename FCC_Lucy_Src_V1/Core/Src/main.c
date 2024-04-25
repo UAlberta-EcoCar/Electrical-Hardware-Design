@@ -25,10 +25,12 @@
 #include "ADS1115.h"
 #include "canid.h"
 #include "cmsis_os2.h"
+#include "lis3dh_driver.h"
 #include "stm32l4xx_hal.h"
 #include "stm32l4xx_hal_can.h"
 #include "stm32l4xx_hal_def.h"
 #include "stm32l4xx_hal_gpio.h"
+#include "stm32l4xx_hal_i2c.h"
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -72,6 +74,8 @@ typedef struct {
   uint32_t H2_OK;
   float cap_voltage;
   float cap_curr;
+  float fc_voltage;
+  float fc_curr;
 } canData_t;
 /* USER CODE END PTD */
 
@@ -82,7 +86,7 @@ typedef struct {
 
 #define FULL_CAP_CHARGE_V 20
 #define PURGE_PERIOD 180000 // 3 minutes
-#define PURGE_TIME 250      // 250 ms
+#define PURGE_TIME 100      // 100 ms
 
 #define CAN_TX_MAILBOX_NONE 0x00000000U // Remove reference to tx mailbox
 /* USER CODE END PD */
@@ -115,7 +119,7 @@ const osThreadAttr_t CanRxTask_attributes = {
 };
 /* Definitions for I2cTask */
 osThreadId_t I2cTaskHandle;
-uint32_t I2cTaskBuffer[128];
+uint32_t I2cTaskBuffer[128 * 3];
 osStaticThreadDef_t I2cTaskControlBlock;
 const osThreadAttr_t I2cTask_attributes = {
     .name = "I2cTask",
@@ -127,7 +131,7 @@ const osThreadAttr_t I2cTask_attributes = {
 };
 /* Definitions for FuelCellTask */
 osThreadId_t FuelCellTaskHandle;
-uint32_t FuelCellTaskBuffer[128];
+uint32_t FuelCellTaskBuffer[512];
 osStaticThreadDef_t FuelCellTaskControlBlock;
 const osThreadAttr_t FuelCellTask_attributes = {
     .name = "FuelCellTask",
@@ -202,7 +206,7 @@ rbState_t rb_state = {
 fcState_t fc_state = FUEL_CELL_OFF_STATE;
 
 // Initialize the struct values to zero
-canData_t canData = {0, 0.00F, 0.00F};
+canData_t canData = {0, 0.00F, 0.00F, 0.00F, 0.00F};
 fcData_t fcData = {0, 0, 0.00F, 0.00F};
 
 CAN_RxHeaderTypeDef RxHeader;
@@ -396,7 +400,7 @@ HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 ADS1115_Config_t configReg;
-ADS1115_Handle_t *pADS;
+ADS1115_Handle_t *pADS_1;
 
 #define ADS1115_ADR1 0x48
 #define ADS1115_ADR2 0x49
@@ -455,9 +459,16 @@ int main(void) {
 
   // NOTE: This init function uses malloc and must be called before the
   // scheduler
-  pADS = ADS1115_init(&hi2c1, (uint16_t)ADS1115_ADR1, configReg);
-  ADS1115_updateConfig(pADS, configReg);
-  ADS1115_setConversionReadyPin(pADS);
+  pADS_1 = ADS1115_init(&hi2c1, (uint16_t)ADS1115_ADR1, configReg);
+  ADS1115_updateConfig(pADS_1, configReg);
+  ADS1115_setConversionReadyPin(pADS_1);
+
+  // Set up code for second ADC
+  // Needs to be verified
+  // pADS_2 = ADS1115_init(&hi2c1, (uint16_t)ADS1115_ADR2, configReg);
+  // ADS1115_updateConfig(pADS_2, configReg);
+  // ADS1115_setConversionReadyPin(pADS_2);
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -610,9 +621,9 @@ static void MX_CAN1_Init(void) {
   }
   /* USER CODE BEGIN CAN1_Init 2 */
   CAN_FilterTypeDef sf;
-  // Accept StdID 0x101
+  // Accept StdID 0x101 to 0x103
   sf.FilterIdHigh = 0x101 << 5;
-  sf.FilterMaskIdHigh = 0x7FF << 5;
+  sf.FilterMaskIdHigh = 0x7FC << 5;
   sf.FilterIdLow = 0x0000;
   sf.FilterMaskIdLow = 0x0000;
   sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
@@ -715,7 +726,7 @@ static void MX_USART1_UART_Init(void) {
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_RTS_CTS;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
@@ -843,7 +854,8 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
-uint8_t latest_voltage_got = 0;
+volatile uint8_t latest_voltage_got = 0;
+uint32_t QueueSizeLeft[2];
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartCanRxTask */
@@ -863,32 +875,37 @@ void StartCanRxTask(void *argument) {
 #define H2_ALARM_HIGH 1
 
   /* Infinite loop */
-  uint32_t queueData;
+  uint32_t queueData = 0;
   for (;;) {
     if (osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U,
                           osWaitForever) == osOK) {
       switch (queueData) {
       case CAPACITOR_PACKET:
-        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 10UL);
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 100UL);
         memcpy(&canData.cap_voltage, &queueData, sizeof(uint32_t));
-        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 10UL);
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 100UL);
         memcpy(&canData.cap_curr, &queueData, sizeof(uint32_t));
         latest_voltage_got = 1;
         break;
       case RELAY_CONFIGURATION_PACKET:
-        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 10UL);
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 100UL);
         if (queueData == RELAY_CONFIG_CONFIRMED) {
           osSemaphoreRelease(relayUpdateConfirmedHandle);
         }
         break;
       case H2_ALARM:
-        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 10UL);
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 100UL);
         memcpy(&canData.H2_OK, &queueData, sizeof(uint32_t));
         if (canData.H2_OK == H2_ALARM_HIGH) {
           fc_state = FUEL_CELL_OFF_STATE;
-          lockout_parameter = 0;
+          lockout_parameter = H2_ALARM_HIGH;
         }
         break;
+      case FUEL_CELL_PACKET:
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 100UL);
+        memcpy(&canData.fc_voltage, &queueData, sizeof(uint32_t));
+        osMessageQueueGet(canRxDataQueueHandle, &queueData, 0U, 100UL);
+        memcpy(&canData.fc_curr, &queueData, sizeof(uint32_t));
       default:
         break;
       }
@@ -908,33 +925,57 @@ void StartCanRxTask(void *argument) {
 void StartI2cTask(void *argument) {
   /* USER CODE BEGIN StartI2cTask */
 #define DELAY_FOR_CHANNEL_SWITCH 20
-#define B 3950
+#define B 3950.0f
 #define VOLT_2_TEMP(x)                                                         \
-  B * 298.15 / (298.15 * logf(100 / (100 * (3.3 / x - 1))) + B) - 273.15
+  (B * 298.15f /                                                               \
+   (298.15f * logf(100.0f / (100.0f * (3.3f / x - 1.0f))) + B)) -              \
+      273.15f
 #define VOLT_2_PRES(x) (x - 2.3555F) / 0.1038F
 
   const float VOLT_CONVERSION = 4.094F / 32768.0F;
-  const float transfer_func_p = 0.657F;
-  /* Infinite loop */
+  const float TRANSFER_FUNC_P = 0.657F;
 
-  // Init stack variables
   fcData.internal_stack_temp = 0;
   fcData.internal_stack_pressure = 0;
 
+  uint16_t step;
+  float step2;
+
+  // AxesRaw_t accelData;
+
+  // // Set up LIS3DHTR
+  // // Set output data rate (ODR)
+  // LIS3DH_SetODR(LIS3DH_ODR_100Hz);
+  // // Set PowerMode
+  // LIS3DH_SetMode(LIS3DH_NORMAL);
+  // // Set FullScale
+  // LIS3DH_SetFullScale(LIS3DH_FULLSCALE_2); // That is +-2g
+  // // Set Axis (enable)
+  // LIS3DH_SetAxis(LIS3DH_X_ENABLE | LIS3DH_Y_ENABLE | LIS3DH_Z_ENABLE);
+  // // Setup interupt functions
+
   for (;;) {
     configReg.channel = CHANNEL_AIN0_GND;
-    ADS1115_updateConfig(pADS, configReg);
+    ADS1115_updateConfig(pADS_1, configReg);
     osDelay(DELAY_FOR_CHANNEL_SWITCH);
-    fcData.internal_stack_temp = ADS1115_getData(pADS) * VOLT_CONVERSION;
-    fcData.internal_stack_temp = VOLT_2_TEMP(fcData.internal_stack_temp);
+    step = ADS1115_getData(pADS_1);
+    step2 = step * VOLT_CONVERSION;
+    fcData.internal_stack_temp = VOLT_2_TEMP(step2);
 
     configReg.channel = CHANNEL_AIN1_GND;
-    ADS1115_updateConfig(pADS, configReg);
+    ADS1115_updateConfig(pADS_1, configReg);
     osDelay(DELAY_FOR_CHANNEL_SWITCH);
-    fcData.internal_stack_pressure =
-        ADS1115_getData(pADS) * VOLT_CONVERSION / transfer_func_p;
-    fcData.internal_stack_pressure =
-        VOLT_2_PRES(fcData.internal_stack_pressure);
+    fcData.internal_stack_pressure = VOLT_2_PRES(
+        ADS1115_getData(pADS_1) * VOLT_CONVERSION / TRANSFER_FUNC_P);
+
+    // LIS3DH_GetAccAxesRaw(&accelData);
+    // float magnitude =
+    //     sqrt(powf(accelData.AXIS_X, 2) + powf(accelData.AXIS_Y, 2) +
+    //          powf(accelData.AXIS_Z, 2));
+    // printf("Accel x: %06d\r\nAccel y: %06d\r\nAccel z: %06d\r\nMag:
+    // %2.6f\x1b[H",
+    //        accelData.AXIS_X, accelData.AXIS_Y, accelData.AXIS_Z,
+    //        magnitude/16000*9.81f);
 
     osDelay(10);
   }
@@ -979,10 +1020,10 @@ void StartFuelCellTask(void *argument) {
           // Wait up to 5 seconds to get the configuration confirmation
           if (osSemaphoreAcquire(relayUpdateConfirmedHandle,
                                  CAN_MESSAGE_SENT_TIMEOUT_MS) == osOK) {
-            printf("Relay board confirmed updated config\r\n");
+            // printf("Relay board confirmed updated config\r\n");
             relay_config_set[STBY] = 1;
           } else {
-            printf("Relay board did not confirm updated config\r\n");
+            // printf("Relay board did not confirm updated config\r\n");
             relay_config_set[STBY] = 0;
           }
         }
@@ -1050,6 +1091,8 @@ void StartFuelCellTask(void *argument) {
           hal_stat = HAL_CAN_SafeAddTxMessage(NULL, (uint32_t)CAPACITOR_PACKET,
                                               0UL, &TxMailboxFuelCellTask,
                                               (uint32_t)CAN_RTR_REMOTE);
+          HAL_CAN_SafeAddTxMessage(NULL, FUEL_CELL_PACKET, 0UL,
+                                   &TxMailboxFuelCellTask, CAN_RTR_REMOTE);
         }
       }
       break;
@@ -1072,6 +1115,8 @@ void StartFuelCellTask(void *argument) {
           }
         }
       } else {
+        HAL_CAN_SafeAddTxMessage(NULL, FUEL_CELL_PACKET, 0UL,
+                                 &TxMailboxFuelCellTask, CAN_RTR_REMOTE);
         if (HAL_GetTick() - purge_timer >= PURGE_PERIOD) {
           purge_timer = HAL_GetTick();
           osSemaphoreRelease(purgeSemHandle);
@@ -1079,6 +1124,8 @@ void StartFuelCellTask(void *argument) {
       }
       break;
     }
+    printf("FC Temp: %f\r\nFC Pres: %f\r\nFC Volt: %f\r\nFC Curr: %f\r\n\x1b[H", fcData.internal_stack_temp,
+           fcData.internal_stack_pressure, canData.fc_voltage, canData.fc_curr);
     osDelay(10);
   }
   /* USER CODE END StartFuelCellTask */
@@ -1094,7 +1141,7 @@ void StartFuelCellTask(void *argument) {
 void StartCanRtrTask(void *argument) {
   /* USER CODE BEGIN StartCanRtrTask */
   HAL_StatusTypeDef hal_stat;
-  uint32_t queueData;
+  uint32_t queueData = 0;
   float floatPackage[2];
   /* Infinite loop */
   for (;;) {
@@ -1133,9 +1180,9 @@ void StartPurgeTask(void *argument) {
   /* Infinite loop */
   for (;;) {
     if (osSemaphoreAcquire(purgeSemHandle, osWaitForever) == osOK) {
-      HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_SET);
       osDelay(PURGE_TIME);
-      HAL_GPIO_WritePin(SUPPLY_VLVE_GPIO_Port, SUPPLY_VLVE_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(PURGE_VLVE_GPIO_Port, PURGE_VLVE_Pin, GPIO_PIN_RESET);
     }
     osDelay(1);
   }

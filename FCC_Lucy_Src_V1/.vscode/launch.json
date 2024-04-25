@@ -7,7 +7,7 @@
         {
             "name": "Cortex Debug - stlink",
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/FCC-Src_V1_CMake.elf",
+            "executable": "${workspaceFolder}/build/FCC_SRC_V1.elf",
             "request": "launch",
             "type": "cortex-debug",
             "interface": "swd",
@@ -19,12 +19,16 @@
         {
             "name": "Cortex Debug - stlink (attach)",
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/FCC-Src_V1_CMake.elf",
+            "executable": "${workspaceFolder}/build/FCC_SRC_V1.elf",
             "request": "attach",
             "type": "cortex-debug",
             "interface": "swd",
             "runToEntryPoint": "main",
             "servertype": "stlink",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
         }
     ]
 }

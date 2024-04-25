@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.12)
 # ##############################################################################
 # Edit your MCU information up to the next border
-project(FCC-Src_V1_CMake)
+project(FCC_SRC_V1)
 set(PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/PROJECT)
 
 set(MCU_FAMILY STM32L4xx)
@@ -43,6 +43,7 @@ set(PROJECT_INCLUDE_DIRECTORIES
 
 set(STM32CUBEMX_RECUR_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/ADS1115.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/lis3dh_driver.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/freertos.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.c
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32l4xx_hal_msp.c
@@ -117,6 +118,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
     $<$<CONFIG:Debug>:-Og -g3 -ggdb>
     $<$<CONFIG:Release>:-Og -g0>)
 
+
+
 target_link_options(${EXECUTABLE} PRIVATE
     -T${MCU_LINKER_SCRIPT}
     ${CPU_PARAMETERS}
@@ -125,8 +128,8 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,--start-group
     -lc
     -lm
-    -u_printf_float
     -lstdc++
+    -u_printf_float
     -Wl,--end-group
     -Wl,--print-memory-usage)
 
