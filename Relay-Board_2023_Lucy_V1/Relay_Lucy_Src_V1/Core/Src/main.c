@@ -20,8 +20,6 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "cmsis_os2.h"
-#include "stm32f4xx_hal_adc.h"
-#include "stm32f4xx_hal_can.h"
 #include "stm32f4xx_hal_def.h"
 #include "usb_device.h"
 
@@ -34,6 +32,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticQueue_t osStaticMessageQDef_t;
 /* USER CODE BEGIN PTD */
 typedef enum {
   ALL_RELAY_OFF = 0x00,
@@ -90,7 +89,7 @@ CAN_HandleTypeDef hcan1;
 
 /* Definitions for RelayTask */
 osThreadId_t RelayTaskHandle;
-uint32_t RelayTaskBuffer[128];
+uint32_t RelayTaskBuffer[256];
 osStaticThreadDef_t RelayTaskControlBlock;
 const osThreadAttr_t RelayTask_attributes = {
     .name = "RelayTask",
@@ -100,21 +99,21 @@ const osThreadAttr_t RelayTask_attributes = {
     .stack_size = sizeof(RelayTaskBuffer),
     .priority = (osPriority_t)osPriorityNormal,
 };
-/* Definitions for CanTask */
-osThreadId_t CanTaskHandle;
-uint32_t CanTaskBuffer[128];
-osStaticThreadDef_t CanTaksControlBlock;
-const osThreadAttr_t CanTask_attributes = {
-    .name = "CanTask",
-    .cb_mem = &CanTaksControlBlock,
-    .cb_size = sizeof(CanTaksControlBlock),
-    .stack_mem = &CanTaskBuffer[0],
-    .stack_size = sizeof(CanTaskBuffer),
+/* Definitions for CanRtrTask */
+osThreadId_t CanRtrTaskHandle;
+uint32_t CanRtrTaskBuffer[256];
+osStaticThreadDef_t CanRtrTaskControlBlock;
+const osThreadAttr_t CanRtrTask_attributes = {
+    .name = "CanRtrTask",
+    .cb_mem = &CanRtrTaskControlBlock,
+    .cb_size = sizeof(CanRtrTaskControlBlock),
+    .stack_mem = &CanRtrTaskBuffer[0],
+    .stack_size = sizeof(CanRtrTaskBuffer),
     .priority = (osPriority_t)osPriorityNormal,
 };
 /* Definitions for AdcTask */
 osThreadId_t AdcTaskHandle;
-uint32_t AdcTaskBuffer[128];
+uint32_t AdcTaskBuffer[256];
 osStaticThreadDef_t AdcTaskControlBlock;
 const osThreadAttr_t AdcTask_attributes = {
     .name = "AdcTask",
@@ -124,9 +123,50 @@ const osThreadAttr_t AdcTask_attributes = {
     .stack_size = sizeof(AdcTaskBuffer),
     .priority = (osPriority_t)osPriorityNormal,
 };
-/* Definitions for canRxMsgQueue */
-osMessageQueueId_t canRxMsgQueueHandle;
-const osMessageQueueAttr_t canRxMsgQueue_attributes = {.name = "canRxMsgQueue"};
+/* Definitions for IndicateLedTask */
+osThreadId_t IndicateLedTaskHandle;
+uint32_t IndicateLedTaskBuffer[256];
+osStaticThreadDef_t IndicateLedTaskControlBlock;
+const osThreadAttr_t IndicateLedTask_attributes = {
+    .name = "IndicateLedTask",
+    .cb_mem = &IndicateLedTaskControlBlock,
+    .cb_size = sizeof(IndicateLedTaskControlBlock),
+    .stack_mem = &IndicateLedTaskBuffer[0],
+    .stack_size = sizeof(IndicateLedTaskBuffer),
+    .priority = (osPriority_t)osPriorityNormal4,
+};
+/* Definitions for CanDataTask */
+osThreadId_t CanDataTaskHandle;
+uint32_t CanDataTaskBuffer[256];
+osStaticThreadDef_t CanDataTaskControlBlock;
+const osThreadAttr_t CanDataTask_attributes = {
+    .name = "CanDataTask",
+    .cb_mem = &CanDataTaskControlBlock,
+    .cb_size = sizeof(CanDataTaskControlBlock),
+    .stack_mem = &CanDataTaskBuffer[0],
+    .stack_size = sizeof(CanDataTaskBuffer),
+    .priority = (osPriority_t)osPriorityNormal4,
+};
+/* Definitions for canRxRtrMsgQueue */
+osMessageQueueId_t canRxRtrMsgQueueHandle;
+uint8_t canRxRtrMsgQueueBuffer[128 * sizeof(uint32_t)];
+osStaticMessageQDef_t canRxRtrMsgQueueControlBlock;
+const osMessageQueueAttr_t canRxRtrMsgQueue_attributes = {
+    .name = "canRxRtrMsgQueue",
+    .cb_mem = &canRxRtrMsgQueueControlBlock,
+    .cb_size = sizeof(canRxRtrMsgQueueControlBlock),
+    .mq_mem = &canRxRtrMsgQueueBuffer,
+    .mq_size = sizeof(canRxRtrMsgQueueBuffer)};
+/* Definitions for canRxDataMsgQueue */
+osMessageQueueId_t canRxDataMsgQueueHandle;
+uint8_t canRxDataMsgQueueBuffer[16 * sizeof(uint16_t)];
+osStaticMessageQDef_t canRxDataMsgQueueControlBlock;
+const osMessageQueueAttr_t canRxDataMsgQueue_attributes = {
+    .name = "canRxDataMsgQueue",
+    .cb_mem = &canRxDataMsgQueueControlBlock,
+    .cb_size = sizeof(canRxDataMsgQueueControlBlock),
+    .mq_mem = &canRxDataMsgQueueBuffer,
+    .mq_size = sizeof(canRxDataMsgQueueBuffer)};
 /* Definitions for canMsgReceivedSem */
 osSemaphoreId_t canMsgReceivedSemHandle;
 const osSemaphoreAttr_t canMsgReceivedSem_attributes = {
@@ -151,8 +191,10 @@ static void MX_CAN1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 void StartRelayTask(void *argument);
-void StartCanTask(void *argument);
+void StartCanRtrTask(void *argument);
 void StartAdcTask(void *argument);
+void StartIndicateLedTask(void *argument);
+void StartCanDataTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 int _write(int file, char *ptr, int len) {
@@ -169,34 +211,32 @@ int _write(int file, char *ptr, int len) {
  */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
-  if (osMessageQueueGetSpace(canRxMsgQueueHandle) == 0) {
-    Error_Handler();
-  }
-  osMessageQueuePut(canRxMsgQueueHandle, &RxHeader.StdId, 0U, 0UL);
-  // need condition for either 4 byte or 8 byte
-  if (RxHeader.DLC == 0UL) {
-    // Data request, don't add anything else to queue
-  } else if (RxHeader.DLC <= 4UL) {
-    osMessageQueuePut(canRxMsgQueueHandle, RxData, 0U, 0UL);
+  if (RxHeader.RTR == CAN_RTR_REMOTE) {
+    osMessageQueuePut(canRxRtrMsgQueueHandle, &RxHeader.StdId, 0U, 0UL);
   } else {
-    osMessageQueuePut(canRxMsgQueueHandle, RxData, 0U, 0UL);
-    osMessageQueuePut(canRxMsgQueueHandle, RxData + 4, 0U, 0UL);
+    osMessageQueuePut(canRxDataMsgQueueHandle, &RxHeader.StdId, 0U, 0UL);
+    if (RxHeader.DLC <= 4UL) {
+      osMessageQueuePut(canRxDataMsgQueueHandle, RxData, 0U, 0UL);
+    } else {
+      osMessageQueuePut(canRxDataMsgQueueHandle, RxData, 0U, 0UL);
+      osMessageQueuePut(canRxDataMsgQueueHandle, &RxData[4], 0U, 0UL);
+    }
   }
 }
 
-void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-  HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
-  osMessageQueuePut(canRxMsgQueueHandle, &RxHeader.StdId, 0U, 0UL);
-  // need condition for either 4 byte or 8 byte
-  if (RxHeader.DLC == 0UL) {
-    // Data request, don't add anything else to queue
-  } else if (RxHeader.DLC <= 4UL) {
-    osMessageQueuePut(canRxMsgQueueHandle, RxData, 0U, 0UL);
-  } else {
-    osMessageQueuePut(canRxMsgQueueHandle, RxData, 0U, 0UL);
-    osMessageQueuePut(canRxMsgQueueHandle, RxData + 4, 0U, 0UL);
-  }
-}
+// void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+//   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData);
+//   osMessageQueuePut(canRxMsgQueueHandle, &RxHeader.StdId, 0U, 0UL);
+//   // need condition for either 4 byte or 8 byte
+//   if (RxHeader.DLC == 0UL) {
+//     // Data request, don't add anything else to queue
+//   } else if (RxHeader.DLC <= 4UL) {
+//     osMessageQueuePut(canRxMsgQueueHandle, RxData, 0U, 0UL);
+//   } else {
+//     osMessageQueuePut(canRxMsgQueueHandle, RxData, 0U, 0UL);
+//     osMessageQueuePut(canRxMsgQueueHandle, RxData + 4, 0U, 0UL);
+//   }
+// }
 
 /* Transmit Completed Callbacks for Message Sent Confirmations */
 void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
@@ -234,8 +274,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
                                            uint32_t msg_length,
                                            uint32_t *TxMailbox, uint32_t rtr) {
-#define CAN_ADD_TX_TIMEOUT_MS 5000
-
   uint32_t fc_tick;
   HAL_StatusTypeDef hal_stat;
   CAN_TxHeaderTypeDef TxHeader;
@@ -252,7 +290,7 @@ HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
 
   // Start a timer to check timeout conditions
   fc_tick = HAL_GetTick();
-
+ 
   /* Try to add a Tx message. Returns HAL_ERROR if there are no avail
    * mailboxes or if the peripheral is not initialized. */
   do {
@@ -324,9 +362,13 @@ int main(void) {
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the queue(s) */
-  /* creation of canRxMsgQueue */
-  canRxMsgQueueHandle =
-      osMessageQueueNew(64, sizeof(uint32_t), &canRxMsgQueue_attributes);
+  /* creation of canRxRtrMsgQueue */
+  canRxRtrMsgQueueHandle =
+      osMessageQueueNew(128, sizeof(uint32_t), &canRxRtrMsgQueue_attributes);
+
+  /* creation of canRxDataMsgQueue */
+  canRxDataMsgQueueHandle =
+      osMessageQueueNew(16, sizeof(uint16_t), &canRxDataMsgQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -336,11 +378,19 @@ int main(void) {
   /* creation of RelayTask */
   RelayTaskHandle = osThreadNew(StartRelayTask, NULL, &RelayTask_attributes);
 
-  /* creation of CanTask */
-  CanTaskHandle = osThreadNew(StartCanTask, NULL, &CanTask_attributes);
+  /* creation of CanRtrTask */
+  CanRtrTaskHandle = osThreadNew(StartCanRtrTask, NULL, &CanRtrTask_attributes);
 
   /* creation of AdcTask */
   AdcTaskHandle = osThreadNew(StartAdcTask, NULL, &AdcTask_attributes);
+
+  /* creation of IndicateLedTask */
+  IndicateLedTaskHandle =
+     osThreadNew(StartIndicateLedTask, NULL, &IndicateLedTask_attributes);
+
+  /* creation of CanDataTask */
+  CanDataTaskHandle =
+      osThreadNew(StartCanDataTask, NULL, &CanDataTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -584,12 +634,13 @@ static void MX_CAN1_Init(void) {
   /* USER CODE BEGIN CAN1_Init 2 */
   CAN_FilterTypeDef sFilterConfig;
 
+  // Accept 0x003
   sFilterConfig.FilterBank = 0;
   sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
   sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-  sFilterConfig.FilterIdHigh = 0x000 << 5;
+  sFilterConfig.FilterIdHigh = 0x003 << 5;
   sFilterConfig.FilterIdLow = 0x0000;
-  sFilterConfig.FilterMaskIdHigh = 0x7F0 << 5;
+  sFilterConfig.FilterMaskIdHigh = 0x7FF << 5;
   sFilterConfig.FilterMaskIdLow = 0x0000;
   sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
   sFilterConfig.FilterActivation = ENABLE;
@@ -598,12 +649,13 @@ static void MX_CAN1_Init(void) {
     Error_Handler();
   }
 
+  // Accept 0x101 to 0x103
   sFilterConfig.FilterBank = 1;
   sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
   sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
   sFilterConfig.FilterIdHigh = 0x101 << 5;
   sFilterConfig.FilterIdLow = 0x0000;
-  sFilterConfig.FilterMaskIdHigh = 0x7FF << 5;
+  sFilterConfig.FilterMaskIdHigh = 0x7FC << 5;
   sFilterConfig.FilterMaskIdLow = 0x0000;
   sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
   sFilterConfig.FilterActivation = ENABLE;
@@ -655,6 +707,11 @@ static void MX_GPIO_Init(void) {
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA,
+                    LED_OFF_STATE_Pin | LED_CHARGE_STATE_Pin | LED_ON_STATE_Pin,
+                    GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB,
                     DSCHRGE_RELAY_Pin | RES_RELAY_Pin | CAP_RELAY_Pin |
                         MTR_RELAY_Pin | DSCHRGE_LED_Pin | RES_LED_Pin |
@@ -673,10 +730,17 @@ static void MX_GPIO_Init(void) {
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 PA1 PA2 PA3
-                           PA9 PA10 PA15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 |
-                        GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_15;
+  /*Configure GPIO pins : LED_OFF_STATE_Pin LED_CHARGE_STATE_Pin
+   * LED_ON_STATE_Pin */
+  GPIO_InitStruct.Pin =
+      LED_OFF_STATE_Pin | LED_CHARGE_STATE_Pin | LED_ON_STATE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA3 PA9 PA10 PA15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -777,70 +841,57 @@ void StartRelayTask(void *argument) {
                         GPIO_PIN_SET);
       break;
     }
-
-    printf("Hello I am here\r\n");
-
     osDelay(10);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_StartCanTask */
+/* USER CODE BEGIN Header_StartCanRtrTask */
 /**
- * @brief Function implementing the CanTask thread.
+ * @brief Function implementing the CanRtrTask thread.
  * @param argument: Not used
  * @retval None
  */
-/* USER CODE END Header_StartCanTask */
-void StartCanTask(void *argument) {
-  /* USER CODE BEGIN StartCanTask */
-  /* Infinite loop */
+/* USER CODE END Header_StartCanRtrTask */
+void StartCanRtrTask(void *argument) {
+  /* USER CODE BEGIN StartCanRtrTask */
+  float floatPackage[2] = {0.0F};
+  uint32_t queueData = 0;
   HAL_StatusTypeDef hal_stat;
-  
-  uint32_t queueData;
-  uint32_t placeholder = 1;
-
-  float floatPackage[2];
-
+  /* Infinite loop */
   for (;;) {
-    if (osMessageQueueGet(canRxMsgQueueHandle, &queueData, 0U, osWaitForever) ==
-        osOK) {
+    if (osMessageQueueGet(canRxRtrMsgQueueHandle, &queueData, 0U,
+                          osWaitForever) == osOK) {
       switch (queueData) {
-      case RELAY_CONFIGURATION_PACKET:
-        osMessageQueueGet(canRxMsgQueueHandle, &queueData, 0U, 10UL);
-        rb_state = (uint8_t)queueData;
-        hal_stat = HAL_CAN_SafeAddTxMessage((uint8_t *)&placeholder,
-                                            RELAY_CONFIGURATION_PACKET, 4UL,
-                                            &TxMailboxCanTask, CAN_RTR_DATA);
-        break;
-      case CAPACITOR_PACKET:
-        floatPackage[0] = relay_board_data.cap_volt;
-        floatPackage[1] = relay_board_data.cap_curr;
-        hal_stat = HAL_CAN_SafeAddTxMessage(
-            (uint8_t *)&floatPackage, CAPACITOR_PACKET, 8UL,
-            &TxMailboxCanTask, CAN_RTR_DATA);
+      case FUEL_CELL_PACKET:
+        floatPackage[0] = relay_board_data.fc_volt;
+        floatPackage[1] = relay_board_data.fc_curr;
+        hal_stat =
+            HAL_CAN_SafeAddTxMessage((uint8_t *)&floatPackage, FUEL_CELL_PACKET,
+                                     8UL, &TxMailboxCanTask, CAN_RTR_DATA);
         break;
       case MOTOR_PACKET:
         floatPackage[0] = relay_board_data.mtr_volt;
         floatPackage[1] = relay_board_data.mtr_curr;
-        hal_stat = HAL_CAN_SafeAddTxMessage(
-            (uint8_t *)&floatPackage, MOTOR_PACKET, 8UL,
-            &TxMailboxCanTask, CAN_RTR_DATA);
+        hal_stat =
+            HAL_CAN_SafeAddTxMessage((uint8_t *)&floatPackage, MOTOR_PACKET,
+                                     8UL, &TxMailboxCanTask, CAN_RTR_DATA);
         break;
-      case FUEL_CELL_PACKET:
-        floatPackage[0] = relay_board_data.fc_volt;
-        floatPackage[1] = relay_board_data.fc_curr;
-        hal_stat = HAL_CAN_SafeAddTxMessage(
-            (uint8_t *)&floatPackage, FUEL_CELL_PACKET, 8UL,
-            &TxMailboxCanTask, CAN_RTR_DATA);
+      case CAPACITOR_PACKET:
+        floatPackage[0] = relay_board_data.cap_volt;
+        floatPackage[1] = relay_board_data.cap_curr;
+        hal_stat =
+            HAL_CAN_SafeAddTxMessage((uint8_t *)&floatPackage, CAPACITOR_PACKET,
+                                     8UL, &TxMailboxCanTask, CAN_RTR_DATA);
         break;
       default:
+        // this shouldn't happen
         break;
       }
     }
     osDelay(10);
   }
-  /* USER CODE END StartCanTask */
+  /* USER CODE END StartCanRtrTask */
 }
 
 /* USER CODE BEGIN Header_StartAdcTask */
@@ -853,7 +904,7 @@ void StartAdcTask(void *argument) {
   const float CURR_TRANSFER = 0.667F;
   const float VOLT_TRANSFER = 0.107F;
   const float VOLT_TO_CURR_UNI = 12.5F; // A/V
-  const float VOLT_TO_CURR_BI = 25.0F; // A/V
+  const float VOLT_TO_CURR_BI = 25.0F;  // A/V
   /* Infinite loop */
   adc1Results[0] = adc1Results[1] = adc1Results[2] = 0;
   adc2Results[0] = adc2Results[1] = adc2Results[2] = 0;
@@ -864,10 +915,15 @@ void StartAdcTask(void *argument) {
     if (conversion_completed == 2) {
       relay_board_data.fc_volt = adc1Results[0] * ADC_VOLT_REF / VOLT_TRANSFER;
       relay_board_data.cap_volt = adc1Results[1] * ADC_VOLT_REF / VOLT_TRANSFER;
-      relay_board_data.fc_curr = ((adc1Results[2] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) * VOLT_TO_CURR_UNI;
-
-      relay_board_data.mtr_curr = ((adc2Results[0] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) * VOLT_TO_CURR_UNI;
-      relay_board_data.cap_curr = ((adc2Results[1] * ADC_VOLT_REF / CURR_TRANSFER) - 2.5) * VOLT_TO_CURR_BI;
+      relay_board_data.fc_curr =
+          ((adc1Results[2] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) *
+          VOLT_TO_CURR_UNI;
+      relay_board_data.mtr_curr =
+          ((adc2Results[0] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) *
+          VOLT_TO_CURR_UNI;
+      relay_board_data.cap_curr =
+          ((adc2Results[1] * ADC_VOLT_REF / CURR_TRANSFER) - 2.5) *
+          VOLT_TO_CURR_BI;
       relay_board_data.mtr_volt = adc2Results[2] * ADC_VOLT_REF / VOLT_TRANSFER;
 
       conversion_completed = 0;
@@ -878,6 +934,133 @@ void StartAdcTask(void *argument) {
     osDelay(10);
   }
   /* USER CODE END StartAdcTask */
+}
+
+/* USER CODE BEGIN Header_StartIndicateLedTask */
+/**
+ * @brief Function implementing the IndicateLedTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
+/* USER CODE END Header_StartIndicateLedTask */
+void StartIndicateLedTask(void *argument) {
+  /* USER CODE BEGIN StartIndicateLedTask */
+  /* Infinite loop */
+  for (;;) {
+    switch (rb_state) {
+    case RELAY_STBY:
+      // Turn off other indicator LEDs
+      HAL_GPIO_WritePin(LED_ON_STATE_GPIO_Port, LED_ON_STATE_Pin,
+                        GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                        GPIO_PIN_RESET);
+
+      // Flash LED off state
+      HAL_GPIO_WritePin(LED_OFF_STATE_GPIO_Port, LED_OFF_STATE_Pin,
+                        GPIO_PIN_SET);
+      osDelay(500);
+      HAL_GPIO_WritePin(LED_OFF_STATE_GPIO_Port, LED_OFF_STATE_Pin,
+                        GPIO_PIN_RESET);
+      osDelay(500);
+      break;
+    case RELAY_STRTP:
+      // Turn off other indicator LEDs
+      HAL_GPIO_WritePin(LED_ON_STATE_GPIO_Port, LED_ON_STATE_Pin,
+                        GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                        GPIO_PIN_RESET);
+
+      // Flash faster during startup phase as this section is very short
+      HAL_GPIO_WritePin(LED_OFF_STATE_GPIO_Port, LED_OFF_STATE_Pin,
+                        GPIO_PIN_SET);
+      osDelay(50);
+      HAL_GPIO_WritePin(LED_OFF_STATE_GPIO_Port, LED_OFF_STATE_Pin,
+                        GPIO_PIN_RESET);
+      osDelay(50);
+      break;
+    case RELAY_CHRGE:
+      // Turn off other indicator LEDs
+      HAL_GPIO_WritePin(LED_OFF_STATE_GPIO_Port, LED_OFF_STATE_Pin,
+                        GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED_ON_STATE_GPIO_Port, LED_ON_STATE_Pin,
+                        GPIO_PIN_RESET);
+
+      // Progressively increase the flashing speed to indicating caps are
+      // charging
+      if (relay_board_data.cap_volt < 10.0f) {
+        HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                          GPIO_PIN_SET);
+        osDelay(500 );
+        HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                          GPIO_PIN_RESET);
+        osDelay(500);
+      } else if (relay_board_data.cap_volt < 17.0f) {
+        HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                          GPIO_PIN_SET);
+        osDelay(250);
+        HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                          GPIO_PIN_RESET);
+        osDelay(250);
+      } else if (relay_board_data.cap_volt <= 25.0f) {
+
+        HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                          GPIO_PIN_SET);
+        osDelay(100);
+        HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                          GPIO_PIN_RESET);
+        osDelay(100);
+      }
+      break;
+    case RELAY_RUN:
+      // Turn off other indicator LEDs
+      HAL_GPIO_WritePin(LED_CHARGE_STATE_GPIO_Port, LED_CHARGE_STATE_Pin,
+                        GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED_OFF_STATE_GPIO_Port, LED_OFF_STATE_Pin,
+                        GPIO_PIN_RESET);
+
+      // Turn on the run LED to indicate driver can apply power
+      HAL_GPIO_WritePin(LED_ON_STATE_GPIO_Port, LED_ON_STATE_Pin, GPIO_PIN_SET);
+      osDelay(100);
+      break;
+    default:
+      break;
+    }
+  }
+}
+/* USER CODE END StartIndicateLedTask */
+
+/* USER CODE BEGIN Header_StartCanDataTask */
+/**
+ * @brief Function implementing the CanDataTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
+/* USER CODE END Header_StartCanDataTask */
+void StartCanDataTask(void *argument) {
+  /* USER CODE BEGIN StartCanDataTask */
+  uint32_t queueData = 0;
+  HAL_StatusTypeDef hal_stat;
+
+  const uint32_t CONFIRM_RELAY_CONFIG = 1;
+  /* Infinite loop */
+  for (;;) {
+    if (osMessageQueueGet(canRxDataMsgQueueHandle, &queueData, 0U,
+                          osWaitForever) == osOK) {
+      switch (queueData) {
+      case RELAY_CONFIGURATION_PACKET:
+        osMessageQueueGet(canRxDataMsgQueueHandle, &queueData, 0U, 10UL);
+        rb_state = queueData;
+        hal_stat = HAL_CAN_SafeAddTxMessage((uint8_t *)&CONFIRM_RELAY_CONFIG,
+                                            RELAY_CONFIGURATION_PACKET, 4UL,
+                                            &TxMailboxCanTask, CAN_RTR_DATA);
+        break;
+      default:
+        break;
+      }
+      osDelay(10);
+    }
+  }
+  /* USER CODE END StartCanDataTask */
 }
 
 /**

@@ -57,6 +57,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED_OFF_STATE_Pin GPIO_PIN_0
+#define LED_OFF_STATE_GPIO_Port GPIOA
+#define LED_CHARGE_STATE_Pin GPIO_PIN_1
+#define LED_CHARGE_STATE_GPIO_Port GPIOA
+#define LED_ON_STATE_Pin GPIO_PIN_2
+#define LED_ON_STATE_GPIO_Port GPIOA
 #define FC_VOLT_Pin GPIO_PIN_4
 #define FC_VOLT_GPIO_Port GPIOA
 #define MOTOR_CURR_Pin GPIO_PIN_5

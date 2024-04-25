@@ -258,16 +258,6 @@ CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.ob
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 
 CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/stm32f4xx_it.c.obj: ../Core/Src/stm32f4xx_it.c \
-  ../Core/Inc/stm32f4xx_it.h \
-  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/features.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_intsup.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h \
-  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
   ../Core/Inc/main.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
   ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -276,12 +266,20 @@ CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/stm32f4xx_it.c.obj: ../Core/Src
   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h \
   ../Drivers/CMSIS/Include/core_cm4.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/features.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_intsup.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h \
   ../Drivers/CMSIS/Include/cmsis_version.h \
   ../Drivers/CMSIS/Include/cmsis_compiler.h \
   ../Drivers/CMSIS/Include/cmsis_gcc.h \
   ../Drivers/CMSIS/Include/mpu_armv7.h \
   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
+  /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
@@ -302,7 +300,8 @@ CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/stm32f4xx_it.c.obj: ../Core/Src
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
   ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
-  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
+  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
+  ../Core/Inc/stm32f4xx_it.h
 
 CMakeFiles/Relay-Board_2023_Lucy_V1.dir/Core/Src/syscalls.c.obj: ../Core/Src/syscalls.c \
   /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/errno.h \
