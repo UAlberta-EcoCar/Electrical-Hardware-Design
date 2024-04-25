@@ -56,15 +56,20 @@ void onReceive(int packetSize)
   // read packet header bytes:
   String incoming = "";
   digitalWrite(PA1, HIGH);
-  while (LoRa.available())
-  {
-    incoming += (char)LoRa.read();
-  }
+  // while (LoRa.available())
+  // {
+  //   incoming += (uint8_t)LoRa.read();
+  // }
+  incoming = LoRa.readString();
   // memcpy(&datarecieved, incoming.c_str(), sizeof(Datasent));
-  Serial.println("Message: " + incoming);
-  Serial.println("RSSI: " + String(LoRa.packetRssi()));
-  Serial.println("Snr: " + String(LoRa.packetSnr()));
-  Serial.println();
+  Serial.print("[");
+  Serial.print(millis());
+  Serial.print("]");
+
+  Serial.println(incoming);
+  // Serial.println("RSSI: " + String(LoRa.packetRssi()));
+  // Serial.println("Snr: " + String(LoRa.packetSnr()));
+  //Serial.println();
   // Serial.printf("h2 hum: %f\r\n", datarecieved.cap_current);
   digitalWrite(PA1, LOW);
 }
@@ -96,7 +101,7 @@ void setup()
   // LoRa.setTxPower(5);
   //LoRa.setSignalBandwidth(500E3);
   // LoRa.setSignalBandwidth(10.4E3);
-  // LoRa.setSpreadingFactor(10);
+  // LoRa.setSpreadingFactor(7);
   if (!LoRa.begin(868E6))
   { // initialize ratio at 915 MHz
     Serial.println("LoRa init failed. Check your connections.");
@@ -105,7 +110,7 @@ void setup()
   }
   MX_CAN1_Init();
   CAN_Initialize();
-  LoRa.setTxPower(20);
+  LoRa.setTxPower(5);
   // LoRa.setSpreadingFactor(7);
   // LoRa.setSignalBandwidth(500E3);
   // LoRa.setSyncWord(0xF3); // ranges from 0-0xFF, default 0x34, see API docs
@@ -130,71 +135,9 @@ void setup()
 uint8_t send = 0x01;
 void loop()
 {
-  float f = 3;
-  uint8_t buf[8];
-  // Serial.println("Running Sending and Recieving");
 
-  Serial.println("Requesting CAN");
-  CAN_Transmit(CAP_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
-  digitalWrite(PA9, HIGH);
-
-  // CAN_Transmit(H2_ALARM, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(RELAY_CONF, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(CAP_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
-  HAL_Delay(10);
-  CAN_Transmit(MTR_VOLT_CURR, 0, 0, CAN_RTR_REMOTE);
-  HAL_Delay(10);
-  CAN_Transmit(FC_VOLT_CURR, 0 , 0, CAN_RTR_REMOTE);
-  HAL_Delay(10);
-  CAN_Transmit(INT_STACK_PRES_TEMP, 0, 0, CAN_RTR_REMOTE);
-
-  // // CAN_Transmit(ACCEL_X_Y, 0, 0, CAN_RTR_REMOTE);
-  // // CAN_Transmit(ACCEL_Z_SPEED, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_CONC_MV, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_TEMP, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_PRESSURE, 0, 0, CAN_RTR_REMOTE);
-  // CAN_Transmit(H2_HUMIDITY, 0, 0, CAN_RTR_REMOTE);
-  digitalWrite(PA9, LOW);
-  // send += 1;
-  //  The actual code that is being used will be done to main loop as usual.
-  //  We only read data from CAN bus if there is frames received, so that main code can do it's thing efficiently.
-
-  // if (millis() - lastSendTime > interval)
-  // {
-  //   String message = "FormulaSucks"; // send a message
-  //   message += msgCount;
-  //   sendMessage(message);
-  //   Serial.println("Sending " + message);
-  //   lastSendTime = millis();        // timestamp the message
-  //   interval = random(2000) + 1000; // 2-3 seconds
-  //   msgCoun;t++;
-  // }
-  // digitalWrite(PA8, HIGH);
-  // char buffer[sizeof(Datasent)];
-  // memcpy(buffer, &datasent, sizeof(Datasent));
   digitalWrite(PA1, HIGH);
-  // onReceive(LoRa.parsePacket());
-  LoRa.beginPacket();
-  //LoRa.println((const char *)&datasent);
-  //LoRa.printf("cc%fcv%f fc%f fv%f\n", datasent.cap_current, datasent.cap_voltage, datasent.fc_current, datasent.fc_voltage);
-  
-  LoRa.print("CV ");
-  LoRa.print(String(datasent.cap_voltage));
-  LoRa.print(";CC ");
-  LoRa.print(String(datasent.cap_current));
-  LoRa.print(";FV ");
-  LoRa.print(String(datasent.fc_voltage));
-  LoRa.print(";FC ");
-  LoRa.print(String(datasent.fc_current));
-  LoRa.print(";FT ");
-  LoRa.print(String(datasent.internal_stack_temp));
-  LoRa.print(";FP ");
-  LoRa.print(String(datasent.internal_stack_pressure));
-  LoRa.print(";MV ");
-  LoRa.print(String(datasent.mtr_voltage));
-  LoRa.print(";MC ");
-  LoRa.print(String(datasent.mtr_current));
-  LoRa.endPacket(true);
+  onReceive(LoRa.parsePacket());
 
   digitalWrite(PA1, LOW);
 
