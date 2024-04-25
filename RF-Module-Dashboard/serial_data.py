@@ -15,9 +15,31 @@ class ReceivedStructure(Structure):
             ]
     
 class SerialData():
-    def __init__(self, connection="ttyACM0", baud=9600):
-        port = ("/dev/"+connection)
-        self.ser = serial.Serial(port, baud)
+    lucy_data = {
+                'h2_alarm': 99,
+                'shell_stop': 99,
+                'relay_conf': 99,
+                'cap_voltage': 99,
+                'cap_current': 99,
+                'mtr_voltage': 99,
+                'mtr_current': 99,
+                'fc_voltage': 99,
+                'fc_current': 99,
+                'internal_stack_pressure': 99,
+                'internal_stack_temp': 99,
+                'x_accel': 99,
+                'y_accel': 99,
+                'z_accel': 99,
+                'speed_magnitude': 99,
+                'h2_voltage': 99,
+                'h2_temp': 99,
+                'h2_pressure': 99,
+                'h2_humidity': 99
+            }
+    
+    def __init__(self, connection="COM5", baud=115200):
+        port = (connection)
+        self.ser = serial.Serial(port, baud, timeout=5)
         self.data_bytes = self.ser.read(sizeof(ReceivedStructure))
         
         self.lock = threading.Lock()
@@ -52,7 +74,7 @@ class SerialData():
             }
             self.ser.flushOutput()
             with self.condition:
-                self.condition.notifyAll()
+                self.condition.notify_all()
             
     def getValue(self, Value):
         with self.lock:
@@ -60,6 +82,21 @@ class SerialData():
             self.condition.wait()
             output = self.lucy_data[Value]
         return output
+    
+if __name__ == "__main__":
+    testing = SerialData()
+    data_reading = [
+                    'h2_alarm', 'shell_stop','relay_conf', 'cap_current', 
+                    'cap_voltage', 'mtr_voltage', 'mtr_current', 'fc_voltage', 
+                    'fc_current', 'internal_stack_pressure', 'internal_stack_temp',
+                    'x_accel', 'y_accel', 'z_accel', 'speed_magnitude', 
+                    'h2_voltage', 'h2_temp', 'h2_pressure', 'h2_humidity'
+                ]
+    
+    print("testing starting....")
+    while 1:
+        for element in data_reading:
+            print(element, testing.getValue(element))
 
 
 # ser = serial.Serial('/dev/ttyUSB0', 9600)
@@ -140,19 +177,4 @@ class SerialData():
 #             self.condition.wait()
 #             output = self.fuelcell[Value]
 #         return output
-
-    
-# if __name__ == "__main__":
-#     testing = FuelCellSerial()
-#     print("testing starting....")
-#     while 1:
-#         print("Voltage: ")
-#         print(testing.getValue("voltage"))
-#         print("current: ")
-#         print(testing.getValue("current"))
-#         print("temp: ")
-#         print(testing.getValue("temp"))
-#         print("pressure: ")
-#         print(testing.getValue("pressure"))
-#         print("state: ")
-#         print(testing.getValue("state"))  
+ 
