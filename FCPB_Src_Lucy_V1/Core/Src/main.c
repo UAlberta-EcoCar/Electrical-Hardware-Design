@@ -572,7 +572,20 @@ static void MX_CAN1_Init(void) {
     Error_Handler();
   }
   /* USER CODE BEGIN CAN1_Init 2 */
-
+  CAN_FilterTypeDef sf;
+  // Accept StdID 0x101 to 0x103
+  sf.FilterIdHigh = 0x201 << 5;
+  sf.FilterMaskIdHigh = 0x7FF << 5;
+  sf.FilterIdLow = 0x0000;
+  sf.FilterMaskIdLow = 0x0000;
+  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  sf.FilterBank = 0;
+  sf.FilterMode = CAN_FILTERMODE_IDMASK;
+  sf.FilterScale = CAN_FILTERSCALE_32BIT;
+  sf.FilterActivation = CAN_FILTER_ENABLE;
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+    Error_Handler();
+  }
   /* USER CODE END CAN1_Init 2 */
 }
 
@@ -831,12 +844,14 @@ void StartFanPwmTask(void *argument) {
   for (;;) {
     HAL_CAN_SafeAddTxMessage(NULL, (uint32_t)INTERNAL_FUEL_CELL_PACKET, 0UL,
                              &TxMailboxPwmTask, (uint32_t)CAN_RTR_REMOTE);
-    if (can_bus_data.fcTemp > 10.0F) {
-      CCR1_set = (uint32_t)(0.5F * powf(can_bus_data.fcTemp - 10, 1.5F));
-      htim16.Instance->CCR1 = CCR1_set;
-    } else {
-      htim16.Instance->CCR1 = 0;
-    }
+    htim16.Instance->CCR1 = 75;
+    // if (can_bus_data.fcTemp < 30.0f) {
+    //   htim16.Instance->CCR1 = 50;
+    // } else if (can_bus_data.fcTemp < 50.0f) {
+    //   htim16.Instance->CCR1 = 65;
+    // } else {
+    //   htim16.Instance->CCR1 = 100;
+    // }
     osDelay(500);
   }
   /* USER CODE END StartFanPwmTask */
