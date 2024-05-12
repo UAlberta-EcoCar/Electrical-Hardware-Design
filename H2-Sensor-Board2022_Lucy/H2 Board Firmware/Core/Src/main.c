@@ -23,6 +23,7 @@
 #include "can.h"
 #include "dma.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -51,13 +52,11 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
-
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
 
 /* USER CODE END PV */
 
@@ -122,8 +121,9 @@ int main(void)
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   MX_ADC1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+	CAN_Initialize();
 	//ssd1306_Init();
 	//ssd1306_Fill(White);
 	//ssd1306_UpdateScreen(); // update screen
@@ -231,8 +231,6 @@ void SystemClock_Config(void)
 //	raw = adc_buf[ADC_BUF_LEN - 1];
 //}
 
-
-
 /* USER CODE END 4 */
 
 /**
@@ -263,6 +261,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
+	HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_SET);
 	/* User can add his own implementation to report the HAL error return state */
 	__disable_irq();
 	while (1) {

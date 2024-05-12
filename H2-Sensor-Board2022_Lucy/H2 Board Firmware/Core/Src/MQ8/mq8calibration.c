@@ -22,10 +22,10 @@ int MQ8_GetH2Percentage(float rs_ro_ratio) {
 	return MQ8_GetPercentage(rs_ro_ratio, H2Curve);
 }
 
-float MQ8_ResistanceCalculation(int real_adc) {
-	return ((float) (RL_VALUE * real_adc));
+float MQ8_ResistanceCalculation(float real_adc) {
+//	return ((float) (RL_VALUE * real_adc));
 	// 4095 is adc resolution origitan was 1023
-//	return (((float) RL_VALUE * (4095 - real_adc) / real_adc));
+	return (((float) RL_VALUE * (4095 - real_adc) / real_adc));
 }
 
 float MQ8_Compensate(float real_adc) {

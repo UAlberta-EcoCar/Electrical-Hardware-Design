@@ -48,7 +48,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Core/Inc/i2c.h ../Core/Inc/adc.h ../Core/Inc/dma.h ../Core/Inc/gpio.h \
  ../Core/Inc/ssd1306.h ../Core/Inc/ssd1306_conf.h \
  ../Core/Inc/ssd1306_fonts.h ../Core/Src/bme280/bme280.h \
- ../Core/Src/bme280/bme280_defs.h ../Core/Src/MQ8/mq8calibration.h
+ ../Core/Src/bme280/bme280_defs.h ../Core/Src/MQ8/mq8calibration.h \
+ ../Core/Inc/tim.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -108,3 +109,4 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Core/Src/bme280/bme280.h:
 ../Core/Src/bme280/bme280_defs.h:
 ../Core/Src/MQ8/mq8calibration.h:
+../Core/Inc/tim.h:

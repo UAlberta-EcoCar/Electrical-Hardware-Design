@@ -51,7 +51,7 @@ int MQ8_GetH2Percentage(float rs_ro_ratio);
  across the load resistor and its resistance, the resistance of the sensor
  could be derived.
  ************************************************************************************/
-float MQ8_ResistanceCalculation(int real_adc);
+float MQ8_ResistanceCalculation(float real_adc);
 
 /*****************************  MQRead *********************************************
  Input:   mq_pin - analog channel

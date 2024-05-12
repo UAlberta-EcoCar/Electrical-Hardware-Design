@@ -13,7 +13,7 @@
 // Incoming packet Identifier
 // Anyone who wants this information sends a packet with this ID
 typedef enum {
-	GET_H2_CONC = 0x111,
+	GET_H2_CONC_MV = 0x111,
 	GET_TEMP = 0x221,
 	GET_PRESSURE = 0x222,
 	GET_HUMIDITY = 0x223
@@ -22,11 +22,11 @@ typedef enum {
 // RTR Data
 // anyone who wants this packet listens to this id.
 typedef enum {
-	RESPOND_EMERGENCY_JERMA_ALERT = 0x001,
+	RESPOND_EMERGENCY_H2_ALERT = 0x001,
 	RESPOND_H2_CONC = 0x111,
-	RESPOND_TEMP,
-	RESPOND_PRESSURE,
-	RESPOND_HUMIDITY,
+	RESPOND_TEMP = 0x221,
+	RESPOND_PRESSURE = 0x222,
+	RESPOND_HUMIDITY = 0x223,
 } RESPONSE_PACKET_ID;
 
 /**

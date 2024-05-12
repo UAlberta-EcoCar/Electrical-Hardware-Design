@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    can.c
-  * @brief   This file provides code for the configuration
-  *          of the CAN instances.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    can.c
+ * @brief   This file provides code for the configuration
+ *          of the CAN instances.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "can.h"
@@ -118,5 +118,73 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* canHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void CAN_Initialize() {
+	//MX_CAN1_Init();
+	/* USER CODE BEGIN 2 */
+	CAN_FilterTypeDef high_priority_filter;
+	high_priority_filter.FilterIdHigh = 0x100 << 5;
+	high_priority_filter.FilterMaskIdHigh = 0x100 << 5;
+	high_priority_filter.FilterIdLow = 0x0000;
+	high_priority_filter.FilterMaskIdLow = 0x0000;
+	high_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+	high_priority_filter.FilterBank = 0;
+	high_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
+	high_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
+	high_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
+
+	if (HAL_CAN_ConfigFilter(&hcan1, &high_priority_filter) != HAL_OK) {
+		/* Filter configuration Error */
+		Error_Handler();
+	}
+
+	CAN_FilterTypeDef low_priority_filter;
+	low_priority_filter.FilterIdHigh = 0x200 << 5;
+	low_priority_filter.FilterMaskIdHigh = 0x200 << 5;
+	low_priority_filter.FilterIdLow = 0x0000;
+	low_priority_filter.FilterMaskIdLow = 0x0000;
+	low_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+	low_priority_filter.FilterBank = 0;
+	low_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
+	low_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
+	low_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
+
+	if (HAL_CAN_Start(&hcan1) != HAL_OK) {
+		printf("[!SYSTEM ERROR]CAN Initialization Error At CAN Start");
+		Error_Handler();
+	}
+
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING)
+			!= HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT MESSAGE PENDING RX FIFO 0");
+		Error_Handler();
+	}
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING)
+			!= HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT MESSAGE PENDING RX FIFO 1");
+		Error_Handler();
+	}
+
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_FULL) != HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT RX FIFO 0 FULL");
+		Error_Handler();
+	}
+	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO1_FULL) != HAL_OK) {
+		printf(
+				"[!SYSTEM ERROR]CAN Initialization Error At CAN INTURRUPT RX FIFO 1 FULL");
+		Error_Handler();
+	}
+
+//	if (HAL_CAN_ActivateNotification(&hcan1, CAN_IT_ERROR))
+//	!= HAL_OK) {
+//		Error_Handler();
+//	}
+//	TxHeader.RTR = CAN_RTR_DATA;
+//	TxHeader.IDE = CAN_ID_STD;
+//	TxHeader.DLC = 8;
+//	TxHeader.TransmitGlobalTime = DISABLE;
+}
 
 /* USER CODE END 1 */

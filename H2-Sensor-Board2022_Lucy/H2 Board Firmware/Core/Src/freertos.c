@@ -39,6 +39,7 @@
 #include <string.h>
 #include "packets.h"
 #include "MQ8/mq8calibration.h"
+#include "tim.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,7 +76,7 @@ char bme_data_str[1024] = { 0 };
 float temperature;
 float humidity;
 float pressure;
-
+volatile int lockout = 0;
 H2_SYSTEM_STATE system_state = H2_SYSTEM_STATE_INACTIVE;
 
 /* USER CODE END PM */
@@ -113,7 +114,7 @@ const osThreadAttr_t AuxilaryPrintT_attributes = {
   .cb_size = sizeof(AuxilaryPrintTControlBlock),
   .stack_mem = &AuxilaryPrintTBuffer[0],
   .stack_size = sizeof(AuxilaryPrintTBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for SensorTransmitT */
 osThreadId_t SensorTransmitTHandle;
@@ -137,7 +138,7 @@ const osThreadAttr_t LeakWatchdogT_attributes = {
   .cb_size = sizeof(LeakWatchdogTControlBlock),
   .stack_mem = &LeakWatchdogTBuffer[0],
   .stack_size = sizeof(LeakWatchdogTBuffer),
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityAboveNormal,
 };
 /* Definitions for SensorCalibrate */
 osThreadId_t SensorCalibrateHandle;
@@ -208,7 +209,10 @@ int CAN_Transmit_Intrim(IntrimPacket _to_send) {
 	if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, _to_send.data, &TxMailbox)
 			!= HAL_OK) {
 		printf("Can transmission error on packet id: %hu\r\n", _to_send.id);
-		Error_Handler();
+		printf(
+				"[!CAN TRANSMIT FUNCTION]: TX MAILBOX FULL (CHECK CAN BUS CONNECTION)!\r\n");
+		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_SET);
+		//Error_Handler();
 	}
 
 	return 1;
@@ -283,6 +287,7 @@ void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {
 void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {
 	printf("[!TxMailbox2CompleteCallback] Sent\r\n");
 }
+IntrimPacket empack;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == H2_TARE_Pin) {
@@ -291,8 +296,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 			debaunce_tick += HAL_GetTick();
 		} else {
 			if ((debaunce_tick - HAL_GetTick() > 50)) {
-				system_state = H2_SYSTEM_STATE_CALIBRATE;
-				osSemaphoreRelease(calibrateSensorHandle);
+				//system_state = H2_SYSTEM_STATE_CALIBRATE;
+				//osSemaphoreRelease(calibrateSensorHandle);
+				system_state = H2_SYSTEM_STATE_ALARM_TRIPPED;
+				//system_state = H2_SYSTEM_STATE_ALARM_TRIPPED;
+				CAN_Transmit_Intrim(empack);
 			}
 		}
 	}
@@ -326,7 +334,10 @@ void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName) {
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-
+	empack.rtr_type = CAN_RTR_DATA;
+	empack.id = RESPOND_EMERGENCY_H2_ALERT;
+	empack.dlc = 1;
+	empack.data[0] = 1;
   /* USER CODE END Init */
   /* Create the mutex(es) */
   /* creation of I2CBusControl */
@@ -396,8 +407,8 @@ void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
 	for (;;) {
-		printf("[!Default task]: s");
-		osDelay(osWaitForever);
+		//printf("[!Default task]: s\r\n");
+		osDelay(100);
 	}
   /* USER CODE END StartDefaultTask */
 }
@@ -447,7 +458,7 @@ void startSensorReadThread(void *argument)
 		//HAL_GPIO_WritePin(BEEPER_GPIO_Port, BEEPER_Pin, GPIO_PIN_SET);
 		printf("[Main Thread] ");
 		printf("H2 ADC: ");
-		printf("%d\r\n", adc_buf[ADC_BUF_LEN - 1] * 0.8);
+		printf("%f\r\n", adc_buf[ADC_BUF_LEN - 1] * 0.8f);
 		//		TxHeader.StdId = 0x102;
 		printf("[!Main Thread] Calibrated H2 Sensor Reading: %d\r\n",
 				(h2_conc_ppm = MQ8_GetH2Percentage(
@@ -493,6 +504,8 @@ void startAuxilaryPrintThread(void *argument)
 {
   /* USER CODE BEGIN startAuxilaryPrintThread */
 	osDelay(500);
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+	htim2.Instance->CCR2 = 0;
 	if (osMutexAcquire(I2CBusControlHandle, osWaitForever) == osOK) {
 		ssd1306_Init();
 		osMutexRelease(I2CBusControlHandle);
@@ -500,9 +513,10 @@ void startAuxilaryPrintThread(void *argument)
 		printf("[!Secondary Thread] I2C Busy\r\n");
 	}
 
-	static int temp_blink = 0;
+	int temp_blink = 1, temp_blink2 = 0;
 	/* Infinite loop */
 	for (;;) {
+		htim2.Instance->CCR2 = 1 * (temp_blink2 = !temp_blink2);
 
 		ssd1306_Fill(Black);
 		ssd1306_Line(0, 0, SSD1306_WIDTH, 0, White);
@@ -534,24 +548,28 @@ void startAuxilaryPrintThread(void *argument)
 
 		switch (system_state) {
 		case H2_SYSTEM_STATE_INACTIVE:
-			sprintf(bme_data_str, "%s", "ALARM INACTIVE");
+			sprintf(bme_data_str, "%s", "-ALARM INACTIVE-");
 			break;
 		case H2_SYSTEM_STATE_ALARM_ACTIVE:
-			sprintf(bme_data_str, "%s", "ALARM ACTIVE");
+			sprintf(bme_data_str, "%s", "-ALARM ACTIVE-");
 			break;
 		case H2_SYSTEM_STATE_ALARM_TEST:
-			sprintf(bme_data_str, "%s", "ALARM TEST");
+			sprintf(bme_data_str, "%s", "-ALARM TEST-");
 			break;
 		case H2_SYSTEM_STATE_ALARM_TEST_SILENT:
-			sprintf(bme_data_str, "%s", "ALARM TEST SILENT");
+			sprintf(bme_data_str, "%s", "-ALARM TEST SILENT-");
 			break;
 		case H2_SYSTEM_STATE_CALIBRATE:
-			sprintf(bme_data_str, "%s", "CALIBRATE");
+			sprintf(bme_data_str, "%s", "-CALIBRATE-");
+			break;
+		case H2_SYSTEM_STATE_ALARM_TRIPPED:
+			sprintf(bme_data_str, "%s", "-!ALARM TRIPPED!-");
+			temp_blink = !temp_blink;
 			break;
 		}
 
 		ssd1306_WriteString(bme_data_str, Font_7x10,
-				(temp_blink = !temp_blink) ? White : Black);
+				temp_blink ? White : Black);
 
 		ssd1306_Line(0, 62, SSD1306_WIDTH, 62, White);
 
@@ -586,7 +604,7 @@ void startSensorTransmitThread(void *argument)
 			response_packet.dlc = 8;
 			if (response_packet.rtr_type == CAN_RTR_REMOTE) {
 				switch (response_packet.id) {
-				case GET_H2_CONC:
+				case GET_H2_CONC_MV:
 					response_packet.id = RESPOND_H2_CONC;
 					temp_h2 = adc_buf[ADC_BUF_LEN - 1] * 0.80f;
 					//					sprintf(&response_packet.data, "%f",
@@ -656,19 +674,35 @@ void startLeakWatchdogThread(void *argument)
   /* USER CODE BEGIN startLeakWatchdogThread */
 	IntrimPacket empack;
 	empack.rtr_type = CAN_RTR_DATA;
-	empack.id = RESPOND_EMERGENCY_JERMA_ALERT;
-	empack.dlc = 0;
-	int lockout = 0;
+	empack.id = RESPOND_EMERGENCY_H2_ALERT;
+	empack.dlc = 1;
+	float h2_conc_mv = 0;
+
 	// Beeper Prescaler = 80MHz/ 100^2 = 8000 (8000 - 1 cuz MX )
 	// Max Freq = 80MHz/(100*8000) = 1000
-	//HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-	//htim2.Instance->CCR1 = 5; // Duty Cycle we want this to be 0% so that when needed we can turn the beeeper on.
+	//lockout = 1;
+	empack.data[0] = 1;
+	system_state = H2_SYSTEM_STATE_INACTIVE;
+	osDelay(500);
+	system_state = H2_SYSTEM_STATE_ALARM_ACTIVE;
+//	system_state = H2_SYSTEM_STATE_ALARM_TRIPPED;
+//	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+//	htim2.Instance->CCR2 = 0; // Duty Cycle we want this to be 0% so that when needed we can turn the beeeper on.
 	/* Infinite loop */
 	for (;;) {
-		if (lockout || (adc_buf[ADC_BUF_LEN - 1] * 0.8) >= 3000.00f) {
-			lockout = 1;
-			printf("[!LeakWatchDogThread] Leak detedted.\r\n");
+		if ((system_state == H2_SYSTEM_STATE_ALARM_TRIPPED)
+				|| ((adc_buf[ADC_BUF_LEN - 1] * 0.8f) >= 3000.00f)) {
+			system_state = H2_SYSTEM_STATE_ALARM_TRIPPED;
+			static int temp = 0;
+			h2_conc_mv = adc_buf[ADC_BUF_LEN - 1] * 0.8f;
+			//memcpy(&empack.data, &h2_conc_mv, sizeof(float));
+//			htim2.Instance->CCR2 = 100 * (temp = !temp);
+
+			printf("[!LeakWatchDogThread] Leak detected.\r\n");
+			osDelay(50);
+			HAL_GPIO_TogglePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin);
 			CAN_Transmit_Intrim(empack);
+			osDelay(50);
 		}
 		//		if (osSemaphoreAcquire(SensorAlertH2Handle, osWaitForever) == osOK) {
 		//			while (1) {
@@ -683,7 +717,7 @@ void startLeakWatchdogThread(void *argument)
 		//			}
 		//		}
 		// Else transmit if message queue has request for data.
-		osDelay(100);
+		osDelay(50);
 	}
   /* USER CODE END startLeakWatchdogThread */
 }
@@ -700,31 +734,33 @@ void startSensorCalibrateThread(void *argument)
   /* USER CODE BEGIN startSensorCalibrateThread */
 	IntrimPacket empack;
 	empack.rtr_type = CAN_RTR_DATA;
-	empack.id = RESPOND_EMERGENCY_JERMA_ALERT;
+	empack.id = RESPOND_EMERGENCY_H2_ALERT;
 	empack.dlc = 4;
-	empack.id = RESPOND_EMERGENCY_JERMA_ALERT;
+	empack.id = RESPOND_EMERGENCY_H2_ALERT;
 	/* Infinite loop */
 	for (;;) {
 		osSemaphoreAcquire(calibrateSensorHandle, osWaitForever);
-		//		printf("[!Calibrate Sensor Thread] Starting Calibration.\r\n");
-		////		Ro = MQ8_Calibration();
-		//
-		//		int i;
-		//		for (i = 0; i < CALIBARAION_SAMPLE_TIMES; i++) { //take multiple samples
-		//			Ro += MQ8_ResistanceCalculation(adc_buf[ADC_BUF_LEN - 1] * 0.8);
-		//			osDelay(CALIBRATION_SAMPLE_INTERVAL);
-		//		}
-		//		Ro = Ro / CALIBARAION_SAMPLE_TIMES;      //calculate the average value
-		//
-		//		Ro = Ro / RO_CLEAN_AIR_FACTOR; //divided by RO_CLEAN_AIR_FACTOR yields the Ro
-		//									   //according to the chart in the datasheet
-		//		osDelay(1000);
-		//		system_state = H2_SYSTEM_STATE_INACTIVE;
+		printf("[!Calibrate Sensor Thread] Starting Calibration.\r\n");
+		//		Ro = MQ8_Calibration();
 
-		//		if (h2_conc_ppm > 1) {
-		//		response_packet.rtr_type = CAN_RTR_DATA;
-		CAN_Transmit_Intrim(empack);
-		//		}
+		int i;
+		for (i = 0; i < CALIBARAION_SAMPLE_TIMES; i++) { //take multiple samples
+//			Ro += MQ8_ResistanceCalculation(adc_buf[ADC_BUF_LEN - 1] * 0.8f);
+
+			Ro += MQ8_ResistanceCalculation(adc_buf[ADC_BUF_LEN - 1]);
+			osDelay(CALIBRATION_SAMPLE_INTERVAL);
+		}
+		Ro = Ro / CALIBARAION_SAMPLE_TIMES;      //calculate the average value
+
+		Ro = Ro / RO_CLEAN_AIR_FACTOR; //divided by RO_CLEAN_AIR_FACTOR yields the Ro
+									   //according to the chart in the datasheet
+		osDelay(500);
+		system_state = H2_SYSTEM_STATE_INACTIVE;
+
+//		if (h2_conc_ppm > 1) {
+//			response_packet.rtr_type = CAN_RTR_DATA;
+//			CAN_Transmit_Intrim(empack);
+//		}
 
 	}
   /* USER CODE END startSensorCalibrateThread */
