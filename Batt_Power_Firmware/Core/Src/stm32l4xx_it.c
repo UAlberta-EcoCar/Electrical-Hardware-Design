@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    stm32l4xx_it.c
-  * @brief   Interrupt Service Routines.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32l4xx_it.c
+ * @brief   Interrupt Service Routines.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -75,9 +75,8 @@ void NMI_Handler(void)
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  while (1)
-  {
-  }
+	while (1) {
+	}
   /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
@@ -87,11 +86,49 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
+	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
+	/* USER CODE BEGIN MX_GPIO_Init_1 */
+	/* USER CODE END MX_GPIO_Init_1 */
+
+	/* GPIO Ports Clock Enable */
+	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
+	__HAL_RCC_GPIOH_CLK_ENABLE();
+
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(GPIOB, GPLED1_Pin | GPLED2_Pin | GPLED3_Pin,
+			GPIO_PIN_RESET);
+
+	GPIO_InitStruct.Pin = GPLED1_Pin | GPLED2_Pin | GPLED3_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(GPIOB, GPLED1_Pin, GPIO_PIN_SET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(GPIOB, GPLED2_Pin, GPIO_PIN_SET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(GPIOB, GPLED3_Pin, GPIO_PIN_SET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(GPIOB, GPLED1_Pin, GPIO_PIN_RESET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(GPIOB, GPLED2_Pin, GPIO_PIN_RESET);
+		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+			;
+		HAL_GPIO_WritePin(GPIOB, GPLED3_Pin, GPIO_PIN_RESET);
+
     /* USER CODE END W1_HardFault_IRQn 0 */
   }
 }

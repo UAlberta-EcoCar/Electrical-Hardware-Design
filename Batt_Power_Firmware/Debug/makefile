@@ -64,8 +64,8 @@ all: main-build
 main-build: BatteryPower.elf secondary-outputs
 
 # Tool invocations
-BatteryPower.elf BatteryPower.map: $(OBJS) $(USER_OBJS) /home/ddjangl/EcoCar/Electrical-Hardware-Design/Battery_Power_Board/Batt-Power_Frimware/STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/ddjangl/EcoCar/Electrical-Hardware-Design/Battery_Power_Board/Batt-Power_Frimware/STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+BatteryPower.elf BatteryPower.map: $(OBJS) $(USER_OBJS) C:\Users\abina\OneDrive\ -\ ualberta.ca\Desktop\side\EcoCar\Battery-Power-Board\Batt_Power_Firmware\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "BatteryPower.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\abina\OneDrive - ualberta.ca\Desktop\side\EcoCar\Battery-Power-Board\Batt_Power_Firmware\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BatteryPower.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
