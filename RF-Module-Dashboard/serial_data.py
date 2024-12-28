@@ -1,102 +1,57 @@
-from ctypes import *
+import struct
 import serial
 import threading
-
-class ReceivedStructure(Structure):
-    _fields_ = [("h2_alarm",  c_int),
-            ("shell_stop", c_int),
-            ("relay_conf", c_uint32),
-            ("cap_voltage", c_float), ("cap_current", c_float),
-            ("mtr_voltage", c_float), ("mtr_current", c_float),
-            ("fc_voltage", c_float), ("fc_current", c_float),
-            ("internal_stack_pressure", c_float), ("internal_stack_temp", c_float),
-            ("x_accel", c_float), ("y_accel", c_float), ("z_accel", c_float), ("speed_magnitude", c_float),
-            ("h2_voltage", c_float), ("h2_temp", c_float), ("h2_pressure", c_float), ("h2_humidity", c_float)
-            ]
     
 class SerialData():
     lucy_data = {
-                'h2_alarm': 99,
-                'shell_stop': 99,
-                'relay_conf': 99,
-                'cap_voltage': 99,
-                'cap_current': 99,
-                'mtr_voltage': 99,
-                'mtr_current': 99,
-                'fc_voltage': 99,
-                'fc_current': 99,
-                'internal_stack_pressure': 99,
-                'internal_stack_temp': 99,
-                'x_accel': 99,
-                'y_accel': 99,
-                'z_accel': 99,
-                'speed_magnitude': 99,
-                'h2_voltage': 99,
-                'h2_temp': 99,
-                'h2_pressure': 99,
-                'h2_humidity': 99
+                'cap_voltage': -99,
+                'cap_current': -99,
+                'fc_voltage': -99,
+                'fc_current': -99,
+                'internal_stack_pressure': -99,
+                'internal_stack_temp': -99,
+                'motor_voltage': -99,
+                'motor_current': -99
             }
     
     def __init__(self, connection="COM5", baud=115200):
         port = (connection)
         self.ser = serial.Serial(port, baud, timeout=5)
-        self.data_bytes = self.ser.read(sizeof(ReceivedStructure))
         
-        self.lock = threading.Lock()
-        self.condition = threading.Condition(self.lock)
-        self.readThread = threading.Thread(target=self.readValues)
-        self.readThread.start()
+        # self.lock = threading.Lock()
+        # self.condition = threading.Condition(self.lock)
+        # self.readThread = threading.Thread(target=self.read_values)
+        # self.readThread.start()
     
-    def readValues(self):
-        while not self.ser.in_waiting:
-            data_c_struct = ReceivedStructure.from_buffer_copy(self.data_bytes) # should i read in a line??
+    def read_values(self):
+        try:
+            self.buffer = str(self.ser.readline().decode('utf-8').strip()).split(";")
+            list = []
+            for item in self.buffer:
+                list.append(item.split()[1])
+            print(list)
+            if len(list) == 7:
+                self.lucy_data["cap_voltage"] = list[0]
+                self.lucy_data["cap_current"] = list[1]
+                self.lucy_data["fc_voltage"] = list[2]
+                self.lucy_data["fc_current"] = list[3]
+                self.lucy_data["internal_stack_pressure"] = list[4]
+                self.lucy_data["internal_stack_temp"] = list[5]
+                self.lucy_data["motor_voltage"] = list[6]
+                self.lucy_data["motor_current"] = list[7]
+
+        except UnicodeDecodeError as e:
+            list = []
+    
+        print(self.lucy_data)
             
-            self.lucy_data = {
-                'h2_alarm': data_c_struct.h2_alarm,
-                'shell_stop': data_c_struct.shell_stop,
-                'relay_conf': data_c_struct.relay_conf,
-                'cap_voltage': data_c_struct.cap_voltage,
-                'cap_current': data_c_struct.cap_current,
-                'mtr_voltage': data_c_struct.mtr_voltage,
-                'mtr_current': data_c_struct.mtr_current,
-                'fc_voltage': data_c_struct.fc_voltage,
-                'fc_current': data_c_struct.fc_current,
-                'internal_stack_pressure': data_c_struct.internal_stack_pressure,
-                'internal_stack_temp': data_c_struct.internal_stack_temp,
-                'x_accel': data_c_struct.x_accel,
-                'y_accel': data_c_struct.y_accel,
-                'z_accel': data_c_struct.z_accel,
-                'speed_magnitude': data_c_struct.speed_magnitude,
-                'h2_voltage': data_c_struct.h2_voltage,
-                'h2_temp': data_c_struct.h2_temp,
-                'h2_pressure': data_c_struct.h2_pressure,
-                'h2_humidity': data_c_struct.h2_humidity
-            }
-            self.ser.flushOutput()
-            with self.condition:
-                self.condition.notify_all()
-            
-    def getValue(self, Value):
-        with self.lock:
-            # Wait for new data to be available
-            self.condition.wait()
-            output = self.lucy_data[Value]
-        return output
+    def get_values(self):
+        return self.lucy_data
     
 if __name__ == "__main__":
     testing = SerialData()
-    data_reading = [
-                    'h2_alarm', 'shell_stop','relay_conf', 'cap_current', 
-                    'cap_voltage', 'mtr_voltage', 'mtr_current', 'fc_voltage', 
-                    'fc_current', 'internal_stack_pressure', 'internal_stack_temp',
-                    'x_accel', 'y_accel', 'z_accel', 'speed_magnitude', 
-                    'h2_voltage', 'h2_temp', 'h2_pressure', 'h2_humidity'
-                ]
-    
-    print("testing starting....")
     while 1:
-        for element in data_reading:
-            print(element, testing.getValue(element))
+        testing.read_values()
 
 
 # ser = serial.Serial('/dev/ttyUSB0', 9600)
