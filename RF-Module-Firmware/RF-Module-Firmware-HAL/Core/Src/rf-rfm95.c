@@ -419,7 +419,7 @@ int rf_set_frequency(rf_handle_t *rf_handle, uint32_t rf_carrier_frequency) {
 
 int rf_set_tx_power(rf_handle_t *rf_handle, uint8_t rf_power_dbm) {
 
-	if (!(rf_power_dbm >= 2 && rf_power_dbm <= 17) || !(rf_power_dbm == 20)) {
+	if (!((rf_power_dbm >= 2 && rf_power_dbm <= 17) || (rf_power_dbm == 20))) {
 		printf(
 				"\x1b[31;1;9m[RFlib] [%d] [ERROR] \x1b[0m\x1b[31m Unable to set power to %d out of range.\x1b[0m\n\r",
 				rf_handle->rf_module_identifier, rf_power_dbm);
