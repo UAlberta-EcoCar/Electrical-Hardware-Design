@@ -35,7 +35,6 @@
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
-typedef StaticSemaphore_t osStaticSemaphoreDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -58,15 +57,6 @@ uint8_t RxData[8] = { 0 };
 //uint8_t message2[1000] = { 0 };
 
 uint8_t RxData_Reserved[8] = { 0 };
-
-rfm95_handle_t rfm95_handle = { .spi_handle = &hspi1, .nss_port =
-SPI_NSS_GPIO_GPIO_Port, .nss_pin = SPI_NSS_GPIO_Pin, .nrst_port =
-RF_NRST_GPIO_Port, .nrst_pin = RF_NRST_Pin, .device_address = { 0x00, 0x00,
-		0x00, 0x00 }, .application_session_key = { 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-		.network_session_key = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-				0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-		.receive_mode = RFM95_RECEIVE_MODE_RX1_ONLY, .random_int = 0 };
 
 /* USER CODE END Variables */
 /* Definitions for JERMAMainThread */
@@ -99,17 +89,12 @@ const osMessageQueueAttr_t CAN_JERMA_GAS_LEAK_attributes = { .name =
 		"CAN_JERMA_GAS_LEAK" };
 /* Definitions for CAN_Transmission_Complete */
 osSemaphoreId_t CAN_Transmission_CompleteHandle;
-osStaticSemaphoreDef_t CAN_Transmission_CompleteControlBlock;
 const osSemaphoreAttr_t CAN_Transmission_Complete_attributes = { .name =
-		"CAN_Transmission_Complete", .cb_mem =
-		&CAN_Transmission_CompleteControlBlock, .cb_size =
-		sizeof(CAN_Transmission_CompleteControlBlock), };
+		"CAN_Transmission_Complete" };
 /* Definitions for CAN_Recieve_Complete */
 osSemaphoreId_t CAN_Recieve_CompleteHandle;
-osStaticSemaphoreDef_t CAN_Recieve_CompleteControlBlock;
 const osSemaphoreAttr_t CAN_Recieve_Complete_attributes = { .name =
-		"CAN_Recieve_Complete", .cb_mem = &CAN_Recieve_CompleteControlBlock,
-		.cb_size = sizeof(CAN_Recieve_CompleteControlBlock), };
+		"CAN_Recieve_Complete" };
 /* Definitions for RELEASE_JERMA_GAS */
 osSemaphoreId_t RELEASE_JERMA_GASHandle;
 const osSemaphoreAttr_t RELEASE_JERMA_GAS_attributes = { .name =
@@ -262,39 +247,80 @@ void startMainThread(void *argument) {
 /* USER CODE END Header_startCANThread */
 void startCANThread(void *argument) {
 	/* USER CODE BEGIN startCANThread */
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-	//uint8_t message[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
-	uint8_t message2[8] = { 0 };
-	__attribute__((packed))           struct Data {
-		float h2;
-		float temp;
-	} reciever;
-
-	IntrimPacket intrim;
-
+//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+//	//uint8_t message[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+//	uint8_t message2[8] = { 0 };
+//	struct Data  {
+//		float h2;
+//		float temp;
+//	} __attribute__((packed)) reciever;
+//
+//	IntrimPacket intrim;
 	/* Infinite loop */
 	for (;;) {
 
-		osMessageQueueGet(CAN_LOWPrio_Reci_QueueHandle, &intrim, NULL,
-		osWaitForever);
-		htim1.Instance->CCR2 = 5;
-//		printf("Got message: ");
-//		for (int i = 0; i < 8; i++)
-//			printf("%u", data[i]);
-
-		printf("\r\n");
-
-		reciever = *((struct Data*) intrim.data);
-		printf("Packet ID: %hx ", (uint8_t) intrim.id);
-		printf("H2: %f temp: %f", reciever.h2, reciever.temp);
-		//CAN_Transmit(0x101, &data, sizeof(data));
-		osDelay(100);
-		htim1.Instance->CCR2 = 0;
+//		osMessageQueueGet(CAN_LOWPrio_Reci_QueueHandle, &intrim, NULL,
+//		osWaitForever);
+//		htim1.Instance->CCR2 = 5;
+////		printf("Got message: ");
+////		for (int i = 0; i < 8; i++)
+////			printf("%u", data[i]);
+//
+//		printf("\r\n");
+//
+//		reciever = *((struct Data*) intrim.data);
+//		printf("Packet ID: %hx ", (uint8_t) intrim.id);
+//		printf("H2: %f temp: %f", reciever.h2, reciever.temp);
+//		//CAN_Transmit(0x101, &data, sizeof(data));
+//		osDelay(100);
+//		htim1.Instance->CCR2 = 0;
 		osDelay(100);
 
 	}
 	/* USER CODE END startCANThread */
 }
+
+#include <string.h>
+
+#define RFM9x_VER 0x12
+
+/**
+ * Registers addresses.
+ */
+typedef enum {
+	RFM95_REGISTER_FIFO_ACCESS = 0x00,
+	RFM95_REGISTER_OP_MODE = 0x01,
+	RFM95_REGISTER_FR_MSB = 0x06,
+	RFM95_REGISTER_FR_MID = 0x07,
+	RFM95_REGISTER_FR_LSB = 0x08,
+	RFM95_REGISTER_PA_CONFIG = 0x09,
+	RFM95_REGISTER_LNA = 0x0C,
+	RFM95_REGISTER_FIFO_ADDR_PTR = 0x0D,
+	RFM95_REGISTER_FIFO_TX_BASE_ADDR = 0x0E,
+	RFM95_REGISTER_FIFO_RX_BASE_ADDR = 0x0F,
+	RFM95_REGISTER_IRQ_FLAGS = 0x12,
+	RFM95_REGISTER_FIFO_RX_BYTES_NB = 0x13,
+	RFM95_REGISTER_PACKET_SNR = 0x19,
+	RFM95_REGISTER_MODEM_CONFIG_1 = 0x1D,
+	RFM95_REGISTER_MODEM_CONFIG_2 = 0x1E,
+	RFM95_REGISTER_SYMB_TIMEOUT_LSB = 0x1F,
+	RFM95_REGISTER_PREAMBLE_MSB = 0x20,
+	RFM95_REGISTER_PREAMBLE_LSB = 0x21,
+	RFM95_REGISTER_PAYLOAD_LENGTH = 0x22,
+	RFM95_REGISTER_MAX_PAYLOAD_LENGTH = 0x23,
+	RFM95_REGISTER_MODEM_CONFIG_3 = 0x26,
+	RFM95_REGISTER_INVERT_IQ_1 = 0x33,
+	RFM95_REGISTER_SYNC_WORD = 0x39,
+	RFM95_REGISTER_INVERT_IQ_2 = 0x3B,
+	RFM95_REGISTER_DIO_MAPPING_1 = 0x40,
+	RFM95_REGISTER_VERSION = 0x42,
+	RFM95_REGISTER_PA_DAC = 0x4D
+} rfm95_register_t;
+
+rfm95_handle_t rfm95_handle = { .spi_handle = &hspi1, .nss_port =
+		SPI_NSS_GPIO_GPIO_Port, .nss_pin = SPI_NSS_GPIO_Pin, .nrst_port =
+		RF_NRST_GPIO_Port, .nrst_pin = RF_NRST_Pin, .receive_mode =
+		RFM95_RECEIVE_MODE_RX1_ONLY, .random_int = 0 };
 
 /* USER CODE BEGIN Header_startRFThread */
 /**
@@ -305,22 +331,15 @@ void startCANThread(void *argument) {
 /* USER CODE END Header_startRFThread */
 void startRFThread(void *argument) {
 	/* USER CODE BEGIN startRFThread */
-	struct Data {
-		float h2;
-		float temp;
-	} test_message;
-	test_message.h2 = 1;
-	test_message.temp = 1;
 
-	rfm95_init(&rfm95_handle);
-
+	//rfm95_init(&rfm95_handle);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
 	/* Infinite loop */
 	for (;;) {
 //		HAL_RNG_GenerateRandomNumber(&hrng, (uint32_t*) &message3.h2);
 //		HAL_RNG_GenerateRandomNumber(&hrng, (uint32_t*) &message3.temp);
 //		message3.h2 = message3.h2 / 1000 + 1;
-		htim2.Instance->CCR2 = 5;
+		htim2.Instance->CCR2 = 10;
 //		rfm95_send_receive_cycle(&rfm95_handle, &test_message,
 //				sizeof(test_message));
 //		CAN_Transmit(0x123, (uint32_t*) &message3, sizeof(message3),
@@ -336,84 +355,14 @@ void startRFThread(void *argument) {
 }
 
 /* Private application code --------------------------------------------------*/
-/* USER CODE BEGIN Application */
-volatile IntrimPacket packet; // Declared as a temporary variable outside ISR as this is being allocated and re allocated,
-// therefore to save ISR time declaring it out side. Also volatile since only used in ISR.
-
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-
-	// Just check if there is atleast 1 spot open
-	// If we dont and call get message we will loose that message since it wont fit and the ISR will exit.
-	if (osMessageQueueGetSpace(CAN_LOWPrio_Reci_QueueHandle) >= 1) {
-		if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData)
-				!= HAL_OK) {
-			Error_Handler();
-		}
-		// Mask the packet ID out.
-		packet.id = RxHeader.StdId & 0x0FF;
-
-		memcpy(packet.data, RxData, 8); // this is always 8 bytes therefore there
-		// is pretty much no added iteration time. The compiler will optimize the loop away.
-
-		osMessageQueuePut(CAN_LOWPrio_Reci_QueueHandle, &packet, 0, 0);
-	}
-
-}
-
-/**
- * EMERGENCY TRANSMISSION RESERVED ID: 0x000
- * Packet manifest:
- *
- */
-struct Hydrogen_Board_Leak_Emergency_Transmission {
-	float h2_concentration;
-};
-
-/** HIGH PRIORITY ONLY TALKS TO H2 Board. */
-void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
-	if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader_Reserved,
-			RxData_Reserved) != HAL_OK) {
-		Error_Handler();
-	}
-	if (RxHeader_Reserved.StdId == 0x000) {
-		// Emergency Release JERMA. GAS GAS GAS
-		printf("[!HYDROGEN BOARD]: LEAK!!! Releasing JERMAAA");
-		osSemaphoreRelease(RELEASE_JERMA_GASHandle);
-		osMessageQueuePut(CAN_JERMA_GAS_LEAKHandle, RxData_Reserved, 0,
-		osWaitForever);
-	}
-
-}
-
-//void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
-//	osSemaphoreRelease(CAN_Transmission_CompleteHandle);
-//}
-//
-//void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan) {
-//	osSemaphoreRelease(CAN_Transmission_CompleteHandle);
-//}
-//
-//void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan) {
-//	osSemaphoreRelease(CAN_Transmission_CompleteHandle);
-//}
-//
-//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-//	if (GPIO_Pin == GPIO_PIN_3) {
-//		can_spam = !can_spam;
-//	}
-//}
-
-void rfm_precision_sleep(uint32_t target) {
-	osDelay(target);
-}
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == DIO0_Pin) {
-		rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO0);
+		//rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO0);
 	} else if (GPIO_Pin == DIO1_Pin) {
-		rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO1);
+		//rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO1);
 	} else if (GPIO_Pin == DIO5_Pin) {
-		rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO5);
+		//rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO5);
 	}
 }
 

@@ -1,0 +1,103 @@
+/*
+ * rf-rfm95.c
+ *
+ *  Created on: Dec 25, 2024
+ *      Author: abina
+ */
+#include "rf-rfm95.h"
+
+#define RFM9x_VER 0x12
+
+typedef struct {
+	union {
+		struct {
+			uint8_t output_power :4;
+			uint8_t max_power :3;
+			uint8_t pa_select :1;
+		};
+		uint8_t buffer;
+	};
+} rf_register_pa_config_t;
+
+#define RFM95_REGISTER_OP_MODE_SLEEP                            0x00
+#define RFM95_REGISTER_OP_MODE_LORA_SLEEP                       0x80
+#define RFM95_REGISTER_OP_MODE_LORA_STANDBY                     0x81
+#define RFM95_REGISTER_OP_MODE_LORA_TX                          0x83
+#define RFM95_REGISTER_OP_MODE_LORA_RX_SINGLE                   0x86
+
+#define RFM95_REGISTER_PA_DAC_LOW_POWER                         0x84
+#define RFM95_REGISTER_PA_DAC_HIGH_POWER                        0x87
+
+#define RFM95_REGISTER_DIO_MAPPING_1_IRQ_FOR_TXDONE             0x40
+#define RFM95_REGISTER_DIO_MAPPING_1_IRQ_FOR_RXDONE             0x00
+
+#define RFM95_REGISTER_INVERT_IQ_1_TX                    		0x27
+#define RFM95_REGISTER_INVERT_IQ_2_TX							0x1d
+
+#define RFM95_REGISTER_INVERT_IQ_1_RX                    		0x67
+#define RFM95_REGISTER_INVERT_IQ_2_RX							0x19
+
+int rf_initialize_radio(rf_handle_t *rf_handle) {
+	if (rf_handle == NULL)
+		return 1;
+	if (rf_handle->rf_spi_timeout == NULL) {
+		rf_handle->rf_spi_timeout = 100;
+	}
+
+	if (rf_handle->rf_module_identifier == NULL) {
+		rf_handle->rf_module_identifier = -1;
+	}
+
+	rf_reset(rf_handle);
+
+	// check version
+	uint8_t version;
+	if (!rf_spi_read_register(rf_handle, RegVersion, &version)) {
+		printf(
+				"\x1b[31;1;9m[RFlib] [%d] [ERROR] \x1b[0m\x1b[31m Module did not return a version; SPI Error\x1b[0m\n\r",
+				rf_handle->rf_module_identifier);
+	}
+
+	printf("\x1b[32;1;4m[RFlib] [%d] [ERROR] \x1b[0m Module Available; \x1b[34;1;4mVersion: 0x%x\x1b[0m", rf_handle->rf_module_identifier, version);
+
+	return 0;
+
+}
+
+int rf_set_tx_power(rf_handle_t *rf_handle) {
+
+}
+
+int rf_inturrupt_clbk(rf_handle_t *rf_handle, rf_interrupt_t rf_inturrupt) {
+
+}
+
+int rf_spi_read_register(rf_handle_t *rf_handle, uint8_t rf_register_address,
+		uint8_t *rf_register_result) {
+
+// 0 the MSB since that is the wnr bit. we are reading so it must be 0.
+	uint8_t prep_register = rf_register_address & 0x7f;
+
+	HAL_GPIO_WritePin(rf_handle->rf_nss_port, rf_handle->rf_nss_pin,
+			GPIO_PIN_RESET);
+
+	HAL_SPI_Transmit(rf_handle->rf_spi_handle, prep_register, 1,
+			rf_handle->rf_spi_timeout);
+
+	HAL_GPIO_WritePin(rf_handle->rf_nss_port, rf_handle->rf_nss_pin,
+			GPIO_PIN_SET);
+}
+
+int rf_spi_write_register(rf_handle_t *rf_handle, uint8_t rf_register_address,
+		uint8_t rf_register_value) {
+
+}
+
+int rf_reset(rf_handle_t *rf_handle) {
+	HAL_GPIO_WritePin(rf_handle->rf_nreset_port, rf_handle->rf_nreset_pin,
+			GPIO_PIN_RESET);
+	rf_handle->rf_delay_func(100);
+	HAL_GPIO_WritePin(rf_handle->rf_nreset_port, rf_handle->rf_nreset_pin,
+			GPIO_PIN_SET);
+	rf_handle->rf_delay_func(100);
+}
