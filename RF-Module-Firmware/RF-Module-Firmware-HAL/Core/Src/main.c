@@ -28,6 +28,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
 #include "rf-rfm95.h"
+#include "debug-log.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,129 +66,6 @@ int _write(int file, char *ptr, int len) {
 	HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, HAL_MAX_DELAY);
 	return len;
 }
-//#ifndef RFM95_SPI_TIMEOUT
-//#define RFM95_SPI_TIMEOUT 10
-//#endif
-//
-//#ifndef RFM95_WAKEUP_TIMEOUT
-//#define RFM95_WAKEUP_TIMEOUT 10
-//#endif
-//
-//#ifndef RFM95_SEND_TIMEOUT
-//#define RFM95_SEND_TIMEOUT 100
-//#endif
-//
-//#ifndef RFM95_RECEIVE_TIMEOUT
-//#define RFM95_RECEIVE_TIMEOUT 1000
-//#endif
-//
-//#define RFM95_EEPROM_CONFIG_MAGIC 0xab67
-//#define RFM9x_VER 0x12
-//typedef enum {
-//	RFM95_REGISTER_FIFO_ACCESS = 0x00,
-//	RFM95_REGISTER_OP_MODE = 0x01,
-//	RFM95_REGISTER_FR_MSB = 0x06,
-//	RFM95_REGISTER_FR_MID = 0x07,
-//	RFM95_REGISTER_FR_LSB = 0x08,
-//	RFM95_REGISTER_PA_CONFIG = 0x09,
-//	RFM95_REGISTER_LNA = 0x0C,
-//	RFM95_REGISTER_FIFO_ADDR_PTR = 0x0D,
-//	RFM95_REGISTER_FIFO_TX_BASE_ADDR = 0x0E,
-//	RFM95_REGISTER_FIFO_RX_BASE_ADDR = 0x0F,
-//	RFM95_REGISTER_IRQ_FLAGS = 0x12,
-//	RFM95_REGISTER_FIFO_RX_BYTES_NB = 0x13,
-//	RFM95_REGISTER_PACKET_SNR = 0x19,
-//	RFM95_REGISTER_MODEM_CONFIG_1 = 0x1D,
-//	RFM95_REGISTER_MODEM_CONFIG_2 = 0x1E,
-//	RFM95_REGISTER_SYMB_TIMEOUT_LSB = 0x1F,
-//	RFM95_REGISTER_PREAMBLE_MSB = 0x20,
-//	RFM95_REGISTER_PREAMBLE_LSB = 0x21,
-//	RFM95_REGISTER_PAYLOAD_LENGTH = 0x22,
-//	RFM95_REGISTER_MAX_PAYLOAD_LENGTH = 0x23,
-//	RFM95_REGISTER_MODEM_CONFIG_3 = 0x26,
-//	RFM95_REGISTER_INVERT_IQ_1 = 0x33,
-//	RFM95_REGISTER_SYNC_WORD = 0x39,
-//	RFM95_REGISTER_INVERT_IQ_2 = 0x3B,
-//	RFM95_REGISTER_DIO_MAPPING_1 = 0x40,
-//	RFM95_REGISTER_VERSION = 0x42,
-//	RFM95_REGISTER_PA_DAC = 0x4D
-//} rfm95_register_t;
-//
-//#define RFM95_REGISTER_OP_MODE_SLEEP                            0x00
-//#define RFM95_REGISTER_OP_MODE_LORA_SLEEP                       0x80
-//#define RFM95_REGISTER_OP_MODE_LORA_STANDBY                     0x81
-//#define RFM95_REGISTER_OP_MODE_LORA_TX                          0x83
-//#define RFM95_REGISTER_OP_MODE_LORA_RX_SINGLE                   0x86
-//
-//#define RFM95_REGISTER_PA_DAC_LOW_POWER                         0x84
-//#define RFM95_REGISTER_PA_DAC_HIGH_POWER                        0x87
-//
-//#define RFM95_REGISTER_DIO_MAPPING_1_IRQ_FOR_TXDONE             0x40
-//#define RFM95_REGISTER_DIO_MAPPING_1_IRQ_FOR_RXDONE             0x00
-//
-//#define RFM95_REGISTER_INVERT_IQ_1_TX                    		0x27
-//#define RFM95_REGISTER_INVERT_IQ_2_TX							0x1d
-//
-//#define RFM95_REGISTER_INVERT_IQ_1_RX                    		0x67
-//#define RFM95_REGISTER_INVERT_IQ_2_RX							0x19
-
-//static bool read_register(rfm95_register_t reg, uint8_t *buffer, size_t length) {
-//	HAL_GPIO_WritePin(SPI_NSS_GPIO_GPIO_Port, SPI_NSS_GPIO_Pin, GPIO_PIN_RESET);
-//
-//	uint8_t transmit_buffer = (uint8_t) reg & 0x7fu;
-//
-//	if (HAL_SPI_Transmit(&hspi1, &transmit_buffer, 1, RFM95_SPI_TIMEOUT)
-//			!= HAL_OK) {
-//		return false;
-//	}
-//
-//	if (HAL_SPI_Receive(&hspi1, buffer, length, RFM95_SPI_TIMEOUT) != HAL_OK) {
-//		return false;
-//	}
-//
-//	HAL_GPIO_WritePin(SPI_NSS_GPIO_GPIO_Port, SPI_NSS_GPIO_Pin, GPIO_PIN_SET);
-//
-//	return true;
-//}
-
-//static bool write_register(rfm95_handle_t *handle, rfm95_register_t reg,
-//		uint8_t value) {
-//	HAL_GPIO_WritePin(handle->nss_port, handle->nss_pin, GPIO_PIN_RESET);
-//
-//	uint8_t transmit_buffer[2] = { ((uint8_t) reg | 0x80u), value };
-//
-//	if (HAL_SPI_Transmit(handle->spi_handle, transmit_buffer, 2,
-//			RFM95_SPI_TIMEOUT) != HAL_OK) {
-//		return false;
-//	}
-//
-//	HAL_GPIO_WritePin(handle->nss_port, handle->nss_pin, GPIO_PIN_SET);
-//
-//	return true;
-//}
-
-//static void reset() {
-//	HAL_GPIO_WritePin(RF_NRST_GPIO_Port, RF_NRST_Pin, GPIO_PIN_RESET);
-//	HAL_Delay(1); // 0.1ms would theoretically be enough
-//	HAL_GPIO_WritePin(RF_NRST_GPIO_Port, RF_NRST_Pin, GPIO_PIN_SET);
-//	HAL_Delay(5);
-//}
-
-//int rfm95_init() {
-//	reset();
-//
-//	// Check for correct version.
-//	uint8_t version;
-//	if (!read_register(RFM95_REGISTER_VERSION, &version, 1))
-//		return 1;
-//
-//	printf("%d", version);
-//
-//	if (version != RFM9x_VER)
-//		return 1;
-//
-//	return 0;
-//}
 
 /* USER CODE END 0 */
 
@@ -230,10 +108,23 @@ int main(void) {
 	rf_handle_t rfm95 = { .rf_nreset_port = RF_NRST_GPIO_Port, .rf_nreset_pin =
 	RF_NRST_Pin, .rf_nss_port = SPI1_NSS_GPIO_Port, .rf_nss_pin =
 	SPI1_NSS_Pin, .rf_spi_handle = &hspi1, .rf_delay_func = HAL_Delay,
-			.rf_spi_timeout = HAL_MAX_DELAY };
+			.rf_spi_timeout = HAL_MAX_DELAY, .rf_carrier_frequency = 868000000 };
 
 	rf_initialize_radio(&rfm95);
-	uint8_t testdata = 347;
+	rf_set_tx_power(&rfm95, 5);
+
+	rf_set_frequency(&rfm95, 868000000);
+	uint8_t testdata = 347u;
+
+//	rf_set_op_mode(&rfm95, RF_OP_MODE_RX_SINGLE);
+
+//	rf_listen_implicit(&rfm95, 1);
+//	rf_listen(&rfm95);
+
+	const char test[] = "Hello.7890";
+
+	uint8_t rec_legth = 0;
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -242,34 +133,31 @@ int main(void) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+//		HAL_Delay(100);
+//		log_info("Sending message %s", test);
+//		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
+//		//rf_initialize_radio(&rfm95);
+//		rf_send(&rfm95, test, 10);
+//		testdata += 1;
+//		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
+//		HAL_Delay(100);
+// reciever
+		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
+		HAL_Delay(100);
 
-		HAL_Delay(500);
+		testdata = 0;
 
-		//rf_initialize_radio(&rfm95);
-		rf_send(&rfm95, &testdata, 1);
-		//reset();
-//		printf(
-//						"\x1b[31;1;4m[RFlib] [ERROR] \x1b[0m\x1b[31m Module did not return a version; SPI Error\x1b[0m\n\r");
+		rec_legth = 0;
 
-// Check for correct version.
-//		if (!read_register(RFM95_REGISTER_VERSION, &version, 1))
-//			;
-//
-//		printf("Version: 0x%x\n\r", version);
-		//return 1;
-//		for (int i = 0; i < 128; i++) {
-//			printf("0x");
-//			printf("%x: ", i);
-//			printf(": 0x");
-//			read_register(i, &temp, 1);
-//			printf("%x\n\r", temp);
-//		}
+		rf_recieve_single(&rfm95, &rec_legth);
+		if (rec_legth > 0) {
+			char rec_data[10] = { 0 };
+			rf_read_packet(&rfm95, rec_legth, rec_data);
 
-//		if (version != RFM9x_VER)
-//			return 1;
-		//CAN_Write_Hello();
-		HAL_Delay(500);
-//		HAL_GPIO_WritePin(GPIOA, LED_D1_Pin, GPIO_PIN_RESET);
+			log_info("Byte: %s", rec_data);
+		}
+		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
+		HAL_Delay(100);
 
 	}
 	/* USER CODE END 3 */

@@ -84,42 +84,42 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-	/*Configure GPIO pins : PBPin PBPin PBPin PBPin */
-	GPIO_InitStruct.Pin = LED_D1_PWM_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(LED_D1_PWM_GPIO_Port, &GPIO_InitStruct);
-	GPIO_InitStruct.Pin = LED_D2_PWM_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(LED_D2_PWM_GPIO_Port, &GPIO_InitStruct);
-	GPIO_InitStruct.Pin = LED_D3_PWM_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(LED_D3_PWM_GPIO_Port, &GPIO_InitStruct);
+//	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
+//	/*Configure GPIO pins : PBPin PBPin PBPin PBPin */
+//	GPIO_InitStruct.Pin = LED_D1_PWM_Pin;
+//	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+//	GPIO_InitStruct.Pull = GPIO_NOPULL;
+//	HAL_GPIO_Init(LED_D1_PWM_GPIO_Port, &GPIO_InitStruct);
+//	GPIO_InitStruct.Pin = LED_D2_PWM_Pin;
+//	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+//	GPIO_InitStruct.Pull = GPIO_NOPULL;
+//	HAL_GPIO_Init(LED_D2_PWM_GPIO_Port, &GPIO_InitStruct);
+//	GPIO_InitStruct.Pin = LED_D3_PWM_Pin;
+//	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+//	GPIO_InitStruct.Pull = GPIO_NOPULL;
+//	HAL_GPIO_Init(LED_D3_PWM_GPIO_Port, &GPIO_InitStruct);
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
-			;
-		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_SET);
-		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
-					;
-		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_SET);
-		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
-					;
-		HAL_GPIO_WritePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin, GPIO_PIN_SET);
-		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
-			;
-		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_RESET);
-		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
-					;
-		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_RESET);
-		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
-					;
-		HAL_GPIO_WritePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin, GPIO_PIN_RESET);
+//		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+//			;
+//		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_SET);
+//		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+//					;
+//		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_SET);
+//		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+//					;
+//		HAL_GPIO_WritePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin, GPIO_PIN_SET);
+//		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+//			;
+//		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_RESET);
+//		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+//					;
+//		HAL_GPIO_WritePin(LED_D2_PWM_GPIO_Port, LED_D2_PWM_Pin, GPIO_PIN_RESET);
+//		for (int i = 0; i < HARD_FAULT_LED_DELAY; i++)
+//					;
+//		HAL_GPIO_WritePin(LED_D3_PWM_GPIO_Port, LED_D3_PWM_Pin, GPIO_PIN_RESET);
 
     /* USER CODE END W1_HardFault_IRQn 0 */
   }

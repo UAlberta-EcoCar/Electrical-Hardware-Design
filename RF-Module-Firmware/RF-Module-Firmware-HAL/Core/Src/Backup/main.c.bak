@@ -28,6 +28,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
 #include "rf-rfm95.h"
+#include "debug-log.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -166,12 +167,12 @@ int _write(int file, char *ptr, int len) {
 //	return true;
 //}
 
-static void reset() {
-	HAL_GPIO_WritePin(RF_NRST_GPIO_Port, RF_NRST_Pin, GPIO_PIN_RESET);
-	HAL_Delay(1); // 0.1ms would theoretically be enough
-	HAL_GPIO_WritePin(RF_NRST_GPIO_Port, RF_NRST_Pin, GPIO_PIN_SET);
-	HAL_Delay(5);
-}
+//static void reset() {
+//	HAL_GPIO_WritePin(RF_NRST_GPIO_Port, RF_NRST_Pin, GPIO_PIN_RESET);
+//	HAL_Delay(1); // 0.1ms would theoretically be enough
+//	HAL_GPIO_WritePin(RF_NRST_GPIO_Port, RF_NRST_Pin, GPIO_PIN_SET);
+//	HAL_Delay(5);
+//}
 
 //int rfm95_init() {
 //	reset();
@@ -225,8 +226,18 @@ int main(void) {
 	MX_TIM2_Init();
 	MX_SPI1_Init();
 	/* USER CODE BEGIN 2 */
-	rfm95_init();
-	uint8_t version = 0, temp = 0;
+//	rfm95_init();
+//	uint8_t version = 0, temp = 0;
+	rf_handle_t rfm95 = { .rf_nreset_port = RF_NRST_GPIO_Port, .rf_nreset_pin =
+	RF_NRST_Pin, .rf_nss_port = SPI1_NSS_GPIO_Port, .rf_nss_pin =
+	SPI1_NSS_Pin, .rf_spi_handle = &hspi1, .rf_delay_func = HAL_Delay,
+			.rf_spi_timeout = HAL_MAX_DELAY };
+
+	rf_initialize_radio(&rfm95);
+	uint8_t testdata = 347u;
+
+	rf_listen_implicit(&rfm95, 1);
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -235,36 +246,18 @@ int main(void) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
-		HAL_Delay(500);
-		//reset();
-//		printf(
-//						"\x1b[31;1;4m[RFlib] [ERROR] \x1b[0m\x1b[31m Module did not return a version; SPI Error\x1b[0m\n\r");
+//		HAL_Delay(500);
+//		log_info("Sending message %u", testdata);
+//		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_SET);
+//		//rf_initialize_radio(&rfm95);
+//		rf_send(&rfm95, &testdata, 1);
+//		HAL_GPIO_WritePin(LED_D1_PWM_GPIO_Port, LED_D1_PWM_Pin, GPIO_PIN_RESET);
+//		HAL_Delay(500);
 
-		rf_handle_t rfm95 = {
-				.rf_nreset_port = RF_NRST_GPIO_Port,
-				.rf_nreset_pin = RF_NRST_Pin,
-				.rf_nss_port =
-		};
+		// reciever
 
-		// Check for correct version.
-//		if (!read_register(RFM95_REGISTER_VERSION, &version, 1))
-//			;
-//
-//		printf("Version: 0x%x\n\r", version);
-		//return 1;
-//		for (int i = 0; i < 128; i++) {
-//			printf("0x");
-//			printf("%x: ", i);
-//			printf(": 0x");
-//			read_register(i, &temp, 1);
-//			printf("%x\n\r", temp);
-//		}
-
-//		if (version != RFM9x_VER)
-//			return 1;
-		//CAN_Write_Hello();
-		HAL_Delay(500);
-		//HAL_GPIO_WritePin(GPIOA, LED_D1_Pin, GPIO_PIN_RESET);
+		HAL_Delay(10);
+		log_info("Bytes in FIFO: %d", rf_available(&rfm95));
 
 	}
 	/* USER CODE END 3 */
