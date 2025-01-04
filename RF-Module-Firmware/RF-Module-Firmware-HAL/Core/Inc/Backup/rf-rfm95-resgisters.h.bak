@@ -37,7 +37,7 @@
 // Start Rx data
 #define RegFifoRxBaseAddr 0x0F
 // Start address of last packet received
-#define FifoRxCurrentAddr 0x10
+#define RegFifoRxCurrentAddr 0x10
 // Optional IRQ flag mask
 #define RegIrqFlagsMask 0x11
 // IRQ flags
@@ -93,9 +93,9 @@
 #define RegDetectOptimize 0x31
 // Invert LoRa I and Q signals
 #define RegInvertIQ 0x33
-// Sensitivity optimisation for 500kHz bandwidth
+// Sensitivity optimization for 500kHz bandwidth
 #define RegHighBwOptimize1 0x36
-// LoRa detectionthresholdfor SF6
+// LoRa detection threshold for SF6
 #define RegDetectionThreshold 0x37
 // LoRa SyncWord
 #define RegSyncWord 0x39
@@ -217,6 +217,19 @@ typedef struct {
 	};
 } rf_register_modem_config_2_t;
 
+typedef enum {
+	RF_BW_7K8 = 0b0000,
+	RF_BW_10K4 = 0b0001,
+	RF_BW_15K6 = 0b0010,
+	RF_BW_20K8 = 0b0011,
+	RF_BW_31K25 = 0b0100,
+	RF_BW_41K7 = 0b0101,
+	RF_BW_62K5 = 0b0110,
+	RF_BW_125K = 0b0111,
+	RF_BW_250K = 0b1000,
+	RF_BW_500K = 0b1001,
+} rf_bandwidth_t;
+
 typedef struct {
 	union {
 		struct {
@@ -237,7 +250,7 @@ typedef enum {
 	RF_OP_MODE_RXCONTINUOUS = 0b101,
 	RF_OP_MODE_RX_SINGLE = 0b110,
 	RF_OP_MODE_CAD = 0b111
-} rf_op_mode;
+} rf_op_mode_t;
 
 typedef struct {
 	union {
@@ -302,5 +315,20 @@ typedef struct {
 		uint8_t dio_mapping_2;
 	};
 } rf_register_dio_mapping_2_config_t;
+
+typedef struct {
+	union {
+		struct {
+			/**
+			 * LoRa Detection Optimize
+			 * 0x03 -> SF7 to SF12
+			 * 0x05 -> SF6
+			 */
+			uint8_t detection_optimize :3;
+			uint8_t reserved :5;
+		};
+		uint8_t reg_detection_optimize;
+	};
+} rf_register_detect_optimize_config_t;
 
 #endif /* INC_RF_RFM95_RESGISTERS_H_ */

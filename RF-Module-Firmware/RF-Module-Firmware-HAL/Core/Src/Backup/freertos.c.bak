@@ -6,7 +6,7 @@
  ******************************************************************************
  * @attention
  *
- * Copyright (c) 2023 STMicroelectronics.
+ * Copyright (c) 2025 STMicroelectronics.
  * All rights reserved.
  *
  * This software is licensed under terms that can be found in the LICENSE file
@@ -22,125 +22,85 @@
 #include "task.h"
 #include "main.h"
 #include "cmsis_os.h"
+#include "spi.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tim.h"
-#include "can.h"
-#include <stdio.h>
-#include "rfm95.h"
-#include "rng.h"
-#include <string.h>
-#include "spi.h"
+#include <stdbool.h>
+#include "rf-rfm95.h"
+#include "debug-log.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
+typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticQueue_t osStaticMessageQDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-volatile int can_spam = 1;
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-CAN_RxHeaderTypeDef RxHeader;
-CAN_RxHeaderTypeDef RxHeader_Reserved;
-uint8_t TxData[8] = { 0 };
-uint8_t RxData[8] = { 0 };
-//uint8_t message2[1000] = { 0 };
-
-uint8_t RxData_Reserved[8] = { 0 };
 
 /* USER CODE END Variables */
-/* Definitions for JERMAMainThread */
-osThreadId_t JERMAMainThreadHandle;
-const osThreadAttr_t JERMAMainThread_attributes = { .name = "JERMAMainThread",
-		.stack_size = 128 * 4, .priority = (osPriority_t) osPriorityRealtime, };
-/* Definitions for CANThread */
-osThreadId_t CANThreadHandle;
-const osThreadAttr_t CANThread_attributes = { .name = "CANThread", .stack_size =
-		256 * 4, .priority = (osPriority_t) osPriorityNormal, };
-/* Definitions for RFThread */
-osThreadId_t RFThreadHandle;
-const osThreadAttr_t RFThread_attributes = { .name = "RFThread", .stack_size =
-		256 * 4, .priority = (osPriority_t) osPriorityNormal, };
-/* Definitions for CAN_Transmission_Queue */
-osMessageQueueId_t CAN_Transmission_QueueHandle;
-const osMessageQueueAttr_t CAN_Transmission_Queue_attributes = { .name =
-		"CAN_Transmission_Queue" };
-/* Definitions for CAN_HIGHPrio_Reci_Queue */
-osMessageQueueId_t CAN_HIGHPrio_Reci_QueueHandle;
-const osMessageQueueAttr_t CAN_HIGHPrio_Reci_Queue_attributes = { .name =
-		"CAN_HIGHPrio_Reci_Queue" };
-/* Definitions for CAN_LOWPrio_Reci_Queue */
-osMessageQueueId_t CAN_LOWPrio_Reci_QueueHandle;
-const osMessageQueueAttr_t CAN_LOWPrio_Reci_Queue_attributes = { .name =
-		"CAN_LOWPrio_Reci_Queue" };
-/* Definitions for CAN_JERMA_GAS_LEAK */
-osMessageQueueId_t CAN_JERMA_GAS_LEAKHandle;
-const osMessageQueueAttr_t CAN_JERMA_GAS_LEAK_attributes = { .name =
-		"CAN_JERMA_GAS_LEAK" };
-/* Definitions for CAN_Transmission_Complete */
-osSemaphoreId_t CAN_Transmission_CompleteHandle;
-const osSemaphoreAttr_t CAN_Transmission_Complete_attributes = { .name =
-		"CAN_Transmission_Complete" };
-/* Definitions for CAN_Recieve_Complete */
-osSemaphoreId_t CAN_Recieve_CompleteHandle;
-const osSemaphoreAttr_t CAN_Recieve_Complete_attributes = { .name =
-		"CAN_Recieve_Complete" };
-/* Definitions for RELEASE_JERMA_GAS */
-osSemaphoreId_t RELEASE_JERMA_GASHandle;
-const osSemaphoreAttr_t RELEASE_JERMA_GAS_attributes = { .name =
-		"RELEASE_JERMA_GAS" };
+/* Definitions for defaultTask */
+osThreadId_t defaultTaskHandle;
+const osThreadAttr_t defaultTask_attributes = { .name = "defaultTask",
+		.stack_size = 128 * 4, .priority = (osPriority_t) osPriorityNormal, };
+/* Definitions for CanRxTask */
+osThreadId_t CanRxTaskHandle;
+uint32_t CanRxTaskBuffer[128];
+osStaticThreadDef_t CanRxTaskControlBlock;
+const osThreadAttr_t CanRxTask_attributes = { .name = "CanRxTask", .cb_mem =
+		&CanRxTaskControlBlock, .cb_size = sizeof(CanRxTaskControlBlock),
+		.stack_mem = &CanRxTaskBuffer[0], .stack_size = sizeof(CanRxTaskBuffer),
+		.priority = (osPriority_t) osPriorityNormal1, };
+/* Definitions for CanRtrTask */
+osThreadId_t CanRtrTaskHandle;
+uint32_t CanRtrTaskBuffer[128];
+osStaticThreadDef_t CanRtrTaskControlBlock;
+const osThreadAttr_t CanRtrTask_attributes = { .name = "CanRtrTask", .cb_mem =
+		&CanRtrTaskControlBlock, .cb_size = sizeof(CanRtrTaskControlBlock),
+		.stack_mem = &CanRtrTaskBuffer[0], .stack_size =
+				sizeof(CanRtrTaskBuffer), .priority =
+				(osPriority_t) osPriorityNormal2, };
+/* Definitions for canRxDataQueue */
+osMessageQueueId_t canRxDataQueueHandle;
+uint8_t canRxDataQueueBuffer[128 * sizeof(uint32_t)];
+osStaticMessageQDef_t canRxDataQueueControlBlock;
+const osMessageQueueAttr_t canRxDataQueue_attributes = { .name =
+		"canRxDataQueue", .cb_mem = &canRxDataQueueControlBlock, .cb_size =
+		sizeof(canRxDataQueueControlBlock), .mq_mem = &canRxDataQueueBuffer,
+		.mq_size = sizeof(canRxDataQueueBuffer) };
+/* Definitions for canRxRtrQueue */
+osMessageQueueId_t canRxRtrQueueHandle;
+uint8_t canRtrDataQueueBuffer[128 * sizeof(uint32_t)];
+osStaticMessageQDef_t canRtrDataQueueControlBlock;
+const osMessageQueueAttr_t canRxRtrQueue_attributes =
+		{ .name = "canRxRtrQueue", .cb_mem = &canRtrDataQueueControlBlock,
+				.cb_size = sizeof(canRtrDataQueueControlBlock), .mq_mem =
+						&canRtrDataQueueBuffer, .mq_size =
+						sizeof(canRtrDataQueueBuffer) };
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
-
-void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan);
-
-void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan);
-
-void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan);
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
-
-void rfm_precision_sleep(uint32_t target);
 
 /* USER CODE END FunctionPrototypes */
 
-void startMainThread(void *argument);
-void startCANThread(void *argument);
-void startRFThread(void *argument);
+void StartDefaultTask(void *argument);
+void StartCanRxTask(void *argument);
+void StartCanRtrTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
-
-/* Hook prototypes */
-void configureTimerForRunTimeStats(void);
-unsigned long getRunTimeCounterValue(void);
-
-/* USER CODE BEGIN 1 */
-/* Functions needed when configGENERATE_RUN_TIME_STATS is on */
-__weak void configureTimerForRunTimeStats(void) {
-
-}
-
-__weak unsigned long getRunTimeCounterValue(void) {
-	return 0;
-}
-void __attribute__ ((noinline)) breakpoint() {
-	__asm("NOP");
-	// <---- set a hardware breakpoint here!
-	// hello, please Step Out to go to caller location (ex: press Shift-F11)
-}
-/* USER CODE END 1 */
 
 /**
  * @brief  FreeRTOS initialization
@@ -149,26 +109,12 @@ void __attribute__ ((noinline)) breakpoint() {
  */
 void MX_FREERTOS_Init(void) {
 	/* USER CODE BEGIN Init */
-	CAN_Initialize();
 
 	/* USER CODE END Init */
 
 	/* USER CODE BEGIN RTOS_MUTEX */
 	/* add mutexes, ... */
 	/* USER CODE END RTOS_MUTEX */
-
-	/* Create the semaphores(s) */
-	/* creation of CAN_Transmission_Complete */
-	CAN_Transmission_CompleteHandle = osSemaphoreNew(1, 0,
-			&CAN_Transmission_Complete_attributes);
-
-	/* creation of CAN_Recieve_Complete */
-	CAN_Recieve_CompleteHandle = osSemaphoreNew(1, 0,
-			&CAN_Recieve_Complete_attributes);
-
-	/* creation of RELEASE_JERMA_GAS */
-	RELEASE_JERMA_GASHandle = osSemaphoreNew(1, 0,
-			&RELEASE_JERMA_GAS_attributes);
 
 	/* USER CODE BEGIN RTOS_SEMAPHORES */
 	/* add semaphores, ... */
@@ -179,36 +125,29 @@ void MX_FREERTOS_Init(void) {
 	/* USER CODE END RTOS_TIMERS */
 
 	/* Create the queue(s) */
-	/* creation of CAN_Transmission_Queue */
-	CAN_Transmission_QueueHandle = osMessageQueueNew(16, 8,
-			&CAN_Transmission_Queue_attributes);
+	/* creation of canRxDataQueue */
+	canRxDataQueueHandle = osMessageQueueNew(128, sizeof(uint32_t),
+			&canRxDataQueue_attributes);
 
-	/* creation of CAN_HIGHPrio_Reci_Queue */
-	CAN_HIGHPrio_Reci_QueueHandle = osMessageQueueNew(16, 8,
-			&CAN_HIGHPrio_Reci_Queue_attributes);
-
-	/* creation of CAN_LOWPrio_Reci_Queue */
-	CAN_LOWPrio_Reci_QueueHandle = osMessageQueueNew(16, sizeof(IntrimPacket),
-			&CAN_LOWPrio_Reci_Queue_attributes);
-
-	/* creation of CAN_JERMA_GAS_LEAK */
-	CAN_JERMA_GAS_LEAKHandle = osMessageQueueNew(16, 8,
-			&CAN_JERMA_GAS_LEAK_attributes);
+	/* creation of canRxRtrQueue */
+	canRxRtrQueueHandle = osMessageQueueNew(128, sizeof(uint32_t),
+			&canRxRtrQueue_attributes);
 
 	/* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
 	/* USER CODE END RTOS_QUEUES */
 
 	/* Create the thread(s) */
-	/* creation of JERMAMainThread */
-	JERMAMainThreadHandle = osThreadNew(startMainThread, NULL,
-			&JERMAMainThread_attributes);
+	/* creation of defaultTask */
+	defaultTaskHandle = osThreadNew(StartDefaultTask, NULL,
+			&defaultTask_attributes);
 
-	/* creation of CANThread */
-	CANThreadHandle = osThreadNew(startCANThread, NULL, &CANThread_attributes);
+	/* creation of CanRxTask */
+	CanRxTaskHandle = osThreadNew(StartCanRxTask, NULL, &CanRxTask_attributes);
 
-	/* creation of RFThread */
-	RFThreadHandle = osThreadNew(startRFThread, NULL, &RFThread_attributes);
+	/* creation of CanRtrTask */
+	CanRtrTaskHandle = osThreadNew(StartCanRtrTask, NULL,
+			&CanRtrTask_attributes);
 
 	/* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
@@ -220,151 +159,102 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_startMainThread */
+/* USER CODE BEGIN Header_StartDefaultTask */
 /**
- * @brief  Function implementing the MainThread thread.
+ * @brief  Function implementing the defaultTask thread.
  * @param  argument: Not used
  * @retval None
  */
-/* USER CODE END Header_startMainThread */
-void startMainThread(void *argument) {
-	/* USER CODE BEGIN startMainThread */
+/* USER CODE END Header_StartDefaultTask */
+void StartDefaultTask(void *argument) {
+	/* USER CODE BEGIN StartDefaultTask */
+	//	rfm95_init();
+	//	uint8_t version = 0, temp = 0;
+	rf_handle_t rfm95 = { .rf_nreset_port = RF_NRST_GPIO_Port, .rf_nreset_pin =
+	RF_NRST_Pin, .rf_nss_port = SPI1_NSS_GPIO_Port, .rf_nss_pin =
+	SPI1_NSS_Pin, .rf_spi_handle = &hspi1, .rf_delay_func = osDelay,
+			.rf_spi_timeout = HAL_MAX_DELAY, .rf_carrier_frequency = 868000000 };
+
+	rf_initialize_radio(&rfm95);
+	rf_set_tx_power(&rfm95, 5);
+
+	rf_set_frequency(&rfm95, 868000000);
+	uint8_t testdata = 347u;
+
+	//	rf_set_op_mode(&rfm95, RF_OP_MODE_RX_SINGLE);
+
+	//	rf_listen_implicit(&rfm95, 1);
+	//	rf_listen(&rfm95);
+
+	const char test[] = "Hello.7890";
+
+	uint8_t rec_legth = 0;
+
 	/* Infinite loop */
 	for (;;) {
-		//osSemaphoreWait(RELEASE_JERMA_GASHandle, 0);
+		osDelay(100);
+		log_info("Sending message %s", test);
+		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
+		//rf_initialize_radio(&rfm95);
+		rf_send(&rfm95, test, 10);
+		testdata += 1;
+		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
+		osDelay(100);
+		// reciever
+//		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
+//		osDelay(100);
+//
+//		testdata = 0;
+//
+//		rec_legth = 0;
+//
+//		rf_recieve_single(&rfm95, &rec_legth);
+//		if (rec_legth > 0) {
+//			char rec_data[10] = { 0 };
+//			rf_read_packet(&rfm95, rec_legth, rec_data);
+//
+//			log_info("Byte: %s", rec_data);
+//		}
+//		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
+//		osDelay(100);
+	}
+	/* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_StartCanRxTask */
+/**
+ * @brief Function implementing the CanRxTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
+/* USER CODE END Header_StartCanRxTask */
+void StartCanRxTask(void *argument) {
+	/* USER CODE BEGIN StartCanRxTask */
+	/* Infinite loop */
+	for (;;) {
 		osDelay(1);
 	}
-	/* USER CODE END startMainThread */
+	/* USER CODE END StartCanRxTask */
 }
 
-/* USER CODE BEGIN Header_startCANThread */
+/* USER CODE BEGIN Header_StartCanRtrTask */
 /**
- * @brief Function implementing the CANThread thread.
+ * @brief Function implementing the CanRtrTask thread.
  * @param argument: Not used
  * @retval None
  */
-
-/* USER CODE END Header_startCANThread */
-void startCANThread(void *argument) {
-	/* USER CODE BEGIN startCANThread */
-//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-//	//uint8_t message[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
-//	uint8_t message2[8] = { 0 };
-//	struct Data  {
-//		float h2;
-//		float temp;
-//	} __attribute__((packed)) reciever;
-//
-//	IntrimPacket intrim;
+/* USER CODE END Header_StartCanRtrTask */
+void StartCanRtrTask(void *argument) {
+	/* USER CODE BEGIN StartCanRtrTask */
 	/* Infinite loop */
 	for (;;) {
-
-//		osMessageQueueGet(CAN_LOWPrio_Reci_QueueHandle, &intrim, NULL,
-//		osWaitForever);
-//		htim1.Instance->CCR2 = 5;
-////		printf("Got message: ");
-////		for (int i = 0; i < 8; i++)
-////			printf("%u", data[i]);
-//
-//		printf("\r\n");
-//
-//		reciever = *((struct Data*) intrim.data);
-//		printf("Packet ID: %hx ", (uint8_t) intrim.id);
-//		printf("H2: %f temp: %f", reciever.h2, reciever.temp);
-//		//CAN_Transmit(0x101, &data, sizeof(data));
-//		osDelay(100);
-//		htim1.Instance->CCR2 = 0;
-		osDelay(100);
-
+		osDelay(1);
 	}
-	/* USER CODE END startCANThread */
-}
-
-#include <string.h>
-
-#define RFM9x_VER 0x12
-
-/**
- * Registers addresses.
- */
-typedef enum {
-	RFM95_REGISTER_FIFO_ACCESS = 0x00,
-	RFM95_REGISTER_OP_MODE = 0x01,
-	RFM95_REGISTER_FR_MSB = 0x06,
-	RFM95_REGISTER_FR_MID = 0x07,
-	RFM95_REGISTER_FR_LSB = 0x08,
-	RFM95_REGISTER_PA_CONFIG = 0x09,
-	RFM95_REGISTER_LNA = 0x0C,
-	RFM95_REGISTER_FIFO_ADDR_PTR = 0x0D,
-	RFM95_REGISTER_FIFO_TX_BASE_ADDR = 0x0E,
-	RFM95_REGISTER_FIFO_RX_BASE_ADDR = 0x0F,
-	RFM95_REGISTER_IRQ_FLAGS = 0x12,
-	RFM95_REGISTER_FIFO_RX_BYTES_NB = 0x13,
-	RFM95_REGISTER_PACKET_SNR = 0x19,
-	RFM95_REGISTER_MODEM_CONFIG_1 = 0x1D,
-	RFM95_REGISTER_MODEM_CONFIG_2 = 0x1E,
-	RFM95_REGISTER_SYMB_TIMEOUT_LSB = 0x1F,
-	RFM95_REGISTER_PREAMBLE_MSB = 0x20,
-	RFM95_REGISTER_PREAMBLE_LSB = 0x21,
-	RFM95_REGISTER_PAYLOAD_LENGTH = 0x22,
-	RFM95_REGISTER_MAX_PAYLOAD_LENGTH = 0x23,
-	RFM95_REGISTER_MODEM_CONFIG_3 = 0x26,
-	RFM95_REGISTER_INVERT_IQ_1 = 0x33,
-	RFM95_REGISTER_SYNC_WORD = 0x39,
-	RFM95_REGISTER_INVERT_IQ_2 = 0x3B,
-	RFM95_REGISTER_DIO_MAPPING_1 = 0x40,
-	RFM95_REGISTER_VERSION = 0x42,
-	RFM95_REGISTER_PA_DAC = 0x4D
-} rfm95_register_t;
-
-rfm95_handle_t rfm95_handle = { .spi_handle = &hspi1, .nss_port =
-		SPI_NSS_GPIO_GPIO_Port, .nss_pin = SPI_NSS_GPIO_Pin, .nrst_port =
-		RF_NRST_GPIO_Port, .nrst_pin = RF_NRST_Pin, .receive_mode =
-		RFM95_RECEIVE_MODE_RX1_ONLY, .random_int = 0 };
-
-/* USER CODE BEGIN Header_startRFThread */
-/**
- * @brief Function implementing the RFThread thread.
- * @param argument: Not used
- * @retval None
- */
-/* USER CODE END Header_startRFThread */
-void startRFThread(void *argument) {
-	/* USER CODE BEGIN startRFThread */
-
-	//rfm95_init(&rfm95_handle);
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-	/* Infinite loop */
-	for (;;) {
-//		HAL_RNG_GenerateRandomNumber(&hrng, (uint32_t*) &message3.h2);
-//		HAL_RNG_GenerateRandomNumber(&hrng, (uint32_t*) &message3.temp);
-//		message3.h2 = message3.h2 / 1000 + 1;
-		htim2.Instance->CCR2 = 10;
-//		rfm95_send_receive_cycle(&rfm95_handle, &test_message,
-//				sizeof(test_message));
-//		CAN_Transmit(0x123, (uint32_t*) &message3, sizeof(message3),
-//		CAN_RTR_DATA);
-//		//osMessageQueuePut(CAN_Transmission_QueueHandle, &message, 0,
-//		//osWaitForever);
-		osDelay(1000);
-		htim2.Instance->CCR2 = 0;
-
-		osDelay(100);
-	}
-	/* USER CODE END startRFThread */
+	/* USER CODE END StartCanRtrTask */
 }
 
 /* Private application code --------------------------------------------------*/
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == DIO0_Pin) {
-		//rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO0);
-	} else if (GPIO_Pin == DIO1_Pin) {
-		//rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO1);
-	} else if (GPIO_Pin == DIO5_Pin) {
-		//rfm95_on_interrupt(&rfm95_handle, RFM95_INTERRUPT_DIO5);
-	}
-}
+/* USER CODE BEGIN Application */
 
 /* USER CODE END Application */
 

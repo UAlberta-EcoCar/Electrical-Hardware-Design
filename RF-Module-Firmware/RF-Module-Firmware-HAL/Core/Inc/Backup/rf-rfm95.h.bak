@@ -70,8 +70,6 @@ int rf_set_frequency(rf_handle_t *rf_handle, uint32_t rf_carrier_frequency);
 
 int rf_send(rf_handle_t *rf_handle, uint8_t *buffer, uint8_t length_bytes);
 
-int rf_set_sync_word(rf_handle_t *rf_handle);
-
 /**
  * Listen for any incoming packets with explicit header.
  * @param *rf_handle Handle of module.
@@ -90,5 +88,46 @@ int rf_listen_implicit(rf_handle_t *rf_handle, uint8_t size);
  * @returns The number of bytes waiting in FIFO.
  */
 int rf_available(rf_handle_t *rf_handle);
+
+/**
+ * Peeks the data stored in the RF FIFO.
+ * @param rf_handle handle to the module being peeked.
+ * @param rf_recieved_data pointer to a buffer for the data to be put in.
+ */
+int rf_peek(rf_handle_t *rf_handle, uint8_t *rf_recieved_data);
+
+int rf_dump_registers(rf_handle_t *rf_handle);
+
+/**
+ * Sets opmode only in lora mode.
+ */
+int rf_set_op_mode(rf_handle_t *rf_handle, rf_op_mode_t rf_op_mode);
+
+int rf_set_sync_word(rf_handle_t *rf_handle, uint8_t rf_sync_word);
+
+int rf_set_spread_factor(rf_handle_t *rf_handle, uint8_t rf_spread_factor);
+
+int rf_get_spread_factor(rf_handle_t *rf_handle, uint8_t *rf_spread_factor);
+
+int rf_set_bandwidth(rf_handle_t *rf_handle, rf_bandwidth_t bandwidth);
+
+int rf_get_bandwidth(rf_handle_t *rf_handle, long *bandwidth);
+
+/**
+ * Recieves the message packet in single rx mode. Usage must be accompanied by a check of @param rf_recieved_packet_length
+ * value. If value is non zero the then the packet must be read out by the caller with rf_read_packet.
+ * @param rf_handle handle to the rf module.
+ * @param rf_recieved_packet_length number of bytes that were received.
+ */
+int rf_recieve_single(rf_handle_t *rf_handle,
+		uint8_t *rf_recieved_packet_length);
+
+/**
+ * Reads single byte from FIFO and places in @param rf_recieved_byte
+ */
+int rf_read(rf_handle_t *rf_handle, uint8_t *rf_recieved_byte);
+
+int rf_read_packet(rf_handle_t *rf_handle, uint8_t rf_recieved_packet_length,
+		uint8_t *rf_recieved_buffer);
 
 #endif /* INC_RF_RFM95_H_ */
