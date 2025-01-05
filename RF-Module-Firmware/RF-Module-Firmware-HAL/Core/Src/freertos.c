@@ -31,11 +31,11 @@
 #include "spi.h"
 #include "lucy-can-ids.h"
 #include "can.h"
+#include "rtc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
-typedef StaticQueue_t osStaticMessageQDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -57,7 +57,7 @@ typedef StaticQueue_t osStaticMessageQDef_t;
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = { .name = "defaultTask",
-		.stack_size = 128 * 12, .priority = (osPriority_t) osPriorityNormal, };
+		.stack_size = 512 * 4, .priority = (osPriority_t) osPriorityNormal, };
 /* Definitions for CanRxTask */
 osThreadId_t CanRxTaskHandle;
 uint32_t CanRxTaskBuffer[128];
@@ -75,23 +75,6 @@ const osThreadAttr_t CanRtrTask_attributes = { .name = "CanRtrTask", .cb_mem =
 		.stack_mem = &CanRtrTaskBuffer[0], .stack_size =
 				sizeof(CanRtrTaskBuffer), .priority =
 				(osPriority_t) osPriorityNormal2, };
-/* Definitions for canRxDataQueue */
-osMessageQueueId_t canRxDataQueueHandle;
-uint8_t canRxDataQueueBuffer[128 * sizeof(uint32_t)];
-osStaticMessageQDef_t canRxDataQueueControlBlock;
-const osMessageQueueAttr_t canRxDataQueue_attributes = { .name =
-		"canRxDataQueue", .cb_mem = &canRxDataQueueControlBlock, .cb_size =
-		sizeof(canRxDataQueueControlBlock), .mq_mem = &canRxDataQueueBuffer,
-		.mq_size = sizeof(canRxDataQueueBuffer) };
-/* Definitions for canRxRtrQueue */
-osMessageQueueId_t canRxRtrQueueHandle;
-uint8_t canRtrDataQueueBuffer[128 * sizeof(uint32_t)];
-osStaticMessageQDef_t canRtrDataQueueControlBlock;
-const osMessageQueueAttr_t canRxRtrQueue_attributes =
-		{ .name = "canRxRtrQueue", .cb_mem = &canRtrDataQueueControlBlock,
-				.cb_size = sizeof(canRtrDataQueueControlBlock), .mq_mem =
-						&canRtrDataQueueBuffer, .mq_size =
-						sizeof(canRtrDataQueueBuffer) };
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -108,6 +91,27 @@ typedef struct {
 
 rf_packet_test test_packet = { 0 };
 
+void set_time(uint8_t hr, uint8_t min, uint8_t sec) {
+	RTC_TimeTypeDef sTime = { 0 };
+	sTime.Hours = hr;
+	sTime.Minutes = min;
+	sTime.Seconds = sec;
+	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK) {
+		Error_Handler();
+	}
+}
+
+void get_time(RTC_TimeTypeDef *gTime) {
+
+	/* Get the RTC current Time */
+	HAL_RTC_GetTime(&hrtc, gTime, RTC_FORMAT_BIN);
+
+	/* Display time Format: hh:mm:ss */
+//	sprintf((char*) time, "%02d:%02d:%02d", gTime.Hours, gTime.Minutes,
+//			gTime.Seconds);
+}
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
@@ -123,7 +127,7 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
  */
 void MX_FREERTOS_Init(void) {
 	/* USER CODE BEGIN Init */
-
+	set_time(0, 0, 0);
 	/* USER CODE END Init */
 
 	/* USER CODE BEGIN RTOS_MUTEX */
@@ -138,11 +142,6 @@ void MX_FREERTOS_Init(void) {
 	/* start timers, add new ones, ... */
 	/* USER CODE END RTOS_TIMERS */
 
-	/* Create the queue(s) */
-	/* creation of canRxDataQueue */
-//  canRxDataQueueHandle = osMessageQueueNew (128, sizeof(uint32_t), &canRxDataQueue_attributes);
-	/* creation of canRxRtrQueue */
-//  canRxRtrQueueHandle = osMessageQueueNew (128, sizeof(uint32_t), &canRxRtrQueue_attributes);
 	/* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
 	/* USER CODE END RTOS_QUEUES */
@@ -158,6 +157,7 @@ void MX_FREERTOS_Init(void) {
 	/* creation of CanRtrTask */
 	CanRtrTaskHandle = osThreadNew(StartCanRtrTask, NULL,
 			&CanRtrTask_attributes);
+
 	/* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
 	/* USER CODE END RTOS_THREADS */
@@ -199,12 +199,17 @@ void StartDefaultTask(void *argument) {
 
 	uint8_t rec_legth = 0;
 
+	RTC_TimeTypeDef gTime = { 0 };
+
 	/* Infinite loop */
 	for (;;) {
 		//osDelay(100);
 		log_info("Sending message %s", test);
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
 		//rf_initialize_radio(&rfm95);
+
+		HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
+
 		rf_send(&rfm95, test_packet.packet_raw, 16);
 		testdata += 1;
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);

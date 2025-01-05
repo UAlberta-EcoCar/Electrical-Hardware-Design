@@ -334,6 +334,8 @@ int rf_set_tx_power(rf_handle_t *rf_handle, uint8_t rf_power_dbm) {
 		return 0;
 	}
 
+	rf_set_ocp(rf_handle, 240);
+
 	LOG_INFO("Set power to %d.", rf_power_dbm);
 
 	return 1;
@@ -685,11 +687,42 @@ int rf_set_bandwidth(rf_handle_t *rf_handle, rf_bandwidth_t bandwidth) {
 
 	bw = bandwidth;
 
+	bwconf.bandwidth = bandwidth;
+
 	if (!rf_spi_write_register(rf_handle, RegModemConfig1,
 			bwconf.modem_config_1)) {
 		LOG_ERROR("SPI ERROR");
 		return 0;
 	}
+
+	uint8_t sf = 0;
+
+	rf_get_spread_factor(rf_handle, &sf);
+
+	long symbolDuration = 1000 / (bw / (1L << sf));
+
+	// Section 4.1.1.6
+	int ldoOn = (symbolDuration > 16);
+
+	rf_register_modem_config_3_t conf3 = { 0 };
+
+	if (!rf_spi_read_register(rf_handle, RegModemConfig3,
+			&conf3.modem_config_3)) {
+		LOG_ERROR("SPI ERROR");
+		return 0;
+	}
+
+	conf3.low_data_rate_optimize = ldoOn;
+
+	if (!rf_spi_write_register(rf_handle, RegModemConfig3,
+			conf3.modem_config_3)) {
+		LOG_ERROR("SPI ERROR");
+		return 0;
+	}
+
+	LOG_INFO("Setting BW %d", bw);
+
+	return 1;
 
 }
 
@@ -879,4 +912,74 @@ int rf_read_packet(rf_handle_t *rf_handle, uint8_t rf_recieved_packet_length,
 	}
 
 	return 1;
+}
+
+int rf_set_ocp(rf_handle_t *rf_handle, uint8_t rf_ocp_level) {
+	uint8_t ocpTrim = 27;
+
+	if (rf_ocp_level <= 120) {
+		ocpTrim = (rf_ocp_level - 45) / 5;
+	} else if (rf_ocp_level <= 240) {
+		ocpTrim = (rf_ocp_level + 30) / 10;
+	}
+
+	if (!rf_spi_write_register(rf_handle, RegOcp, 0x20 | (0x1F & ocpTrim))) {
+		LOG_ERROR("OCP ERROR");
+		return 0;
+	}
+
+	return 1;
+
+}
+
+int rf_packet_rssi(rf_handle_t *rf_handle, int *rf_packet_rssi) {
+
+	int offset = -157;
+
+	if (!rf_spi_read_register(rf_handle, RegPktRssiValue, rf_packet_rssi)) {
+		LOG_ERROR("RSSI ERROR");
+		return 0;
+	}
+
+	*rf_packet_rssi = *rf_packet_rssi + offset;
+
+	return 1;
+}
+
+int rf_packet_snr(rf_handle_t *rf_handle, int *rf_packet_snr) {
+	if (!rf_spi_read_register(rf_handle, RegPktSnrValue, rf_packet_snr)) {
+		LOG_ERROR("RSSI ERROR");
+		return 0;
+	}
+
+	*rf_packet_snr = (*rf_packet_snr) / 4;
+
+	return 1;
+}
+
+int rf_set_coding_rate(rf_handle_t *rf_handle, int denominator) {
+	if (denominator < 5) {
+		denominator = 5;
+	} else if (denominator > 8) {
+		denominator = 8;
+	}
+
+	int cr = denominator - 4;
+
+	rf_register_modem_config_1_t modemconf1 = { 0 };
+
+	if (!rf_spi_read_register(rf_handle, RegModemConfig1,
+			&modemconf1.modem_config_1)) {
+		LOG_ERROR("SPI ERROR");
+		return 0;
+	}
+
+	modemconf1.coding_rate = cr;
+
+	if (!rf_spi_write_register(rf_handle, RegModemConfig1,
+			modemconf1.modem_config_1)) {
+		LOG_ERROR("SPI ERROR");
+		return 0;
+	}
+
 }

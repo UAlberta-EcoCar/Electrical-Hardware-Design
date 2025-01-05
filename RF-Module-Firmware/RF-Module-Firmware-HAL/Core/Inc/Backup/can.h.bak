@@ -46,7 +46,8 @@ void MX_CAN1_Init(void);
 void CAN_Initialize();
 int CAN_Transmit(uint32_t _device_address, uint32_t *_buffer_pointer,
 		int _buffer_length, uint32_t _RTR);
-
+HAL_StatusTypeDef HAL_CAN_SafeAddTxMessage(uint8_t *msg, uint32_t msg_id,
+		uint32_t msg_length, uint32_t *TxMailbox, uint32_t rtr);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

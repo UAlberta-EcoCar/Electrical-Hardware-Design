@@ -266,7 +266,7 @@ int rf_send(rf_handle_t *rf_handle, uint8_t *buffer, uint8_t length_bytes) {
 		return 0;
 
 	while (!tx_done_flags.tx_done) {
-		HAL_Delay(1);
+		rf_handle->rf_delay_func(10);
 		if (!rf_spi_read_register(rf_handle, RegIrqFlags,
 				&tx_done_flags.irq_flags))
 			return 0;
