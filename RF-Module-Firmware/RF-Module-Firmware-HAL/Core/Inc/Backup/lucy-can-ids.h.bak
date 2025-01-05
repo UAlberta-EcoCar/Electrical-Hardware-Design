@@ -39,30 +39,30 @@ typedef struct {
 typedef struct {
 	union {
 		struct {
-			uint8_t mtr_voltage :4;
-			uint8_t mtr_current :4;
+			float mtr_voltage;
+			float mtr_current;
 		};
-		uint8_t can_raw_lucy_motor_vi;
+		uint8_t can_raw_lucy_motor_vi[8];
 	};
 } can_lucy_motor_vi;
 
 typedef struct {
 	union {
 		struct {
-			uint8_t fc_voltage :4;
-			uint8_t fc_current :4;
+			float fc_voltage;
+			float fc_current;
 		};
-		uint8_t can_raw_lucy_fc_vi;
+		uint8_t can_raw_lucy_fc_vi[8];
 	};
 } can_lucy_fc_vi;
 
 typedef struct {
 	union {
 		struct {
-			uint8_t int_stack_pressure :4;
-			uint8_t int_stack_temprature :4;
+			uint8_t int_stack_pressure;
+			uint8_t int_stack_temprature;
 		};
-		uint8_t can_raw_lucy_int_stack_pt;
+		uint8_t can_raw_lucy_int_stack_pt[8];
 	};
 } can_lucy_int_stack_pt;
 
