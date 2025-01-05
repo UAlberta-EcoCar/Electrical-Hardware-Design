@@ -42,7 +42,9 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/rf-rfm95.h ../Core/Inc/rf-rfm95-resgisters.h \
- ../Core/Inc/debug-log.h ../Core/Inc/spi.h ../Core/Inc/main.h
+ ../Core/Inc/debug-log.h ../Core/Inc/spi.h ../Core/Inc/main.h \
+ ../Core/Inc/lucy-can-ids.h ../Core/Inc/can.h ../Core/Inc/serializer.h \
+ ../Core/Inc/packets.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -91,3 +93,7 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Core/Inc/debug-log.h:
 ../Core/Inc/spi.h:
 ../Core/Inc/main.h:
+../Core/Inc/lucy-can-ids.h:
+../Core/Inc/can.h:
+../Core/Inc/serializer.h:
+../Core/Inc/packets.h:
