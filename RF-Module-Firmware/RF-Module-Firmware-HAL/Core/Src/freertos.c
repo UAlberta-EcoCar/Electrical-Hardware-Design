@@ -258,7 +258,16 @@ void StartCanRxTask(void *argument) {
 		} else {
 			log_info("CAN TIMED OUT");
 		}
-		osDelay(1000);
+
+//		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_ACCEL_Z_SPEED, 0,
+//				&TxMailbox,
+//				CAN_RTR_REMOTE)) {
+//			log_info("Sending CAN REQUEST");
+//		} else {
+//			log_info("CAN TIMED OUT");
+//		}
+
+		osDelay(100);
 	}
 	/* USER CODE END StartCanRxTask */
 }
@@ -298,6 +307,12 @@ void StartCanRtrTask(void *argument) {
 				memcpy(test_packet.packet_mtr.can_raw_lucy_motor_vi, RxData, 8);
 				log_info("Copying 102");
 			}
+
+//			if (RxHeader.StdId == CAN_LUCY_MOTOR_VI && RxHeader.DLC != 0) {
+//
+//				memcpy(test_packet.packet_mtr.can_raw_lucy_motor_vi, RxData, 8);
+//				log_info("Copying 102");
+//			}
 
 		}
 		osDelay(5);
