@@ -154,15 +154,14 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-
 typedef struct {
-    union {
-        struct {
-            can_lucy_fc_vi packet_fc;
-            can_lucy_motor_vi packet_mtr;
-        };
-        uint8_t packet_raw[16];
-    };
+	union {
+		struct {
+			can_lucy_fc_vi packet_fc;
+			can_lucy_motor_vi packet_mtr;
+		};
+		uint8_t packet_raw[16];
+	};
 } rf_packet_test;
 
 rf_packet_test test_packet = { 0 };
@@ -194,6 +193,16 @@ void StartDefaultTask(void *argument) {
 	//	rf_listen_implicit(&rfm95, 1);
 	//	rf_listen(&rfm95);
 
+	RTC_TimeTypeDef sTime = { 0 };
+	sTime.Hours = hr;
+	sTime.Minutes = min;
+	sTime.Seconds = sec;
+	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK) {
+		Error_Handler();
+	}
+
 	const char test[] = "Hello.7890";
 
 	uint8_t rec_legth = 0;
@@ -212,8 +221,11 @@ void StartDefaultTask(void *argument) {
 			char rec_data[20] = { 0 };
 			rf_read_packet(&rfm95, rec_legth, &test_packet.packet_raw);
 
-			log_info("%u %u %u %u", (uint32_t)(test_packet.packet_fc.fc_voltage * 1000), (uint32_t)(test_packet.packet_fc.fc_current * 1000),
-					(uint32_t)(test_packet.packet_mtr.mtr_voltage * 1000), (uint32_t)(test_packet.packet_mtr.mtr_current * 1000));
+			log_info("%u %u %u %u",
+					(uint32_t )(test_packet.packet_fc.fc_voltage * 1000),
+					(uint32_t )(test_packet.packet_fc.fc_current * 1000),
+					(uint32_t )(test_packet.packet_mtr.mtr_voltage * 1000),
+					(uint32_t )(test_packet.packet_mtr.mtr_current * 1000));
 		}
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
 		osDelay(100);

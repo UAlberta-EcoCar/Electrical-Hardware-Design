@@ -56,25 +56,35 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = { .name = "defaultTask",
-		.stack_size = 512 * 4, .priority = (osPriority_t) osPriorityNormal, };
+const osThreadAttr_t defaultTask_attributes = {
+  .name = "defaultTask",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for CanRxTask */
 osThreadId_t CanRxTaskHandle;
-uint32_t CanRxTaskBuffer[128];
+uint32_t CanRxTaskBuffer[ 256 ];
 osStaticThreadDef_t CanRxTaskControlBlock;
-const osThreadAttr_t CanRxTask_attributes = { .name = "CanRxTask", .cb_mem =
-		&CanRxTaskControlBlock, .cb_size = sizeof(CanRxTaskControlBlock),
-		.stack_mem = &CanRxTaskBuffer[0], .stack_size = sizeof(CanRxTaskBuffer),
-		.priority = (osPriority_t) osPriorityNormal1, };
+const osThreadAttr_t CanRxTask_attributes = {
+  .name = "CanRxTask",
+  .cb_mem = &CanRxTaskControlBlock,
+  .cb_size = sizeof(CanRxTaskControlBlock),
+  .stack_mem = &CanRxTaskBuffer[0],
+  .stack_size = sizeof(CanRxTaskBuffer),
+  .priority = (osPriority_t) osPriorityNormal1,
+};
 /* Definitions for CanRtrTask */
 osThreadId_t CanRtrTaskHandle;
-uint32_t CanRtrTaskBuffer[128];
+uint32_t CanRtrTaskBuffer[ 256 ];
 osStaticThreadDef_t CanRtrTaskControlBlock;
-const osThreadAttr_t CanRtrTask_attributes = { .name = "CanRtrTask", .cb_mem =
-		&CanRtrTaskControlBlock, .cb_size = sizeof(CanRtrTaskControlBlock),
-		.stack_mem = &CanRtrTaskBuffer[0], .stack_size =
-				sizeof(CanRtrTaskBuffer), .priority =
-				(osPriority_t) osPriorityNormal2, };
+const osThreadAttr_t CanRtrTask_attributes = {
+  .name = "CanRtrTask",
+  .cb_mem = &CanRtrTaskControlBlock,
+  .cb_size = sizeof(CanRtrTaskControlBlock),
+  .stack_mem = &CanRtrTaskBuffer[0],
+  .stack_size = sizeof(CanRtrTaskBuffer),
+  .priority = (osPriority_t) osPriorityNormal2,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -84,8 +94,9 @@ typedef struct {
 		struct {
 			can_lucy_fc_vi packet_fc;
 			can_lucy_motor_vi packet_mtr;
+			can_lucy_accel_z_speed packet_z_speed;
 		};
-		uint8_t packet_raw[16];
+		uint8_t packet_raw[24];
 	};
 } rf_packet_test;
 
@@ -121,50 +132,48 @@ void StartCanRtrTask(void *argument);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
 void MX_FREERTOS_Init(void) {
-	/* USER CODE BEGIN Init */
-	set_time(0, 0, 0);
-	/* USER CODE END Init */
+  /* USER CODE BEGIN Init */
+//	set_time(0, 0, 0);
+  /* USER CODE END Init */
 
-	/* USER CODE BEGIN RTOS_MUTEX */
+  /* USER CODE BEGIN RTOS_MUTEX */
 	/* add mutexes, ... */
-	/* USER CODE END RTOS_MUTEX */
+  /* USER CODE END RTOS_MUTEX */
 
-	/* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
 	/* add semaphores, ... */
-	/* USER CODE END RTOS_SEMAPHORES */
+  /* USER CODE END RTOS_SEMAPHORES */
 
-	/* USER CODE BEGIN RTOS_TIMERS */
+  /* USER CODE BEGIN RTOS_TIMERS */
 	/* start timers, add new ones, ... */
-	/* USER CODE END RTOS_TIMERS */
+  /* USER CODE END RTOS_TIMERS */
 
-	/* USER CODE BEGIN RTOS_QUEUES */
+  /* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
-	/* USER CODE END RTOS_QUEUES */
+  /* USER CODE END RTOS_QUEUES */
 
-	/* Create the thread(s) */
-	/* creation of defaultTask */
-	defaultTaskHandle = osThreadNew(StartDefaultTask, NULL,
-			&defaultTask_attributes);
+  /* Create the thread(s) */
+  /* creation of defaultTask */
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
-	/* creation of CanRxTask */
-	CanRxTaskHandle = osThreadNew(StartCanRxTask, NULL, &CanRxTask_attributes);
+  /* creation of CanRxTask */
+  CanRxTaskHandle = osThreadNew(StartCanRxTask, NULL, &CanRxTask_attributes);
 
-	/* creation of CanRtrTask */
-	CanRtrTaskHandle = osThreadNew(StartCanRtrTask, NULL,
-			&CanRtrTask_attributes);
+  /* creation of CanRtrTask */
+  CanRtrTaskHandle = osThreadNew(StartCanRtrTask, NULL, &CanRtrTask_attributes);
 
-	/* USER CODE BEGIN RTOS_THREADS */
+  /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
-	/* USER CODE END RTOS_THREADS */
+  /* USER CODE END RTOS_THREADS */
 
-	/* USER CODE BEGIN RTOS_EVENTS */
+  /* USER CODE BEGIN RTOS_EVENTS */
 	/* add events, ... */
-	/* USER CODE END RTOS_EVENTS */
+  /* USER CODE END RTOS_EVENTS */
 
 }
 
@@ -175,8 +184,9 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument) {
-	/* USER CODE BEGIN StartDefaultTask */
+void StartDefaultTask(void *argument)
+{
+  /* USER CODE BEGIN StartDefaultTask */
 	//	rfm95_init();
 	//	uint8_t version = 0, temp = 0;
 	rf_handle_t rfm95 = { .rf_nreset_port = RF_NRST_GPIO_Port, .rf_nreset_pin =
@@ -208,9 +218,9 @@ void StartDefaultTask(void *argument) {
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
 		//rf_initialize_radio(&rfm95);
 
-		HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
+//		HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
 
-		rf_send(&rfm95, test_packet.packet_raw, 16);
+		rf_send(&rfm95, test_packet.packet_raw, 24);
 		testdata += 1;
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
 		osDelay(100);
@@ -232,7 +242,7 @@ void StartDefaultTask(void *argument) {
 //		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
 //		osDelay(100);
 	}
-	/* USER CODE END StartDefaultTask */
+  /* USER CODE END StartDefaultTask */
 }
 
 /* USER CODE BEGIN Header_StartCanRxTask */
@@ -243,8 +253,9 @@ uint32_t TxMailbox;
  * @retval None
  */
 /* USER CODE END Header_StartCanRxTask */
-void StartCanRxTask(void *argument) {
-	/* USER CODE BEGIN StartCanRxTask */
+void StartCanRxTask(void *argument)
+{
+  /* USER CODE BEGIN StartCanRxTask */
 
 	/* Infinite loop */
 	for (;;) {
@@ -264,6 +275,13 @@ void StartCanRxTask(void *argument) {
 			log_info("CAN TIMED OUT");
 		}
 
+//		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_ACCEL_Z_SPEED, 0, &TxMailbox,
+//		CAN_RTR_REMOTE)) {
+//			log_info("Sending CAN REQUEST");
+//		} else {
+//			log_info("CAN TIMED OUT");
+//		}
+
 //		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_ACCEL_Z_SPEED, 0,
 //				&TxMailbox,
 //				CAN_RTR_REMOTE)) {
@@ -272,9 +290,9 @@ void StartCanRxTask(void *argument) {
 //			log_info("CAN TIMED OUT");
 //		}
 
-		osDelay(100);
+		osDelay(500);
 	}
-	/* USER CODE END StartCanRxTask */
+  /* USER CODE END StartCanRxTask */
 }
 
 /* USER CODE BEGIN Header_StartCanRtrTask */
@@ -284,8 +302,9 @@ void StartCanRxTask(void *argument) {
  * @retval None
  */
 /* USER CODE END Header_StartCanRtrTask */
-void StartCanRtrTask(void *argument) {
-	/* USER CODE BEGIN StartCanRtrTask */
+void StartCanRtrTask(void *argument)
+{
+  /* USER CODE BEGIN StartCanRtrTask */
 	CAN_Initialize();
 	/* Infinite loop */
 	uint8_t RxData[8];
@@ -313,6 +332,13 @@ void StartCanRtrTask(void *argument) {
 				log_info("Copying 102");
 			}
 
+//			if (RxHeader.StdId == CAN_LUCY_ACCEL_Z_SPEED && RxHeader.DLC != 0) {
+//
+//				memcpy(test_packet.packet_z_speed.can_raw_lucy_accel_z_speed,
+//						RxData, 8);
+//				log_info("Copying 106");
+//			}
+
 //			if (RxHeader.StdId == CAN_LUCY_MOTOR_VI && RxHeader.DLC != 0) {
 //
 //				memcpy(test_packet.packet_mtr.can_raw_lucy_motor_vi, RxData, 8);
@@ -320,9 +346,9 @@ void StartCanRtrTask(void *argument) {
 //			}
 
 		}
-		osDelay(5);
+		osDelay(100);
 	}
-	/* USER CODE END StartCanRtrTask */
+  /* USER CODE END StartCanRtrTask */
 }
 
 /* Private application code --------------------------------------------------*/

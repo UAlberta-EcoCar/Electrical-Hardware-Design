@@ -31,6 +31,7 @@
 #include "spi.h"
 #include "lucy-can-ids.h"
 #include "can.h"
+#include "rtc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,13 +94,35 @@ typedef struct {
 		struct {
 			can_lucy_fc_vi packet_fc;
 			can_lucy_motor_vi packet_mtr;
+			can_lucy_accel_z_speed packet_z_speed;
 		};
-		uint8_t packet_raw[16];
+		uint8_t packet_raw[24];
 	};
 } rf_packet_test;
 
 rf_packet_test test_packet = { 0 };
 
+void set_time(uint8_t hr, uint8_t min, uint8_t sec) {
+	RTC_TimeTypeDef sTime = { 0 };
+	sTime.Hours = hr;
+	sTime.Minutes = min;
+	sTime.Seconds = sec;
+	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK) {
+		Error_Handler();
+	}
+}
+
+void get_time(RTC_TimeTypeDef *gTime) {
+
+	/* Get the RTC current Time */
+	HAL_RTC_GetTime(&hrtc, gTime, RTC_FORMAT_BIN);
+
+	/* Display time Format: hh:mm:ss */
+//	sprintf((char*) time, "%02d:%02d:%02d", gTime.Hours, gTime.Minutes,
+//			gTime.Seconds);
+}
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
@@ -115,7 +138,7 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-
+//	set_time(0, 0, 0);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -186,13 +209,18 @@ void StartDefaultTask(void *argument)
 
 	uint8_t rec_legth = 0;
 
+	RTC_TimeTypeDef gTime = { 0 };
+
 	/* Infinite loop */
 	for (;;) {
 		//osDelay(100);
 		log_info("Sending message %s", test);
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
 		//rf_initialize_radio(&rfm95);
-		rf_send(&rfm95, test_packet.packet_raw, 16);
+
+//		HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
+
+		rf_send(&rfm95, test_packet.packet_raw, 24);
 		testdata += 1;
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
 		osDelay(100);
@@ -246,7 +274,23 @@ void StartCanRxTask(void *argument)
 		} else {
 			log_info("CAN TIMED OUT");
 		}
-		osDelay(1000);
+
+//		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_ACCEL_Z_SPEED, 0, &TxMailbox,
+//		CAN_RTR_REMOTE)) {
+//			log_info("Sending CAN REQUEST");
+//		} else {
+//			log_info("CAN TIMED OUT");
+//		}
+
+//		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_ACCEL_Z_SPEED, 0,
+//				&TxMailbox,
+//				CAN_RTR_REMOTE)) {
+//			log_info("Sending CAN REQUEST");
+//		} else {
+//			log_info("CAN TIMED OUT");
+//		}
+
+		osDelay(500);
 	}
   /* USER CODE END StartCanRxTask */
 }
@@ -288,8 +332,21 @@ void StartCanRtrTask(void *argument)
 				log_info("Copying 102");
 			}
 
+//			if (RxHeader.StdId == CAN_LUCY_ACCEL_Z_SPEED && RxHeader.DLC != 0) {
+//
+//				memcpy(test_packet.packet_z_speed.can_raw_lucy_accel_z_speed,
+//						RxData, 8);
+//				log_info("Copying 106");
+//			}
+
+//			if (RxHeader.StdId == CAN_LUCY_MOTOR_VI && RxHeader.DLC != 0) {
+//
+//				memcpy(test_packet.packet_mtr.can_raw_lucy_motor_vi, RxData, 8);
+//				log_info("Copying 102");
+//			}
+
 		}
-		osDelay(5);
+		osDelay(100);
 	}
   /* USER CODE END StartCanRtrTask */
 }

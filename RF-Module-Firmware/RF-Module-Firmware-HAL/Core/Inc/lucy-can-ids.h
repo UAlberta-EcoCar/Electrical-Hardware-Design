@@ -79,10 +79,10 @@ typedef struct {
 typedef struct {
 	union {
 		struct {
-			uint8_t z_accel :4;
-			uint8_t speed_magnitude :4;
+			float z_accel;
+			float speed_magnitude;
 		};
-		uint8_t can_raw_lucy_accel_z_speed;
+		uint8_t can_raw_lucy_accel_z_speed[8];
 	};
 } can_lucy_accel_z_speed;
 
