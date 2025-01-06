@@ -160,7 +160,7 @@ int rf_send(rf_handle_t *rf_handle, uint8_t *buffer, uint8_t length_bytes) {
 		return 0;
 
 // check if in transmit mode.
-	if (RF_OP_MODE_TX == current_op_mode.mode) {
+	if (current_op_mode.mode == RF_OP_MODE_TX) {
 		LOG_WARN("Module in TX unable to send.");
 		return 0;
 	}

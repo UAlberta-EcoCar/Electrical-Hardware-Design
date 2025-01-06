@@ -31,7 +31,6 @@
 #include "spi.h"
 #include "lucy-can-ids.h"
 #include "can.h"
-#include "rtc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,33 +95,25 @@ typedef struct {
 			can_lucy_motor_vi packet_mtr;
 			can_lucy_accel_z_speed packet_z_speed;
 		};
-		uint8_t packet_raw[24];
+		uint8_t packet_raw[8 * 3];
 	};
 } rf_packet_test;
 
 rf_packet_test test_packet = { 0 };
 
-void set_time(uint8_t hr, uint8_t min, uint8_t sec) {
-	RTC_TimeTypeDef sTime = { 0 };
-	sTime.Hours = hr;
-	sTime.Minutes = min;
-	sTime.Seconds = sec;
-	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK) {
-		Error_Handler();
-	}
-}
+typedef struct {
+	union {
+		struct {
+			can_lucy_h2_conc packet_h2;
+			can_lucy_h2_humidity packet_humd;
+			can_lucy_h2_temp packet_temp;
+		};
+		uint8_t packet_raw[8 * 3];
+	};
+} rf_packet_test_h2;
 
-void get_time(RTC_TimeTypeDef *gTime) {
+rf_packet_test_h2 test_packet_h2 = { 0 };
 
-	/* Get the RTC current Time */
-	HAL_RTC_GetTime(&hrtc, gTime, RTC_FORMAT_BIN);
-
-	/* Display time Format: hh:mm:ss */
-//	sprintf((char*) time, "%02d:%02d:%02d", gTime.Hours, gTime.Minutes,
-//			gTime.Seconds);
-}
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
@@ -196,7 +187,7 @@ void StartDefaultTask(void *argument)
 
 	rf_initialize_radio(&rfm95);
 	rf_set_tx_power(&rfm95, 5);
-
+	rf_set_bandwidth(&rfm95, RF_BW_500K);
 	rf_set_frequency(&rfm95, 868000000);
 	uint8_t testdata = 347u;
 
@@ -209,38 +200,22 @@ void StartDefaultTask(void *argument)
 
 	uint8_t rec_legth = 0;
 
-	RTC_TimeTypeDef gTime = { 0 };
-
 	/* Infinite loop */
 	for (;;) {
 		//osDelay(100);
-		log_info("Sending message %s", test);
+//		log_info("Sending message %s", test);
+
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
 		//rf_initialize_radio(&rfm95);
 
-//		HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
-
-		rf_send(&rfm95, test_packet.packet_raw, 24);
+//		rf_send(&rfm95, test_packet.packet_raw, 24);
+		if (rf_send(&rfm95, test_packet_h2.packet_raw, sizeof(test_packet_h2))) {
+			log_info("sending RF");
+		}
 		testdata += 1;
 		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
 		osDelay(100);
-		// reciever
-//		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_SET);
-//		osDelay(100);
-//
-//		testdata = 0;
-//
-//		rec_legth = 0;
-//
-//		rf_recieve_single(&rfm95, &rec_legth);
-//		if (rec_legth > 0) {
-//			char rec_data[10] = { 0 };
-//			rf_read_packet(&rfm95, rec_legth, rec_data);
-//
-//			log_info("Byte: %s", rec_data);
-//		}
-//		HAL_GPIO_WritePin(LED_D1_GPIO_Port, LED_D1_Pin, GPIO_PIN_RESET);
-//		osDelay(100);
+
 	}
   /* USER CODE END StartDefaultTask */
 }
@@ -261,16 +236,37 @@ void StartCanRxTask(void *argument)
 	for (;;) {
 
 //		CAN_Transmit(CAN_LUCY_FC_VI, NULL, NULL, CAN_RTR_REMOTE);
-		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_FC_VI, 0, &TxMailbox,
+//		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_FC_VI, 0, &TxMailbox,
+//		CAN_RTR_REMOTE)) {
+//			log_info("Sending CAN REQUEST");
+//		} else {
+//			log_info("CAN TIMED OUT");
+//		}
+//
+//		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_MOTOR_VI, 0, &TxMailbox,
+//		CAN_RTR_REMOTE)) {
+//			log_info("Sending CAN REQUEST");
+//		} else {
+//			log_info("CAN TIMED OUT");
+//		}
+
+		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_H2_CONC, 0, &TxMailbox,
 		CAN_RTR_REMOTE)) {
-			log_info("Sending CAN REQUEST");
+			//log_info("Sending CAN REQUEST");
 		} else {
 			log_info("CAN TIMED OUT");
 		}
 
-		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_MOTOR_VI, 0, &TxMailbox,
+		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_H2_HUMIDITY, 0, &TxMailbox,
 		CAN_RTR_REMOTE)) {
-			log_info("Sending CAN REQUEST");
+			//log_info("Sending CAN REQUEST");
+		} else {
+			log_info("CAN TIMED OUT");
+		}
+
+		if (!HAL_CAN_SafeAddTxMessage(NULL, CAN_LUCY_H2_TEMP, 0, &TxMailbox,
+		CAN_RTR_REMOTE)) {
+			//log_info("Sending CAN REQUEST");
 		} else {
 			log_info("CAN TIMED OUT");
 		}
@@ -315,21 +311,42 @@ void StartCanRtrTask(void *argument)
 		hal_stat = HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader,
 				RxData);
 		if (!hal_stat) {
-			log_info("Got message");
+			//log_info("Got message");
 
-			log_info("0x%x %d RTR: %d", RxHeader.StdId, RxHeader.DLC,
-					RxHeader.RTR);
+			//log_info("0x%x %d RTR: %d", RxHeader.StdId, RxHeader.DLC,
+				//	RxHeader.RTR);
 
-			if (RxHeader.StdId == CAN_LUCY_FC_VI && RxHeader.DLC != 0) {
+//			if (RxHeader.StdId == CAN_LUCY_FC_VI && RxHeader.DLC != 0) {
+//
+//				memcpy(test_packet.packet_fc.can_raw_lucy_fc_vi, RxData, 8);
+//				log_info("Copying 103");
+//			}
+//
+//			if (RxHeader.StdId == CAN_LUCY_MOTOR_VI && RxHeader.DLC != 0) {
+//
+//				memcpy(test_packet.packet_mtr.can_raw_lucy_motor_vi, RxData, 8);
+//				log_info("Copying 102");
+//			}
 
-				memcpy(test_packet.packet_fc.can_raw_lucy_fc_vi, RxData, 8);
-				log_info("Copying 103");
+			if (RxHeader.StdId == CAN_LUCY_H2_CONC && RxHeader.DLC != 0) {
+
+				memcpy(test_packet_h2.packet_h2.can_raw_lucy_h2_conc, RxData,
+						8);
+				//log_info("Copying Conc");
 			}
 
-			if (RxHeader.StdId == CAN_LUCY_MOTOR_VI && RxHeader.DLC != 0) {
+			if (RxHeader.StdId == CAN_LUCY_H2_HUMIDITY && RxHeader.DLC != 0) {
 
-				memcpy(test_packet.packet_mtr.can_raw_lucy_motor_vi, RxData, 8);
-				log_info("Copying 102");
+				memcpy(test_packet_h2.packet_humd.can_raw_lucy_h2_humidity,
+						RxData, 8);
+				//log_info("Copying Humd");
+			}
+
+			if (RxHeader.StdId == CAN_LUCY_H2_TEMP && RxHeader.DLC != 0) {
+
+				memcpy(test_packet_h2.packet_temp.can_raw_lucy_h2_temp,
+						RxData, 8);
+				//log_info("Copying Temp");
 			}
 
 //			if (RxHeader.StdId == CAN_LUCY_ACCEL_Z_SPEED && RxHeader.DLC != 0) {

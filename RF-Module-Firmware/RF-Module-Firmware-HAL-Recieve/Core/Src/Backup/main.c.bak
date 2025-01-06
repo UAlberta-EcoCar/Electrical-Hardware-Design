@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "can.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -101,7 +100,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-  MX_CAN1_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_SPI1_Init();

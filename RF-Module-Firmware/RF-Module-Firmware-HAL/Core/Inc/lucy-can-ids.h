@@ -89,36 +89,36 @@ typedef struct {
 typedef struct {
 	union {
 		struct {
-			uint8_t h2_sense_voltage :4;
+			float h2_sense_voltage;
 		};
-		uint8_t can_raw_lucy_h2_conc;
+		uint8_t can_raw_lucy_h2_conc[8];
 	};
 } can_lucy_h2_conc;
 
 typedef struct {
 	union {
 		struct {
-			uint8_t h2_temp :4;
+			float h2_temp;
 		};
-		uint8_t can_raw_lucy_h2_temp;
+		uint8_t can_raw_lucy_h2_temp[8];
 	};
 } can_lucy_h2_temp;
 
 typedef struct {
 	union {
 		struct {
-			uint8_t h2_pressure :4;
+			float h2_pressure;
 		};
-		uint8_t can_raw_lucy_h2_pressure;
+		uint8_t can_raw_lucy_h2_pressure[8];
 	};
 } can_lucy_h2_pressure;
 
 typedef struct {
 	union {
 		struct {
-			uint8_t h2_humidity :4;
+			float h2_humidity;
 		};
-		uint8_t can_raw_lucy_h2_humidity;
+		uint8_t can_raw_lucy_h2_humidity[8];
 	};
 } can_lucy_h2_humidity;
 

@@ -131,7 +131,7 @@ void CAN_Initialize() {
 	/* USER CODE BEGIN 2 */
 	CAN_FilterTypeDef high_priority_filter;
 	high_priority_filter.FilterIdHigh = 0x100 << 5;
-	high_priority_filter.FilterMaskIdHigh = 0x700 << 5;
+	high_priority_filter.FilterMaskIdHigh = 0x000 << 5;
 	high_priority_filter.FilterIdLow = 0x0000;
 	high_priority_filter.FilterMaskIdLow = 0x0000;
 	high_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
@@ -145,17 +145,17 @@ void CAN_Initialize() {
 		Error_Handler();
 	}
 
-	CAN_FilterTypeDef low_priority_filter;
-	low_priority_filter.FilterIdHigh = 0x200 << 5;
-	low_priority_filter.FilterMaskIdHigh = 0x700 << 5;
-	low_priority_filter.FilterIdLow = 0x0000;
-	low_priority_filter.FilterMaskIdLow = 0x0000;
-	low_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-	low_priority_filter.FilterBank = 0;
-	low_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
-	low_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
-	low_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
-//
+//	CAN_FilterTypeDef low_priority_filter;
+//	low_priority_filter.FilterIdHigh = 0x200 << 5;
+//	low_priority_filter.FilterMaskIdHigh = 0x700 << 5;
+//	low_priority_filter.FilterIdLow = 0x0000;
+//	low_priority_filter.FilterMaskIdLow = 0x0000;
+//	low_priority_filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+//	low_priority_filter.FilterBank = 0;
+//	low_priority_filter.FilterMode = CAN_FILTERMODE_IDMASK;
+//	low_priority_filter.FilterScale = CAN_FILTERSCALE_32BIT;
+//	low_priority_filter.FilterActivation = CAN_FILTER_ENABLE;
+////
 //	if (HAL_CAN_ConfigFilter(&hcan1, &low_priority_filter) != HAL_OK) {
 //		/* Filter configuration Error */
 //		Error_Handler();

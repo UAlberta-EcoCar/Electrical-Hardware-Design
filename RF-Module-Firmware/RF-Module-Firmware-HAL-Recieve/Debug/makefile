@@ -39,34 +39,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := RF-Module-Firmware-HAL
+BUILD_ARTIFACT_NAME := RF-Module-Firmware-HAL-Reciever
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-RF-Module-Firmware-HAL.elf \
+RF-Module-Firmware-HAL-Reciever.elf \
 
 MAP_FILES += \
-RF-Module-Firmware-HAL.map \
+RF-Module-Firmware-HAL-Reciever.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-RF-Module-Firmware-HAL.list \
+RF-Module-Firmware-HAL-Reciever.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: RF-Module-Firmware-HAL.elf secondary-outputs
+main-build: RF-Module-Firmware-HAL-Reciever.elf secondary-outputs
 
 # Tool invocations
-RF-Module-Firmware-HAL.elf RF-Module-Firmware-HAL.map: $(OBJS) $(USER_OBJS) C:\Users\nsemm\Desktop\RF-Module-Firmware-HAL\STM32L432KBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "RF-Module-Firmware-HAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nsemm\Desktop\RF-Module-Firmware-HAL\STM32L432KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF-Module-Firmware-HAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+RF-Module-Firmware-HAL-Reciever.elf RF-Module-Firmware-HAL-Reciever.map: $(OBJS) $(USER_OBJS) C:\Users\abina\Desktop\EcoCar\RF\ Module\ Version\ 1\RF-Module-Firmware\RF-Module-Firmware-HAL-Recieve\STM32L432KBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "RF-Module-Firmware-HAL-Reciever.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\abina\Desktop\EcoCar\RF Module Version 1\RF-Module-Firmware\RF-Module-Firmware-HAL-Recieve\STM32L432KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF-Module-Firmware-HAL-Reciever.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,14 +75,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-RF-Module-Firmware-HAL.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "RF-Module-Firmware-HAL.list"
+RF-Module-Firmware-HAL-Reciever.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "RF-Module-Firmware-HAL-Reciever.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) RF-Module-Firmware-HAL.elf RF-Module-Firmware-HAL.list RF-Module-Firmware-HAL.map default.size.stdout
+	-$(RM) RF-Module-Firmware-HAL-Reciever.elf RF-Module-Firmware-HAL-Reciever.list RF-Module-Firmware-HAL-Reciever.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
