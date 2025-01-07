@@ -941,18 +941,18 @@ void StartI2cTask(void *argument) {
   uint16_t step;
   float step2;
 
-  // AxesRaw_t accelData;
+  AxesRaw_t accelData;
 
-  // // Set up LIS3DHTR
-  // // Set output data rate (ODR)
-  // LIS3DH_SetODR(LIS3DH_ODR_100Hz);
-  // // Set PowerMode
-  // LIS3DH_SetMode(LIS3DH_NORMAL);
-  // // Set FullScale
-  // LIS3DH_SetFullScale(LIS3DH_FULLSCALE_2); // That is +-2g
-  // // Set Axis (enable)
-  // LIS3DH_SetAxis(LIS3DH_X_ENABLE | LIS3DH_Y_ENABLE | LIS3DH_Z_ENABLE);
-  // // Setup interupt functions
+  // Set up LIS3DHTR
+  // Set output data rate (ODR)
+  LIS3DH_SetODR(LIS3DH_ODR_100Hz);
+  // Set PowerMode
+  LIS3DH_SetMode(LIS3DH_NORMAL);
+  // Set FullScale
+  LIS3DH_SetFullScale(LIS3DH_FULLSCALE_2); // That is +-2g
+  // Set Axis (enable)
+  LIS3DH_SetAxis(LIS3DH_X_ENABLE | LIS3DH_Y_ENABLE | LIS3DH_Z_ENABLE);
+  // Setup interupt functions
 
   for (;;) {
     configReg.channel = CHANNEL_AIN0_GND;
@@ -968,14 +968,13 @@ void StartI2cTask(void *argument) {
     fcData.internal_stack_pressure = VOLT_2_PRES(
         ADS1115_getData(pADS_1) * VOLT_CONVERSION / TRANSFER_FUNC_P);
 
-    // LIS3DH_GetAccAxesRaw(&accelData);
-    // float magnitude =
-    //     sqrt(powf(accelData.AXIS_X, 2) + powf(accelData.AXIS_Y, 2) +
-    //          powf(accelData.AXIS_Z, 2));
-    // printf("Accel x: %06d\r\nAccel y: %06d\r\nAccel z: %06d\r\nMag:
-    // %2.6f\x1b[H",
-    //        accelData.AXIS_X, accelData.AXIS_Y, accelData.AXIS_Z,
-    //        magnitude/16000*9.81f);
+    LIS3DH_GetAccAxesRaw(&accelData);
+    float magnitude =
+        sqrt(powf(accelData.AXIS_X, 2) + powf(accelData.AXIS_Y, 2) +
+             powf(accelData.AXIS_Z, 2));
+    printf("Accel x: %06d\r\nAccel y: %06d\r\nAccel z: %06d\r\nMag: %2.6f\x1b[H",
+           accelData.AXIS_X, accelData.AXIS_Y, accelData.AXIS_Z,
+           magnitude/16000*9.81f);
 
     osDelay(10);
   }
@@ -1124,8 +1123,8 @@ void StartFuelCellTask(void *argument) {
       }
       break;
     }
-    printf("FC Temp: %f\r\nFC Pres: %f\r\nFC Volt: %f\r\nFC Curr: %f\r\n\x1b[H", fcData.internal_stack_temp,
-           fcData.internal_stack_pressure, canData.fc_voltage, canData.fc_curr);
+    // printf("FC Temp: %f\r\nFC Pres: %f\r\nFC Volt: %f\r\nFC Curr: %f\r\n\x1b[H", fcData.internal_stack_temp,
+    //        fcData.internal_stack_pressure, canData.fc_voltage, canData.fc_curr);
     osDelay(10);
   }
   /* USER CODE END StartFuelCellTask */

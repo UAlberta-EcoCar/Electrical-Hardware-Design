@@ -22,8 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "arm_math.h"
 #include "ADS1115.h"
+#include "arm_math.h"
 #include "canid.h"
 #include "cmsis_os2.h"
 #include "lis3dh_driver.h"
@@ -63,7 +63,10 @@ typedef enum {
 } fcState_t;
 
 typedef struct {
-  uint8_t x, y, z;
+  int16_t x, y, z;
+  float accelMag[64];
+  float accelInit, accelFinal;
+  float velocity;
 } accData_t;
 
 typedef struct {
@@ -120,7 +123,7 @@ const osThreadAttr_t CanRxTask_attributes = {
 };
 /* Definitions for I2cTask */
 osThreadId_t I2cTaskHandle;
-uint32_t I2cTaskBuffer[128 * 3];
+uint32_t I2cTaskBuffer[128 * 5];
 osStaticThreadDef_t I2cTaskControlBlock;
 const osThreadAttr_t I2cTask_attributes = {
     .name = "I2cTask",
@@ -209,6 +212,8 @@ fcState_t fc_state = FUEL_CELL_OFF_STATE;
 // Initialize the struct values to zero
 canData_t canData = {0, 0.00F, 0.00F, 0.00F, 0.00F};
 fcData_t fcData = {0, 0, 0.00F, 0.00F};
+
+accData_t accelData = {0};
 
 CAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[8];
@@ -661,6 +666,19 @@ static void MX_CAN1_Init(void) {
   if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
     Error_Handler();
   }
+  // Accept StdID 0x106
+  sf.FilterIdHigh = 0x106 << 5;
+  sf.FilterMaskIdHigh = 0x7FF << 5;
+  sf.FilterIdLow = 0x0000;
+  sf.FilterMaskIdLow = 0x0000;
+  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  sf.FilterBank = 4;
+  sf.FilterMode = CAN_FILTERMODE_IDMASK;
+  sf.FilterScale = CAN_FILTERSCALE_32BIT;
+  sf.FilterActivation = CAN_FILTER_ENABLE;
+  if (HAL_CAN_ConfigFilter(&hcan1, &sf) != HAL_OK) {
+    Error_Handler();
+  }
   /* USER CODE END CAN1_Init 2 */
 }
 
@@ -929,6 +947,7 @@ void StartI2cTask(void *argument) {
   /* USER CODE BEGIN StartI2cTask */
   UNUSED(argument);
 
+#define AVG 32
 #define DELAY_FOR_CHANNEL_SWITCH 20
 #define B 3950.0f
 #define VOLT_2_TEMP(x)                                                         \
@@ -946,18 +965,15 @@ void StartI2cTask(void *argument) {
   uint16_t step;
   float step2;
 
-  // AxesRaw_t accelData;
+  AxesRaw_t accel01;
+  uint8_t avgCount = 0;
 
-  // // Set up LIS3DHTR
-  // // Set output data rate (ODR)
-  // LIS3DH_SetODR(LIS3DH_ODR_100Hz);
-  // // Set PowerMode
-  // LIS3DH_SetMode(LIS3DH_NORMAL);
-  // // Set FullScale
-  // LIS3DH_SetFullScale(LIS3DH_FULLSCALE_2); // That is +-2g
-  // // Set Axis (enable)
-  // LIS3DH_SetAxis(LIS3DH_X_ENABLE | LIS3DH_Y_ENABLE | LIS3DH_Z_ENABLE);
-  // // Setup interupt functions
+  LIS3DH_SetODR(LIS3DH_ODR_100Hz);
+  LIS3DH_SetMode(LIS3DH_NORMAL);
+  LIS3DH_SetFullScale(LIS3DH_FULLSCALE_2); // That is +-2g
+  LIS3DH_SetAxis(LIS3DH_X_ENABLE | LIS3DH_Y_ENABLE | LIS3DH_Z_ENABLE);
+
+  uint32_t time = HAL_GetTick();
 
   for (;;) {
     configReg.channel = CHANNEL_AIN0_GND;
@@ -973,14 +989,28 @@ void StartI2cTask(void *argument) {
     fcData.internal_stack_pressure = VOLT_2_PRES(
         ADS1115_getData(pADS_1) * VOLT_CONVERSION / TRANSFER_FUNC_P);
 
-    // LIS3DH_GetAccAxesRaw(&accelData);
-    // float magnitude =
-    //     sqrt(powf(accelData.AXIS_X, 2) + powf(accelData.AXIS_Y, 2) +
-    //          powf(accelData.AXIS_Z, 2));
-    // printf("Accel x: %06d\r\nAccel y: %06d\r\nAccel z: %06d\r\nMag:
-    // %2.6f\x1b[H",
-    //        accelData.AXIS_X, accelData.AXIS_Y, accelData.AXIS_Z,
-    //        magnitude/16000*9.81f);
+    LIS3DH_GetAccAxesRaw(&accel01);
+    accelData.x = accel01.AXIS_X;
+    accelData.y = accel01.AXIS_Y;
+    accelData.z = accel01.AXIS_Z;
+    accelData.accelMag[avgCount++] = sqrt(
+        powf(accelData.x, 2) + powf(accelData.y, 2) + powf(accelData.z, 2));
+    if (avgCount == AVG) {
+      avgCount = 0;
+      accelData.accelInit = accelData.accelFinal;
+      accelData.accelFinal = 0;
+      for (uint8_t i = 0; i <= AVG; i++) {
+        accelData.accelFinal += accelData.accelMag[i];
+      }
+      accelData.accelFinal = accelData.accelFinal / AVG;
+      accelData.velocity +=
+          (accelData.accelFinal - accelData.accelInit)*( 9.81f / 16000) / (HAL_GetTick() - time);
+      time = HAL_GetTick();
+      printf(
+          "Accel x: %06d\r\nAccel y: %06d\r\nAccel z: %06d\r\nMag: %2.6f\x1b[H",
+          accelData.x, accelData.y, accelData.z,
+          accelData.velocity);
+    }
 
     osDelay(10);
   }
@@ -1131,8 +1161,6 @@ void StartFuelCellTask(void *argument) {
       }
       break;
     }
-    printf("FC Temp: %f\r\nFC Pres: %f\r\nFC Volt: %f\r\nFC Curr: %f\r\n\x1b[H", fcData.internal_stack_temp,
-           fcData.internal_stack_pressure, canData.fc_voltage, canData.fc_curr);
     osDelay(10);
   }
   /* USER CODE END StartFuelCellTask */
@@ -1166,6 +1194,13 @@ void StartCanRtrTask(void *argument) {
         if (hal_stat == HAL_ERROR) {
           error_counter++;
         }
+        break;
+      case ACCELERATION_2_PACKET:
+        floatPackage[0] = accelData.accelFinal;
+        floatPackage[1] = accelData.velocity;
+        hal_stat = HAL_CAN_SafeAddTxMessage((uint8_t *)&floatPackage,
+                                            ACCELERATION_2_PACKET, 8UL,
+                                            &TxMailboxCanTask, CAN_RTR_DATA);
         break;
       default:
         // this shouldn't happen
