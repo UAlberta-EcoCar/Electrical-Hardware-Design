@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ADS1115.h"
-#include "arm_math.h"
 #include "canid.h"
 #include "cmsis_os2.h"
 #include "lis3dh_driver.h"
@@ -63,9 +62,9 @@ typedef enum {
 } fcState_t;
 
 typedef struct {
-  int16_t x, y, z;
+  float x, y, z;
   float accelMag[64];
-  float accelInit, accelFinal;
+  float accelAvg;
   float velocity;
 } accData_t;
 
@@ -947,7 +946,6 @@ void StartI2cTask(void *argument) {
   /* USER CODE BEGIN StartI2cTask */
   UNUSED(argument);
 
-#define AVG 32
 #define DELAY_FOR_CHANNEL_SWITCH 20
 #define B 3950.0f
 #define VOLT_2_TEMP(x)                                                         \
@@ -958,6 +956,7 @@ void StartI2cTask(void *argument) {
 
   const float VOLT_CONVERSION = 4.094F / 32768.0F;
   const float TRANSFER_FUNC_P = 0.657F;
+  const float MEAS_TO_ACCEL = 9.81F / 16000.0F;
 
   fcData.internal_stack_temp = 0;
   fcData.internal_stack_pressure = 0;
@@ -965,13 +964,26 @@ void StartI2cTask(void *argument) {
   uint16_t step;
   float step2;
 
+  #define AVG_ACCEL 128
+  float accelsMeas[AVG_ACCEL];
   AxesRaw_t accel01;
   uint8_t avgCount = 0;
+  accelData.velocity = 0;
 
   LIS3DH_SetODR(LIS3DH_ODR_100Hz);
   LIS3DH_SetMode(LIS3DH_NORMAL);
   LIS3DH_SetFullScale(LIS3DH_FULLSCALE_2); // That is +-2g
   LIS3DH_SetAxis(LIS3DH_X_ENABLE | LIS3DH_Y_ENABLE | LIS3DH_Z_ENABLE);
+
+  // Need to calculate an offset
+  #define AVG_OFFSET 512
+  float offSets[3] = { 0 };
+  for (int i = 0; i < AVG_OFFSET; i++) {
+    LIS3DH_GetAccAxesRaw(&accel01);
+    offSets[0] += (float)accel01.AXIS_X / AVG_OFFSET;
+    offSets[1] += (float)accel01.AXIS_Y / AVG_OFFSET;
+    offSets[2] += (float)accel01.AXIS_Z / AVG_OFFSET;
+  }
 
   uint32_t time = HAL_GetTick();
 
@@ -990,24 +1002,21 @@ void StartI2cTask(void *argument) {
         ADS1115_getData(pADS_1) * VOLT_CONVERSION / TRANSFER_FUNC_P);
 
     LIS3DH_GetAccAxesRaw(&accel01);
-    accelData.x = accel01.AXIS_X;
-    accelData.y = accel01.AXIS_Y;
-    accelData.z = accel01.AXIS_Z;
-    accelData.accelMag[avgCount++] = sqrt(
-        powf(accelData.x, 2) + powf(accelData.y, 2) + powf(accelData.z, 2));
-    if (avgCount == AVG) {
+    accelData.x = (accel01.AXIS_X - offSets[0]) * MEAS_TO_ACCEL;
+    accelData.y = (accel01.AXIS_Y - offSets[1]) * MEAS_TO_ACCEL;
+    accelData.z = (accel01.AXIS_Z - offSets[2]) * MEAS_TO_ACCEL;
+    accelsMeas[avgCount++] = sqrt(
+        powf(accelData.x, 2) + powf(accelData.y, 2)); // + powf(accelData.z, 2));
+    if (avgCount == AVG_ACCEL) {
       avgCount = 0;
-      accelData.accelInit = accelData.accelFinal;
-      accelData.accelFinal = 0;
-      for (uint8_t i = 0; i <= AVG; i++) {
-        accelData.accelFinal += accelData.accelMag[i];
+      for (uint8_t i = 0; i < AVG_ACCEL; i++) {
+        accelData.accelAvg += accelsMeas[i] / AVG_ACCEL;
       }
-      accelData.accelFinal = accelData.accelFinal / AVG;
       accelData.velocity +=
-          (accelData.accelFinal - accelData.accelInit)*( 9.81f / 16000) / (HAL_GetTick() - time);
+          (accelData.accelAvg) * (HAL_GetTick() - time) / 1000;
       time = HAL_GetTick();
       printf(
-          "Accel x: %06d\r\nAccel y: %06d\r\nAccel z: %06d\r\nMag: %2.6f\x1b[H",
+          "Accel x: %2.4f\r\nAccel y: %2.4f\r\nAccel z: %2.4f\r\nMag: %2.6f\x1b[H",
           accelData.x, accelData.y, accelData.z,
           accelData.velocity);
     }
@@ -1196,7 +1205,7 @@ void StartCanRtrTask(void *argument) {
         }
         break;
       case ACCELERATION_2_PACKET:
-        floatPackage[0] = accelData.accelFinal;
+        floatPackage[0] = accelData.accelAvg;
         floatPackage[1] = accelData.velocity;
         hal_stat = HAL_CAN_SafeAddTxMessage((uint8_t *)&floatPackage,
                                             ACCELERATION_2_PACKET, 8UL,
