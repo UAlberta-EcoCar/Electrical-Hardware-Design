@@ -1,4 +1,4 @@
-BUILD_DIR = build/Debug
+BUILD_DIR = build
 TARGET = FCC_CMAKE_TEST
 BINARY = $(BUILD_DIR)/$(TARGET).elf
 

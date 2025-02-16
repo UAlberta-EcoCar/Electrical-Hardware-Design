@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-5.15.153.1-microsoft-standard-WSL2")
+set(CMAKE_HOST_SYSTEM "Linux-5.15.167.4-microsoft-standard-WSL2")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "5.15.153.1-microsoft-standard-WSL2")
+set(CMAKE_HOST_SYSTEM_VERSION "5.15.167.4-microsoft-standard-WSL2")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 include("/home/ddjangl/EcoCar/Electrical-Hardware-Design/Fuel_Cell_Controller/FCC_CMAKE_TEST/cmake/gcc-arm-none-eabi.cmake")
