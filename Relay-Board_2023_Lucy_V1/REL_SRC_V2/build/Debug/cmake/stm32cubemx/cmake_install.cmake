@@ -1,4 +1,4 @@
-# Install script for directory: /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/REL_SRC_V2/cmake/stm32cubemx
+# Install script for directory: /home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay_Board/Relay-Board_2023_Lucy_V1/REL_SRC_V2/cmake/stm32cubemx
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,14 +32,8 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "TRUE")
 endif()
 
-# Set path to fallback-tool for dependency-resolution.
+# Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/arm-none-eabi-objdump")
 endif()
 
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/ddjangl/EcoCar/Electrical-Hardware-Design/Relay-Board_2023_Lucy_V1/REL_SRC_V2/build/Debug/cmake/stm32cubemx/install_local_manifest.txt"
-     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
-endif()

@@ -19,4 +19,4 @@ flash_dep: gen
 	STM32_Programmer_CLI -c port=SWD -w $(BINARY) 0x08000000 -v -rst -run
 
 flash: gen
-	openocd -f "interface/stlink.cfg" -f "target/stm32g4x.cfg" -c "program build/Debug/$(TARGET).elf verify reset exit"
+	openocd -f "interface/stlink.cfg" -f "target/stm32f4x.cfg" -c "program build/Debug/$(TARGET).elf verify reset exit"

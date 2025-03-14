@@ -303,37 +303,73 @@ void MX_FREERTOS_Init(void) {
 void StartRelayTask(void *argument) {
   /* USER CODE BEGIN StartRelayTask */
   /* Infinite loop */
+
+  uint32_t this_time = 0, last_time = 0;
+  bool timer_set = false;
   for (;;) {
-    switch (relay_state) {
-    case RELAY_STBY:
-      HAL_GPIO_WritePin(GPIOB,
-                        DSCHRGE_RELAY_Pin | RES_RELAY_Pin | CAP_RELAY_Pin |
-                            MTR_RELAY_Pin | RES_LED_Pin | MTR_LED_Pin |
-                            CAP_LED_Pin,
-                        GPIO_PIN_RESET);
-      break;
-    case RELAY_STRTP:
-      HAL_GPIO_WritePin(
-          GPIOB, CAP_RELAY_Pin | MTR_RELAY_Pin | MTR_LED_Pin | CAP_LED_Pin,
-          GPIO_PIN_RESET);
-      HAL_GPIO_WritePin(GPIOB, DSCHRGE_RELAY_Pin | RES_RELAY_Pin | RES_LED_Pin,
-                        GPIO_PIN_SET);
-      break;
-    case RELAY_CHRGE:
-      HAL_GPIO_WritePin(GPIOB,
-                        DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin |
-                            MTR_LED_Pin | CAP_LED_Pin,
-                        GPIO_PIN_RESET);
-      HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | RES_LED_Pin, GPIO_PIN_SET);
-      break;
-    case RELAY_RUN:
-      HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | RES_LED_Pin, GPIO_PIN_RESET);
-      HAL_GPIO_WritePin(GPIOB,
-                        DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin |
-                            MTR_LED_Pin | CAP_LED_Pin,
-                        GPIO_PIN_SET);
-      break;
+    if (lock_state == true) {
+      relay_state = RELAY_STBY;
+    } else {
+      switch (relay_state) {
+      case RELAY_STBY:
+        HAL_GPIO_WritePin(GPIOB,
+                          DSCHRGE_RELAY_Pin | RES_RELAY_Pin | CAP_RELAY_Pin |
+                              MTR_RELAY_Pin | RES_LED_Pin | MTR_LED_Pin |
+                              CAP_LED_Pin,
+                          GPIO_PIN_RESET);
+
+        // Prepare for startup just in case
+        timer_set = false;
+
+        break;
+      case RELAY_STRTP:
+        // TODO: At startup we would like to draw current from the fuel cell
+        // using the startup resistor. The state is updated via the fuel cell
+        // controller board and thus this board can update. However the return
+        // message is sent by this board back to the other. So we don't wanna
+        // update the state right away. Maybe chill here for 10 seconds?
+        HAL_GPIO_WritePin(
+            GPIOB, CAP_RELAY_Pin | MTR_RELAY_Pin | MTR_LED_Pin | CAP_LED_Pin,
+            GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB,
+                          DSCHRGE_RELAY_Pin | RES_RELAY_Pin | RES_LED_Pin,
+                          GPIO_PIN_SET);
+
+        if (!timer_set) {
+          timer_set = true;
+          last_time = osKernelGetTickCount();
+        }
+
+        this_time = osKernelGetTickCount();
+        if (this_time - last_time >= 5000) {
+          timer_set = false;
+          relay_state = RELAY_CHRGE;
+        }
+
+        break;
+      case RELAY_CHRGE:
+        HAL_GPIO_WritePin(GPIOB,
+                          DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin |
+                              MTR_LED_Pin | CAP_LED_Pin,
+                          GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | RES_LED_Pin, GPIO_PIN_SET);
+
+        // Prepare for startup just in case
+        timer_set = false;
+        break;
+      case RELAY_RUN:
+        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | RES_LED_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB,
+                          DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin |
+                              MTR_LED_Pin | CAP_LED_Pin,
+                          GPIO_PIN_SET);
+
+        // Prepare for startup just in case
+        timer_set = false;
+        break;
+      }
     }
+
     osDelay(10);
   }
   /* USER CODE END StartRelayTask */
@@ -353,9 +389,9 @@ void StartCanReceive(void *argument) {
   uint8_t ret[64] = {0};
   /* Infinite loop */
   for (;;) {
-    if (osMessageQueueGet(canRxDataHandle, &localRxHeader.StdId, 0,
+    if (osMessageQueueGet(canReceiveHeaderHandle, &localRxHeader.StdId, 0,
                           osWaitForever) == osOK) {
-      if (osMessageQueueGet(canRxDataHandle, &localRxHeader.DLC, 0, 0) !=
+      if (osMessageQueueGet(canReceiveHeaderHandle, &localRxHeader.DLC, 0, 0) !=
           osOK) {
         Error_Handler();
       }
@@ -374,13 +410,15 @@ void StartCanReceive(void *argument) {
         break;
       case FDCAN_SYNCLED_ID:
         // CAN SYNC LED
-        /*if (ret[0] == 1) {*/
-        /*  htim2.Instance->CCR1 = SET_BRIGHTNESS(20);*/
-        /*} else {*/
-        /*  htim2.Instance->CCR1 = SET_BRIGHTNESS(0);*/
-        /*}*/
+        if (ret[0] == 1) {
+          HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,
+                            GPIO_PIN_SET);
+        } else {
+          HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,
+                            GPIO_PIN_RESET);
+        }
         break;
-      case FDCAN_UPDATESTATE_ID:
+      case FDCAN_RELSTATE_ID:
         relay_state = ret[0];
         log_info("FDCAN_UPDATESTATE_ID Received: 0x%x", relay_state);
       default:
@@ -412,6 +450,8 @@ void StartAdcTask(void *argument) {
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc1Results, 3);
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *)adc2Results, 3);
 
+  uint32_t this_print, last_print = 0;
+
   for (;;) {
     relay_board_data.fc_volt = adc1Results[0] * ADC_VOLT_REF / VOLT_TRANSFER;
     relay_board_data.cap_volt = adc1Results[1] * ADC_VOLT_REF / VOLT_TRANSFER;
@@ -425,6 +465,17 @@ void StartAdcTask(void *argument) {
         ((adc2Results[1] * ADC_VOLT_REF / CURR_TRANSFER) - 2.5) *
         VOLT_TO_CURR_BI;
     relay_board_data.mtr_volt = adc2Results[2] * ADC_VOLT_REF / VOLT_TRANSFER;
+
+    this_print = osKernelGetTickCount();
+    if (this_print - last_print >= 1000) {
+      last_print = this_print;
+      printf("Cap Curr: %fA\tFC Curr: %fA\tMTR Curr: %fA\tCap Volt: %fV\tFC "
+             "Volt: %fV\t MTR Volt: %fV\r\n",
+             relay_board_data.cap_curr, relay_board_data.fc_curr,
+             relay_board_data.mtr_curr, relay_board_data.cap_volt,
+             relay_board_data.fc_volt, relay_board_data.mtr_volt);
+    }
+
     osDelay(10);
   }
   /* USER CODE END StartAdcTask */
@@ -458,7 +509,7 @@ void StartCanDataTask(void *argument) {
   UNUSED(argument);
   CAN_TxHeaderTypeDef localTxHeader;
   uint32_t localTxMailbox;
-  const uint8_t msg_delay = 10;
+  const uint32_t msg_delay = 1000;
   uint8_t can_sync_led = 0;
   uint32_t sync_led_last = 0;
   uint32_t sync_led_this;
@@ -468,34 +519,45 @@ void StartCanDataTask(void *argument) {
   /* Infinite loop */
   for (;;) {
     // Sync LEDs
-    sync_led_this = osKernelGetTickCount();
-    if (sync_led_this - sync_led_last > 500) {
-      sync_led_last = sync_led_this;
-      localTxHeader.StdId = FDCAN_SYNCLED_ID;
-      localTxHeader.DLC = 1;
-      can_sync_led = (can_sync_led == 0) ? 1 : 0;
-      if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
-        if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, &can_sync_led,
-                                 &localTxMailbox) != HAL_OK) {
-          Error_Handler();
-        }
-        if (can_sync_led == 1) {
-          HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,
-                            GPIO_PIN_SET);
-        } else {
-          HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,
-                            GPIO_PIN_RESET);
-        }
-      } else {
-        log_warn("Tx Buffer Full");
+    /*sync_led_this = osKernelGetTickCount();*/
+    /*if (sync_led_this - sync_led_last > 500) {*/
+    /*  sync_led_last = sync_led_this;*/
+    /*  localTxHeader.StdId = FDCAN_SYNCLED_ID;*/
+    /*  localTxHeader.DLC = 1;*/
+    /*  can_sync_led = (can_sync_led == 0) ? 1 : 0;*/
+    /*  if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {*/
+    /*    if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, &can_sync_led,*/
+    /*                             &localTxMailbox) != HAL_OK) {*/
+    /*      Error_Handler();*/
+    /*    }*/
+    /*    if (can_sync_led == 1) {*/
+    /*      HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,*/
+    /*                        GPIO_PIN_SET);*/
+    /*    } else {*/
+    /*      HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,*/
+    /*                        GPIO_PIN_RESET);*/
+    /*    }*/
+    /*  } else {*/
+    /*    log_warn("Tx Buffer Full");*/
+    /*  }*/
+    /*}*/
+
+    localTxHeader.StdId = FDCAN_RELSTATE_ID;
+    localTxHeader.DLC = 1;
+    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
+      if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, (uint8_t *)&relay_state,
+                               &localTxMailbox) != HAL_OK) {
+        Error_Handler();
       }
     }
-    osDelay(1);
+
+    osDelay(msg_delay);
   }
   /* USER CODE END StartCanDataTask */
 }
 
-/* Private application code --------------------------------------------------*/
+/* Private application code
+ * --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 
 /* USER CODE END Application */
