@@ -51,11 +51,19 @@ typedef struct {
   float cap_volt;
   float cap_curr;
 } rbData_t;
+
+typedef enum {
+  STANDBY = 500,
+  STARTUP = 250,
+  CHARGING = 125,
+  RUN = 1,
+} ledState_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define FULL_CAP_CHARGE 20
+#define FUEL_CELL_STARTUP_TIME 20000
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -68,7 +76,12 @@ typedef struct {
 rbState_t relay_state = RELAY_STBY;
 fetState_t fet_state = FET_STBY;
 rbData_t relay_board_data;
+ledState_t led_state = STANDBY;
 bool lock_state = false;
+
+FDCAN_RelPackCap_t caps = {0};
+FDCAN_RelPackMtr_t mtrs = {0};
+FDCAN_RelPackFc_t fc = {0};
 
 volatile uint32_t adc1Results[3];
 volatile uint32_t adc2Results[3];
@@ -314,13 +327,12 @@ void StartRelayTask(void *argument) {
       case RELAY_STBY:
         HAL_GPIO_WritePin(GPIOB,
                           DSCHRGE_RELAY_Pin | RES_RELAY_Pin | CAP_RELAY_Pin |
-                              MTR_RELAY_Pin | RES_LED_Pin | MTR_LED_Pin |
-                              CAP_LED_Pin,
+                              MTR_RELAY_Pin,
                           GPIO_PIN_RESET);
 
         // Prepare for startup just in case
         timer_set = false;
-
+        led_state = STANDBY;
         break;
       case RELAY_STRTP:
         // TODO: At startup we would like to draw current from the fuel cell
@@ -328,11 +340,8 @@ void StartRelayTask(void *argument) {
         // controller board and thus this board can update. However the return
         // message is sent by this board back to the other. So we don't wanna
         // update the state right away. Maybe chill here for 10 seconds?
-        HAL_GPIO_WritePin(
-            GPIOB, CAP_RELAY_Pin | MTR_RELAY_Pin | MTR_LED_Pin | CAP_LED_Pin,
-            GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(GPIOB,
-                          DSCHRGE_RELAY_Pin | RES_RELAY_Pin | RES_LED_Pin,
+        HAL_GPIO_WritePin(GPIOB, CAP_RELAY_Pin | MTR_RELAY_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | DSCHRGE_RELAY_Pin,
                           GPIO_PIN_SET);
 
         if (!timer_set) {
@@ -341,31 +350,37 @@ void StartRelayTask(void *argument) {
         }
 
         this_time = osKernelGetTickCount();
-        if (this_time - last_time >= 5000) {
+        if (this_time - last_time >= FUEL_CELL_STARTUP_TIME) {
           timer_set = false;
           relay_state = RELAY_CHRGE;
         }
 
+        led_state = STARTUP;
+
         break;
       case RELAY_CHRGE:
         HAL_GPIO_WritePin(GPIOB,
-                          DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin |
-                              MTR_LED_Pin | CAP_LED_Pin,
+                          DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin,
                           GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | RES_LED_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin, GPIO_PIN_SET);
 
         // Prepare for startup just in case
         timer_set = false;
+
+        if (relay_board_data.cap_volt > FULL_CAP_CHARGE) {
+          relay_state = RELAY_RUN;
+        }
+        led_state = CHARGING;
         break;
       case RELAY_RUN:
-        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | RES_LED_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(GPIOB,
-                          DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin |
-                              MTR_LED_Pin | CAP_LED_Pin,
+                          DSCHRGE_RELAY_Pin | CAP_RELAY_Pin | MTR_RELAY_Pin,
                           GPIO_PIN_SET);
 
         // Prepare for startup just in case
         timer_set = false;
+        led_state = RUN;
         break;
       }
     }
@@ -456,18 +471,20 @@ void StartAdcTask(void *argument) {
     relay_board_data.fc_volt = adc1Results[0] * ADC_VOLT_REF / VOLT_TRANSFER;
     relay_board_data.cap_volt = adc1Results[1] * ADC_VOLT_REF / VOLT_TRANSFER;
     relay_board_data.fc_curr =
-        ((adc1Results[2] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) *
-        VOLT_TO_CURR_UNI;
+        2.02f * (((adc1Results[2] * ADC_VOLT_REF / CURR_TRANSFER) - 2.475f) *
+                 VOLT_TO_CURR_UNI) -
+        0.146f;
     relay_board_data.mtr_curr =
-        ((adc2Results[0] * ADC_VOLT_REF / CURR_TRANSFER) - 0.5) *
-        VOLT_TO_CURR_UNI;
+        2.02f * (((adc2Results[0] * ADC_VOLT_REF / CURR_TRANSFER) - 2.475f) *
+                 VOLT_TO_CURR_UNI) -
+        0.146f;
     relay_board_data.cap_curr =
         ((adc2Results[1] * ADC_VOLT_REF / CURR_TRANSFER) - 2.5) *
         VOLT_TO_CURR_BI;
     relay_board_data.mtr_volt = adc2Results[2] * ADC_VOLT_REF / VOLT_TRANSFER;
 
     this_print = osKernelGetTickCount();
-    if (this_print - last_print >= 1000) {
+    if (this_print - last_print >= 500) {
       last_print = this_print;
       printf("Cap Curr: %fA\tFC Curr: %fA\tMTR Curr: %fA\tCap Volt: %fV\tFC "
              "Volt: %fV\t MTR Volt: %fV\r\n",
@@ -492,7 +509,8 @@ void StartIndicateLedTask(void *argument) {
   /* USER CODE BEGIN StartIndicateLedTask */
   /* Infinite loop */
   for (;;) {
-    osDelay(1);
+    HAL_GPIO_TogglePin(CAP_LED_GPIO_Port, CAP_LED_Pin);
+    osDelay(led_state);
   }
   /* USER CODE END StartIndicateLedTask */
 }
@@ -509,39 +527,12 @@ void StartCanDataTask(void *argument) {
   UNUSED(argument);
   CAN_TxHeaderTypeDef localTxHeader;
   uint32_t localTxMailbox;
-  const uint32_t msg_delay = 1000;
-  uint8_t can_sync_led = 0;
-  uint32_t sync_led_last = 0;
-  uint32_t sync_led_this;
+  const uint32_t msg_delay = 100;
 
   localTxHeader.IDE = CAN_ID_STD;
   localTxHeader.RTR = CAN_RTR_DATA;
   /* Infinite loop */
   for (;;) {
-    // Sync LEDs
-    /*sync_led_this = osKernelGetTickCount();*/
-    /*if (sync_led_this - sync_led_last > 500) {*/
-    /*  sync_led_last = sync_led_this;*/
-    /*  localTxHeader.StdId = FDCAN_SYNCLED_ID;*/
-    /*  localTxHeader.DLC = 1;*/
-    /*  can_sync_led = (can_sync_led == 0) ? 1 : 0;*/
-    /*  if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {*/
-    /*    if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, &can_sync_led,*/
-    /*                             &localTxMailbox) != HAL_OK) {*/
-    /*      Error_Handler();*/
-    /*    }*/
-    /*    if (can_sync_led == 1) {*/
-    /*      HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,*/
-    /*                        GPIO_PIN_SET);*/
-    /*    } else {*/
-    /*      HAL_GPIO_WritePin(DSCHRGE_LED_GPIO_Port, DSCHRGE_LED_Pin,*/
-    /*                        GPIO_PIN_RESET);*/
-    /*    }*/
-    /*  } else {*/
-    /*    log_warn("Tx Buffer Full");*/
-    /*  }*/
-    /*}*/
-
     localTxHeader.StdId = FDCAN_RELSTATE_ID;
     localTxHeader.DLC = 1;
     if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
@@ -550,7 +541,42 @@ void StartCanDataTask(void *argument) {
         Error_Handler();
       }
     }
+    osDelay(msg_delay);
 
+    mtrs.mtr_volt = (uint32_t)(relay_board_data.mtr_volt * FDCAN_FOUR_FLT_PREC);
+    mtrs.mtr_curr = (uint32_t)(relay_board_data.mtr_curr * FDCAN_FOUR_FLT_PREC);
+    localTxHeader.StdId = FDCAN_RELPACKMTR_ID;
+    localTxHeader.DLC = 8;
+    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
+      if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, mtrs.FDCAN_RawRelPackMtr,
+                               &localTxMailbox) != HAL_OK) {
+        Error_Handler();
+      }
+    }
+    osDelay(msg_delay);
+
+    caps.cap_volt = (uint32_t)(relay_board_data.cap_volt * FDCAN_FOUR_FLT_PREC);
+    caps.cap_curr = (uint32_t)(relay_board_data.cap_curr * FDCAN_FOUR_FLT_PREC);
+    localTxHeader.StdId = FDCAN_RELPACKCAP_ID;
+    localTxHeader.DLC = 8;
+    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
+      if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, caps.FDCAN_RawRelPackCap,
+                               &localTxMailbox) != HAL_OK) {
+        Error_Handler();
+      }
+    }
+    osDelay(msg_delay);
+
+    fc.fc_volt = (uint32_t)(relay_board_data.fc_volt * FDCAN_FOUR_FLT_PREC);
+    fc.fc_curr = (uint32_t)(relay_board_data.fc_curr * FDCAN_FOUR_FLT_PREC);
+    localTxHeader.StdId = FDCAN_RELPACKFC_ID;
+    localTxHeader.DLC = 8;
+    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
+      if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, fc.FDCAN_RawRelPackFc,
+                               &localTxMailbox) != HAL_OK) {
+        Error_Handler();
+      }
+    }
     osDelay(msg_delay);
   }
   /* USER CODE END StartCanDataTask */
