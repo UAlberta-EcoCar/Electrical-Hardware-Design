@@ -20,9 +20,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
-#include "cmsis_os2.h"
 #include "main.h"
-#include "stm32f4xx_hal_tim.h"
+#include "stm32f4xx_hal.h"
 #include "task.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -57,7 +56,6 @@ typedef enum {
   STARTUP = 250,
   CHARGING = 125,
   RUN = 1,
-  ALARM,
 } ledState_t;
 /* USER CODE END PTD */
 
@@ -83,7 +81,6 @@ bool lock_state = false;
 FDCAN_RelPackCap_t caps = {0};
 FDCAN_RelPackMtr_t mtrs = {0};
 FDCAN_RelPackFc_t fc = {0};
-FDCAN_RelPackNrg_t energy = {0};
 
 volatile uint32_t adc1Results[3];
 volatile uint32_t adc2Results[3];
@@ -204,18 +201,15 @@ const osMessageQueueAttr_t usbQueSend_attributes = {
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
-float fuelcell_joules = 0;
-float cap_joules = 0;
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-  if (htim->Instance == TIM1) {
-    HAL_IncTick();
-  } else if (htim->Instance == TIM2) {
-    fuelcell_joules += relay_board_data.fc_volt * relay_board_data.fc_curr *
-                       1000 * pow(10, -6);
-    cap_joules += relay_board_data.cap_volt * relay_board_data.cap_curr * 1000 *
-                  pow(10, -6);
-  }
-}
+/*float joules = 0;*/
+/*void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {*/
+/*  if (htim->Instance == TIM1) {*/
+/*    HAL_IncTick();*/
+/*  } else if (htim->Instance == TIM2) {*/
+/*    joules += relay_board_data.fc_volt * relay_board_data.fc_curr * pow(10,
+ * -6);*/
+/*  }*/
+/*}*/
 
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
   CAN_RxHeaderTypeDef RxHeader;
@@ -246,6 +240,7 @@ void StartIndicateLedTask(void *argument);
 void StartCanDataTask(void *argument);
 extern void StartUsbTask(void *argument);
 
+extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /**
@@ -330,6 +325,8 @@ void MX_FREERTOS_Init(void) {
  */
 /* USER CODE END Header_StartRelayTask */
 void StartRelayTask(void *argument) {
+  /* init code for USB_DEVICE */
+  /*MX_USB_DEVICE_Init();*/
   /* USER CODE BEGIN StartRelayTask */
   /* Infinite loop */
 
@@ -337,12 +334,7 @@ void StartRelayTask(void *argument) {
   bool timer_set = false;
   for (;;) {
     if (lock_state == true) {
-      HAL_GPIO_WritePin(GPIOB,
-                        DSCHRGE_RELAY_Pin | RES_RELAY_Pin | CAP_RELAY_Pin |
-                            MTR_RELAY_Pin,
-                        GPIO_PIN_RESET);
       relay_state = RELAY_STBY;
-      led_state = ALARM;
     } else {
       switch (relay_state) {
       case RELAY_STBY:
@@ -356,6 +348,11 @@ void StartRelayTask(void *argument) {
         led_state = STANDBY;
         break;
       case RELAY_STRTP:
+        // TODO: At startup we would like to draw current from the fuel cell
+        // using the startup resistor. The state is updated via the fuel cell
+        // controller board and thus this board can update. However the return
+        // message is sent by this board back to the other. So we don't wanna
+        // update the state right away. Maybe chill here for 10 seconds?
         HAL_GPIO_WritePin(GPIOB, CAP_RELAY_Pin | MTR_RELAY_Pin, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(GPIOB, RES_RELAY_Pin | DSCHRGE_RELAY_Pin,
                           GPIO_PIN_SET);
@@ -480,7 +477,6 @@ void StartAdcTask(void *argument) {
   adc2Results[0] = adc2Results[1] = adc2Results[2] = 0;
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc1Results, 3);
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *)adc2Results, 3);
-  HAL_TIM_Base_Start_IT(&htim2);
 
   uint32_t this_print, last_print = 0;
 
@@ -508,10 +504,6 @@ void StartAdcTask(void *argument) {
              relay_board_data.cap_curr, relay_board_data.fc_curr,
              relay_board_data.mtr_curr, relay_board_data.cap_volt,
              relay_board_data.fc_volt, relay_board_data.mtr_volt);
-      printf("FUEL CELL\tJoules: %fJ\tPower: %fW\r\n", fuelcell_joules,
-             relay_board_data.fc_volt * relay_board_data.fc_curr);
-      printf("SUPER CAPS\tJoules: %fJ\tPower: %fW\r\n", cap_joules,
-             relay_board_data.cap_volt * relay_board_data.cap_curr);
     }
     osDelay(10);
   }
@@ -529,16 +521,8 @@ void StartIndicateLedTask(void *argument) {
   /* USER CODE BEGIN StartIndicateLedTask */
   /* Infinite loop */
   for (;;) {
-    if (led_state != ALARM) {
-      HAL_GPIO_TogglePin(CAP_LED_GPIO_Port, CAP_LED_Pin);
-      osDelay(led_state);
-    } else {
-      for (uint8_t i = 0; i < 10; i++) {
-        HAL_GPIO_TogglePin(CAP_LED_GPIO_Port, CAP_LED_Pin);
-        osDelay(100);
-      }
-      osDelay(1000);
-    }
+    HAL_GPIO_TogglePin(CAP_LED_GPIO_Port, CAP_LED_Pin);
+    osDelay(led_state);
   }
   /* USER CODE END StartIndicateLedTask */
 }
@@ -598,18 +582,6 @@ void StartCanDataTask(void *argument) {
     fc.fc_volt = (uint32_t)(relay_board_data.fc_volt * FDCAN_FOUR_FLT_PREC);
     fc.fc_curr = (uint32_t)(relay_board_data.fc_curr * FDCAN_FOUR_FLT_PREC);
     localTxHeader.StdId = FDCAN_RELPACKFC_ID;
-    localTxHeader.DLC = 8;
-    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
-      if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, fc.FDCAN_RawRelPackFc,
-                               &localTxMailbox) != HAL_OK) {
-        Error_Handler();
-      }
-    }
-    osDelay(msg_delay);
-
-    energy.fc_joules = (uint32_t)(fuelcell_joules * FDCAN_FOUR_FLT_PREC);
-    energy.cap_joules = (int32_t)(cap_joules * FDCAN_FOUR_FLT_PREC);
-    localTxHeader.StdId = FDCAN_RELPACKENERGY_ID;
     localTxHeader.DLC = 8;
     if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0) {
       if (HAL_CAN_AddTxMessage(&hcan1, &localTxHeader, fc.FDCAN_RawRelPackFc,
